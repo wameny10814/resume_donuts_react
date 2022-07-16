@@ -1,12 +1,7 @@
-import './products.js'
-import ProductsCard from '../../components/productsCard'
+import './Products.css';
 
+function Products() {
+  return <></>;
+}
 
-function App() {
-    return (
-      <>
-        <ProductsCard />
-
-      </>
-    );
-  }
+export default Products;
