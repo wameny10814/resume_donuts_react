@@ -1,6 +1,6 @@
 import React from 'react';
-import './Index.css';
-function Index() {
+import './Membercenter.css';
+function Membercenter() {
   return (
     <>
       <div className="h_full container">
@@ -23,13 +23,13 @@ function Index() {
           </div>
         </nav>
         <div className="profile">
-          <div className="rol-6 d-flex">
+          <div className="row-6 d-flex">
             <div className="col">
               <figure className="avatar">
                 <img src="./images/anyahe.jpg" alt="" />
               </figure>
-              <div className="d-flex">
-                <button type="submit" className="btn avatar_btn">
+              <div className="d-flex justify-content-center">
+                <button type="submit" className="avatar_btn">
                   上傳大頭貼
                 </button>
               </div>
@@ -87,9 +87,11 @@ function Index() {
                   />
                   <p className="col-3 error">帳號錯誤</p>
                 </div>
-                <button type="submit" className="btn profile-btn">
-                  修改會員資料
-                </button>
+                <div className="d-flex ">
+                  <button type="submit" className=" mt-5 profile-btn">
+                    修改會員資料
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -136,4 +138,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Membercenter;

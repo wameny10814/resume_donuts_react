@@ -3,11 +3,11 @@
         outline: 1px red solid;
         margin: 0;
         padding: 0;
-        background-color: #F5F5F5;
+        /* background-color: #F5F5F5; */
     }
 
     .container{
-        background-color: #F5F5F5;
+        /* background-color: #F5F5F5; */
         color: #616153;
     }
     header{
@@ -32,7 +32,7 @@
         text-decoration: none;
     }
     .profile{
-        background-color: rgba(255, 255, 255, 0.754);
+        background-color: white;
         border-radius: 18px;
         margin-bottom: 5rem;
         padding: 3rem;
@@ -51,27 +51,20 @@
     .member_title h4{
         text-align: center;
     }
-    label{
+    .profile label{
         text-align: right;
         font-weight: bolder;
     }
-    .form-group input{
+    .profile input{
         text-align: left;
         border: none;
         margin-left: 1rem;
     }
-    .error{
+    .profile .error{
         color: #D01F1F;
     }
-    .form-group p{
+    .profile p{
         text-align: right;
-    }
-    .btn{
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        background-color: #616153;
-       
     }
     .avatar_btn{
         border: none;
@@ -84,6 +77,7 @@
         background-color: #616153;
         color: white;
         border-radius: 18px;
+        margin: auto;
 
     }
     .milestone{
