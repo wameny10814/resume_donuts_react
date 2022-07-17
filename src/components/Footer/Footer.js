@@ -1,5 +1,5 @@
-import React from "react";
-import "./footer.css"
+import React from 'react';
+import './footer.css';
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="d-flex align-items-center justify-content-around h300">
         <div className="text-center">
           <div>
-            <img src="./images/footer_logo.png" />
+            <img src="./images/footer_logo.png" alt="" />
           </div>
           {/* 社群網站LOGO */}
           <div>
