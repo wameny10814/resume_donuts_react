@@ -1,0 +1,13 @@
+.productsBox{
+    display: flex;
+    justify-content: space-between
+    ;
+}
+
+.productCard{
+    width: 30%;
+    height: 350px;
+    border: 1px solid red;
+    border-radius: 15%;
+
+}
