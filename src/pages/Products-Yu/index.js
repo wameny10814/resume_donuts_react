@@ -10,6 +10,7 @@ function Products() {
         <ProductsCard />
         <ProductsCard />
         <ProductsCard />
+
     </>
   );
 }
