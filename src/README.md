@@ -14,5 +14,5 @@ src/style/
 
 範例：
 bing_h1FontList
-yu_cardStyle
+loveyu_cardStyle
 yu_cardItem
