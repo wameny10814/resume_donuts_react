@@ -1,16 +1,16 @@
 import React from 'react';
-import './Membercenter.css';
+// import './Membercenter.css';
 function Membercenter() {
   return (
     <>
-      <div className="h_full container">
-        <header>
+      <div className="h_full container yu_container">
+        <header className="yu_header">
           <h2>會員中心</h2>
         </header>
-        <nav>
-          <div className="container">
-            <ul>
-              <li>
+        <nav className="yu_bar_nav">
+          <div className="container yu_container">
+            <ul className="yu_bar_ul">
+              <li >
                 <a href="#/">歷史訂單</a>
               </li>
               <li>
@@ -22,24 +22,24 @@ function Membercenter() {
             </ul>
           </div>
         </nav>
-        <div className="profile">
+        <div className="yu_profile">
           <div className="row-6 d-flex">
             <div className="col">
-              <figure className="avatar">
+              <figure className="yu_avatar">
                 <img src="./images/anyahe.jpg" alt="" />
               </figure>
               <div className="d-flex justify-content-center">
-                <button type="submit" className="avatar_btn">
+                <button type="submit" className="yu_avatar_btn">
                   上傳大頭貼
                 </button>
               </div>
             </div>
-            <div className="col-6">
-              <div className="member_title">
+            <div className="col-6 yu_profile_editing">
+              <div className="yu_member_title">
                 <h4>nickname 目前會員等級 xx</h4>
               </div>
-              <form>
-                <div className="form-group">
+              <form className="yu_flex">
+                <div className="yu_profile_form_group form-group">
                   <label for="birthday" className="col-3">
                     生日
                   </label>
@@ -51,7 +51,7 @@ function Membercenter() {
                   />
                   <p className="col-3 error">帳號錯誤</p>
                 </div>
-                <div className="form-group">
+                <div className="yu_profile_form_group  form-group">
                   <label for="email" className="col-3">
                     電子郵件
                   </label>
@@ -63,7 +63,7 @@ function Membercenter() {
                   />
                   <p className="col-3 error">帳號錯誤</p>
                 </div>
-                <div className="form-group">
+                <div className="yu_profile_form_group  form-group">
                   <label for="mobile" className="col-3">
                     連絡電話
                   </label>
@@ -75,7 +75,7 @@ function Membercenter() {
                   />
                   <p className="col-3 error">帳號錯誤</p>
                 </div>
-                <div className="form-group">
+                <div className="yu_profile_form_group  form-group">
                   <label for="address" className="col-3">
                     地址
                   </label>
@@ -88,7 +88,7 @@ function Membercenter() {
                   <p className="col-3 error">帳號錯誤</p>
                 </div>
                 <div className="d-flex ">
-                  <button type="submit" className=" mt-5 profile-btn">
+                  <button type="submit" className=" mt-5 yu_profile-btn">
                     修改會員資料
                   </button>
                 </div>
@@ -96,40 +96,40 @@ function Membercenter() {
             </div>
           </div>
         </div>
-        <header>
+        <header className="yu_header">
           <h2>里程碑</h2>
         </header>
-        <div className="milestone d-flex">
+        <div className="yu_milestone d-flex">
           <div className="step">
             <div className="stone">
-              <div className="stone_figure">
+              <div className="yu_stone_figure">
                 <img src="../images/catpaw.svg" alt="" />
               </div>
-              <p className="milestone_text">完成資料修改</p>
+              <p className="yu_milestone_text">完成資料修改</p>
             </div>
           </div>
           <div className="step">
             <div className="stone">
-              <div className="stone_figure">
+              <div className="yu_stone_figure">
                 <img src="../images/catpaw.svg" alt="" />
               </div>
-              <p className="milestone_text">完成一筆訂單</p>
+              <p className="yu_milestone_text">完成一筆訂單</p>
             </div>
           </div>
           <div className="step">
             <div className="stone">
-              <div className="stone_figure">
+              <div className="yu_stone_figure">
                 <img src="../images/catpaw.svg" alt="" />
               </div>
-              <p className="milestone_text">完成五筆訂單</p>
+              <p className="yu_milestone_text">完成五筆訂單</p>
             </div>
           </div>
           <div className="step">
             <div className="stone">
-              <div className="stone_figure">
+              <div className="yu_stone_figure">
                 <img src="../images/catpaw.svg" alt="" />
               </div>
-              <p className="milestone_text">單筆訂單滿xxx元</p>
+              <p className="yu_milestone_text">單筆訂單滿xxx元</p>
             </div>
           </div>
         </div>

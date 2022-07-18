@@ -6,94 +6,103 @@
         /* background-color: #F5F5F5; */
     }
 
-    .container{
+    .yu_container{
         /* background-color: #F5F5F5; */
         color: #616153;
     }
-    header{
+   .yu_header{
         text-align: center;
         margin-bottom: 3rem;
     }
-    ul{
+    .yu_bar_ul{
         display: flex;
         list-style-type: none;
         justify-content: space-around;
     }
-    nav{
+   .yu_bar_nav{
         margin-bottom: 3rem;
     }
-    nav a{
+   .yu_bar_nav a{
         color: #AEAEAE;
         font-weight: bolder;
         text-decoration: none;
     }
-    nav a:hover{
+    .yu_bar_nav a:hover{
         color: #616153;
         text-decoration: none;
     }
-    .profile{
-        background-color: white;
+    .yu_profile{
+        background-color: rgb(173, 91, 91);
         border-radius: 18px;
         margin-bottom: 5rem;
-        padding: 3rem;
-        
-       
+        padding: 3rem;   
     }
-    .avatar{
+    .yu_profile_editing{
+        // background-color: #F2A99B;
+        position: relative;
+    }
+    .yu_profile_form_group{
+        margin-top: 2rem;
+    }
+    .yu_avatar{
         border-radius: 18px;
         text-align: center;
     }
-    .avatar img{
+    .yu_avatar img{
         border-radius: 18px;
         width: 100%;
     }
 
-    .member_title h4{
+    .yu_member_title h4{
         text-align: center;
     }
-    .profile label{
+    .yu_profile label{
         text-align: right;
         font-weight: bolder;
     }
-    .profile input{
+    .yu_profile input{
         text-align: left;
         border: none;
         margin-left: 1rem;
     }
-    .profile .error{
+    .yu_profile .error{
         color: #D01F1F;
     }
-    .profile p{
+    .yu_profile p{
         text-align: right;
     }
-    .avatar_btn{
+    .yu_avatar_btn{
         border: none;
         background-color: #F2A99B;
         color: white;
         border-radius: 18px;
     }
-    .profile-btn{
+    .yu_profile-btn{
         border: none;
         background-color: #616153;
         color: white;
         border-radius: 18px;
         margin: auto;
-
+        position: absolute;
+        bottom: 0;
+        left: 40%;
     }
-    .milestone{
+    .yu_milestone{
         justify-content: space-around;
     }
-    .stone_figure{
+    .yu_stone_figure{
         width: 15vh;
     }
-    .stone_figure img{
+    .yu_stone_figure img{
         width: 100%;
     }
-    .milestone_text{
+    .yu_milestone_text{
         margin: 1rem;
         font-size: 16px;
         text-align: center;
         
     }
+    // .yu_flex{
+    //     position: relative;
+    // }
 
-  

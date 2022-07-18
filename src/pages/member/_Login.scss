@@ -1,9 +1,12 @@
-header h2{
-    text-align: center;
-    font-weight: bold;
-    color: #616153;
+.yu_header {
+    h2{
+        text-align: center;
+        font-weight: bold;
+        color: #615353;
+    }
 }
-.logincard{
+
+.yu_logincard{
     background-color: whitesmoke;
     /* text-align: center; */
     flex-direction: column;
@@ -12,12 +15,12 @@ header h2{
     font-size: 16px;
     border-radius: 18px;
 }
-.logincard a{
+.yu_logincard a{
     display: block;
     text-decoration: none;
     text-align: center;
 } 
-.inputblock{
+.yu_inputblock{
     /* border: 1px solid red; */
     width: 30%;
     text-align: left;
@@ -25,41 +28,40 @@ header h2{
     position: relative;
     
 }
-.inputblock a{
+.yu_inputblock a{
     text-align: left;
-    color: #616153;
+    color: #615353;
 }
-.logincard label{
+.yu_logincard label{
     display: block;
     text-align: left;
     color: #616153;
 } 
-.logincard input{
+.yu_logincard input{
     width: 100%;
     border: none;
 }
-.logincard button{
+.yu_logincard button{
     border: none;
     background-color: #616153;
     color: white;
     border-radius: 18px;
     margin-top: 3rem;
 }
-.logincard p a{
+.yu_logincard p a{
     color: #D01F1F;
     display: inline;
     margin-top: 3rem;
 }
-.logincard p{
+.yu_logincard p{
     margin-top: 3rem;
 }
 
-.logineye{
+.yu_logineye{
     position: absolute;
     right: 0;
     top: 1rem;
     width: 10%;
-   
     
 
 }
