@@ -1,6 +1,11 @@
+#root {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
 @import './styles/global';
 
-@import "./pages/member/Login";
-@import "./pages/member/Membercenter";
+@import './pages/member/Login';
+@import './pages/member/Membercenter';
 @import './components/Navbar/Navbar';
-@import "./components/Footer/footer"
+@import './components/Footer/footer';
