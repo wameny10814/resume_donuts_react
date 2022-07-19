@@ -13,6 +13,9 @@ import Login from './pages/member/Login';
 import Member_register from './pages/member/Member_register';
 
 import Product from './pages/Product/Product'
+import AdminLogin from './pages/Admin-Willow/AdminLogin';
+import News from './pages/Admin-Willow/News';
+import Report from './pages/Admin-Willow/Report';
 
 // react router 錄影檔 7/19 14:33
 function App() {
@@ -35,7 +38,11 @@ function App() {
         <Route path="Member_register" element={<Member_register />} />
 
         {/* 莊惟的頁面 */}
-        <Route path="Product" element={<Product />}></Route>
+        <Route path="Product" element={<Product />} />
+        {/* willow的頁面 */}
+        <Route path="AdminLogin" element={<AdminLogin />} />
+        <Route path="News" element={<News />} />
+        <Route path="Report" element={<Report />} />
       </Routes>
 
       <Footer />
