@@ -12,7 +12,8 @@ import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
 import Member_register from './pages/member/Member_register';
 
-import Product from './pages/Product/Product'
+import Product from './pages/Product/Product';
+
 import AdminLogin from './pages/Admin-Willow/AdminLogin';
 import News from './pages/Admin-Willow/News';
 import Report from './pages/Admin-Willow/Report';
@@ -39,6 +40,7 @@ function App() {
 
         {/* 莊惟的頁面 */}
         <Route path="Product" element={<Product />} />
+        
         {/* willow的頁面 */}
         <Route path="AdminLogin" element={<AdminLogin />} />
         <Route path="News" element={<News />} />
