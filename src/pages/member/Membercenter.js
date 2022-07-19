@@ -12,16 +12,18 @@ function Membercenter() {
           <div className="container yu_container">
             <ul className="yu_bar_ul">
               <li>
-                <a href="#/">歷史訂單</a>
+                <Link class="nav-link" to="/MemberHistory">
+                  <i class="fa-solid fa-user"></i>歷史訂單
+                </Link>
               </li>
               <li>
-                <Link class="nav-link" to="/AdminLogin">
+                <Link class="nav-link" to="/MemberPsdchange">
                   <i class="fa-solid fa-user"></i>密碼更新
                 </Link>
               </li>
               <li>
-                <Link class="nav-link" to="/AdminLogin">
-                  <i class="fa-solid fa-user"></i>Admin
+                <Link class="nav-link" to="/PostMessage">
+                  <i class="fa-solid fa-user"></i>發布評論
                 </Link>
               </li>
             </ul>
