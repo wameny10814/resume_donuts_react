@@ -12,6 +12,8 @@ import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
 import Member_register from './pages/member/Member_register';
 
+import Product from './pages/Product/Product'
+
 // react router 錄影檔 7/19 14:33
 function App() {
   // 設定會員登入狀態 錄影檔 7/19 14:55
@@ -31,6 +33,9 @@ function App() {
         <Route path="Login" element={<Login />} />
         <Route path="Membercenter" element={<Membercenter />} />
         <Route path="Member_register" element={<Member_register />} />
+
+        {/* 莊惟的頁面 */}
+        <Route path="Product" element={<Product />}></Route>
       </Routes>
 
       <Footer />
