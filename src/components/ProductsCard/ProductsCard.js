@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
+import AddItemBTN from '../AddItemBTN/AddItemBTN';
 
 const ProductsCard = () => (
   <Card>
@@ -15,9 +16,10 @@ const ProductsCard = () => (
     </Card.Content>
     <Card.Content extra>
       <a>
-        <Icon name="user" />
-        22 Friends
+        <Icon name="dollar sign" />
+        22 
       </a>
+      <AddItemBTN />
     </Card.Content>
   </Card>
 );
