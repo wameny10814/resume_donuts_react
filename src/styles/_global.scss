@@ -1,15 +1,15 @@
 // // 1. 這裡導入所有要預設變數覆蓋
 // // --------------------------------
-$primary:      #0e9d1f;
-$secondary:     #96073b;
+// $primary:      #0e9d1f;
+// $secondary:     #96073b;
 
-$btn-border-radius:0;
+// $btn-border-radius:0;
 
 // // --------------------------------
 
 // // 2. 導入bootstrap所有的樣式與預設變數
 // // --------------------------------
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 // // --------------------------------
 
 
@@ -25,4 +25,7 @@ body {
     padding: 0;
     font-family: sans-serif;
 }
+
+
+
 // --------------------------------

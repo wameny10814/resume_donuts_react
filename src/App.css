@@ -199,4 +199,12 @@ body {
   margin: 1rem;
   font-size: 16px;
   text-align: center;
+}
+
+nav {
+  background-color: none;
+}
+
+.navbar-brand img {
+  width: 200px;
 }/*# sourceMappingURL=App.css.map */
