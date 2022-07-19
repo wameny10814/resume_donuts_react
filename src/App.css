@@ -3,6 +3,10 @@
   font-family: "Zen Maru Gothic", sans-serif;
 }
 
+.story .img-wrap {
+  width: 100%;
+}
+
 .yu_header h2 {
   text-align: center;
   font-weight: bold;
