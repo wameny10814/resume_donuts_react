@@ -1,13 +1,12 @@
 import React from 'react';
-import './footer.css';
 
 const Footer = () => {
   return (
     <footer>
       <div className="d-flex align-items-center justify-content-around h300">
         <div className="text-center">
-          <div>
-            <img src="./images/footer_logo.png" alt="" />
+          <div className="w-100">
+            <img className="w-100" src="./images/footer_logo.svg" alt="" />
           </div>
           {/* 社群網站LOGO */}
           <div>
