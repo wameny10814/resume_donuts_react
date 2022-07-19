@@ -42,19 +42,19 @@ function Navbar() {
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="Membercenter">
                 <i class="fa-solid fa-user"></i>會員專區
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="Cart">
                 <i class="fa-solid fa-cart-shopping"></i>購物車
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="ProductsYu">
                 <i class="fa-solid fa-shop"></i>商品一覽
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

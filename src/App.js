@@ -15,7 +15,7 @@ import Member_register from './pages/member/Member_register';
 // react router 錄影檔 7/19 14:33
 function App() {
   // 設定會員登入狀態 錄影檔 7/19 14:55
-  const [auth, setAuth] = useState(false);
+  // const [auth, setAuth] = useState(false);
 
   return (
     <BrowserRouter>

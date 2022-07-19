@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ProductsTab from '../../components/ProducutsTab/ProducutsTab';
-import ProductsCard from '../../components/ProductsCard';
+import ProductsCard from '../../components/ProductsCard/ProductsCard';
 
 function Products() {
   return (
