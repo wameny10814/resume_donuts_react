@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import './Membercenter.css';
 function Membercenter() {
   return (
@@ -10,14 +11,18 @@ function Membercenter() {
         <nav className="yu_bar_nav">
           <div className="container yu_container">
             <ul className="yu_bar_ul">
-              <li >
+              <li>
                 <a href="#/">歷史訂單</a>
               </li>
               <li>
-                <a href="#/">密碼更新</a>
+                <Link class="nav-link" to="/AdminLogin">
+                  <i class="fa-solid fa-user"></i>密碼更新
+                </Link>
               </li>
               <li>
-                <a href="#/">發布文章</a>
+                <Link class="nav-link" to="/AdminLogin">
+                  <i class="fa-solid fa-user"></i>Admin
+                </Link>
               </li>
             </ul>
           </div>

@@ -12,6 +12,10 @@ import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
 import Member_register from './pages/member/Member_register';
 
+import AdminLogin from './pages/Admin-Willow/AdminLogin';
+import News from './pages/Admin-Willow/News';
+import Report from './pages/Admin-Willow/Report';
+
 // react router 錄影檔 7/19 14:33
 function App() {
   // 設定會員登入狀態 錄影檔 7/19 14:55
@@ -31,6 +35,11 @@ function App() {
         <Route path="Login" element={<Login />} />
         <Route path="Membercenter" element={<Membercenter />} />
         <Route path="Member_register" element={<Member_register />} />
+
+        {/* willow的頁面 */}
+        <Route path="AdminLogin" element={<AdminLogin />} />
+        <Route path="News" element={<News />} />
+        <Route path="Report" element={<Report />} />
       </Routes>
 
       <Footer />
