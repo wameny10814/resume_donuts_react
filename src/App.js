@@ -10,7 +10,9 @@ import Cart from './pages/Cart';
 import ProductsYu from './pages/Products-Yu/Products-Yu';
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
-import Member_register from './pages/member/Member_register';
+import MemberRegister from './pages/member/MemberRegister';
+import MemberHistory from './pages/member/MemberHistory';
+import MemberPsdchange from './pages/member/MemberPsdchange';
 
 import Product from './pages/Product/Product';
 
@@ -19,6 +21,7 @@ import News from './pages/Admin-Willow/News';
 import Report from './pages/Admin-Willow/Report';
 import About from './pages/About/About';
 
+import PostMessage from './pages/Admin-Willow/PostMessage';
 // react router 錄影檔 7/19 14:33
 function App() {
   // 設定會員登入狀態 錄影檔 7/19 14:55
@@ -39,7 +42,9 @@ function App() {
         {/* Yu的頁面 */}
         <Route path="Login" element={<Login />} />
         <Route path="Membercenter" element={<Membercenter />} />
-        <Route path="Member_register" element={<Member_register />} />
+        <Route path="MemberRegister" element={<MemberRegister />} />
+        <Route path="MemberHistory" element={<MemberHistory />} />
+        <Route path="MemberPsdchange" element={<MemberPsdchange />} />
 
         {/* 莊惟的頁面 */}
         <Route path="Product" element={<Product />} />
@@ -48,6 +53,7 @@ function App() {
         <Route path="AdminLogin" element={<AdminLogin />} />
         <Route path="News" element={<News />} />
         <Route path="Report" element={<Report />} />
+        <Route path="PostMessage" element={<PostMessage />} />
       </Routes>
 
       <Footer />
