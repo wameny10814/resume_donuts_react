@@ -17,6 +17,7 @@ import Product from './pages/Product/Product';
 import AdminLogin from './pages/Admin-Willow/AdminLogin';
 import News from './pages/Admin-Willow/News';
 import Report from './pages/Admin-Willow/Report';
+import About from './pages/About/About';
 
 // react router 錄影檔 7/19 14:33
 function App() {
@@ -29,6 +30,8 @@ function App() {
 
       {/* 路由表 */}
       <Routes>
+        {/* bing的頁面 */}
+        <Route path="/" element={<About />} />
         {/* LoveYu的頁面 */}
         <Route path="ProductsYu" element={<ProductsYu />} />
         <Route path="Cart" element={<Cart />} />
@@ -40,7 +43,7 @@ function App() {
 
         {/* 莊惟的頁面 */}
         <Route path="Product" element={<Product />} />
-        
+
         {/* willow的頁面 */}
         <Route path="AdminLogin" element={<AdminLogin />} />
         <Route path="News" element={<News />} />
