@@ -7,7 +7,7 @@ import BackgroundWaveAnimation from './components/BackgroundWaveAnimation';
 import './App.css';
 
 import Cart from './pages/Cart';
-import ProductsYu from './pages/Products-Yu/Products-Yu';
+import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
 import MemberRegister from './pages/member/MemberRegister';

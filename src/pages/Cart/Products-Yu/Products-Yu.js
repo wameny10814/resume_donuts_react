@@ -3,8 +3,8 @@
 
 import React from 'react';
 
-import ProductsTab from '../../components/ProducutsTab/ProducutsTab';
-import ProductsCard from '../../components/ProductsCard/ProductsCard';
+import ProductsTab from '../../../components/ProducutsTab/ProducutsTab';
+import ProductsCard from '../../../components/ProductsCard/ProductsCard';
 
 function Products() {
   return (

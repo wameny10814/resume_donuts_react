@@ -202,10 +202,22 @@ body {
 
 nav {
   background-color: none;
+  letter-spacing: 0.1em;
 }
 
 .navbar-brand img {
-  width: 200px;
+  width: 180px;
+}
+
+.navContainer {
+  padding: 30px 30px;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+.nav-item i {
+  margin-right: 8px;
 }
 
 footer {
