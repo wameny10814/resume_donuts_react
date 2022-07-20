@@ -1,3 +1,6 @@
+// 購物流層頁面的做法 錄影檔 7/19 16:10
+// 購物車範例 
+
 import OrderList from './components/OrderList';
 import Summary from './components/Summary';
 import './Cart.css';
