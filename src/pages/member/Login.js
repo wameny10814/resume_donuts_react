@@ -1,6 +1,7 @@
 import React from 'react';
 // import './Login.css';
 import '../../components/Member/Eye.js';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function Login() {
@@ -58,7 +59,14 @@ function Login() {
               <button>登入</button>
               <p>
                 第一次光臨嗎?
-                <a href="#/">點此註冊</a>
+                <Link class="nav-link" to="/MemberRegister">
+                  點此註冊
+                </Link>
+              </p>
+              <p>
+                <Link class="nav-link" to="/AdminLogin">
+                  admin
+                </Link>
               </p>
             </div>
           </div>

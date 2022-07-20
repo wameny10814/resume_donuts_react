@@ -1,2 +1,13 @@
-@import "./pages/member/Login";
-@import "./pages/member/Membercenter"
+#root {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  letter-spacing: .1em;
+}
+
+@import './styles/global';
+
+@import './pages/About/Story';
+@import './pages/member/Login';
+@import './pages/member/Membercenter';
+@import './components/Navbar/Navbar';
+@import './components/Footer/footer';

@@ -1,0 +1,12 @@
+.Mars-img-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.Mars-visual {
+    width: 1120px;
+    height: 320px;
+    border-radius: 20px;
+    margin-top: 68px;
+    margin-bottom: 14px;
+}
