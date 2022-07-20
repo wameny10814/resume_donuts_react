@@ -87,4 +87,4 @@ function Member_register() {
     )
 }
 
-export default Member_register
+export default Member_register;
