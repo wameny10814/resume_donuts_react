@@ -10,18 +10,56 @@ function Login() {
   const [pic, setPic] = useState('../../../images/EyeSlash.svg');
   const [cat, setCat] = useState('../../../images/logincat.svg');
 
+  //設定登入資料
+  const [myform, setMyform] = useState({
+    account: '',
+    password: '',
+  });
+
+  const changeFields = (event) => {
+    const id = event.target.id;
+    const val = event.target.value;
+    console.log({ id, val });
+    setMyform({ ...myform, [id]: val });
+    // setCat('../../../images/logincat_blind.svg');
+  };
+
+  const whenSubmit = (event) => {
+    event.preventDefault();
+
+    console.log(myform);
+    // TODO: 欄位檢查
+    //
+    fetch('http://localhost:3600/login-jwt', {
+      method: 'POST',
+      body: JSON.stringify(myform),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((r) => r.json())
+      .then((result) => {
+        console.log(result);
+        if (result.success) {
+          localStorage.setItem('auth', JSON.stringify(result.data));
+        } else {
+          alert('帳密錯誤');
+        }
+      });
+  };
+
   const toggleEye = () => {
     if (eye === 'password') {
       setEye('text');
-      setPic('../../../images/EyeSlash.svg');
+      setPic('../../../images/Eye.svg');
+      setCat('../../../images/logincat_blind.svg');
     } else {
       setEye('password');
-      setPic('../../../images/Eye.svg');
+      setCat('../../../images/logincat_blind.svg');
+      setPic('../../../images/EyeSlash.svg');
     }
   };
-  const textingCat = () => {
-    setCat('../../../images/logincat_blind.svg');
-  };
+
   const blurtexting = () => {
     setCat('../../../images/logincat.svg');
   };
@@ -29,7 +67,7 @@ function Login() {
     <>
       <div className="container yu_container">
         <header className="yu_header">
-          <h2>會員登入</h2>
+          <p>會員登入</p>
         </header>
         <div className="row">
           <div className="col">
@@ -37,36 +75,59 @@ function Login() {
               <img src={cat} alt="" />
               {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
             </div>
-            <div className="yu_logincard d-flex">
-              <div className="yu_inputblock">
-                <label htmlFor="">帳號</label>
-                <input type="text" />
-              </div>
-              <div className="yu_inputblock ">
-                <label htmlFor="">密碼</label>
-                <input type={eye} onChange={textingCat} onBlur={blurtexting} />
-                <div className="absolute">
-                  <img
-                    className="yu_logineye"
-                    src={pic}
-                    alt=""
-                    onClick={toggleEye}
+            <form action="" onSubmit={whenSubmit}>
+              <div className="yu_logincard d-flex">
+                <div className="yu_inputblock">
+                  <label htmlFor="">帳號</label>
+                  <input
+                    id="account"
+                    name="account"
+                    type="text"
+                    value={myform.account}
+                    onChange={changeFields}
                   />
                 </div>
-
-                <a href="#/">忘記密碼</a>
+                <div className="yu_inputblock ">
+                  <label htmlFor="">密碼</label>
+                  <input
+                    id="password"
+                    type={eye}
+                    name="passwrod"
+                    onChange={changeFields}
+                    onBlur={blurtexting}
+                    onClick={() => {
+                      setCat('../../../images/logincat_blind.svg');
+                    }}
+                    value={myform.password}
+                  />
+                  <div className="yu_logineye_absolute">
+                    <img
+                      className="yu_logineye"
+                      src={pic}
+                      alt=""
+                      onClick={toggleEye}
+                      onFocus={() => {
+                        setCat('../../../images/logincat_blind.svg');
+                      }}
+                      onMouseDown={() => {
+                        setCat('../../../images/logincat_blind.svg');
+                      }}
+                    />
+                  </div>
+                  <a href="#/">忘記密碼</a>
+                </div>
+                <button>登入</button>
+                <p>
+                  第一次光臨嗎?
+                  <Link to="/MemberRegister">點此註冊</Link>
+                </p>
+                <p>
+                  <Link className="nav-link" to="/AdminLogin">
+                    admin
+                  </Link>
+                </p>
               </div>
-              <button>登入</button>
-              <p>
-                第一次光臨嗎?
-                <a href="#/">點此註冊</a>
-              </p>
-              <p>
-                <Link class="nav-link" to="/AdminLogin">
-                  admin
-                </Link>
-              </p>
-            </div>
+            </form>
           </div>
         </div>
       </div>

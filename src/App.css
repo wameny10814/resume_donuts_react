@@ -1,26 +1,29 @@
 #root {
   font-family: "Noto Sans TC", sans-serif;
   font-family: "Zen Maru Gothic", sans-serif;
+  background-color: #f5f5f5;
 }
 
 .story .img-wrap {
   width: 100%;
 }
 
-.yu_header h2 {
+.yu_header p {
   text-align: center;
   font-weight: bold;
   color: #615353;
+  margin-bottom: 5rem;
 }
 
 .yu_logincard {
-  background-color: whitesmoke;
+  background-color: rgba(255, 255, 255, 0.702);
   /* text-align: center; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   border-radius: 18px;
+  padding: 3rem 0;
 }
 
 .yu_logincard a {
@@ -48,9 +51,12 @@
   color: #616153;
 }
 
-.yu_logincard input {
+.yu_inputblock input {
   width: 100%;
   border: none;
+  background-color: #EBEBEB;
+  border-radius: 18px;
+  color: #615353;
 }
 
 .yu_logincard button {
@@ -59,6 +65,7 @@
   color: white;
   border-radius: 18px;
   margin-top: 3rem;
+  padding: 0.5rem 2rem;
 }
 
 .yu_logincard p a {
@@ -73,16 +80,20 @@
 
 .yu_logineye {
   position: absolute;
-  right: 0;
-  top: 1rem;
-  width: 10%;
+  right: 3%;
+  top: 40%;
+  width: 5%;
 }
 
-body {
-  outline: 1px red solid;
-  margin: 0;
-  padding: 0;
-  /* background-color: #F5F5F5; */
+.logincat {
+  width: 100%;
+  position: relative;
+}
+.logincat img {
+  width: 10%;
+  position: absolute;
+  top: -3rem;
+  left: 45%;
 }
 
 .yu_container {
@@ -92,7 +103,7 @@ body {
 
 .yu_header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .yu_bar_ul {
@@ -117,7 +128,7 @@ body {
 }
 
 .yu_profile {
-  background-color: rgb(173, 91, 91);
+  background-color: white;
   border-radius: 18px;
   margin-bottom: 5rem;
   padding: 3rem;
@@ -128,7 +139,11 @@ body {
 }
 
 .yu_profile_form_group {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  position: relative;
+}
+.yu_profile_form_group input {
+  border-radius: 18px;
 }
 
 .yu_avatar {
@@ -141,8 +156,9 @@ body {
   width: 100%;
 }
 
-.yu_member_title h4 {
+.yu_member_title p {
   text-align: center;
+  font-size: 24px;
 }
 
 .yu_profile label {
@@ -158,10 +174,24 @@ body {
 
 .yu_profile .error {
   color: #D01F1F;
+  position: absolute;
+  left: 12rem;
+  text-align: right;
 }
 
-.yu_profile p {
-  text-align: right;
+.yu_avatar_upload {
+  position: relative;
+}
+
+.yu_avatar_pic {
+  position: relative;
+  width: 100%;
+}
+.yu_avatar_pic img {
+  width: 100%;
+  position: relative;
+  top: 5rem;
+  border-radius: 18px;
 }
 
 .yu_avatar_btn {
@@ -169,6 +199,9 @@ body {
   background-color: #F2A99B;
   color: white;
   border-radius: 18px;
+  padding: 0.5rem 2rem;
+  bottom: 0;
+  margin-top: 6rem;
 }
 
 .yu_profile-btn {
@@ -180,10 +213,12 @@ body {
   position: absolute;
   bottom: 0;
   left: 40%;
+  padding: 0.5rem 2rem;
 }
 
 .yu_milestone {
   justify-content: space-around;
+  margin-bottom: 5rem;
 }
 
 .yu_stone_figure {
@@ -198,6 +233,67 @@ body {
   margin: 1rem;
   font-size: 16px;
   text-align: center;
+}
+
+.yu_header p {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 3rem;
+}
+
+.yu_regCard {
+  background-color: rgba(255, 255, 255, 0.766);
+  border-radius: 18px;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+
+.regEye_absolute {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  width: 5%;
+}
+.regEye_absolute img {
+  width: 100%;
+}
+
+.reg_btn_box {
+  width: 100%;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.reg_btn {
+  border: none;
+  background-color: #616153;
+  border-radius: 18px;
+  color: white;
+  padding: 0.5rem 2rem;
+}
+
+.reg_loginbtn {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.reg_loginbtn_link {
+  text-decoration: none;
+  color: #d01f1f;
+  margin-bottom: 3rem;
+}
+
+.yu_regCat {
+  width: 100%;
+  position: relative;
+}
+.yu_regCat img {
+  width: 10%;
+  position: absolute;
+  top: -4.5rem;
+  left: 45%;
 }
 
 nav {

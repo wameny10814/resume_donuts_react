@@ -30,36 +30,38 @@ function Membercenter() {
           </div>
         </nav>
         <div className="yu_profile">
-          <div className="row-6 d-flex">
+          <div className="row-6 d-flex ">
             <div className="col">
-              <figure className="yu_avatar">
-                <img src="./images/anyahe.jpg" alt="" />
-              </figure>
-              <div className="d-flex justify-content-center">
-                <button type="submit" className="yu_avatar_btn">
-                  上傳大頭貼
-                </button>
+              <div className="yu_avatar_upload">
+                <figure className="d-flex yu_avatar_pic">
+                  <img src="./images/anyahe.jpg" alt="" />
+                </figure>
+                <div className="d-flex justify-content-center yu_avatar_upload">
+                  <button type="submit" className="yu_avatar_btn" s>
+                    上傳大頭貼
+                  </button>
+                </div>
               </div>
             </div>
             <div className="col-6 yu_profile_editing">
               <div className="yu_member_title">
-                <h4>nickname 目前會員等級 xx</h4>
+                <p>nickname 目前會員等級 xx</p>
               </div>
               <form className="yu_flex">
                 <div className="yu_profile_form_group form-group">
-                  <label for="birthday" className="col-3">
+                  <label htmlhtmlFor="birthday" className="col-3">
                     生日
                   </label>
                   <input
-                    type="birthday"
+                    type="date"
                     className="birthday col-8"
                     id="birthday"
                     placeholder="birthday"
                   />
-                  <p className="col-3 error">帳號錯誤</p>
+                  <p className="error">帳號錯誤</p>
                 </div>
                 <div className="yu_profile_form_group  form-group">
-                  <label for="email" className="col-3">
+                  <label htmlFor="email" className="col-3">
                     電子郵件
                   </label>
                   <input
@@ -68,10 +70,10 @@ function Membercenter() {
                     id="email"
                     placeholder="email"
                   />
-                  <p className="col-3 error">帳號錯誤</p>
+                  <p className="error">帳號錯誤</p>
                 </div>
                 <div className="yu_profile_form_group  form-group">
-                  <label for="mobile" className="col-3">
+                  <label htmlFor="mobile" className="col-3">
                     連絡電話
                   </label>
                   <input
@@ -80,10 +82,10 @@ function Membercenter() {
                     id="mobile"
                     placeholder="mobile"
                   />
-                  <p className="col-3 error">帳號錯誤</p>
+                  <p className="error">帳號錯誤ffffffffffffffffff</p>
                 </div>
                 <div className="yu_profile_form_group  form-group">
-                  <label for="address" className="col-3">
+                  <label htmlFor="address" className="col-3">
                     地址
                   </label>
                   <input
@@ -92,7 +94,7 @@ function Membercenter() {
                     id="address"
                     placeholder="address"
                   />
-                  <p className="col-3 error">帳號錯誤</p>
+                  <p className="error">帳號錯誤</p>
                 </div>
                 <div className="d-flex ">
                   <button type="submit" className=" mt-5 yu_profile-btn">

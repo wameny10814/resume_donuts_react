@@ -1,0 +1,55 @@
+.yu_header p {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 3rem;
+}
+.yu_regCard {
+  background-color: rgba(255, 255, 255, 0.766);
+  border-radius: 18px;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+
+.regEye_absolute {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  width: 5%;
+  img {
+    width: 100%;
+  }
+}
+.reg_btn_box {
+  width: 100%;
+  text-align: center;
+  margin-top: 3rem;
+}
+.reg_btn {
+  border: none;
+  background-color: #616153;
+  border-radius: 18px;
+  color: #ffff;
+  padding: 0.5rem 2rem;
+}
+.reg_loginbtn {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.reg_loginbtn_link {
+  text-decoration: none;
+  color: #d01f1f;
+  margin-bottom: 3rem;
+}
+.yu_regCat {
+  width: 100%;
+  position: relative;
+  img {
+    width: 10%;
+    position: absolute;
+    top: -4.5rem;
+    left: 45%;
+  }
+}

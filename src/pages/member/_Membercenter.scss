@@ -1,18 +1,11 @@
 
-    body{
-        outline: 1px red solid;
-        margin: 0;
-        padding: 0;
-        /* background-color: #F5F5F5; */
-    }
-
     .yu_container{
         /* background-color: #F5F5F5; */
         color: #616153;
     }
    .yu_header{
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
     }
     .yu_bar_ul{
         display: flex;
@@ -32,17 +25,20 @@
         text-decoration: none;
     }
     .yu_profile{
-        background-color: rgb(173, 91, 91);
+        background-color: #ffff;
         border-radius: 18px;
         margin-bottom: 5rem;
         padding: 3rem;   
     }
     .yu_profile_editing{
-        // background-color: #F2A99B;
         position: relative;
     }
     .yu_profile_form_group{
-        margin-top: 2rem;
+        margin-top: 3rem;
+        position: relative;
+        input{
+            border-radius: 18px;
+        }
     }
     .yu_avatar{
         border-radius: 18px;
@@ -53,8 +49,10 @@
         width: 100%;
     }
 
-    .yu_member_title h4{
+    .yu_member_title p{
         text-align: center;
+        font-size: 24px;
+      
     }
     .yu_profile label{
         text-align: right;
@@ -67,15 +65,35 @@
     }
     .yu_profile .error{
         color: #D01F1F;
-    }
-    .yu_profile p{
+        position: absolute;
+        left: 12rem;
         text-align: right;
+    }
+    .yu_avatar_upload{
+        // border: 1px solid rgb(44, 2, 2);
+        position: relative;
+    }
+    .yu_avatar_pic{
+        position: relative;
+        width: 100%;
+        
+        img{
+            width: 100%;
+            position: relative;
+            top: 5rem;
+            border-radius: 18px;
+         
+        }
     }
     .yu_avatar_btn{
         border: none;
         background-color: #F2A99B;
         color: white;
         border-radius: 18px;
+        padding: .5rem 2rem;
+        // border: 1px solid red;
+        bottom: 0;
+        margin-top: 6rem;
     }
     .yu_profile-btn{
         border: none;
@@ -86,9 +104,12 @@
         position: absolute;
         bottom: 0;
         left: 40%;
+        padding: .5rem 2rem;
     }
     .yu_milestone{
         justify-content: space-around;
+        margin-bottom: 5rem;
+       
     }
     .yu_stone_figure{
         width: 15vh;

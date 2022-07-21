@@ -1,19 +1,19 @@
-.yu_header {
-    h2{
+.yu_header p {
         text-align: center;
         font-weight: bold;
         color: #615353;
-    }
+        margin-bottom: 5rem;
 }
 
 .yu_logincard{
-    background-color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0.702);
     /* text-align: center; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 16px;
     border-radius: 18px;
+    padding: 3rem 0;
 }
 .yu_logincard a{
     display: block;
@@ -37,9 +37,12 @@
     text-align: left;
     color: #616153;
 } 
-.yu_logincard input{
+.yu_inputblock input{
     width: 100%;
     border: none;
+    background-color: #EBEBEB;
+    border-radius: 18px;
+    color: #615353;
 }
 .yu_logincard button{
     border: none;
@@ -47,6 +50,7 @@
     color: white;
     border-radius: 18px;
     margin-top: 3rem;
+    padding: .5rem 2rem;
 }
 .yu_logincard p a{
     color: #D01F1F;
@@ -59,9 +63,22 @@
 
 .yu_logineye{
     position: absolute;
-    right: 0;
-    top: 1rem;
-    width: 10%;
+    right: 3%;
+    top: 40%;
+    width: 5%;
     
 
 }
+.logincat{
+    width: 100%;
+    position: relative;
+    img{
+        width: 10%;
+        position: absolute;
+        top: -3rem;
+        left: 45%;
+       
+    }
+}
+
+
