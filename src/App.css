@@ -1,6 +1,7 @@
 #root {
   font-family: "Noto Sans TC", sans-serif;
   font-family: "Zen Maru Gothic", sans-serif;
+  letter-spacing: 0.1em;
   background-color: #f5f5f5;
 }
 
@@ -301,14 +302,25 @@ nav {
 }
 
 .navbar-brand img {
-  width: 200px;
+  width: 180px;
+}
+
+.navContainer {
+  padding: 30px 30px;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+.nav-item i {
+  margin-right: 8px;
 }
 
 footer {
   line-height: 2rem;
   height: 300px;
-  background-color: #5a5a4c;
-  color: #fff;
+  background-color: #EAE7E6;
+  color: #2E2218;
 }
 
 footer .h300 {
@@ -326,5 +338,5 @@ footer .icon li {
 
 footer .footerp {
   height: 40px;
-  background-color: #5a5a4c;
+  background-color: #EAE7E6;
 }/*# sourceMappingURL=App.css.map */

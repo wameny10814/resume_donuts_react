@@ -127,6 +127,18 @@ function Login() {
                   </Link>
                 </p>
               </div>
+              <button>登入</button>
+              <p>
+                第一次光臨嗎?
+                <Link class="nav-link" to="/MemberRegister">
+                  點此註冊
+                </Link>
+              </p>
+              <p>
+                <Link class="nav-link" to="/AdminLogin">
+                  admin
+                </Link>
+              </p>
             </form>
           </div>
         </div>

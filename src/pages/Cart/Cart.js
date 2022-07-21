@@ -4,7 +4,7 @@ import './Cart.css';
 
 import { useState } from 'react';
 
-import { products } from './data/prosucts';
+import { products } from './data/products';
 
 // 初始化狀態的函示
 
