@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer';
 import BackgroundWaveAnimation from './components/BackgroundWaveAnimation';
 import './App.css';
 
-import Cart from './pages/Cart';
+import Cart from './pages/Cart/Cart';
 import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';

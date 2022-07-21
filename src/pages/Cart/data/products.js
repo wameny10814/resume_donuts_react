@@ -5,7 +5,7 @@ export const products = [
     category: '多那滋',
     description: '幸福草莓製作而成',
     price: 35,
-    image: '',
+    image: '../images/d1307112.jpg',
   },
   {
     id: 2,
