@@ -10,7 +10,7 @@ import Cart from './pages/Cart';
 import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
-import MemberRegister from './pages/member/MemberRegister';
+// import MemberRegister from './pages/member/MemberRegister';
 import MemberHistory from './pages/member/MemberHistory';
 import MemberPsdchange from './pages/member/MemberPsdchange';
 
@@ -42,7 +42,7 @@ function App() {
         {/* Yu的頁面 */}
         <Route path="Login" element={<Login />} />
         <Route path="Membercenter" element={<Membercenter />} />
-        <Route path="MemberRegister" element={<MemberRegister />} />
+        {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
         <Route path="MemberHistory" element={<MemberHistory />} />
         <Route path="MemberPsdchange" element={<MemberPsdchange />} />
 

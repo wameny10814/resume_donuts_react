@@ -6,9 +6,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 function MemberRegister() {
   const getUserData = async () => {
     // 第一次記錄伺服器的原始資料用
-    const [usersRaw, setUsersRaw] = useState([]);
+    // const [usersRaw, setUsersRaw] = useState([]);
     // 呈現資料用
-    const [usersDisplay, setUsersDisplay] = useState([]);
+    // const [usersDisplay, setUsersDisplay] = useState([]);
 
     const response = await axios.get(
       'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users'
@@ -29,7 +29,6 @@ function MemberRegister() {
   // didMount
   useEffect(() => {
     getUserData();
-    
   }, []);
 
   const [eye, setEye] = useState('password');
