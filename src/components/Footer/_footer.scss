@@ -1,8 +1,13 @@
 footer {
   line-height: 2rem;
   height: 300px;
-  background-color: #EAE7E6;
+  background-color: #5a5a4c;
   color: #2E2218;
+  .text-center{
+    img {
+      text-align: center;
+    }
+  }
 }
 footer .h300 {
   height: 300px;
@@ -17,5 +22,5 @@ footer .icon li {
 }
 footer .footerp {
   height: 40px;
-  background-color: #EAE7E6;
+  background-color: #5a5a4c;
 }

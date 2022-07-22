@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import BackgroundWaveAnimation from './components/BackgroundWaveAnimation';
+import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
 import './App.css';
 
 import Cart from './pages/Cart/Cart';
