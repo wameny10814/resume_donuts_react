@@ -2,11 +2,12 @@ import OrderList from './components/OrderList';
 import Summary from './components/Summary';
 import './Cart.css';
 
-import { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 
 import { products } from './data/products';
 
 import H2Font from '../../components/H2Font/H2Font';
+export const H2FontContext = React.createContext();
 
 // 初始化狀態的函示
 
@@ -57,12 +58,16 @@ function Cart() {
     return total;
   };
 
-  const [pTitle, setPTitle] = useState('CART');
-  const [h2Title, setH2Title] = useState('我的購物車');
-
   return (
-    <div className='container'>
-      <H2Font pTitle={pTitle} h2Title={h2Title} />
+    <div className="container">
+      <H2FontContext.Provider
+        value={{
+          pTitle: 'CART',
+          h2Title: '我的購物車',
+        }}
+      >
+        <H2Font />
+      </H2FontContext.Provider>
 
       <div className="card">
         <div className="row">
