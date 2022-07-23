@@ -23,6 +23,9 @@ import About from './pages/About/About';
 
 import PostMessage from './pages/Admin-Willow/PostMessage';
 
+//context
+import AuthContextProvider from '../src/pages/member/components/AuthConextProvider';
+
 
 // react router 錄影檔 7/19 14:33
 function App() {
@@ -31,6 +34,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <AuthContextProvider>
       <Navbar />
 
       {/* 路由表 */}
@@ -59,6 +63,7 @@ function App() {
       </Routes>
 
       <Footer />
+      </AuthContextProvider>
       <BackgroundWaveAnimation />
     </BrowserRouter>
   );

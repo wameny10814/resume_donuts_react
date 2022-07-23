@@ -1,19 +1,19 @@
 import React from 'react';
 import '../../components/Member/Eye.js';
 // import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function MemberRegister() {
   const getUserData = async () => {
     // 第一次記錄伺服器的原始資料用
-    // const [usersRaw, setUsersRaw] = useState([]);
+    const [usersRaw, setUsersRaw] = useState([]);
     // 呈現資料用
-    // const [usersDisplay, setUsersDisplay] = useState([]);
+    const [usersDisplay, setUsersDisplay] = useState([]);
 
     const response = await axios.get(
       'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users'
     );
-    //console.log(response)
+    console.log(response)
     // 設定到state
 
     setUsersRaw(response.data);
@@ -26,7 +26,7 @@ function MemberRegister() {
     }
   };
 
-  // didMount
+  didMount
   useEffect(() => {
     getUserData();
   }, []);
@@ -59,8 +59,8 @@ function MemberRegister() {
         <div className="row">
           <div className="col">
             <div className="yu_regCat d-flex justify-content-center">
-              <img src={cat} alt="" />
-              {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
+              <img src={cat} alt="" /> 
+               {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
             </div>
 
             <div className="logincard d-flex">

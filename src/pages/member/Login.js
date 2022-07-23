@@ -3,6 +3,7 @@ import React from 'react';
 import '../../components/Member/Eye.js';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   //設定密碼眼睛
@@ -23,13 +24,14 @@ function Login() {
     setMyform({ ...myform, [id]: val });
     // setCat('../../../images/logincat_blind.svg');
   };
-
+  //轉頁
+  const navigate = useNavigate();
   const whenSubmit = (event) => {
     event.preventDefault();
 
     console.log(myform);
-    // TODO: 欄位檢查
-    //
+    // TODO: 欄位檢查-----------------------------------------------------------------
+    
     fetch('http://localhost:3600/login-jwt', {
       method: 'POST',
       body: JSON.stringify(myform),
@@ -41,7 +43,12 @@ function Login() {
       .then((result) => {
         console.log(result);
         if (result.success) {
+          //登入成功 寫進localstorage & 跳轉到首頁
+          //登入成功需刷新才能更改navbar ??
           localStorage.setItem('auth', JSON.stringify(result.data));
+          // navigate('/');
+          alert('登入成功!');
+
         } else {
           alert('帳密錯誤');
         }
@@ -127,18 +134,6 @@ function Login() {
                   </Link>
                 </p>
               </div>
-              <button>登入</button>
-              <p>
-                第一次光臨嗎?
-                <Link class="nav-link" to="/MemberRegister">
-                  點此註冊
-                </Link>
-              </p>
-              <p>
-                <Link class="nav-link" to="/AdminLogin">
-                  admin
-                </Link>
-              </p>
             </form>
           </div>
         </div>
