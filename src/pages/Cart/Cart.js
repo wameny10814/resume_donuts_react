@@ -2,9 +2,11 @@ import OrderList from './components/OrderList';
 import Summary from './components/Summary';
 import './Cart.css';
 
-import { useState } from 'react';
+import { useState, useContext, createContext } from 'react';
 
 import { products } from './data/products';
+
+import H2Font from '../../components/H2Font/H2Font';
 
 // 初始化狀態的函示
 
@@ -57,6 +59,8 @@ function Cart() {
 
   return (
     <>
+      <H2Font />
+
       <div className="card">
         <div className="row">
           <OrderList
