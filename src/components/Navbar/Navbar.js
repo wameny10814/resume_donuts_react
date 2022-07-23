@@ -5,9 +5,9 @@ function Navbar(props) {
   return (
     <div className="navContainer">
       <nav className="navbar navbar-expand-lg navbar-light ml-3  ">
-        <a className="navbar-brand" href="#/">
+        <Link className="navbar-brand" to="/">
           <img src="./images/main-Logo.png" alt="" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -52,7 +52,7 @@ function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="ProductsYu">
+              <Link className="nav-link" to="Product">
                 <i className="fa-solid fa-shop"></i>商品一覽
               </Link>
             </li>
