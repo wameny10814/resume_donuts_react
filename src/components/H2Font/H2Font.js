@@ -2,11 +2,8 @@
 // 樹狀結構用 value 填進去
 import React, { useState, useContext, createContext } from 'react';
 
-const CountContext = createContext('CART');
-
-function H2Font() {
-  const pTitle = useContext(CountContext);
-  const h2Title = useContext(CountContext);
+function H2Font(props) {
+  const { pTitle, h2Title } = props;
   return (
     <>
       <p>{pTitle}</p>
