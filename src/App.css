@@ -4,6 +4,11 @@
   letter-spacing: 0.1em;
   background-color: #f5f5f5;
 }
+#root h2 {
+  font-size: 48px;
+  font-weight: 500;
+  font-family: "Zen Maru Gothic", sans-serif;
+}
 
 .story .img-wrap {
   width: 100%;
@@ -437,4 +442,15 @@ footer .footerp {
   100% {
     background-position-x: 1000px;
   }
+}
+.h2Box {
+  text-align: center;
+  padding-bottom: 45px;
+  padding-top: 20px;
+  color: #616153;
+}
+
+.pTitle {
+  font-size: 16px;
+  line-height: 1px;
 }/*# sourceMappingURL=App.css.map */

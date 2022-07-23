@@ -2,8 +2,15 @@
   font-family: 'Noto Sans TC', sans-serif;
   font-family: 'Zen Maru Gothic', sans-serif;
   letter-spacing: .1em;
-  background-color: #f5f5f5
+  background-color: #f5f5f5;
+  
+  h2 {
+    font-size: 48px; 
+    font-weight: 500;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
 }
+
 
 @import './styles/global';
 
@@ -14,5 +21,6 @@
 @import './components/Navbar/Navbar';
 @import './components/Footer/footer';
 @import './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
+@import './components/H2Font/H2Font';
 
 @import './styles/global';

@@ -57,12 +57,11 @@ function Cart() {
     return total;
   };
 
-
   const [pTitle, setPTitle] = useState('CART');
   const [h2Title, setH2Title] = useState('我的購物車');
 
   return (
-    <>
+    <div className='container'>
       <H2Font pTitle={pTitle} h2Title={h2Title} />
 
       <div className="card">
@@ -77,7 +76,7 @@ function Cart() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
