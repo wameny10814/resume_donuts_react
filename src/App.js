@@ -8,6 +8,10 @@ import './App.css';
 
 import Cart from './pages/Cart/Cart';
 import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
+import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
+import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
+import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
+
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
 // import MemberRegister from './pages/member/MemberRegister';
@@ -26,7 +30,6 @@ import PostMessage from './pages/Admin-Willow/PostMessage';
 //context
 import AuthContextProvider from '../src/pages/member/components/AuthConextProvider';
 
-
 // react router 錄影檔 7/19 14:33
 function App() {
   // 設定會員登入狀態 錄影檔 7/19 14:55
@@ -34,35 +37,39 @@ function App() {
 
   return (
     <BrowserRouter>
-    <AuthContextProvider>
-      <Navbar />
+      <AuthContextProvider>
+        <Navbar />
 
-      {/* 路由表 */}
-      <Routes>
-        {/* bing的頁面 */}
-        <Route path="/" element={<About />} />
-        {/* LoveYu的頁面 */}
-        <Route path="ProductsYu" element={<ProductsYu />} />
-        <Route path="Cart" element={<Cart />} />
+        {/* 路由表 */}
+        <Routes>
+          {/* bing的頁面 */}
+          <Route path="/" element={<About />} />
 
-        {/* Yu的頁面 */}
-        <Route path="Login" element={<Login />} />
-        <Route path="Membercenter" element={<Membercenter />} />
-        {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
-        <Route path="MemberHistory" element={<MemberHistory />} />
-        <Route path="MemberPsdchange" element={<MemberPsdchange />} />
+          {/* LoveYu的頁面 */}
+          <Route path="ProductsYu" element={<ProductsYu />} />
+          <Route path="Cart" element={<Cart />} />
+          <Route path="CartOrderCheck" element={<CartOrderCheck />} />
+          <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
+          <Route path="CartOrderInfo" element={<CartOrderInfo />} />
 
-        {/* 莊惟的頁面 */}
-        <Route path="Product" element={<Product />} />
+          {/* Yu的頁面 */}
+          <Route path="Login" element={<Login />} />
+          <Route path="Membercenter" element={<Membercenter />} />
+          {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
+          <Route path="MemberHistory" element={<MemberHistory />} />
+          <Route path="MemberPsdchange" element={<MemberPsdchange />} />
 
-        {/* willow的頁面 */}
-        <Route path="AdminLogin" element={<AdminLogin />} />
-        <Route path="News" element={<News />} />
-        <Route path="Report" element={<Report />} />
-        <Route path="PostMessage" element={<PostMessage />} />
-      </Routes>
+          {/* 莊惟的頁面 */}
+          <Route path="Product" element={<Product />} />
 
-      <Footer />
+          {/* willow的頁面 */}
+          <Route path="AdminLogin" element={<AdminLogin />} />
+          <Route path="News" element={<News />} />
+          <Route path="Report" element={<Report />} />
+          <Route path="PostMessage" element={<PostMessage />} />
+        </Routes>
+
+        <Footer />
       </AuthContextProvider>
       <BackgroundWaveAnimation />
     </BrowserRouter>
