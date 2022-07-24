@@ -2,8 +2,9 @@ import React from 'react';
 // import './Login.css';
 import '../../components/Member/Eye.js';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../member/components/AuthContext';
 
 function Login() {
   //設定密碼眼睛
@@ -20,18 +21,19 @@ function Login() {
   const changeFields = (event) => {
     const id = event.target.id;
     const val = event.target.value;
-    console.log({ id, val });
+    // console.log({ id, val });
     setMyform({ ...myform, [id]: val });
     // setCat('../../../images/logincat_blind.svg');
   };
   //轉頁
   const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext);
   const whenSubmit = (event) => {
     event.preventDefault();
 
     console.log(myform);
     // TODO: 欄位檢查-----------------------------------------------------------------
-    
+
     fetch('http://localhost:3600/login-jwt', {
       method: 'POST',
       body: JSON.stringify(myform),
@@ -44,10 +46,15 @@ function Login() {
         console.log(result);
         if (result.success) {
           //登入成功 寫進localstorage & 跳轉到首頁
-          //登入成功需刷新才能更改navbar ??
+          //登入成功需刷新才能更改navbar -->使用authorized判定-->result 把authcontext的authorized放進去
           localStorage.setItem('auth', JSON.stringify(result.data));
-          // navigate('/');
+          setAuth({
+            ...result.data,
+            authorized: true,
+          });
           alert('登入成功!');
+          navigate('/');
+
 
         } else {
           alert('帳密錯誤');

@@ -2,6 +2,20 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import './Membercenter.css';
 function Membercenter() {
+
+  const uploadavatar = () => {
+    const fd = new FormData(document.form1);
+    fetch('http://localhost:3600/try-upload', {
+      method: 'POST',
+      body: fd,
+    })
+      .then(r => r.json())
+      .then(data => {
+        console.log(data);
+      })
+
+  }
+
   return (
     <>
       <div className="h_full container yu_container">
@@ -36,10 +50,13 @@ function Membercenter() {
                 <figure className="d-flex yu_avatar_pic">
                   <img src="./images/anyahe.jpg" alt="" />
                 </figure>
+                {/* <form name="avatar_form" style="display: none">
+                  <input type="file" multiple name="avatar" accept="images/jpeg,images/png" onChange={uploadavatar} />
+
+                </form> */}
                 <div className="d-flex justify-content-center yu_avatar_upload">
-                  <button type="submit" className="yu_avatar_btn" s>
-                    上傳大頭貼
-                  </button>
+                  {/* <button className="className=" yu_avatar_btn onclick="document.avatar_form.avatar.click()">上傳照片</button> */}
+
                 </div>
               </div>
             </div>

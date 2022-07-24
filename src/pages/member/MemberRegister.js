@@ -4,31 +4,11 @@ import '../../components/Member/Eye.js';
 // import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function MemberRegister() {
-  const getUserData = async () => {
-    // 第一次記錄伺服器的原始資料用
-    const [usersRaw, setUsersRaw] = useState([]);
-    // 呈現資料用
-    const [usersDisplay, setUsersDisplay] = useState([]);
-
-    const response = await axios.get(
-      'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users'
-    );
-    console.log(response)
-    // 設定到state
-
-    setUsersRaw(response.data);
-
-    const pageArray = chunk(response.data, perPage);
-
-    if (pageArray.length > 0) {
-      setPageTotal(pageArray.length);
-      setUsersDisplay(pageArray);
-    }
-  };
+  const 
 
   didMount
   useEffect(() => {
-    getUserData();
+    setUserData();
   }, []);
 
   const [eye, setEye] = useState('password');
@@ -119,7 +99,17 @@ function MemberRegister() {
                   <label htmlFor="">生日</label>
                   <input type="date" name="birth" />
                 </div>
-                <button onClick={() => {}}>註冊</button>
+                <button onClick={() => {
+                setUserData = async () => {
+
+                const response = await axios.post(
+                'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users'
+                  );
+                  console.log(response)
+                 // 設定到state
+                        };
+
+                }}>註冊</button>
               </form>
 
               <p>
