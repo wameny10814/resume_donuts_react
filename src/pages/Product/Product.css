@@ -10,3 +10,16 @@
     margin-top: 68px;
     margin-bottom: 14px;
 }
+
+.Mars-prod-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.Mars-prod-name {
+    font-size: 32px;
+}
+
+.Mars-prod-price {
+    font-size: 16px;
+}
