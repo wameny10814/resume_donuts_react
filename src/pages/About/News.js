@@ -1,8 +1,10 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
+import H2 from './H2';
 
 function News() {
   return (
     <>
+      <H2 title="最新消息" Entitle="NEWS" />
       <section className="container d-flex my-5 flex-wrap">
         <div className="col-12 col-md-6">
           <img className="w-100 h-auto" src="./images/News-img-1.svg" alt="" />
@@ -17,7 +19,7 @@ function News() {
           <div className="text-center my-5">
             <ProjectButton text="MORE" />
           </div>
-          <ul className='mt-5'>
+          <ul className="mt-5">
             <li className="bing-News-dot"></li>
             <li className="bing-News-dot"></li>
             <li className="bing-News-dot"></li>

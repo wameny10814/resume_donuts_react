@@ -1,4 +1,5 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
+import H2 from './H2';
 
 function Story() {
   return (
@@ -9,7 +10,7 @@ function Story() {
         </div>
         <div className="col-1 d-none d-md-block"></div>
         <div className="col-12 col-md-7">
-          <h2 className="bingH2 my-5">デザインコンセプトは「猫」</h2>
+          <h2 className="bingH2 my-5">デザインコンセプトは「猫」</h2>{' '}
           <div className="d-flex">
             <div>
               <p className="col-12 col-md-9 bingText-16">
