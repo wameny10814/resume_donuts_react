@@ -25,8 +25,8 @@ import Content from './pages/Product/Content';
 import AdminLogin from './pages/Admin-Willow/AdminLogin';
 import News from './pages/Admin-Willow/News';
 import Report from './pages/Admin-Willow/Report';
-
-import About from './pages/About/IndexBing';
+// 首頁
+import AbingIndex from './pages/About/AbingIndex';
 
 import PostMessage from './pages/Admin-Willow/PostMessage';
 
@@ -46,7 +46,7 @@ function App() {
         {/* 路由表 */}
         <Routes>
           {/* bing的頁面 */}
-          <Route path="/" element={<About />} />
+          <Route path="/" element={<AbingIndex />} />
 
           {/* LoveYu的頁面 */}
           <Route path="ProductsYu" element={<ProductsYu />} />
