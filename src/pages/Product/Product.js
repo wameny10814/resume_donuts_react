@@ -1,4 +1,5 @@
 import './Product.css';
+import ProductSlide from './components/Product-slide';
 
 function Product() {
   return (
@@ -11,7 +12,9 @@ function Product() {
         <div className=""></div>
         <div className=""></div>
         <div className=""></div>
-        <div className="Mars-product-cards col-4 d-flex"></div>
+        <div className="Mars-product-slide col-4 d-flex">
+          <ProductSlide />
+        </div>
       </div>
     </>
   );
