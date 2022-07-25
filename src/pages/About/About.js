@@ -1,13 +1,14 @@
-import React from 'react';
 import Story from './Story';
+import News from './News';
 
-const About = () => {
+function About() {
   return (
     <>
-      <img className="w-100" src="./images/index_img.svg" alt="" />
+      <img className="w-100 mb-5" src="./images/index_img.svg" alt="" />
       <Story />
+      <News />
     </>
   );
-};
+}
 
 export default About;
