@@ -19,6 +19,7 @@ import MemberHistory from './pages/member/MemberHistory';
 import MemberPsdchange from './pages/member/MemberPsdchange';
 
 import Product from './pages/Product/Product';
+import Content from './pages/Product/Content';
 
 import AdminLogin from './pages/Admin-Willow/AdminLogin';
 import News from './pages/Admin-Willow/News';
@@ -61,6 +62,7 @@ function App() {
 
           {/* 莊惟的頁面 */}
           <Route path="Product" element={<Product />} />
+          <Route path="Content" element={<Content />} />
 
           {/* willow的頁面 */}
           <Route path="AdminLogin" element={<AdminLogin />} />
