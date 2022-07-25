@@ -11,6 +11,7 @@ import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
 import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
+import Customized from './pages/Customized/Customized';
 
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
@@ -60,6 +61,7 @@ function App() {
           {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
           <Route path="MemberHistory" element={<MemberHistory />} />
           <Route path="MemberPsdchange" element={<MemberPsdchange />} />
+          <Route path="Customized" element={<Customized />} />
 
           {/* 莊惟的頁面 */}
           <Route path="Product" element={<Product />} />

@@ -499,6 +499,16 @@ footer .footerp {
   line-height: 1px;
 }
 
+.loveyu-dountBox {
+  width: 50%;
+}
+.loveyu-dountBox .loveyu-dountObj {
+  width: 100%;
+}
+.loveyu-dountBox .loveyu-dountObj img {
+  width: 100%;
+}
+
 .ProjectButton {
   background-color: #616153;
   border: 1px solid #616153;
