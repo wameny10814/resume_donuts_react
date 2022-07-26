@@ -54,6 +54,19 @@
   background-color: #616153;
 }
 
+.Share img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.ShareW-40 {
+  width: 40%;
+}
+
+.ShareW-60 {
+  width: 60%;
+}
+
 .yu_header p {
   text-align: center;
   font-weight: bold;

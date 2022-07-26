@@ -12,7 +12,6 @@
   color: #616153;
   font-weight: 700;
 }
-
 .bingH4 {
   font-size: 32px;
   color: #616153;
@@ -25,7 +24,6 @@
   bottom: 12%;
   right: 50%;
 }
-
 .bing-News-dot {
   border-radius: 50%;
   width: 20px;
@@ -35,4 +33,14 @@
 }
 .bing-News-dot:hover {
   background-color: #616153;
+}
+
+.Share img {
+  object-fit: cover;
+}
+.ShareW-40 {
+width: 40%;
+}
+.ShareW-60 {
+  width: 60%;
 }
