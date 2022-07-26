@@ -57,22 +57,24 @@ function Cart() {
   };
 
   return (
-    <div className="container">
-      <H2 title="我的購物車" Entitle="CART"  />
+    <section className="cartBox">
+      <div className="container">
+        <H2 title="我的購物車" Entitle="CART" />
 
-      <div className="card">
-        <div className="row">
-          <OrderList
-            productsInOrder={productsInOrder}
-            setProductsInOrder={setProductsInOrder}
-          />
-          <Summary
-            totalNumber={calcTotalNumber()}
-            totalPrice={calcTotalPrice()}
-          />
+        <div className="card">
+          <div className="row">
+            <OrderList
+              productsInOrder={productsInOrder}
+              setProductsInOrder={setProductsInOrder}
+            />
+            <Summary
+              totalNumber={calcTotalNumber()}
+              totalPrice={calcTotalPrice()}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
