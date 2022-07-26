@@ -1,9 +1,14 @@
+import React from 'react';
 import Button from '@mui/material/Button';
 
-function MainButton() {
+function MainButton(props) {
+  const { text, to } = props;
+
   return (
     <>
-      <Button variant="contained">前往付款</Button>
+      <Button variant="contained" >
+        {text}
+      </Button>
     </>
   );
 }

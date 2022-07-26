@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import MainButton from '../../../components/MainButton/MainButton';
 
 function Summary(props) {
@@ -20,8 +22,9 @@ function Summary(props) {
           <div className="col">總價</div>
           <div className="col text-right">${totalPrice}</div>
         </div>
-        <button className="btn">前往付款</button>
-        <MainButton />
+        <Link to="/">
+          <MainButton text="前往付款" />
+        </Link>
       </div>
     </>
   );

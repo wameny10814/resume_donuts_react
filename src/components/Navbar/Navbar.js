@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../../pages/member/components/AuthContext';
 
 function Navbar(props) {
-
   const { authorized, account, logout } = useContext(AuthContext);
 
   return (
@@ -45,33 +44,27 @@ function Navbar(props) {
             </li>
           </ul>
           <ul className="navbar-nav">
-
             {authorized ? (
               <>
-
                 <li className="nav-item">
                   <Link className="nav-link" to="Membercenter">
                     <i className="fa-solid fa-user"></i>會員專區
                   </Link>
                 </li>
                 <div className="nav-item">
-                <li className="nav-link yu_pointer" onClick={() => logout()} >
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  登出
-                </li>
+                  <li className="nav-link yu_pointer" onClick={() => logout()}>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    登出
+                  </li>
                 </div>
-
               </>
-              
             ) : (
               <li className="nav-item">
                 <Link className="nav-link" to="Login">
                   <i className="fa-solid fa-user"></i>會員登入
                 </Link>
               </li>
-
             )}
-
 
             <li className="nav-item">
               <Link className="nav-link" to="Cart">

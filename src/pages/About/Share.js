@@ -7,10 +7,18 @@ function Share() {
         <div className="container col-12 d-flex">
           <div className="col-6 d-flex flex-wrap">
             <div className="w-50">
-              <img className="bingShare w-100" src="./images/Share-1.svg" alt="" />
+              <img
+                className="bingShare w-100"
+                src="./images/Share-1.svg"
+                alt=""
+              />
             </div>
             <div className="w-50">
-              <img className="bingShare w-100" src="./images/Share-2.svg" alt="" />
+              <img
+                className="bingShare w-100"
+                src="./images/Share-2.svg"
+                alt=""
+              />
             </div>
             <div className="col-4 d-flex flex-wrap">
               <div className="col-12">
@@ -25,7 +33,7 @@ function Share() {
             </div>
           </div>
           <div className="col-6 d-flex flex-wrap">
-            <div className="col-5">
+            <div className="col-5 ">
               <img className="bingShare" src="./images/Share-6.svg" alt="" />
             </div>
             <div className="col-7">
