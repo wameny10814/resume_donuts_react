@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MainButton from '../../../components/MainButton/MainButton';
 
 function Summary(props) {
   const { totalNumber, totalPrice } = props;
@@ -20,6 +21,7 @@ function Summary(props) {
           <div className="col text-right">${totalPrice}</div>
         </div>
         <button className="btn">前往付款</button>
+        <MainButton />
       </div>
     </>
   );
