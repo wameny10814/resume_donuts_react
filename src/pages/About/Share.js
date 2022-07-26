@@ -2,9 +2,8 @@ import H2 from './H2';
 function Share() {
   return (
     <>
-      <H2 title="會員分享" Entitle="SOCIAL" />
-
       <section className="container">
+        <H2 title="會員分享" Entitle="SOCIAL" />
         <div className="d-flex justify-content-center Share">
           <div className="col-md-5">
             <div className="d-flex">
