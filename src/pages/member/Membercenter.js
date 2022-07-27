@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import './Membercenter.css';
 function Membercenter() {
+  const [pickedAvatar, setPickedAvatar] = useState(false)
+  const [avatarName, setAvatarName] = useState('')
 
-  const uploadavatar = () => {
-    const fd = new FormData(document.form1);
-    fetch('http://localhost:3600/try-upload', {
+
+  const imgclick = () => {
+    // const file = e.target;
+    // console.log(file)
+    // const file = e.target.files[0];
+    console.log('123')
+    // avatar.onChange(avatarchange());
+
+
+
+
+  }
+
+  const avatarchange = () => {
+
+    //files 會是個nodelist 
+    // const file = e.target.files[0];
+    // console.log(file);
+    // if (file) {
+    //   setPickedAvatar(true);
+    //   setAvatarName(file.name);
+    // }
+    const fd = new FormData(document.avatar_form);
+    fetch('http://localhost:3600/yu-upload', {
       method: 'POST',
       body: fd,
     })
       .then(r => r.json())
       .then(data => {
-        console.log(data);
+        console.log(data)
+        console.log('data', data.filename);
+        setAvatarName(data.filename);
       })
-
   }
 
   return (
@@ -26,18 +50,18 @@ function Membercenter() {
           <div className="container yu_container">
             <ul className="yu_bar_ul">
               <li>
-                <Link class="nav-link" to="/MemberHistory">
-                  <i class="fa-solid fa-user"></i>歷史訂單
+                <Link className="nav-link" to="/MemberHistory">
+                  <i className="fa-solid fa-user"></i>歷史訂單
                 </Link>
               </li>
               <li>
-                <Link class="nav-link" to="/MemberPsdchange">
-                  <i class="fa-solid fa-user"></i>密碼更新
+                <Link className="nav-link" to="/MemberPsdchange">
+                  <i className="fa-solid fa-user"></i>密碼更新
                 </Link>
               </li>
               <li>
-                <Link class="nav-link" to="/PostMessage">
-                  <i class="fa-solid fa-user"></i>發布評論
+                <Link className="nav-link" to="/PostMessage">
+                  <i className="fa-solid fa-user"></i>發布評論
                 </Link>
               </li>
             </ul>
@@ -48,14 +72,20 @@ function Membercenter() {
             <div className="col">
               <div className="yu_avatar_upload">
                 <figure className="d-flex yu_avatar_pic">
-                  <img src="./images/anyahe.jpg" alt="" />
+                  <img src={`http://localhost:3600/yuimgs/${avatarName}`} alt="" onClick={imgclick} />
                 </figure>
-                {/* <form name="avatar_form" style="display: none">
-                  <input type="file" multiple name="avatar" accept="images/jpeg,images/png" onChange={uploadavatar} />
+                {/* <form name="avatar_form">
+
+                  <input type="file" multiple name="avatar" accept="images/jpeg,images/png" onChange={avatarchange} />
 
                 </form> */}
                 <div className="d-flex justify-content-center yu_avatar_upload">
-                  {/* <button className="className=" yu_avatar_btn onclick="document.avatar_form.avatar.click()">上傳照片</button> */}
+                  <button className="yu_avatar_btn" >上傳照片</button>
+                  <form name="avatar_form">
+
+                    <input type="file" multiple name="avatar" accept="images/jpeg,images/png" onChange={avatarchange} />
+
+                  </form>
 
                 </div>
               </div>
@@ -66,7 +96,7 @@ function Membercenter() {
               </div>
               <form className="yu_flex">
                 <div className="yu_profile_form_group form-group">
-                  <label htmlhtmlFor="birthday" className="col-3">
+                  <label htmlFor="birthday" className="col-3">
                     生日
                   </label>
                   <input

@@ -13,6 +13,7 @@ import Login from './pages/member/Login';
 // import MemberRegister from './pages/member/MemberRegister';
 import MemberHistory from './pages/member/MemberHistory';
 import MemberPsdchange from './pages/member/MemberPsdchange';
+import Cat from './pages/member/Cat'
 
 import Product from './pages/Product/Product';
 
@@ -51,6 +52,7 @@ function App() {
         {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
         <Route path="MemberHistory" element={<MemberHistory />} />
         <Route path="MemberPsdchange" element={<MemberPsdchange />} />
+        <Route path="Cat" element={<Cat />} />
 
         {/* 莊惟的頁面 */}
         <Route path="Product" element={<Product />} />
