@@ -92,10 +92,17 @@ function Navbar(props) {
                   </Link>
                 </li>
                 <div className="nav-item">
+<<<<<<< HEAD
+                <li className="nav-link yu_pointer" onClick={() => logout()} >
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                  登出
+                </li>
+=======
                   <li className="nav-link yu_pointer" onClick={() => logout()}>
                     <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     登出
                   </li>
+>>>>>>> 473ae46dfbaf714c5263d17d944a0f3743998cca
                 </div>
               </>
             ) : (
