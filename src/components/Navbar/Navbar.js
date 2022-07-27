@@ -8,8 +8,10 @@ function Navbar(props) {
   const Author = (props) => {
     const authorized = props.authorized;
     // console.log('123', authorized);
+    console.log('1', authorized);
     if (authorized === true) {
       //todosomthing
+      console.log('2', authorized);
       return (
         <>
           <li className="nav-item">
@@ -26,6 +28,7 @@ function Navbar(props) {
         </>
       );
     } else {
+      console.log('3', authorized);
       return (
         <li className="nav-item">
           <Link className="nav-link" to="Login">
@@ -90,17 +93,14 @@ function Navbar(props) {
                   </Link>
                 </li>
                 <div className="nav-item">
-<<<<<<< HEAD
                 <li className="nav-link yu_pointer" onClick={() => logout()} >
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
                   登出
                 </li>
-=======
                   <li className="nav-link yu_pointer" onClick={() => logout()}>
                     <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     登出
                   </li>
->>>>>>> 473ae46dfbaf714c5263d17d944a0f3743998cca
                 </div>
               </>
             ) : (

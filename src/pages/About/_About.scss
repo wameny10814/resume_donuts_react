@@ -3,7 +3,7 @@
 }
 .bingText-16 {
   font-size: 18px;
-  line-height: 2.25rem;
+  line-height: 2.5rem;
   color: #616153;
   letter-spacing: 0.25rem;
 }
@@ -11,15 +11,18 @@
   font-size: 48px;
   color: #616153;
   font-weight: 700;
+  letter-spacing: 0.5rem;
 }
 .bingH4 {
   font-size: 36px;
   color: #616153;
   font-weight: 500;
+  letter-spacing: 0.5rem;
 }
 .bingH5 {
   font-size: 30px;
   color: #616153;
+  letter-spacing: 0.5rem;
 }
 .bingH6 {
   font-size: 20px;
@@ -36,16 +39,41 @@
   background-color: #d9d9d9;
   margin: 15px 0;
 }
+
 .bing-News-dot:hover {
   background-color: #616153;
 }
 
-.Share img {
+.share img {
   object-fit: cover;
+  padding: 4px;
 }
-.ShareW-40 {
+
+.shareW-40 {
   width: 40%;
 }
-.ShareW-60 {
+
+.shareW-60 {
   width: 60%;
+}
+.CSRNum1 {
+  font-size: 64px;
+  color: #616153;
+  letter-spacing: 1rem;
+}
+.CSRNum2 {
+  font-size: 58px;
+  color: #616153;
+  letter-spacing: 1rem;
+}
+
+.mapInfo ul {
+  padding-left: 0;
+}
+.bing-Map-dot {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #616153;
+  margin: 15px 0;
 }
