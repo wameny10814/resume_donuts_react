@@ -7,9 +7,10 @@ function Navbar(props) {
 
   const Author = (props) => {
     const authorized = props.authorized;
-    // console.log('123', authorized);
-    if (authorized === 'true') {
+    console.log('1', authorized);
+    if (authorized === true) {
       //todosomthing
+      console.log('2', authorized);
       return (
         <>
           <li className="nav-item">
@@ -26,6 +27,7 @@ function Navbar(props) {
         </>
       );
     } else {
+      console.log('3', authorized);
       return (
         <li className="nav-item">
           <Link className="nav-link" to="Login">

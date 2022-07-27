@@ -1,12 +1,10 @@
 import React from 'react';
 import '../../components/Member/Eye.js';
-// import { useState, useEffect } from 'react';
+ import { useState, useEffect } from 'react';
 // import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function MemberRegister() {
-  const 
-
-  didMount
+   const didMount
   useEffect(() => {
     setUserData();
   }, []);
