@@ -14,13 +14,14 @@
 
 @import './styles/global';
 
-@import './pages/About/Story';
+@import './pages/About/About';
 @import './pages/member/Login';
 @import './pages/member/Membercenter';
 @import './pages/member/MemberRegister';
 @import './components/Navbar/Navbar';
-@import './components/Footer/footer';
+@import './components/Footer/Footer';
 @import './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
-@import './components/H2Font/H2Font';
+@import './pages/Customized/Customized';
+@import "./pages/Cart/Cart";
 
-@import './styles/global';
+@import "./components/ProjectButton/ProjectButton"

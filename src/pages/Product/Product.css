@@ -1,5 +1,8 @@
+* {
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
 .Mars-img-wrap {
-    display: flex;
     justify-content: center;
 }
 
@@ -9,4 +12,33 @@
     border-radius: 20px;
     margin-top: 68px;
     margin-bottom: 14px;
+}
+
+.Mars-product-slide {
+    display: flex;
+}
+
+.Mars-prod-wrap {
+    justify-content: center;
+}
+
+.Mars-prod-name {
+    font-size: 32px;
+}
+
+.Mars-prod-price {
+    font-size: 16px;
+}
+
+.Mars-cart-btn {
+    width: 160px;
+    height: 48px;
+    background: #616153;
+    opacity: 0.8;
+    border-radius: 64px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 0%;
 }

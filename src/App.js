@@ -6,8 +6,14 @@ import Footer from './components/Footer/Footer';
 import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
 import './App.css';
 
+
 import Cart from './pages/Cart/Cart';
 import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
+import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
+import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
+import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
+import Customized from './pages/Customized/Customized';
+
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
 // import MemberRegister from './pages/member/MemberRegister';
@@ -16,17 +22,18 @@ import MemberPsdchange from './pages/member/MemberPsdchange';
 import Cat from './pages/member/Cat'
 
 import Product from './pages/Product/Product';
+import Content from './pages/Product/Content';
 
 import AdminLogin from './pages/Admin-Willow/AdminLogin';
 import News from './pages/Admin-Willow/News';
 import Report from './pages/Admin-Willow/Report';
-import About from './pages/About/About';
+// 首頁
+import AbingIndex from './pages/About/AbingIndex';
 
 import PostMessage from './pages/Admin-Willow/PostMessage';
 
 //context
 import AuthContextProvider from '../src/pages/member/components/AuthConextProvider';
-
 
 // react router 錄影檔 7/19 14:33
 function App() {
@@ -35,16 +42,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    <AuthContextProvider>
-      <Navbar />
+      <AuthContextProvider>
+        <Navbar />
 
-      {/* 路由表 */}
-      <Routes>
-        {/* bing的頁面 */}
-        <Route path="/" element={<About />} />
-        {/* LoveYu的頁面 */}
-        <Route path="ProductsYu" element={<ProductsYu />} />
-        <Route path="Cart" element={<Cart />} />
+        {/* 路由表 */}
+        <Routes>
+          {/* bing的頁面 */}
+          <Route path="/" element={<AbingIndex />} />
 
         {/* Yu的頁面 */}
         <Route path="Login" element={<Login />} />
@@ -54,17 +58,27 @@ function App() {
         <Route path="MemberPsdchange" element={<MemberPsdchange />} />
         <Route path="Cat" element={<Cat />} />
 
-        {/* 莊惟的頁面 */}
-        <Route path="Product" element={<Product />} />
+        {/* LoveYu的頁面 */}
+        <Route path="ProductsYu" element={<ProductsYu />} />
+          <Route path="Cart" element={<Cart />} />
+          <Route path="CartOrderCheck" element={<CartOrderCheck />} />
+          <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
+          <Route path="CartOrderInfo" element={<CartOrderInfo />} />
+          <Route path="Customized" element={<Customized />} />
 
-        {/* willow的頁面 */}
-        <Route path="AdminLogin" element={<AdminLogin />} />
-        <Route path="News" element={<News />} />
-        <Route path="Report" element={<Report />} />
-        <Route path="PostMessage" element={<PostMessage />} />
-      </Routes>
 
-      <Footer />
+          {/* 莊惟的頁面 */}
+          <Route path="Product" element={<Product />} />
+          <Route path="Content" element={<Content />} />
+
+          {/* willow的頁面 */}
+          <Route path="AdminLogin" element={<AdminLogin />} />
+          <Route path="News" element={<News />} />
+          <Route path="Report" element={<Report />} />
+          <Route path="PostMessage" element={<PostMessage />} />
+        </Routes>
+
+        <Footer />
       </AuthContextProvider>
       <BackgroundWaveAnimation />
     </BrowserRouter>

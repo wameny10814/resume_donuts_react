@@ -3,8 +3,43 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../../pages/member/components/AuthContext';
 
 function Navbar(props) {
-
   const { authorized, account, logout } = useContext(AuthContext);
+
+  const Author = (props) => {
+    const authorized = props.authorized;
+    // console.log('123', authorized);
+    if (authorized === 'true') {
+      //todosomthing
+      return (
+        <>
+          <li className="nav-item">
+            <Link className="nav-link" to="Membercenter">
+              <i className="fa-solid fa-user"></i>會員專區
+            </Link>
+          </li>
+          <div className="nav-item">
+            <li className="nav-link yu_pointer" onClick={() => logout()}>
+              <i className="fa-solid fa-arrow-right-from-bracket"></i>
+              登出
+            </li>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" to="Login">
+            <i className="fa-solid fa-user"></i>會員登入
+          </Link>
+        </li>
+      );
+    }
+    // else if(authorizedadmin==="true"){
+
+    // }else if(authorizedadmin==="false"){
+
+    // }
+  };
 
   return (
     <div className="navContainer">
@@ -45,33 +80,36 @@ function Navbar(props) {
             </li>
           </ul>
           <ul className="navbar-nav">
+            <Author authorized={authorized} />
 
-            {authorized ? (
+            {/* {authorized ? (
               <>
-
                 <li className="nav-item">
                   <Link className="nav-link" to="Membercenter">
                     <i className="fa-solid fa-user"></i>會員專區
                   </Link>
                 </li>
                 <div className="nav-item">
+<<<<<<< HEAD
                 <li className="nav-link yu_pointer" onClick={() => logout()} >
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
                   登出
                 </li>
+=======
+                  <li className="nav-link yu_pointer" onClick={() => logout()}>
+                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                    登出
+                  </li>
+>>>>>>> 473ae46dfbaf714c5263d17d944a0f3743998cca
                 </div>
-
               </>
-              
             ) : (
               <li className="nav-item">
                 <Link className="nav-link" to="Login">
                   <i className="fa-solid fa-user"></i>會員登入
                 </Link>
               </li>
-
-            )}
-
+            )} */}
 
             <li className="nav-item">
               <Link className="nav-link" to="Cart">
