@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
 import './App.css';
 
+
 import Cart from './pages/Cart/Cart';
 import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
@@ -15,9 +16,10 @@ import Customized from './pages/Customized/Customized';
 
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
-// import MemberRegister from './pages/member/MemberRegister';
+import MemberRegister from './pages/member/MemberRegister';
 import MemberHistory from './pages/member/MemberHistory';
 import MemberPsdchange from './pages/member/MemberPsdchange';
+import Cat from './pages/member/Cat';
 
 import Product from './pages/Product/Product';
 import Content from './pages/Product/Content';
@@ -48,20 +50,22 @@ function App() {
           {/* bing的頁面 */}
           <Route path="/" element={<AbingIndex />} />
 
-          {/* LoveYu的頁面 */}
-          <Route path="ProductsYu" element={<ProductsYu />} />
+        {/* Yu的頁面 */}
+        <Route path="Login" element={<Login />} />
+        <Route path="Membercenter" element={<Membercenter />} />
+        <Route path="MemberRegister" element={<MemberRegister />} />
+        <Route path="MemberHistory" element={<MemberHistory />} />
+        <Route path="MemberPsdchange" element={<MemberPsdchange />} />
+        <Route path="Cat" element={<Cat />} />
+
+        {/* LoveYu的頁面 */}
+        <Route path="ProductsYu" element={<ProductsYu />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="CartOrderCheck" element={<CartOrderCheck />} />
           <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
           <Route path="CartOrderInfo" element={<CartOrderInfo />} />
-
-          {/* Yu的頁面 */}
-          <Route path="Login" element={<Login />} />
-          <Route path="Membercenter" element={<Membercenter />} />
-          {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
-          <Route path="MemberHistory" element={<MemberHistory />} />
-          <Route path="MemberPsdchange" element={<MemberPsdchange />} />
           <Route path="Customized" element={<Customized />} />
+
 
           {/* 莊惟的頁面 */}
           <Route path="Product" element={<Product />} />

@@ -3,6 +3,7 @@
 }
 
 .Mars-img-wrap {
+    display: flex;
     justify-content: center;
 }
 
@@ -14,8 +15,26 @@
     margin-bottom: 14px;
 }
 
+.Mars-product-slide {
+    display: flex;
+}
+
 .Mars-prod-wrap {
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    margin: auto;
+}
+
+.Mars-prod-imgwr {
+    width: 295px;
+    height: 295px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.Mars-prod-img {
+    width: 295px;
+    height: 295px;
 }
 
 .Mars-prod-name {
@@ -24,4 +43,17 @@
 
 .Mars-prod-price {
     font-size: 16px;
+}
+
+.Mars-cart-btn {
+    width: 160px;
+    height: 48px;
+    background: #616153;
+    opacity: 0.8;
+    border-radius: 64px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 0%;
 }

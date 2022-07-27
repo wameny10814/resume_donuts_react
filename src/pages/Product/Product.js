@@ -11,10 +11,11 @@ function Product() {
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
         <div className=""></div>
-        <div className=""></div>
+        <div className="Mars-prod-filter-area"></div>
         <div className="Mars-product-slide col-4 d-flex">
           <ProductSlide />
         </div>
+        {/* 飲料區待定 */}
       </div>
     </>
   );
