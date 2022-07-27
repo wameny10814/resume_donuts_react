@@ -16,7 +16,7 @@ import Customized from './pages/Customized/Customized';
 
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
-// import MemberRegister from './pages/member/MemberRegister';
+import MemberRegister from './pages/member/MemberRegister';
 import MemberHistory from './pages/member/MemberHistory';
 import MemberPsdchange from './pages/member/MemberPsdchange';
 import Cat from './pages/member/Cat'
@@ -53,7 +53,7 @@ function App() {
         {/* Yu的頁面 */}
         <Route path="Login" element={<Login />} />
         <Route path="Membercenter" element={<Membercenter />} />
-        {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
+        <Route path="MemberRegister" element={<MemberRegister />} />
         <Route path="MemberHistory" element={<MemberHistory />} />
         <Route path="MemberPsdchange" element={<MemberPsdchange />} />
         <Route path="Cat" element={<Cat />} />

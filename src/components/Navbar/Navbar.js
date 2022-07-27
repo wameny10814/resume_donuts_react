@@ -8,7 +8,7 @@ function Navbar(props) {
   const Author = (props) => {
     const authorized = props.authorized;
     // console.log('123', authorized);
-    if (authorized === 'true') {
+    if (authorized === true) {
       //todosomthing
       return (
         <>
