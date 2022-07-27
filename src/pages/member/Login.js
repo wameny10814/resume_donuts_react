@@ -2,15 +2,16 @@ import React from 'react';
 // import './Login.css';
 import '../../components/Member/Eye.js';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState,useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
 
 function Login() {
-  //設定密碼眼睛
+  //設定密碼眼睛&貓貓
   const [eye, setEye] = useState('password');
   const [pic, setPic] = useState('../../../images/EyeSlash.svg');
   const [cat, setCat] = useState('../../../images/logincat.svg');
+  const [isHidePass, setIsHidePass] = useState(false)
 
   //設定登入資料
   const [myform, setMyform] = useState({
@@ -25,6 +26,7 @@ function Login() {
     setMyform({ ...myform, [id]: val });
     // setCat('../../../images/logincat_blind.svg');
   };
+
   //轉頁
   const navigate = useNavigate();
   const { setAuth } = useContext(AuthContext);
@@ -63,20 +65,40 @@ function Login() {
   };
 
   const toggleEye = () => {
+    console.log('toggle Eye');
+
+    setIsHidePass(!isHidePass);
     if (eye === 'password') {
       setEye('text');
-      setPic('../../../images/Eye.svg');
-      setCat('../../../images/logincat_blind.svg');
+      // setPic('../../../images/Eye.svg');
+      // setCat('../../../images/logincat_blind.svg');
     } else {
       setEye('password');
-      setCat('../../../images/logincat_blind.svg');
-      setPic('../../../images/EyeSlash.svg');
+      // setCat('../../../images/logincat_blind.svg');
+      // setPic('../../../images/EyeSlash.svg');
     }
+
   };
+
+
 
   const blurtexting = () => {
     setCat('../../../images/logincat.svg');
   };
+
+
+// useEffect(() => {
+//   setCat('../../../images/logincat.svg');
+//   return () => {
+//     // Clean up the subscription
+//     setCat('../../../images/logincat_blind.svg')
+//   };
+// },[eye]);
+
+
+
+
+
   return (
     <>
       <div className="container yu_container">
@@ -86,7 +108,7 @@ function Login() {
         <div className="row">
           <div className="col">
             <div className="logincat d-flex justify-content-center">
-              <img src={cat} alt="" />
+              <img src={isHidePass?'../../../images/logincat_blind.svg':'../../../images/logincat.svg'} alt="" />
               {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
             </div>
             <form action="" onSubmit={whenSubmit}>
@@ -109,6 +131,11 @@ function Login() {
                     name="passwrod"
                     onChange={changeFields}
                     onBlur={blurtexting}
+                    onFocus={()=>{
+                      eye === 'password'?setIsHidePass(true):setIsHidePass(false) 
+                    }}
+                    onBlur={()=>{
+                    }}
                     onClick={() => {
                       setCat('../../../images/logincat_blind.svg');
                     }}
@@ -117,14 +144,16 @@ function Login() {
                   <div className="yu_logineye_absolute">
                     <img
                       className="yu_logineye"
-                      src={pic}
+                      src={isHidePass? '../../../images/EyeSlash.svg' :'../../../images/Eye.svg'}
                       alt=""
                       onClick={toggleEye}
                       onFocus={() => {
-                        setCat('../../../images/logincat_blind.svg');
+                        console.log('onFocus')
+                        // setCat('../../../images/logincat_blind.svg');
                       }}
                       onMouseDown={() => {
-                        setCat('../../../images/logincat_blind.svg');
+                        console.log('onMouseDown')
+                        // setCat('../../../images/logincat_blind.svg');
                       }}
                     />
                   </div>
