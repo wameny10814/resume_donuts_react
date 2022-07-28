@@ -1,0 +1,10 @@
+#willow_adminplace .willow_palce_rel {
+  position: relative;
+}
+
+#willow_adminplace .willow_palce_rel .willow_palce_abs {
+  position: absolute;
+  width: 80%;
+  color: #616153;
+}
+/*# sourceMappingURL=AdminPlace.css.map */

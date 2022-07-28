@@ -183,7 +183,7 @@ function MemberRegister() {
                     />
                     <p className="reg_error"> {regFormError.email}</p>
                   </div>
-                  <button type="submit">註冊</button>
+                  <button type="submit" className="ProjectButton">註冊</button>
                 </div>
               </form>
 
