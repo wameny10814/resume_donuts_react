@@ -23,13 +23,17 @@ import Cat from './pages/member/Cat';
 import Product from './pages/Product/Product';
 import Content from './pages/Product/Content';
 
-import AdminLogin from './pages/Admin-Willow/AdminLogin';
-import News from './pages/Admin-Willow/News';
-import Report from './pages/Admin-Willow/Report';
+// Willow
+import WillowAdminLogin from './pages/Admin-Willow/AdminLogin';
+import WillowAdminPlace from './pages/Admin-Willow/AdminPlace';
+
+import WillowNews from './pages/Admin-Willow/NewsAll/WillowNews';
+import WillowHavegoodPrice from './pages/Admin-Willow/NewsAll/WillowHavegoodPrice';
+import WillowGoodWritings from './pages/Admin-Willow/NewsAll/WillowGoodWritings';
+
+import WillowReport from './pages/Admin-Willow/WillowReport';
 // 首頁
 import AbingIndex from './pages/About/AbingIndex';
-
-import PostMessage from './pages/Admin-Willow/PostMessage';
 
 //context
 import AuthContextProvider from '../src/pages/member/components/AuthConextProvider';
@@ -70,10 +74,14 @@ function App() {
           <Route path="Content" element={<Content />} />
 
           {/* willow的頁面 */}
-          <Route path="AdminLogin" element={<AdminLogin />} />
-          <Route path="News" element={<News />} />
-          <Route path="Report" element={<Report />} />
-          <Route path="PostMessage" element={<PostMessage />} />
+          <Route path="adminlogin" element={<WillowAdminLogin />} />
+          <Route path="adminplace" element={<WillowAdminPlace />} />
+
+          <Route path="willownews" element={<WillowNews />} />
+          <Route path="willowhavegoodprice" element={<WillowHavegoodPrice />} />
+          <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
+
+          <Route path="willowreport" element={<WillowReport />} />
         </Routes>
 
         <Footer />

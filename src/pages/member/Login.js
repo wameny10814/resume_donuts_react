@@ -169,7 +169,7 @@ function Login() {
                   <Link to="/MemberRegister">點此註冊</Link>
                 </p>
                 <p>
-                  <Link className="nav-link" to="/AdminLogin">
+                  <Link className="nav-link" to="/adminlogin">
                     admin
                   </Link>
                 </p>

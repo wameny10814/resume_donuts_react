@@ -12,7 +12,9 @@ function Product() {
         <div className=""></div>
         <div className=""></div>
         <div className="Mars-prod-filter-area"></div>
-        <div className="Mars-product-slide col-4 d-flex">
+        <div className="Mars-product-slide">
+          <ProductSlide />
+          <ProductSlide />
           <ProductSlide />
         </div>
         {/* 飲料區待定 */}

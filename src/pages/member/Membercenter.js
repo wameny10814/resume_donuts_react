@@ -45,6 +45,10 @@ function Membercenter() {
 
   //to do 模擬點擊???????-----------------------------------------------
   const imgclick = () => {
+  const [pickedAvatar, setPickedAvatar] = useState(false);
+  const [avatarName, setAvatarName] = useState('');
+  
+  const imgonclick = () => {
     // const file = e.target;
     // console.log(file)
     // const file = e.target.files[0];
@@ -53,6 +57,10 @@ function Membercenter() {
   };
   //大頭貼上傳至後端資料夾
   //to do 大頭貼寫入資料庫--------------------------------------------
+    
+    // avatar.onChange(avatarchange());
+  };
+
   const avatarchange = () => {
     //files 會是個nodelist
     // const file = e.target.files[0];
@@ -96,7 +104,7 @@ function Membercenter() {
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="/PostMessage">
+                <Link className="nav-link" to="/MemberPsdchange">
                   <i className="fa-solid fa-user"></i>發布評論
                 </Link>
               </li>
@@ -107,11 +115,20 @@ function Membercenter() {
           <div className="row-6 d-flex ">
             <div className="col">
               <div className="yu_avatar_upload">
+<<<<<<< HEAD
                 <figure className="d-flex yu_avatar_pic">
                   <img
                     src={`http://localhost:3600/yuimgs/${avatarName}`}
                     alt=""
                     onClick={imgclick}
+=======
+                <figure className="d-flex yu_avatar_pic ">
+                  <img
+                    src={`http://localhost:3600/yuimgs/${avatarName}`}
+                    alt=""
+                    onClick={imgonclick}
+                  
+>>>>>>> 13de53f4e3f40c82bf9b0c9e6b29a8a4e0560031
                   />
                 </figure>
                 {/* <form name="avatar_form">
@@ -125,9 +142,19 @@ function Membercenter() {
                     <input
                       type="file"
                       multiple
+<<<<<<< HEAD
                       name="avatar"
                       accept="images/jpeg,images/png"
                       onChange={avatarchange}
+=======
+                      
+                
+                      name="avatar"
+                      accept="images/jpeg,images/png"
+                      onChange={avatarchange}
+                
+
+>>>>>>> 13de53f4e3f40c82bf9b0c9e6b29a8a4e0560031
                     />
                   </form>
                 </div>
