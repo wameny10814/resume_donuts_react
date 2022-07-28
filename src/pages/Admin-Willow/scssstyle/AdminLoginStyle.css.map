@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,uBADqB,CACrB,gBAAgB,CAAC;EACf,UAAU,EAAE,IAAI;CACjB;;AAHH,AAIE,uBAJqB,CAIrB,cAAc,CAAC;EAEb,aAAa,EAAE,IAAI;EACnB,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,KAAK;EACZ,SAAS,EAAE,MAAM;EAEjB,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,UAAU;CACpB;;AAbH,AAcE,uBAdqB,CAcrB,cAAc,AAAA,MAAM,CAAA;EAClB,gBAAgB,EAAE,OAAO;CAC1B",
-    "sources": [
-        "AdminLoginStyle.scss"
-    ],
-    "names": [],
-    "file": "AdminLoginStyle.css"
-}
