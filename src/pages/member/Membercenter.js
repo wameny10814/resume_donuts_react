@@ -1,26 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import './Membercenter.css';
 function Membercenter() {
-  const [pickedAvatar, setPickedAvatar] = useState(false)
-  const [avatarName, setAvatarName] = useState('')
-
-
-  const imgclick = () => {
+  const [pickedAvatar, setPickedAvatar] = useState(false);
+  const [avatarName, setAvatarName] = useState('');
+  
+  const imgonclick = () => {
     // const file = e.target;
     // console.log(file)
     // const file = e.target.files[0];
-    console.log('123')
+    console.log('123');
+    
     // avatar.onChange(avatarchange());
-
-
-
-
-  }
+  };
 
   const avatarchange = () => {
-
-    //files 會是個nodelist 
+    //files 會是個nodelist
     // const file = e.target.files[0];
     // console.log(file);
     // if (file) {
@@ -32,13 +27,13 @@ function Membercenter() {
       method: 'POST',
       body: fd,
     })
-      .then(r => r.json())
-      .then(data => {
-        console.log(data)
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data);
         console.log('data', data.filename);
         setAvatarName(data.filename);
-      })
-  }
+      });
+  };
 
   return (
     <>
@@ -60,7 +55,7 @@ function Membercenter() {
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="/PostMessage">
+                <Link className="nav-link" to="/MemberPsdchange">
                   <i className="fa-solid fa-user"></i>發布評論
                 </Link>
               </li>
@@ -71,8 +66,13 @@ function Membercenter() {
           <div className="row-6 d-flex ">
             <div className="col">
               <div className="yu_avatar_upload">
-                <figure className="d-flex yu_avatar_pic">
-                  <img src={`http://localhost:3600/yuimgs/${avatarName}`} alt="" onClick={imgclick} />
+                <figure className="d-flex yu_avatar_pic ">
+                  <img
+                    src={`http://localhost:3600/yuimgs/${avatarName}`}
+                    alt=""
+                    onClick={imgonclick}
+                  
+                  />
                 </figure>
                 {/* <form name="avatar_form">
 
@@ -80,13 +80,20 @@ function Membercenter() {
 
                 </form> */}
                 <div className="d-flex justify-content-center yu_avatar_upload">
-                  <button className="yu_avatar_btn" >上傳照片</button>
+                  <button className="yu_avatar_btn">上傳照片</button>
                   <form name="avatar_form">
+                    <input
+                      type="file"
+                      multiple
+                      
+                
+                      name="avatar"
+                      accept="images/jpeg,images/png"
+                      onChange={avatarchange}
+                
 
-                    <input type="file" multiple name="avatar" accept="images/jpeg,images/png" onChange={avatarchange} />
-
+                    />
                   </form>
-
                 </div>
               </div>
             </div>

@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer';
 import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
 import './App.css';
 
-
 import Cart from './pages/Cart/Cart';
 import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
@@ -24,13 +23,17 @@ import Cat from './pages/member/Cat';
 import Product from './pages/Product/Product';
 import Content from './pages/Product/Content';
 
-import AdminLogin from './pages/Admin-Willow/AdminLogin';
-import News from './pages/Admin-Willow/News';
-import Report from './pages/Admin-Willow/Report';
+// Willow
+import WillowAdminLogin from './pages/Admin-Willow/AdminLogin';
+import WillowAdminPlace from './pages/Admin-Willow/AdminPlace';
+
+import WillowNews from './pages/Admin-Willow/NewsAll/WillowNews';
+import WillowHavegoodPrice from './pages/Admin-Willow/NewsAll/WillowHavegoodPrice';
+import WillowGoodWritings from './pages/Admin-Willow/NewsAll/WillowGoodWritings';
+
+import WillowReport from './pages/Admin-Willow/WillowReport';
 // 首頁
 import AbingIndex from './pages/About/AbingIndex';
-
-import PostMessage from './pages/Admin-Willow/PostMessage';
 
 //context
 import AuthContextProvider from '../src/pages/member/components/AuthConextProvider';
@@ -50,32 +53,35 @@ function App() {
           {/* bing的頁面 */}
           <Route path="/" element={<AbingIndex />} />
 
-        {/* Yu的頁面 */}
-        <Route path="Login" element={<Login />} />
-        <Route path="Membercenter" element={<Membercenter />} />
-        <Route path="MemberRegister" element={<MemberRegister />} />
-        <Route path="MemberHistory" element={<MemberHistory />} />
-        <Route path="MemberPsdchange" element={<MemberPsdchange />} />
-        <Route path="Cat" element={<Cat />} />
+          {/* Yu的頁面 */}
+          <Route path="Login" element={<Login />} />
+          <Route path="Membercenter" element={<Membercenter />} />
+          <Route path="MemberRegister" element={<MemberRegister />} />
+          <Route path="MemberHistory" element={<MemberHistory />} />
+          <Route path="MemberPsdchange" element={<MemberPsdchange />} />
+          <Route path="Cat" element={<Cat />} />
 
-        {/* LoveYu的頁面 */}
-        <Route path="ProductsYu" element={<ProductsYu />} />
+          {/* LoveYu的頁面 */}
+          <Route path="ProductsYu" element={<ProductsYu />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="CartOrderCheck" element={<CartOrderCheck />} />
           <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
           <Route path="CartOrderInfo" element={<CartOrderInfo />} />
           <Route path="Customized" element={<Customized />} />
 
-
           {/* 莊惟的頁面 */}
           <Route path="Product" element={<Product />} />
           <Route path="Content" element={<Content />} />
 
           {/* willow的頁面 */}
-          <Route path="AdminLogin" element={<AdminLogin />} />
-          <Route path="News" element={<News />} />
-          <Route path="Report" element={<Report />} />
-          <Route path="PostMessage" element={<PostMessage />} />
+          <Route path="adminlogin" element={<WillowAdminLogin />} />
+          <Route path="adminplace" element={<WillowAdminPlace />} />
+
+          <Route path="willownews" element={<WillowNews />} />
+          <Route path="willowhavegoodprice" element={<WillowHavegoodPrice />} />
+          <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
+
+          <Route path="willowreport" element={<WillowReport />} />
         </Routes>
 
         <Footer />
