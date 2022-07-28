@@ -5,13 +5,33 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
+import cat from './images/logincat.svg';
+import catHide from './images/logincat_blind.svg';
+import eye from './images/Eye.svg';
+import eyeSlash from './images/EyeSlash.svg';
 
 function Login() {
   //設定密碼眼睛&貓貓
-  const [eye, setEye] = useState('password');
-  const [pic, setPic] = useState('../../../images/EyeSlash.svg');
-  const [cat, setCat] = useState('../../../images/logincat.svg');
-  const [isHidePass, setIsHidePass] = useState(false);
+  // const [eye, setEye] = useState('password');
+
+  const [isCatHide, setIsCatHide] = useState(false);
+  const [isHide, setIsHide] = useState(true);
+
+  const checkIfHide = (e) => {
+    console.log('hi', e.target.tagName);
+    if (e.target.tagName === 'INPUT' && e.type === 'focus') {
+      setIsCatHide(isHide);
+    } else if (e.target.tagName === 'INPUT' && e.type === 'blur') {
+      setIsCatHide(false);
+    } else if (e.target.tagName === 'DIV') {
+      setIsCatHide(false);
+    } else if (e.target.tagName === 'IMG') {
+      const nowHide = !isHide;
+      setIsCatHide(nowHide);
+      setIsHide(nowHide);
+    }
+  };
+
 
   //設定登入資料
   const [myform, setMyform] = useState({
@@ -24,7 +44,7 @@ function Login() {
     const val = event.target.value;
     console.log({ id, val });
     setMyform({ ...myform, [id]: val });
-    // setCat('../../../images/logincat_blind.svg');
+
   };
 
   //轉頁
@@ -35,7 +55,9 @@ function Login() {
 
     console.log(myform);
     // TODO: 欄位檢查-----------------------------------------------------------------
-
+    if (myform.account === "" || myform.password === "") {
+      return
+    }
     fetch('http://localhost:3600/login-jwt', {
       method: 'POST',
       body: JSON.stringify(myform),
@@ -64,24 +86,24 @@ function Login() {
       });
   };
 
-  const toggleEye = () => {
-    console.log('toggle Eye');
+  // const toggleEye = () => {
+  //   console.log('toggle Eye');
 
-    setIsHidePass(!isHidePass);
-    if (eye === 'password') {
-      setEye('text');
-      // setPic('../../../images/Eye.svg');
-      // setCat('../../../images/logincat_blind.svg');
-    } else {
-      setEye('password');
-      // setCat('../../../images/logincat_blind.svg');
-      // setPic('../../../images/EyeSlash.svg');
-    }
-  };
+  //   setIsHidePass(!isHidePass);
+  //   if (eye === 'password') {
+  //     setEye('text');
+  //     // setPic('../../../images/Eye.svg');
+  //     // setCat('../../../images/logincat_blind.svg');
+  //   } else {
+  //     setEye('password');
+  //     // setCat('../../../images/logincat_blind.svg');
+  //     // setPic('../../../images/EyeSlash.svg');
+  //   }
+  // };
 
-  const blurtexting = () => {
-    setCat('../../../images/logincat.svg');
-  };
+  // const blurtexting = () => {
+  //   setCat('../../../images/logincat.svg');
+  // };
 
   // useEffect(() => {
   //   setCat('../../../images/logincat.svg');
@@ -93,7 +115,7 @@ function Login() {
 
   return (
     <>
-      <div className="container yu_container">
+      <div className="container yu_container" onClick={checkIfHide}>
         <header className="yu_header">
           <p>會員登入</p>
         </header>
@@ -101,11 +123,7 @@ function Login() {
           <div className="col">
             <div className="logincat d-flex justify-content-center">
               <img
-                src={
-                  isHidePass
-                    ? '../../../images/logincat_blind.svg'
-                    : '../../../images/logincat.svg'
-                }
+                src={isCatHide ? catHide : cat}
                 alt=""
               />
               {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
@@ -126,58 +144,37 @@ function Login() {
                   <label htmlFor="">密碼</label>
                   <input
                     id="password"
-                    type={eye}
+                    type={isHide ? 'password' : 'text'}
                     name="passwrod"
                     onChange={changeFields}
-                    onBlur={blurtexting}
-                    onFocus={() => {
-                      eye === 'password'
-                        ? setIsHidePass(true)
-                        : setIsHidePass(false);
-                    }}
-                    onBlur={() => {}}
-                    onClick={() => {
-                      setCat('../../../images/logincat_blind.svg');
-                    }}
+                    onFocus={checkIfHide}
+                    onBlur={checkIfHide}
                     value={myform.password}
                   />
-                  <div className="yu_logineye_absolute">
+                  <div className="yu_logineye_absolute" onClick={checkIfHide}>
                     <img
                       className="yu_logineye"
-                      src={
-                        isHidePass
-                          ? '../../../images/EyeSlash.svg'
-                          : '../../../images/Eye.svg'
-                      }
+                      src={isHide ? eyeSlash : eye}
                       alt=""
-                      onClick={toggleEye}
-                      onFocus={() => {
-                        console.log('onFocus');
-                        // setCat('../../../images/logincat_blind.svg');
-                      }}
-                      onMouseDown={() => {
-                        console.log('onMouseDown');
-                        // setCat('../../../images/logincat_blind.svg');
-                      }}
                     />
                   </div>
                   <a href="#/">忘記密碼</a>
                 </div>
-                <button>登入</button>
-                <p>
-                  第一次光臨嗎?
-                  <Link to="/MemberRegister">點此註冊</Link>
-                </p>
-                <p>
-                  <Link className="nav-link" to="/adminlogin">
-                    admin
-                  </Link>
-                </p>
+                <button className="ProjectButton">登入</button>
+              <p>
+                第一次光臨嗎?
+                <Link to="/MemberRegister">點此註冊</Link>
+              </p>
+              <p>
+                <Link className="nav-link" to="/adminlogin">
+                  admin
+                </Link>
+              </p>
               </div>
             </form>
-          </div>
         </div>
       </div>
+    </div>
     </>
   );
 }

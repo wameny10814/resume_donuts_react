@@ -1,0 +1,17 @@
+#willow_adminloginstyle .willow_minhight {
+  min-height: 50vh;
+}
+
+#willow_adminloginstyle .willow_button {
+  border-radius: 20px;
+  background-color: #616153;
+  color: white;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  padding: .5rem 2rem;
+}
+
+#willow_adminloginstyle .willow_button:hover {
+  background-color: #92927f;
+}
+/*# sourceMappingURL=AdminLoginStyle.css.map */
