@@ -16,12 +16,19 @@
 }
 
 .Mars-product-slide {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
     display: flex;
+    justify-content: center;
 }
 
 .Mars-prod-wrap {
     /* display: flex; */
-    /* justify-content: center; */
+    margin: 10px 10px;
+}
+
+.Mars-prod-wrap>div, .Mars-prod-wrap>span, .Mars-prod-wrap>button {
     margin: auto;
 }
 
