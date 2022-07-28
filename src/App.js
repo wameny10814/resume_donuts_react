@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer';
 import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
 import './App.css';
 
-
 import Cart from './pages/Cart/Cart';
 import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
@@ -50,22 +49,21 @@ function App() {
           {/* bing的頁面 */}
           <Route path="/" element={<AbingIndex />} />
 
-        {/* Yu的頁面 */}
-        <Route path="Login" element={<Login />} />
-        <Route path="Membercenter" element={<Membercenter />} />
-        <Route path="MemberRegister" element={<MemberRegister />} />
-        <Route path="MemberHistory" element={<MemberHistory />} />
-        <Route path="MemberPsdchange" element={<MemberPsdchange />} />
-        <Route path="Cat" element={<Cat />} />
+          {/* Yu的頁面 */}
+          <Route path="Login" element={<Login />} />
+          <Route path="Membercenter" element={<Membercenter />} />
+          <Route path="MemberRegister" element={<MemberRegister />} />
+          <Route path="MemberHistory" element={<MemberHistory />} />
+          <Route path="MemberPsdchange" element={<MemberPsdchange />} />
+          <Route path="Cat" element={<Cat />} />
 
-        {/* LoveYu的頁面 */}
-        <Route path="ProductsYu" element={<ProductsYu />} />
+          {/* LoveYu的頁面 */}
+          <Route path="ProductsYu" element={<ProductsYu />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="CartOrderCheck" element={<CartOrderCheck />} />
           <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
           <Route path="CartOrderInfo" element={<CartOrderInfo />} />
           <Route path="Customized" element={<Customized />} />
-
 
           {/* 莊惟的頁面 */}
           <Route path="Product" element={<Product />} />

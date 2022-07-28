@@ -11,7 +11,7 @@ function Login() {
   const [eye, setEye] = useState('password');
   const [pic, setPic] = useState('../../../images/EyeSlash.svg');
   const [cat, setCat] = useState('../../../images/logincat.svg');
-  const [isHidePass, setIsHidePass] = useState(false)
+  const [isHidePass, setIsHidePass] = useState(false);
 
   //設定登入資料
   const [myform, setMyform] = useState({
@@ -22,7 +22,7 @@ function Login() {
   const changeFields = (event) => {
     const id = event.target.id;
     const val = event.target.value;
-    // console.log({ id, val });
+    console.log({ id, val });
     setMyform({ ...myform, [id]: val });
     // setCat('../../../images/logincat_blind.svg');
   };
@@ -49,15 +49,15 @@ function Login() {
         if (result.success) {
           //登入成功 寫進localstorage & 跳轉到首頁
           //登入成功需刷新才能更改navbar -->使用authorized判定-->result 把authcontext的authorized放進去
+          //登入成功會發回來 該會員 token account 及會員等級
           localStorage.setItem('auth', JSON.stringify(result.data));
+          console.log(result.data);
           setAuth({
             ...result.data,
             authorized: true,
           });
           alert('登入成功!');
-          navigate('/');
-
-
+          // navigate('/');
         } else {
           alert('帳密錯誤');
         }
@@ -77,27 +77,19 @@ function Login() {
       // setCat('../../../images/logincat_blind.svg');
       // setPic('../../../images/EyeSlash.svg');
     }
-
   };
-
-
 
   const blurtexting = () => {
     setCat('../../../images/logincat.svg');
   };
 
-
-// useEffect(() => {
-//   setCat('../../../images/logincat.svg');
-//   return () => {
-//     // Clean up the subscription
-//     setCat('../../../images/logincat_blind.svg')
-//   };
-// },[eye]);
-
-
-
-
+  // useEffect(() => {
+  //   setCat('../../../images/logincat.svg');
+  //   return () => {
+  //     // Clean up the subscription
+  //     setCat('../../../images/logincat_blind.svg')
+  //   };
+  // },[eye]);
 
   return (
     <>
@@ -108,7 +100,14 @@ function Login() {
         <div className="row">
           <div className="col">
             <div className="logincat d-flex justify-content-center">
-              <img src={isHidePass?'../../../images/logincat_blind.svg':'../../../images/logincat.svg'} alt="" />
+              <img
+                src={
+                  isHidePass
+                    ? '../../../images/logincat_blind.svg'
+                    : '../../../images/logincat.svg'
+                }
+                alt=""
+              />
               {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
             </div>
             <form action="" onSubmit={whenSubmit}>
@@ -131,11 +130,12 @@ function Login() {
                     name="passwrod"
                     onChange={changeFields}
                     onBlur={blurtexting}
-                    onFocus={()=>{
-                      eye === 'password'?setIsHidePass(true):setIsHidePass(false) 
+                    onFocus={() => {
+                      eye === 'password'
+                        ? setIsHidePass(true)
+                        : setIsHidePass(false);
                     }}
-                    onBlur={()=>{
-                    }}
+                    onBlur={() => {}}
                     onClick={() => {
                       setCat('../../../images/logincat_blind.svg');
                     }}
@@ -144,15 +144,19 @@ function Login() {
                   <div className="yu_logineye_absolute">
                     <img
                       className="yu_logineye"
-                      src={isHidePass? '../../../images/EyeSlash.svg' :'../../../images/Eye.svg'}
+                      src={
+                        isHidePass
+                          ? '../../../images/EyeSlash.svg'
+                          : '../../../images/Eye.svg'
+                      }
                       alt=""
                       onClick={toggleEye}
                       onFocus={() => {
-                        console.log('onFocus')
+                        console.log('onFocus');
                         // setCat('../../../images/logincat_blind.svg');
                       }}
                       onMouseDown={() => {
-                        console.log('onMouseDown')
+                        console.log('onMouseDown');
                         // setCat('../../../images/logincat_blind.svg');
                       }}
                     />

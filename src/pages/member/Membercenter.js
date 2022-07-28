@@ -1,26 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import AuthContext from '../../pages/member/components/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 // import './Membercenter.css';
 function Membercenter() {
-  const [pickedAvatar, setPickedAvatar] = useState(false)
-  const [avatarName, setAvatarName] = useState('')
+  const { authorized, token, account, level, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+  //如未登入轉出至首頁
+  if (authorized === false) {
+    navigate('/');
+  }
 
+  // 第一次記錄伺服器的原始資料用
+  const [usersRaw, setUsersRaw] = useState([]);
+  // 呈現資料用
+  const [usersDisplay, setUsersDisplay] = useState([]);
 
+  const [pickedAvatar, setPickedAvatar] = useState(false);
+
+  const [avatarName, setAvatarName] = useState('');
+
+  const getdata = async () => {
+    const response = await axios.get('http://localhost:3600/member/userdata', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log('res!!', response.data);
+    const r = response.data;
+    console.log('r!!', r[0].account);
+    // 設定到state
+
+    setUsersRaw(r[0]);
+    console.log('state', usersRaw);
+    setUsersDisplay(r[0]);
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  //to do 模擬點擊???????-----------------------------------------------
   const imgclick = () => {
     // const file = e.target;
     // console.log(file)
     // const file = e.target.files[0];
-    console.log('123')
+    console.log('123');
     // avatar.onChange(avatarchange());
-
-
-
-
-  }
-
+  };
+  //大頭貼上傳至後端資料夾
+  //to do 大頭貼寫入資料庫--------------------------------------------
   const avatarchange = () => {
-
-    //files 會是個nodelist 
+    //files 會是個nodelist
     // const file = e.target.files[0];
     // console.log(file);
     // if (file) {
@@ -32,13 +66,15 @@ function Membercenter() {
       method: 'POST',
       body: fd,
     })
-      .then(r => r.json())
-      .then(data => {
-        console.log(data)
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data);
         console.log('data', data.filename);
         setAvatarName(data.filename);
-      })
-  }
+        const a = Date.parse(usersDisplay.birthday);
+        console.log('birthday', a);
+      });
+  };
 
   return (
     <>
@@ -72,7 +108,11 @@ function Membercenter() {
             <div className="col">
               <div className="yu_avatar_upload">
                 <figure className="d-flex yu_avatar_pic">
-                  <img src={`http://localhost:3600/yuimgs/${avatarName}`} alt="" onClick={imgclick} />
+                  <img
+                    src={`http://localhost:3600/yuimgs/${avatarName}`}
+                    alt=""
+                    onClick={imgclick}
+                  />
                 </figure>
                 {/* <form name="avatar_form">
 
@@ -80,19 +120,24 @@ function Membercenter() {
 
                 </form> */}
                 <div className="d-flex justify-content-center yu_avatar_upload">
-                  <button className="yu_avatar_btn" >上傳照片</button>
+                  <button className="yu_avatar_btn">上傳照片</button>
                   <form name="avatar_form">
-
-                    <input type="file" multiple name="avatar" accept="images/jpeg,images/png" onChange={avatarchange} />
-
+                    <input
+                      type="file"
+                      multiple
+                      name="avatar"
+                      accept="images/jpeg,images/png"
+                      onChange={avatarchange}
+                    />
                   </form>
-
                 </div>
               </div>
             </div>
             <div className="col-6 yu_profile_editing">
               <div className="yu_member_title">
-                <p>nickname 目前會員等級 xx</p>
+                <p>
+                  {usersDisplay.account} 目前會員等級 {usersDisplay.level}
+                </p>
               </div>
               <form className="yu_flex">
                 <div className="yu_profile_form_group form-group">
@@ -104,8 +149,9 @@ function Membercenter() {
                     className="birthday col-8"
                     id="birthday"
                     placeholder="birthday"
+                    value="2022-07-21"
                   />
-                  <p className="error">帳號錯誤</p>
+                  <p className="error">生日錯誤</p>
                 </div>
                 <div className="yu_profile_form_group  form-group">
                   <label htmlFor="email" className="col-3">
@@ -116,6 +162,7 @@ function Membercenter() {
                     className="email col-8"
                     id="email"
                     placeholder="email"
+                    value={usersDisplay.email}
                   />
                   <p className="error">帳號錯誤</p>
                 </div>
@@ -144,7 +191,11 @@ function Membercenter() {
                   <p className="error">帳號錯誤</p>
                 </div>
                 <div className="d-flex ">
-                  <button type="submit" className=" mt-5 yu_profile-btn">
+                  <button
+                    type="submit"
+                    className=" mt-5 yu_profile-btn"
+                    onClick={getdata}
+                  >
                     修改會員資料
                   </button>
                 </div>
