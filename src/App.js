@@ -24,6 +24,7 @@ import Product from './pages/Product/Product';
 import Content from './pages/Product/Content';
 
 // Willow
+
 import WillowAdminLogin from './pages/Admin-Willow/AdminLogin';
 import WillowAdminPlace from './pages/Admin-Willow/AdminPlace';
 
@@ -74,6 +75,7 @@ function App() {
           <Route path="Content" element={<Content />} />
 
           {/* willow的頁面 */}
+
           <Route path="adminlogin" element={<WillowAdminLogin />} />
           <Route path="adminplace" element={<WillowAdminPlace />} />
 
@@ -81,7 +83,7 @@ function App() {
           <Route path="willowhavegoodprice" element={<WillowHavegoodPrice />} />
           <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
 
-          <Route path="willowreport" element={<WillowReport />} />
+          <Route path="adminplace/willowreport" element={<WillowReport />} />
         </Routes>
 
         <Footer />

@@ -1,10 +1,36 @@
 #willow_adminplace {
+  .willow_littlenavbar_hight {
+    min-height: 8rem;
+  }
+  .willow_minhight {
+    min-height: 50vh;
+  }
   .willow_palce_rel {
     position: relative;
     .willow_palce_abs {
       position: absolute;
-      width: 80%;
+      left: 1.5rem;
       color: #616153;
+      transition: 0.3s;
+    }
+    .willow_button{
+      border-radius: 15px;
+      background-color:#616153 ;
+    }
+    .willow_button:hover {
+      background-color: #92927f;
+    }
+    .willow_list_button {
+      border: none;
+      border-radius: 10px;
+      background-color: transparent;
+      color: #616153;
+      font-weight: 700;
+      margin-top: 0.2rem;
+      padding: 0.1rem 0.5rem;
+    }
+    .willow_list_button:hover {
+      color: #92927f;
     }
   }
 }

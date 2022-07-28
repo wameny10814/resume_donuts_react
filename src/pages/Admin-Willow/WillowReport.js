@@ -1,7 +1,7 @@
 import React from 'react';
 
 function WillowReport() {
-  return <>Report報表</>;
+  return <h1>Report報表</h1>;
 }
 
 export default WillowReport;

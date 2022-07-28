@@ -42,11 +42,8 @@ function Membercenter() {
   useEffect(() => {
     getdata();
   }, []);
-
   //to do 模擬點擊???????-----------------------------------------------
   const imgclick = () => {
-  const [pickedAvatar, setPickedAvatar] = useState(false);
-  const [avatarName, setAvatarName] = useState('');
   
   const imgonclick = () => {
     // const file = e.target;
@@ -115,20 +112,11 @@ function Membercenter() {
           <div className="row-6 d-flex ">
             <div className="col">
               <div className="yu_avatar_upload">
-<<<<<<< HEAD
                 <figure className="d-flex yu_avatar_pic">
                   <img
                     src={`http://localhost:3600/yuimgs/${avatarName}`}
                     alt=""
                     onClick={imgclick}
-=======
-                <figure className="d-flex yu_avatar_pic ">
-                  <img
-                    src={`http://localhost:3600/yuimgs/${avatarName}`}
-                    alt=""
-                    onClick={imgonclick}
-                  
->>>>>>> 13de53f4e3f40c82bf9b0c9e6b29a8a4e0560031
                   />
                 </figure>
                 {/* <form name="avatar_form">
@@ -142,19 +130,9 @@ function Membercenter() {
                     <input
                       type="file"
                       multiple
-<<<<<<< HEAD
                       name="avatar"
                       accept="images/jpeg,images/png"
                       onChange={avatarchange}
-=======
-                      
-                
-                      name="avatar"
-                      accept="images/jpeg,images/png"
-                      onChange={avatarchange}
-                
-
->>>>>>> 13de53f4e3f40c82bf9b0c9e6b29a8a4e0560031
                     />
                   </form>
                 </div>
