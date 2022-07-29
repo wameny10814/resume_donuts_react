@@ -1,5 +1,5 @@
 import React from 'react';
-import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
+import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api';
 
 const store = [
   { lat: 25.0339157, lng: 121.5428648 },
@@ -12,7 +12,7 @@ const store = [
 // const cityHall = { lat: 25.0374117, lng: 121.5636031 };
 function SimpleMap() {
   const { isLoaded } = useJsApiLoader({
-    // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
   if (!isLoaded) {
@@ -32,9 +32,9 @@ function SimpleMap() {
         fullscreenControl: false,
       }}
     >
-      <Marker position={store[0]} />
-      <Marker position={store[1]} />
-      <Marker position={store[2]} />
+      <MarkerF position={store[0]} />
+      <MarkerF position={store[1]} />
+      <MarkerF position={store[2]} />
     </GoogleMap>
   );
 }
