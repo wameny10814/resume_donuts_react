@@ -12,7 +12,7 @@ const store = [
 // const cityHall = { lat: 25.0374117, lng: 121.5636031 };
 function SimpleMap() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+    // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
   if (!isLoaded) {
@@ -32,6 +32,7 @@ function SimpleMap() {
         fullscreenControl: false,
       }}
     >
+    {/* React.18 要加F */}
       <MarkerF position={store[0]} />
       <MarkerF position={store[1]} />
       <MarkerF position={store[2]} />
