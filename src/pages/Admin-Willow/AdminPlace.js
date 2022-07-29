@@ -2,10 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 
+import WillowShowList from './NewsAll/WillowShowList';
 import WillowNews from './NewsAll/WillowNews';
 import WillowHavegoodPrice from './NewsAll/WillowHavegoodPrice';
 import WillowGoodWritings from './NewsAll/WillowGoodWritings';
-
+import WillowReport from './Report/WillowReport';
 import './scssstyle/AdminPlace.scss';
 
 function AdminPlace() {
@@ -15,6 +16,8 @@ function AdminPlace() {
 
   const clickoption = (v) => {
     console.log(v);
+    let numv = parseInt(v);
+    setOption(numv);
   };
   return (
     <div id="willow_adminplace">
@@ -34,7 +37,7 @@ function AdminPlace() {
                 onClick={() => setOpennews(!opennews)}
                 aria-controls="example-collapse-text"
                 aria-expanded={opennews}
-                className="mb-3 willow_button"
+                className="mb-3 willow_button willow_btn-primary"
               >
                 最新消息管理
               </Button>
@@ -48,7 +51,7 @@ function AdminPlace() {
                       className="willow_list_button"
                       value={1}
                       onClick={(e) => {
-                        clickoption(e.target.value)
+                        clickoption(e.target.value);
                         console.log(e.target.value);
                       }}
                     >
@@ -56,10 +59,28 @@ function AdminPlace() {
                     </button>
                   </div>
                   <div>
-                    <button className="willow_list_button">Activty</button>
+                    <button
+                      className="willow_list_button"
+                      value={2}
+                      onClick={(e) => {
+                        clickoption(e.target.value);
+                        console.log(e.target.value);
+                      }}
+                    >
+                      Activty
+                    </button>
                   </div>
                   <div>
-                    <button className="willow_list_button">Good Writing</button>
+                    <button
+                      className="willow_list_button"
+                      value={3}
+                      onClick={(e) => {
+                        clickoption(e.target.value);
+                        console.log(e.target.value);
+                      }}
+                    >
+                      Good Writing
+                    </button>
                   </div>
                 </div>
               </Collapse>
@@ -70,7 +91,7 @@ function AdminPlace() {
               onClick={() => setOpenreports(!openreports)}
               aria-controls="example-collapse-text"
               aria-expanded={openreports}
-              className="mb-3 willow_button"
+              className="mb-3 willow_button willow_btn-primary"
             >
               商品報表管理
             </Button>
@@ -78,7 +99,16 @@ function AdminPlace() {
             <Collapse in={openreports} className="willow_palce_abs">
               <div id="example-collapse-text">
                 <div>
-                  <button className="willow_list_button">Report</button>
+                  <button
+                    className="willow_list_button"
+                    value={4}
+                    onClick={(e) => {
+                      clickoption(e.target.value);
+                      console.log(e.target.value);
+                    }}
+                  >
+                    Report
+                  </button>
                 </div>
               </div>
             </Collapse>
@@ -87,9 +117,11 @@ function AdminPlace() {
       </div>
       <div className="container-fuild willow_minhight">
         <div className="row">
-          <WillowNews />
-          <WillowHavegoodPrice />
-          <WillowGoodWritings />
+          {option === 0 && <WillowShowList />}
+          {option === 1 && <WillowNews />}
+          {option === 2 && <WillowHavegoodPrice />}
+          {option === 3 && <WillowGoodWritings />}
+          {option === 4 && <WillowReport />}
         </div>
       </div>
     </div>
