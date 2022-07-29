@@ -14,49 +14,66 @@ function Membercenter() {
   }
 
   // 第一次記錄伺服器的原始資料用
-  const [usersRaw, setUsersRaw] = useState([]);
+  const [usersRaw, setUsersRaw] = useState('');
   // 呈現資料用
-  const [usersDisplay, setUsersDisplay] = useState([]);
-
+  const [usersDisplay, setUsersDisplay] = useState('');
+  //avatar cstate
   const [pickedAvatar, setPickedAvatar] = useState(false);
-
   const [avatarName, setAvatarName] = useState('');
 
+  //是否按了修改
+  const [isupdate, setIsupdate] = useState(false);
+  //抓用戶輸入會員資料的值
+  const [regForm, setRegForm] = useState({
+    birthday: '',
+    email: '',
+    mobiel: '',
+    address: '',
+  });
+  //抓後端修改完會員資料的值
+  const [regForm_after, setRegForm_after] = useState({
+    birthday: '',
+    email: '',
+    mobile: '',
+    address: '',
+  });
+
+  //一進入會員中心頁面拿取資料庫資料&設入state
   const getdata = async () => {
-    const response = await axios.get('http://localhost:3600/member/userdata', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    console.log('res!!', response.data);
+    const response = await axios.get(
+      'http://localhost:3600/member/memberdata',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const r = response.data;
-    console.log('r!!', r[0].account);
-    // 設定到state
-
-    setUsersRaw(r[0]);
-    console.log('state', usersRaw);
-    setUsersDisplay(r[0]);
+    const res_data = r[0];
+    setUsersRaw(res_data);
+    // 生日格式處理處理
+    const date = r[0].birthday;
+    const slicedate = date.slice(0, 10);
+    const newDisplay = { ...res_data, birthday: slicedate };
+    setUsersDisplay(newDisplay);
   };
 
   useEffect(() => {
     getdata();
   }, []);
   //to do 模擬點擊???????-----------------------------------------------
-  const imgclick = () => {
-  
-  const imgonclick = () => {
-    // const file = e.target;
-    // console.log(file)
-    // const file = e.target.files[0];
-    console.log('123');
-    // avatar.onChange(avatarchange());
+
+  // const file = e.target;
+  // console.log(file)
+  // const file = e.target.files[0];
+  // avatar.onChange(avatarchange());
+  const avatartodb = () => {
+    console.log('avatartodb');
   };
   //大頭貼上傳至後端資料夾
   //to do 大頭貼寫入資料庫--------------------------------------------
-    
-    // avatar.onChange(avatarchange());
-  };
+
+  // avatar.onChange(avatarchange());
 
   const avatarchange = () => {
     //files 會是個nodelist
@@ -73,13 +90,40 @@ function Membercenter() {
     })
       .then((r) => r.json())
       .then((data) => {
-        console.log(data);
-        console.log('data', data.filename);
         setAvatarName(data.filename);
-        const a = Date.parse(usersDisplay.birthday);
-        console.log('birthday', a);
       });
   };
+
+  const changeFields = (event) => {
+    const id = event.target.id;
+    const val = event.target.value;
+    console.log({ id, val });
+    setRegForm({ ...regForm, [id]: val });
+  };
+
+  const update_member_data = async (event) => {
+    event.preventDefault();
+
+    fetch('http://localhost:3600/member/memberupdate', {
+      method: 'POST',
+      body: JSON.stringify(regForm),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((r) => r.json())
+      .then((result) => {
+        console.log(result);
+        setRegForm_after(result);
+        alert('寫入成功!');
+        setIsupdate(true);
+      });
+  };
+
+  // useEffect(() => {
+  //   update_member_data();
+  // }, [regForm]);
 
   return (
     <>
@@ -116,7 +160,6 @@ function Membercenter() {
                   <img
                     src={`http://localhost:3600/yuimgs/${avatarName}`}
                     alt=""
-                    onClick={imgclick}
                   />
                 </figure>
                 {/* <form name="avatar_form">
@@ -125,7 +168,9 @@ function Membercenter() {
 
                 </form> */}
                 <div className="d-flex justify-content-center yu_avatar_upload">
-                  <button className="yu_avatar_btn">上傳照片</button>
+                  <button className="yu_avatar_btn" onClick={avatartodb}>
+                    上傳照片
+                  </button>
                   <form name="avatar_form">
                     <input
                       type="file"
@@ -152,9 +197,14 @@ function Membercenter() {
                   <input
                     type="date"
                     className="birthday col-8"
+                    name="birthday"
                     id="birthday"
                     placeholder="birthday"
-                    value="2022-07-21"
+                    value={
+                      isupdate ? regForm_after.birthday : usersDisplay.birthday
+                    }
+                    defaultValue={usersDisplay.birthday}
+                    onChange={changeFields}
                   />
                   <p className="error">生日錯誤</p>
                 </div>
@@ -165,11 +215,14 @@ function Membercenter() {
                   <input
                     type="email"
                     className="email col-8"
+                    name="email"
                     id="email"
                     placeholder="email"
-                    value={usersDisplay.email}
+                    value={isupdate ? regForm_after.email : usersDisplay.email}
+                    defaultValue={usersDisplay.email}
+                    onChange={changeFields}
                   />
-                  <p className="error">帳號錯誤</p>
+                  <p className="error">電子郵件錯誤</p>
                 </div>
                 <div className="yu_profile_form_group  form-group">
                   <label htmlFor="mobile" className="col-3">
@@ -178,10 +231,16 @@ function Membercenter() {
                   <input
                     type="mobile"
                     className="mobile col-8"
+                    name="mobile"
                     id="mobile"
                     placeholder="mobile"
+                    value={
+                      isupdate ? regForm_after.mobile : usersDisplay.mobile
+                    }
+                    defaultValue={usersDisplay.mobile}
+                    onChange={changeFields}
                   />
-                  <p className="error">帳號錯誤ffffffffffffffffff</p>
+                  <p className="error">電話錯誤ffffffffffffffffff</p>
                 </div>
                 <div className="yu_profile_form_group  form-group">
                   <label htmlFor="address" className="col-3">
@@ -190,16 +249,22 @@ function Membercenter() {
                   <input
                     type="address"
                     className="address col-8"
+                    name="address"
                     id="address"
                     placeholder="address"
+                    value={
+                      isupdate ? regForm_after.address : usersDisplay.address
+                    }
+                    defaultValue={usersDisplay.address}
+                    onChange={changeFields}
                   />
-                  <p className="error">帳號錯誤</p>
+                  <p className="error">地址錯誤</p>
                 </div>
                 <div className="d-flex ">
                   <button
                     type="submit"
                     className=" mt-5 yu_profile-btn"
-                    onClick={getdata}
+                    onClick={update_member_data}
                   >
                     修改會員資料
                   </button>
