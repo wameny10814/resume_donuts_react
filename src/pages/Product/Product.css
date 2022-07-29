@@ -64,3 +64,21 @@
     font-size: 14px;
     line-height: 0%;
 }
+
+/* ---商品內容頁--- */
+
+.Mars-cnt-container {
+    margin-left: 158px;
+    margin-right: 158px;
+}
+
+.Mars-cnt-imgwr {
+    width: 552px;
+    height: 507px;
+}
+
+.Mars-cnt-img {
+    width: 395px;
+    height: 363px;
+}
+
