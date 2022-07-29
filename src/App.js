@@ -32,7 +32,7 @@ import WillowNews from './pages/Admin-Willow/NewsAll/WillowNews';
 import WillowHavegoodPrice from './pages/Admin-Willow/NewsAll/WillowHavegoodPrice';
 import WillowGoodWritings from './pages/Admin-Willow/NewsAll/WillowGoodWritings';
 
-import WillowReport from './pages/Admin-Willow/WillowReport';
+import WillowReport from './pages/Admin-Willow/Report/WillowReport';
 // 首頁
 import AbingIndex from './pages/About/AbingIndex';
 
@@ -77,13 +77,12 @@ function App() {
           {/* willow的頁面 */}
 
           <Route path="adminlogin" element={<WillowAdminLogin />} />
-          <Route path="adminplace" element={<WillowAdminPlace />} />
 
+          <Route path="adminplace" element={<WillowAdminPlace />} />
           <Route path="willownews" element={<WillowNews />} />
           <Route path="willowhavegoodprice" element={<WillowHavegoodPrice />} />
           <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
-
-          <Route path="adminplace/willowreport" element={<WillowReport />} />
+          <Route path="willowreport" element={<WillowReport />} />
         </Routes>
 
         <Footer />
