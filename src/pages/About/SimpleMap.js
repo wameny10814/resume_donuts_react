@@ -1,20 +1,27 @@
 import React from 'react';
 import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 
-const center = { lat: 25.0339157, lng: 121.5428648 };
+const store = [
+  { lat: 25.0339157, lng: 121.5428648 },
+  { lat: 25.0476181, lng: 121.5152175 },
+  { lat: 25.0374117, lng: 121.5636031 },
+];
 
+// const center = { lat: 25.0339157, lng: 121.5428648 };
+// const taipei = { lat: 25.0476181, lng: 121.5152175 };
+// const cityHall = { lat: 25.0374117, lng: 121.5636031 };
 function SimpleMap() {
   const { isLoaded } = useJsApiLoader({
     // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
   if (!isLoaded) {
-    return <p>Loading</p>;
+    return <p>Loading...</p>;
   }
 
   return (
     <GoogleMap
-      center={center}
+      center={store[0]}
       zoom={16}
       mapContainerStyle={{ width: '100%', height: '100%' }}
       options={{
@@ -25,7 +32,9 @@ function SimpleMap() {
         fullscreenControl: false,
       }}
     >
-      <Marker position={center} />
+      <Marker position={store[0]} />
+      <Marker position={store[1]} />
+      <Marker position={store[2]} />
     </GoogleMap>
   );
 }
