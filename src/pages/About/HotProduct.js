@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import H2 from './H2';
-
 
 function HotProduct() {
   return (
