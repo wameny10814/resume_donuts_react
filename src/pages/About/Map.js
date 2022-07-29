@@ -1,5 +1,6 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 import H2 from './H2';
+import LeafletMap from './LeafletMap';
 function Map() {
   return (
     <section className="container">
@@ -26,7 +27,7 @@ function Map() {
           </li>
           <li>
             <p className="bingH4">營業時間</p>
-            <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">營業起訖</th>
@@ -43,24 +44,24 @@ function Map() {
                 <tr>
                   <th scope="row">10：00～20：00</th>
                   <td>
-                  <i class="fa-regular fa-circle"></i>                  </td>
+                  <i className="fa-regular fa-circle"></i>                  </td>
                   <td>
-                    <i class="fa-solid fa-circle"></i>
+                    <i className="fa-solid fa-circle"></i>
                   </td>
                   <td>
-                    <i class="fa-solid fa-circle"></i>
+                    <i className="fa-solid fa-circle"></i>
                   </td>
                   <td>
-                    <i class="fa-solid fa-circle"></i>
+                    <i className="fa-solid fa-circle"></i>
                   </td>
                   <td>
-                    <i class="fa-solid fa-circle"></i>
+                    <i className="fa-solid fa-circle"></i>
                   </td>
                   <td>
-                    <i class="fa-solid fa-circle"></i>
+                    <i className="fa-solid fa-circle"></i>
                   </td>
                   <td>
-                    <i class="fa-solid fa-circle"></i>
+                    <i className="fa-solid fa-circle"></i>
                   </td>
                 </tr>
               </tbody>
@@ -68,7 +69,9 @@ function Map() {
           </li>
         </ul>
       </div>
-      <div className="col-md-7"></div>
+      <div className="col-md-7">
+        <LeafletMap></LeafletMap>
+      </div>
     </section>
   );
 }
