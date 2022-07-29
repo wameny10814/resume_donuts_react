@@ -1,7 +1,7 @@
 import React from 'react';
 import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api';
 
-const store = [
+const stores = [
   { lat: 25.0339157, lng: 121.5428648 },
   { lat: 25.0476181, lng: 121.5152175 },
   { lat: 25.0374117, lng: 121.5636031 },
@@ -21,7 +21,7 @@ function SimpleMap() {
 
   return (
     <GoogleMap
-      center={store[0]}
+      center={stores[0]}
       zoom={16}
       mapContainerStyle={{ width: '100%', height: '100%' }}
       options={{
@@ -33,9 +33,9 @@ function SimpleMap() {
       }}
     >
     {/* React.18 要加F */}
-      <MarkerF position={store[0]} />
-      <MarkerF position={store[1]} />
-      <MarkerF position={store[2]} />
+      <MarkerF position={stores[0]} />
+      <MarkerF position={stores[1]} />
+      <MarkerF position={stores[2]} />
     </GoogleMap>
   );
 }
