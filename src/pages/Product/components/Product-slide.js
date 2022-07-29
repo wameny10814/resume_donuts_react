@@ -13,8 +13,10 @@ function ProductSlide() {
       </div>
       <p className="Mars-prod-name">宇治抹茶那堤</p>
       <p className="Mars-prod-price">NT$ 35</p>
-      {/* eslint-disable-next-line prettier/prettier */}
-      <button className="Mars-cart-btn"><i class="fa-solid fa-circle-plus"></i> 加入購物車</button>
+      <a href="../../Cart/">
+        {/* eslint-disable-next-line prettier/prettier */}
+        <button className="Mars-cart-btn"><i class="fa-solid fa-circle-plus"></i> 加入購物車</button>
+      </a>
     </div>
   );
 }
