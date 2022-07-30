@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 import H2 from './H2';
 import SimpleMap from './SimpleMap';
@@ -6,7 +7,7 @@ function Map() {
     <section className="container">
       <H2 title="店鋪資訊" Entitle="MAP" />
       <div className="d-flex">
-        <div className="col-md-5 mapInfo">
+        <div className="col-md-6 mapInfo">
           <div className="">
             <ProjectButton text="市府店"></ProjectButton>
             <ProjectButton text="北車店"></ProjectButton>
@@ -71,7 +72,7 @@ function Map() {
             </li>
           </ul>
         </div>
-        <div className="col-md-7">
+        <div className="col-md-6">
           <SimpleMap></SimpleMap>
         </div>
       </div>
