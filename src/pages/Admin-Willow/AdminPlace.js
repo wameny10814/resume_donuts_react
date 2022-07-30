@@ -52,7 +52,7 @@ function AdminPlace() {
                       value={1}
                       onClick={(e) => {
                         clickoption(e.target.value);
-                        console.log(e.target.value);
+                        console.log('1', e.target.value);
                       }}
                     >
                       News
@@ -118,10 +118,10 @@ function AdminPlace() {
       <div className="container-fuild willow_minhight">
         <div className="row">
           {option === 0 && <WillowShowList />}
-          {option === 1 && <WillowNews />}
-          {option === 2 && <WillowHavegoodPrice />}
-          {option === 3 && <WillowGoodWritings />}
-          {option === 4 && <WillowReport />}
+          {option === 1 && <WillowNews setOption={setOption} />}
+          {option === 2 && <WillowHavegoodPrice setOption={setOption} />}
+          {option === 3 && <WillowGoodWritings setOption={setOption} />}
+          {option === 4 && <WillowReport setOption={setOption} />}
         </div>
       </div>
     </div>
