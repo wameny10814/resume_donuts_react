@@ -26,13 +26,14 @@ function SimpleMap() {
       mapContainerStyle={{ width: '100%', height: '100%' }}
       options={{
         // 關閉控制面板 縮放,街景,衛星/地形,全螢幕
+        mapId: ['7d73f43b257d967e'],
         zoomControl: false,
         streetViewControl: false,
         mapTypeControl: false,
         fullscreenControl: false,
       }}
     >
-    {/* React.18 要加F */}
+      {/* React.18 要加F */}
       <MarkerF position={stores[0]} />
       <MarkerF position={stores[1]} />
       <MarkerF position={stores[2]} />
