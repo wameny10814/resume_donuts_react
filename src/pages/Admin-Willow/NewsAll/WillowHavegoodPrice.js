@@ -1,28 +1,24 @@
 import React from 'react';
-import { Container, Row, Form, Button, Image } from 'react-bootstrap';
+import { useState } from 'react';
 import '../scssstyle/WillowHavegoodPrice.scss';
-function WillowHavegoodPrice() {
+function WillowHavegoodPrice(props) {
+  const { setOption } = props;
   return (
     <div id="willowhavegoodprice">
       <div className="container">
         <div className="row">
           <h3>WillowHavegoodPrice-Activty</h3>
-          {/* <form>
-  <div className="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div className="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div className="form-group form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1">
-    <label className="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
-</form> */}
+          <div className="d-flex justify-content-end">
+            <button
+              type="button"
+              className="btn  mt-3 willow_button"
+              onClick={() => {
+                setOption(0);
+              }}
+            >
+              回首頁
+            </button>
+          </div>
           <form>
             <div className="form-group mt-3">
               <div className="d-flex">
@@ -69,12 +65,28 @@ function WillowHavegoodPrice() {
                   alt="example"
                 />
                 <div>
-                  <input type="file" />
+                  <input id="activtyimg" name="activtyimg" type="file" />
+                </div>
+              </div>
+            </div>
+            {/* writing detail */}
+            <div className="mb-3 mt-3">
+              <div className="d-flex">
+                <div className="mt-2 willow_mar_sm">
+                  <label>詳細內容:</label>
+                </div>
+                <div className=" flex-grow-1">
+                  <textarea
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    cols="30"
+                    rows="10"
+                  ></textarea>
                 </div>
               </div>
             </div>
             <div className="d-flex d-flex justify-content-center mt-5 mb-5">
-              <button type="submit" className="btn  mt-3">
+              <button type="submit" className="btn  mt-3 willow_button">
                 Submit
               </button>
             </div>
