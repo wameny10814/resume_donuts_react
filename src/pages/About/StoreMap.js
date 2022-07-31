@@ -1,17 +1,50 @@
 import { useState } from 'react';
+import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api';
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
+
 import H2 from './H2';
-import SimpleMap from './SimpleMap';
-function Map() {
+function StoreMap() {
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+  });
+
+  const [map, setMap] = useState({ lat: 25.0337702, lng: 121.5433378 });
+
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
+
+  const stores = [
+    { lat: 25.0480099, lng: 121.5170087 }, //北車
+    { lat: 25.0337702, lng: 121.5433378 }, //大安
+    { lat: 25.0404691, lng: 121.5667799 }, //市府
+  ];
+
   return (
     <section className="container">
       <H2 title="店鋪資訊" Entitle="MAP" />
       <div className="d-flex">
         <div className="col-md-6 mapInfo">
           <div className="">
-            <ProjectButton text="市府店"></ProjectButton>
-            <ProjectButton text="北車店"></ProjectButton>
-            <ProjectButton text="大安店"></ProjectButton>
+            <button
+              className="ProjectButton"
+              // onClick={setMap(stores[0])}
+              onClick={() => map.panTo(stores[0])}
+            >
+              北車店
+            </button>
+            <button
+              className="ProjectButton"
+              onClick={() => map.panTo(stores[1])}
+            >
+              大安店
+            </button>
+            <button
+              className="ProjectButton"
+              onClick={() => map.panTo(stores[2])}
+            >
+              市府店
+            </button>
           </div>
           <p className="bingH4">ポッチーパン屋 大安店</p>
           <ul>
@@ -73,10 +106,31 @@ function Map() {
           </ul>
         </div>
         <div className="col-md-6">
-          <SimpleMap></SimpleMap>
+          {' '}
+          <GoogleMap
+            center={map}
+            zoom={16}
+            mapContainerStyle={{ width: '100%', height: '100%' }}
+            options={{
+              // 關閉控制面板 縮放,街景,衛星/地形,全螢幕 套用地圖樣式
+              mapId: ['7d73f43b257d967e'],
+              zoomControl: false,
+              streetViewControl: false,
+              mapTypeControl: false,
+              fullscreenControl: false,
+            }}
+            onLoad={(map) => {
+              setMap();
+            }}
+          >
+            {/* React.18 要加F */}
+            {stores.map((v, i) => {
+              return <MarkerF key={i} position={stores[i]} />;
+            })}
+          </GoogleMap>
         </div>
       </div>
     </section>
   );
 }
-export default Map;
+export default StoreMap;
