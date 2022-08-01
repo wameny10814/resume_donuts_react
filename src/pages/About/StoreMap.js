@@ -4,14 +4,14 @@ import {
   GoogleMap,
   MarkerF,
   useGoogleMap,
+  MarkerClusterer,
 } from '@react-google-maps/api';
-import TabPanel from "./TabPanel"
-
+import TabPanel from './TabPanel';
 
 import H2 from './H2';
 function StoreMap() {
   const { isLoaded } = useJsApiLoader({
-    // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
@@ -31,6 +31,9 @@ function StoreMap() {
     seMapInstance(map);
   };
 
+  function createKey(stores) {
+    return stores.lat + stores.lng;
+  }
   return (
     <section className="container">
       <H2 title="店鋪資訊" Entitle="MAP" />
@@ -73,7 +76,7 @@ function StoreMap() {
             onLoad={onLoad}
           >
             {/* React.18 要加F */}
-            {stores.map((v, i) => {
+            {/* {stores.map((v, i) => {
               return (
                 <MarkerF
                   key={i}
@@ -84,7 +87,19 @@ function StoreMap() {
                   }}
                 />
               );
-            })}
+            })} */}
+
+            <MarkerClusterer>
+              {(clusterer) =>
+                stores.map((location) => (
+                  <MarkerF
+                    key={createKey(location)}
+                    position={location}
+                    clusterer={clusterer}
+                  />
+                ))
+              }
+            </MarkerClusterer>
           </GoogleMap>
         </div>
       </div>
