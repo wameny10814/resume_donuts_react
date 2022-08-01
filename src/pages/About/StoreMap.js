@@ -5,7 +5,6 @@ import {
   MarkerF,
   useGoogleMap,
 } from '@react-google-maps/api';
-import ProjectButton from '../../components/ProjectButton/ProjectButton';
 
 import H2 from './H2';
 function StoreMap() {
@@ -37,13 +36,7 @@ function StoreMap() {
         <div className="col-md-6 mapInfo">
           <div className="">
             <button
-               className="ProjectButton"
-              // onClick={() => {
-              //   setMap((stores) => [...stores], {
-              //     lat: 25.0480099,
-              //     lng: 121.5170087,
-              //   });
-              // }}
+              className="ProjectButton"
               onClick={() => {
                 mapInstance.panTo(stores[0]);
               }}
@@ -133,9 +126,7 @@ function StoreMap() {
               zoomControl: true,
             }}
             onLoad={onLoad}
-            // onLoad={(map) => {
-            //   setMap();
-            // }}
+
           >
             {/* React.18 要加F */}
             {stores.map((v, i) => {
