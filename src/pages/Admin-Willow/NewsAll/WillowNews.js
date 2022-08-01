@@ -1,7 +1,29 @@
 import React from 'react';
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 function WillowNews(props) {
   const { setOption } = props;
+  const [imgname, setImgname] = useState('');
+  const [finalimgname, setFinalimgname] = useState('');
+  const fakeClickUploadimage = () => {
+    const c = document.getElementById('newsimg');
+    c.click();
+  };
+
+  const logsee = async (e) => {
+    // console.log('logsee', e.target.files[0].name);
+    const fdimg = new FormData(document.uploadimgFrom);
+    console.log(fdimg);
+    const response = await axios.post('http://localhost:3600/willow-upload', {
+      body: fdimg,
+    });
+    const resdata = response.data;
+    console.log(response);
+  };
+
+  // console.log('img', imgname);
+
+  useEffect(() => {}, [imgname]);
   return (
     <div id="willowhavegoodprice">
       <div className="container">
@@ -39,13 +61,25 @@ function WillowNews(props) {
                 <div className="mt-2 willow_mar_sm">
                   <label>上傳圖片:</label>
                 </div>
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/city/044.webp"
-                  className="img-fluid rounded willow_mar_sm"
-                  alt="example"
-                />
+
                 <div>
-                  <input id="activtyimg" name="activtyimg" type="file" />
+                  <img
+                    src="https://mdbootstrap.com/img/new/standard/city/044.webp"
+                    className="img-fluid rounded willow_mar_sm"
+                    alt="example"
+                  />
+                </div>
+
+                <div>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => {
+                      fakeClickUploadimage();
+                    }}
+                  >
+                    上傳圖片
+                  </button>
                 </div>
               </div>
             </div>
@@ -68,6 +102,21 @@ function WillowNews(props) {
               <button type="submit" className="btn  mt-3 willow_button">
                 Submit
               </button>
+            </div>
+          </form>
+
+          {/* hidden form */}
+          <form name="uploadimgFrom">
+            <div>
+              <input
+                id="newsimg"
+                name="newsimg"
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  logsee(e);
+                }}
+              />
             </div>
           </form>
         </div>

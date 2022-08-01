@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "name": "草莓多那滋",
+    "category": "多那滋",
+    "description": "幸福草莓製作而成",
+    "price": "35",
+    "image": "../images/d1307112.jpg"
+  },
+  {
+    "id": "2",
+    "name": "巧克力多那滋",
+    "category": "多那滋",
+    "description": "幸福巧克力製作而成",
+    "price": "40",
+    "image": ""
+  },
+  {
+    "id": "3",
+    "name": "草莓波提",
+    "category": "波提",
+    "description": "幸福草莓波提製作而成",
+    "price": "60",
+    "image": ""
+  },
+  {
+    "id": "4",
+    "name": "香草甜甜圈",
+    "category": "甜甜圈",
+    "description": "幸福香草製作而成",
+    "price": "50",
+    "image": ""
+  }
+]

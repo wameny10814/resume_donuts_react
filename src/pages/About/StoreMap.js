@@ -1,14 +1,21 @@
 import { useState } from 'react';
-import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api';
-import ProjectButton from '../../components/ProjectButton/ProjectButton';
+import {
+  useJsApiLoader,
+  GoogleMap,
+  MarkerF,
+  useGoogleMap,
+} from '@react-google-maps/api';
+import TabPanel from "./TabPanel"
+
 
 import H2 from './H2';
 function StoreMap() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+    // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
-  const [map, setMap] = useState({ lat: 25.0337702, lng: 121.5433378 });
+  const center = { lat: 25.0337702, lng: 121.5433378 };
+  const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
     return <p>Loading...</p>;
@@ -20,6 +27,10 @@ function StoreMap() {
     { lat: 25.0404691, lng: 121.5667799 }, //市府
   ];
 
+  const onLoad = (map) => {
+    seMapInstance(map);
+  };
+
   return (
     <section className="container">
       <H2 title="店鋪資訊" Entitle="MAP" />
@@ -28,104 +39,51 @@ function StoreMap() {
           <div className="">
             <button
               className="ProjectButton"
-              // onClick={setMap(stores[0])}
-              onClick={() => map.panTo(stores[0])}
+              onClick={() => {
+                mapInstance.panTo(stores[0]);
+              }}
             >
               北車店
             </button>
             <button
               className="ProjectButton"
-              onClick={() => map.panTo(stores[1])}
+              onClick={() => mapInstance.panTo(stores[1])}
             >
               大安店
             </button>
             <button
               className="ProjectButton"
-              onClick={() => map.panTo(stores[2])}
+              onClick={() => mapInstance.panTo(stores[2])}
             >
               市府店
             </button>
           </div>
-          <p className="bingH4">ポッチーパン屋 大安店</p>
-          <ul>
-            <li>
-              <p className="bingH4">地址</p>
-              <p className="bingText-16">106台北市大安區復興南路一段390號2樓</p>
-            </li>
-            <li>
-              <p className="bingH4">聯絡電話</p>
-              <p className="bingText-16">02-33778778</p>
-            </li>
-            <li>
-              <p className="bingH4">E-MAIL</p>
-              <p className="bingText-16">LoveMeowDonut@meowmeow.com</p>
-            </li>
-            <li>
-              <p className="bingH4">營業時間</p>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">營業起訖</th>
-                    <th scope="col">月</th>
-                    <th scope="col">火</th>
-                    <th scope="col">水</th>
-                    <th scope="col">木</th>
-                    <th scope="col">金</th>
-                    <th scope="col">土</th>
-                    <th scope="col">日</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">10：00～20：00</th>
-                    <td>
-                      <i className="fa-regular fa-circle"></i>{' '}
-                    </td>
-                    <td>
-                      <i className="fa-solid fa-circle"></i>
-                    </td>
-                    <td>
-                      <i className="fa-solid fa-circle"></i>
-                    </td>
-                    <td>
-                      <i className="fa-solid fa-circle"></i>
-                    </td>
-                    <td>
-                      <i className="fa-solid fa-circle"></i>
-                    </td>
-                    <td>
-                      <i className="fa-solid fa-circle"></i>
-                    </td>
-                    <td>
-                      <i className="fa-solid fa-circle"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </li>
-          </ul>
+          <TabPanel></TabPanel>
         </div>
         <div className="col-md-6">
-          {' '}
           <GoogleMap
-            center={map}
-            zoom={16}
+            center={center}
+            zoom={15}
             mapContainerStyle={{ width: '100%', height: '100%' }}
             options={{
-              // 關閉控制面板 縮放,街景,衛星/地形,全螢幕 套用地圖樣式
               mapId: ['7d73f43b257d967e'],
-              zoomControl: false,
-              streetViewControl: false,
-              mapTypeControl: false,
-              fullscreenControl: false,
+              disableDefaultUI: true, //關閉預設控制面板
+              zoomControl: true,
             }}
-            onLoad={(map) => {
-              setMap();
-            }}
+            onLoad={onLoad}
           >
             {/* React.18 要加F */}
             {stores.map((v, i) => {
-              return <MarkerF key={i} position={stores[i]} />;
+              return (
+                <MarkerF
+                  key={i}
+                  position={stores[i]}
+                  icon={{
+                    url: './images/catpaw.svg',
+                    scaledSize: new window.google.maps.Size(40, 40),
+                  }}
+                />
+              );
             })}
           </GoogleMap>
         </div>

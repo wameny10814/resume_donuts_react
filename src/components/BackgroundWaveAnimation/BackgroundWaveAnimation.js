@@ -1,4 +1,5 @@
 import React from 'react';
+import './BackgroundWaveAnimation.scss';
 
 function BackgroundWaveAnimation() {
   return (

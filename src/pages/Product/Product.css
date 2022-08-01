@@ -24,7 +24,10 @@
 }
 
 .Mars-prod-wrap {
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 340px;
     margin: 10px 10px;
 }
 
@@ -78,14 +81,27 @@
     margin-right: 158px;
 }
 
+.Mars-cnt-main {
+    margin-bottom: 50px;
+}
+
 .Mars-cnt-imgwr {
-    width: 552px;
-    height: 507px;
+    width: 450px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Mars-cnt-img {
     width: 395px;
     height: 363px;
+}
+
+.Mars-cnt-info {
+    margin-left: 150px;
 }
 
 .Mars-cnt-engnum {
