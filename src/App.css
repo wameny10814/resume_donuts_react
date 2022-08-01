@@ -16,7 +16,7 @@
 
 .bingText-16 {
   font-size: 18px;
-  line-height: 2.25rem;
+  line-height: 2.5rem;
   color: #616153;
   letter-spacing: 0.25rem;
 }
@@ -25,15 +25,24 @@
   font-size: 48px;
   color: #616153;
   font-weight: 700;
+  letter-spacing: 0.5rem;
 }
 
 .bingH4 {
-  font-size: 32px;
+  font-size: 36px;
   color: #616153;
+  font-weight: 500;
+  letter-spacing: 0.5rem;
 }
 
-.bingH3 {
-  font-size: 18px;
+.bingH5 {
+  font-size: 30px;
+  color: #616153;
+  letter-spacing: 0.5rem;
+}
+
+.bingH6 {
+  font-size: 20px;
   color: #616153;
 }
 
@@ -54,6 +63,44 @@
   background-color: #616153;
 }
 
+.share img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 4px;
+}
+
+.shareW-40 {
+  width: 40%;
+}
+
+.shareW-60 {
+  width: 60%;
+}
+
+.CSRNum1 {
+  font-size: 64px;
+  color: #616153;
+  letter-spacing: 1rem;
+}
+
+.CSRNum2 {
+  font-size: 58px;
+  color: #616153;
+  letter-spacing: 1rem;
+}
+
+.mapInfo ul {
+  padding-left: 0;
+}
+
+.bing-Map-dot {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #616153;
+  margin: 15px 0;
+}
+
 .yu_header p {
   text-align: center;
   font-weight: bold;
@@ -63,13 +110,13 @@
 
 .yu_logincard {
   background-color: rgba(255, 255, 255, 0.702);
-  /* text-align: center; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   border-radius: 18px;
   padding: 3rem 0;
+  margin-bottom: 5rem;
 }
 
 .yu_logincard a {
@@ -79,7 +126,6 @@
 }
 
 .yu_inputblock {
-  /* border: 1px solid red; */
   width: 30%;
   text-align: left;
   margin-top: 3rem;
@@ -103,6 +149,8 @@
   background-color: #EBEBEB;
   border-radius: 18px;
   color: #615353;
+  height: 34px;
+  padding-left: 1rem;
 }
 
 .yu_logincard button {
@@ -287,48 +335,71 @@
   padding: 3rem;
 }
 
-.yu_regCard {
-  background-color: rgba(255, 255, 255, 0.766);
+.yu_regcard {
+  background-color: rgba(255, 255, 255, 0.702);
   border-radius: 18px;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 0;
-  margin-bottom: 3rem;
+  text-align: center;
+  padding: 3rem;
+  margin-bottom: 5rem;
+}
+.yu_regcard p {
+  margin: 3rem;
+}
+.yu_regcard .yu_reg_link_p {
+  color: #f2a99b;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
 }
 
-.regEye_absolute {
-  position: absolute;
-  right: 3%;
-  top: 10%;
-  width: 5%;
-}
-.regEye_absolute img {
-  width: 100%;
-}
-
-.reg_btn_box {
+.reg_form {
   width: 100%;
   text-align: center;
-  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-.reg_btn {
+.reg_form .inputblock {
+  width: 30%;
+  margin-top: 3rem;
+  position: relative;
+}
+.reg_form .inputblock .reg_absolute {
+  position: absolute;
+  right: 0%;
+  bottom: 10%;
+}
+.reg_form .inputblock .reg_absolute img {
+  width: 30%;
+}
+.reg_form .reg_error {
+  color: #d01f1f;
+  margin: 0%;
+  text-align: left;
+  position: absolute;
+}
+.reg_form label {
+  display: block;
+  text-align: left;
+}
+.reg_form input {
+  border-radius: 18px;
+  border: none;
+  background-color: #ebebeb;
+  width: 100%;
+  height: 34px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.reg_form button {
   border: none;
   background-color: #616153;
-  border-radius: 18px;
   color: white;
-  padding: 0.5rem 2rem;
-}
-
-.reg_loginbtn {
+  border-radius: 18px;
   margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-.reg_loginbtn_link {
-  text-decoration: none;
-  color: #d01f1f;
-  margin-bottom: 3rem;
+  padding: 0.5rem 2rem;
 }
 
 .yu_regCat {
@@ -370,7 +441,7 @@ footer {
   line-height: 2rem;
   height: 300px;
   background-color: #5a5a4c;
-  color: #2E2218;
+  color: #ffffff;
 }
 footer .text-center img {
   text-align: center;
@@ -655,10 +726,11 @@ footer .footerp {
 }
 
 .ProjectButton {
+  font-size: 1.25rem;
   background-color: #616153;
   border: 1px solid #616153;
   border-radius: 25px;
-  padding: 0.65rem 2rem;
+  padding: 0.65rem 3rem;
   color: #fff;
   cursor: pointer;
   text-decoration: none;

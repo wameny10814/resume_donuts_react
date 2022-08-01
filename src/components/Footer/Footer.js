@@ -12,13 +12,13 @@ const Footer = () => {
           <div>
             <ul className="d-flex icon p-0 mt-4">
               <li className="mx-2 d-flex align-items-center justify-content-center">
-                <i class="fa-brands fa-facebook-f"></i>
+                <i className="fa-brands fa-facebook-f"></i>
               </li>
               <li className="mx-2 d-flex align-items-center justify-content-center">
-                <i class="fa-brands fa-instagram-square"></i>
+                <i className="fa-brands fa-instagram-square"></i>
               </li>
               <li className="mx-2 d-flex align-items-center justify-content-center">
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
               </li>
             </ul>
           </div>
@@ -27,7 +27,7 @@ const Footer = () => {
         <ul className="d-flex">
           <li className="mx-5">
             <div className="">
-              <i class="fa-solid fa-paw"></i>關於我們
+              <i className="fa-solid fa-paw"></i>關於我們
             </div>
             <ul className="ps-0">
               <li>最新消息</li>
@@ -39,7 +39,7 @@ const Footer = () => {
           </li>
           <li className="mx-5">
             <div className="">
-              <i class="fa-solid fa-paw"></i>活動資訊
+              <i className="fa-solid fa-paw"></i>活動資訊
             </div>
             <ul className="ps-0">
               <li>產品訊息</li>
@@ -49,7 +49,7 @@ const Footer = () => {
           </li>
           <li className="mx-5">
             <div className="">
-              <i class="fa-solid fa-paw"></i>商品一覽
+              <i className="fa-solid fa-paw"></i>商品一覽
             </div>
             <ul className="p-0">
               <li>甜甜圈</li>
@@ -60,7 +60,7 @@ const Footer = () => {
           </li>
           <li className="mx-5">
             <div className="">
-              <i class="fa-solid fa-paw"></i>會員專區
+              <i className="fa-solid fa-paw"></i>會員專區
             </div>
             <ul className="p-0">
               <li>會員登入</li>

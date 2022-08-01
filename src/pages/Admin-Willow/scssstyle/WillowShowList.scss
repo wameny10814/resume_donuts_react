@@ -1,0 +1,55 @@
+#willowshowlist {
+  .willow_table_thead_style1 {
+    color: white;
+    background-color: #616153;
+  }
+  .willow_table_thead_style2 {
+    color: white;
+    background-color: #92927f;
+  }
+  .willow_table_thead_style3 {
+    color: white;
+    background-color: #96966e;
+  }
+
+  .willow_height {
+    height: 500px;
+    overflow: scroll;
+  }
+  .willow_focus_middle {
+    border: 1px solid #ffffff;
+  }
+  .willow_focus_middle:hover {
+    border: 1px solid #616153;
+  }
+  .willow_focus_left {
+    border: 1px solid #ffffff;
+  }
+  .willow_focus_left:hover {
+    border: 1px solid #92927f;
+  }
+  .willow_focus_right {
+    border: 1px solid #ffffff;
+  }
+  .willow_focus_right:hover {
+    border: 1px solid  #96966e;
+  }
+
+  // .willow_table  tr {
+  //   width: 100%;
+  //   display: table;
+  //   // table-layout: fixed;
+  //   table-layout: fixed;
+  // }
+  // .willow_table_tbody {
+  //    display: block;
+  //   height: 300px;
+  //   overflow-y: scroll;
+  //   scrollbar-width: none;
+
+  //   -ms-overflow-style: none;
+  // }
+  // .willow_table_tbody::-webkit-scrollbar {
+  //   display: none;
+  // }
+}

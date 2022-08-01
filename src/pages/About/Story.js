@@ -10,10 +10,10 @@ function Story() {
           </div>
           <div className="col-1 d-none d-md-block"></div>
           <div className="col-12 col-md-7">
-            <h2 className="bingH2 my-5">デザインコンセプトは「猫」</h2>{' '}
+            <h2 className="bingH2 my-5">デザインコンセプトは「猫」</h2>
             <div className="d-flex">
               <div>
-                <p className="col-12 col-md-9 bingText-16">
+                <p className="col-12 col-md-9 bingText-16 mb-5">
                   我們是隱身在台北巷弄內的甜點店，在玄關處脫下鞋子，步上木階，希望帶給貴賓舒適自在的感受。
                   嚴選無二的新鮮食材是我們負責任的態度，在這裡美食成為簡單易懂的共同語言，讓身心盈滿幸福能量。
                 </p>

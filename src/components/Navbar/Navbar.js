@@ -5,6 +5,45 @@ import AuthContext from '../../pages/member/components/AuthContext';
 function Navbar(props) {
   const { authorized, account, logout } = useContext(AuthContext);
 
+  const Author = (props) => {
+    const authorized = props.authorized;
+    // console.log('123', authorized);
+    console.log('1', authorized);
+    if (authorized === true) {
+      //todosomthing
+      console.log('2', authorized);
+      return (
+        <>
+          <li className="nav-item">
+            <Link className="nav-link" to="Membercenter">
+              <i className="fa-solid fa-user"></i>會員專區
+            </Link>
+          </li>
+          <div className="nav-item">
+            <li className="nav-link yu_pointer" onClick={() => logout()}>
+              <i className="fa-solid fa-arrow-right-from-bracket"></i>
+              登出
+            </li>
+          </div>
+        </>
+      );
+    } else {
+      console.log('3', authorized);
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" to="Login">
+            <i className="fa-solid fa-user"></i>會員登入
+          </Link>
+        </li>
+      );
+    }
+    // else if(authorizedadmin==="true"){
+
+    // }else if(authorizedadmin==="false"){
+
+    // }
+  };
+
   return (
     <div className="navContainer">
       <nav className="navbar navbar-expand-lg navbar-light ml-3  ">
@@ -44,7 +83,9 @@ function Navbar(props) {
             </li>
           </ul>
           <ul className="navbar-nav">
-            {authorized ? (
+            <Author authorized={authorized} />
+
+            {/* {authorized ? (
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="Membercenter">
@@ -52,8 +93,12 @@ function Navbar(props) {
                   </Link>
                 </li>
                 <div className="nav-item">
+                <li className="nav-link yu_pointer" onClick={() => logout()} >
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                  登出
+                </li>
                   <li className="nav-link yu_pointer" onClick={() => logout()}>
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     登出
                   </li>
                 </div>
@@ -64,7 +109,7 @@ function Navbar(props) {
                   <i className="fa-solid fa-user"></i>會員登入
                 </Link>
               </li>
-            )}
+            )} */}
 
             <li className="nav-item">
               <Link className="nav-link" to="Cart">

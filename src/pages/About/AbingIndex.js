@@ -4,7 +4,7 @@ import HotProduct from './HotProduct';
 import News from './News';
 import Share from './Share';
 import CSR from './CSR';
-import Map from './Map';
+import StoreMap from './StoreMap';
 
 function AbingIndex() {
   return (
@@ -15,7 +15,7 @@ function AbingIndex() {
       <News />
       <Share />
       <CSR />
-      <Map />
+      <StoreMap />
     </>
   );
 }
