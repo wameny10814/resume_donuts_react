@@ -5,7 +5,7 @@ import ProjectButton from '../../components/ProjectButton/ProjectButton';
 import H2 from './H2';
 function StoreMap() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+    // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
   const [map, setMap] = useState({ lat: 25.0337702, lng: 121.5433378 });
@@ -106,18 +106,14 @@ function StoreMap() {
           </ul>
         </div>
         <div className="col-md-6">
-          {' '}
           <GoogleMap
             center={map}
             zoom={16}
             mapContainerStyle={{ width: '100%', height: '100%' }}
             options={{
-              // 關閉控制面板 縮放,街景,衛星/地形,全螢幕 套用地圖樣式
               mapId: ['7d73f43b257d967e'],
-              zoomControl: false,
-              streetViewControl: false,
-              mapTypeControl: false,
-              fullscreenControl: false,
+              disableDefaultUI: true, //關閉預設控制面板
+              zoomControl: true,
             }}
             onLoad={(map) => {
               setMap();
