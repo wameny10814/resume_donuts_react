@@ -3,7 +3,6 @@ import {
   useJsApiLoader,
   GoogleMap,
   MarkerF,
-  useGoogleMap,
   MarkerClusterer,
 } from '@react-google-maps/api';
 import TabPanel from './TabPanel';
@@ -15,6 +14,7 @@ function StoreMap() {
   });
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
+
   const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
@@ -22,6 +22,8 @@ function StoreMap() {
   }
 
   const stores = [
+    // { lat: 25.2480099, lng: 121.5170087 }, //測試
+    // { lat: 25.6480099, lng: 121.5170087 }, //測試
     { lat: 25.0480099, lng: 121.5170087 }, //北車
     { lat: 25.0337702, lng: 121.5433378 }, //大安
     { lat: 25.0404691, lng: 121.5667799 }, //市府
@@ -75,20 +77,7 @@ function StoreMap() {
             }}
             onLoad={onLoad}
           >
-            {/* React.18 要加F */}
-            {/* {stores.map((v, i) => {
-              return (
-                <MarkerF
-                  key={i}
-                  position={stores[i]}
-                  icon={{
-                    url: './images/catpaw.svg',
-                    scaledSize: new window.google.maps.Size(40, 40),
-                  }}
-                />
-              );
-            })} */}
-
+            {/* 只有註解再打開才會有作用 */}
             <MarkerClusterer>
               {(clusterer) =>
                 stores.map((location) => (
