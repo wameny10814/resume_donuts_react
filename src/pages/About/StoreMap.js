@@ -28,8 +28,13 @@ function StoreMap() {
           <div className="">
             <button
               className="ProjectButton"
-              // onClick={setMap(stores[0])}
-              onClick={() => map.panTo(stores[0])}
+              // onClick={() => {
+              //   setMap((stores) => [...stores], {
+              //     lat: 25.0480099,
+              //     lng: 121.5170087,
+              //   });
+              // }}
+              // onClick={() => map.panTo(stores[0])}
             >
               北車店
             </button>
@@ -121,7 +126,16 @@ function StoreMap() {
           >
             {/* React.18 要加F */}
             {stores.map((v, i) => {
-              return <MarkerF key={i} position={stores[i]} />;
+              return (
+                <MarkerF
+                  key={i}
+                  position={stores[i]}
+                  icon={{
+                    url: './images/catpaw.svg',
+                    scaledSize: new window.google.maps.Size(40, 40),
+                  }}
+                />
+              );
             })}
           </GoogleMap>
         </div>
