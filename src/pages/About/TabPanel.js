@@ -43,24 +43,36 @@ export default function BasicTabs() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box sx={{ borderBottom: 2, borderColor: 'divider' }}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
         >
           <Tab
-            sx={{ fontSize: '1.5rem', margin: '0 2rem' }}
+            sx={{
+              fontSize: '1.5rem',
+              margin: '0 auto',
+              fontFamily: 'Zen Maru Gothic',
+            }}
             label="北車店"
             {...a11yProps(0)}
           />
           <Tab
-            sx={{ fontSize: '1.5rem', margin: '0 2rem' }}
+            sx={{
+              fontSize: '1.5rem',
+              margin: '0 auto',
+              fontFamily: 'Zen Maru Gothic',
+            }}
             label="大安店"
             {...a11yProps(1)}
           />
           <Tab
-            sx={{ fontSize: '1.5rem', margin: '0 2rem' }}
+            sx={{
+              fontSize: '1.5rem',
+              margin: '0 auto',
+              fontFamily: 'Zen Maru Gothic',
+            }}
             label="市府店"
             {...a11yProps(2)}
           />
