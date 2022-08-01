@@ -1,14 +1,20 @@
-import { useState } from 'react';
-import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api';
+import { useState, useCallback } from 'react';
+import {
+  useJsApiLoader,
+  GoogleMap,
+  MarkerF,
+  useGoogleMap,
+} from '@react-google-maps/api';
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 
 import H2 from './H2';
 function StoreMap() {
   const { isLoaded } = useJsApiLoader({
-    // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
-  const [map, setMap] = useState({ lat: 25.0337702, lng: 121.5433378 });
+  const [center, setCenter] = useState({ lat: 25.0337702, lng: 121.5433378 });
+  const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
     return <p>Loading...</p>;
@@ -20,6 +26,10 @@ function StoreMap() {
     { lat: 25.0404691, lng: 121.5667799 }, //市府
   ];
 
+  const onLoad = (map) => {
+    seMapInstance(map);
+  };
+
   return (
     <section className="container">
       <H2 title="店鋪資訊" Entitle="MAP" />
@@ -27,26 +37,28 @@ function StoreMap() {
         <div className="col-md-6 mapInfo">
           <div className="">
             <button
-              className="ProjectButton"
+               className="ProjectButton"
               // onClick={() => {
               //   setMap((stores) => [...stores], {
               //     lat: 25.0480099,
               //     lng: 121.5170087,
               //   });
               // }}
-              // onClick={() => map.panTo(stores[0])}
+              onClick={() => {
+                mapInstance.panTo(stores[0]);
+              }}
             >
               北車店
             </button>
             <button
               className="ProjectButton"
-              onClick={() => map.panTo(stores[1])}
+              onClick={() => mapInstance.panTo(stores[1])}
             >
               大安店
             </button>
             <button
               className="ProjectButton"
-              onClick={() => map.panTo(stores[2])}
+              onClick={() => mapInstance.panTo(stores[2])}
             >
               市府店
             </button>
@@ -112,17 +124,18 @@ function StoreMap() {
         </div>
         <div className="col-md-6">
           <GoogleMap
-            center={map}
-            zoom={16}
+            center={center}
+            zoom={15}
             mapContainerStyle={{ width: '100%', height: '100%' }}
             options={{
               mapId: ['7d73f43b257d967e'],
               disableDefaultUI: true, //關閉預設控制面板
               zoomControl: true,
             }}
-            onLoad={(map) => {
-              setMap();
-            }}
+            onLoad={onLoad}
+            // onLoad={(map) => {
+            //   setMap();
+            // }}
           >
             {/* React.18 要加F */}
             {stores.map((v, i) => {
