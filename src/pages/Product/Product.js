@@ -24,3 +24,5 @@ function Product() {
 }
 
 export default Product;
+
+// 傳給購物車：使用 localStorage
