@@ -54,6 +54,8 @@ function App() {
           <Route path="CartOrderCheck" element={<CartOrderCheck />} />
           <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
           <Route path="CartOrderInfo" element={<CartOrderInfo />} />
+          <Route path="Customized" element={<Customized />} />
+
 
           {/* Yu的頁面 */}
           <Route path="Login" element={<Login />} />
@@ -61,7 +63,6 @@ function App() {
           {/* <Route path="MemberRegister" element={<MemberRegister />} /> */}
           <Route path="MemberHistory" element={<MemberHistory />} />
           <Route path="MemberPsdchange" element={<MemberPsdchange />} />
-          <Route path="Customized" element={<Customized />} />
 
           {/* 莊惟的頁面 */}
           <Route path="Product" element={<Product />} />
