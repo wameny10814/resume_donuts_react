@@ -3,6 +3,9 @@ import { Table, Container, Row } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../scssstyle/WillowShowList.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { BsPenFill } from 'react-icons/bs';
+
 function WillowShowList() {
   const [newsdata, setNewsdata] = useState([]);
 
@@ -25,14 +28,14 @@ function WillowShowList() {
       `http://localhost:3600/willownews/newsdata?sid=${dsid}`
     );
     const resdata = response;
-    console.log("asdasdadads",resdata);
+    console.log('asdasdadads', resdata);
 
     setControl(con + 1);
   };
-
+  console.log(control);
   useEffect(() => {
     getdatanews();
-    console.log("123")
+    console.log('123');
   }, [control]);
 
   return (
@@ -43,7 +46,7 @@ function WillowShowList() {
           <div className="col-12 mt-5">
             <h3>News</h3>
             <div className="willow_focus_left willow_minh">
-              <table className="table">
+              <table className="table table-striped text-center">
                 <thead className="willow_table_thead_style3">
                   <tr>
                     <th scope="col">newsid</th>
@@ -83,7 +86,18 @@ function WillowShowList() {
                           </td>
                           <td>{row.newstitle}</td>
                           <td>{row.words}</td>
-                          <td>{row.news_at}</td>
+                          <td>
+                            <div className="d-flex w-50 justify-content-between m-auto">
+                              <div> {row.news_at.slice(0, 10)}</div>
+                              <div className="willow_icons">
+                                <BsPenFill
+                                  onClick={() => {
+                                    console.log('asdasdasd');
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                       ))
                     : null}
@@ -95,7 +109,7 @@ function WillowShowList() {
           <div className="col-12 mt-5">
             <h3>Activty</h3>
             <div className="willow_focus_middle willow_minh">
-              <table className="table ">
+              <table className="table table-striped">
                 <thead className="willow_table_thead_style1">
                   <tr>
                     <th scope="col">#</th>
@@ -120,6 +134,7 @@ function WillowShowList() {
                   <tr>
                     <th scope="row">3</th>
                     <td>Larry the Bird</td>
+                    <td>Thornton</td>
                     <td>@twitter</td>
                   </tr>
                 </tbody>
@@ -129,7 +144,7 @@ function WillowShowList() {
           <div className="col-12 mt-5 mb-5">
             <h3>Good Writing</h3>
             <div className="willow_focus_right willow_minh">
-              <table className="table">
+              <table className="table table-striped table-striped">
                 <thead className="willow_table_thead_style2">
                   <tr>
                     <th scope="col">#</th>

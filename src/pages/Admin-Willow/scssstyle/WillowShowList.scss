@@ -1,11 +1,10 @@
 #willowshowlist {
-
   .willow_minh {
     height: 20vh;
-    overflow:auto;
-}
+    overflow: auto;
+  }
 
-  .willow_hdsty{
+  .willow_hdsty {
     width: 20%;
   }
 
@@ -43,5 +42,18 @@
   }
   .willow_focus_right:hover {
     border: 1px solid #96966e;
+  }
+  
+  .willow_icons {
+    svg {
+      color:#616153;
+      width: 1.2rem;
+      height: 1.2rem;
+
+   
+    }
+    :hover{
+      color:#96966e;
+    }
   }
 }
