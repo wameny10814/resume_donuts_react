@@ -12,17 +12,17 @@ function Story2() {
               處在講究飲食健康、營養均衡的時代，Pochi屋堅持使用天然有機食材，為顧客提供品項眾多的選擇，這一切都是為了傳達健康、友善環境的理念。
             </p>
             <img
-              className="bingflag1 position-relative"
+              className="bingflag1 position-relative mx-3"
               src="./images/flag1.svg"
               alt=""
             />
             <img
-              className="bingflag2 position-relative"
+              className="bingflag2 position-relative mx-3"
               src="./images/flag2.svg"
               alt=""
             />
             <img
-              className="bingflag3 position-relative"
+              className="bingflag3 position-relative mx-3"
               src="./images/flag3.svg"
               alt=""
             />
