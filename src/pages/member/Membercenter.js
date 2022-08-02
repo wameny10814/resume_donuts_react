@@ -3,6 +3,11 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AuthContext from '../../pages/member/components/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import cat from './images/footer_logo.svg';
+import stone1 from './images/stone01.svg';
+import stone2 from './images/stone02.svg';
+import stone3 from './images/stone03.svg';
+import stone4 from './images/stone04.svg';
 
 // import './Membercenter.css';
 function Membercenter() {
@@ -16,10 +21,20 @@ function Membercenter() {
   // 第一次記錄伺服器的原始資料用
   const [usersRaw, setUsersRaw] = useState('');
   // 呈現資料用
-  const [usersDisplay, setUsersDisplay] = useState('');
-  //avatar cstate
+  const [usersDisplay, setUsersDisplay] = useState({
+    account: '',
+    pass_hash: '',
+    password_check: '',
+    birthday: '',
+    email: '',
+    mobile: '',
+    address: '',
+    avatar: '',
+    level: '',
+  });
+  //avatar state
   const [pickedAvatar, setPickedAvatar] = useState(false);
-  const [avatarName, setAvatarName] = useState('');
+  const [didavatar, setDidAvatar] = useState('');
 
   //是否正在修改
   const [isOnchange, setIsOnchange] = useState(false);
@@ -58,21 +73,18 @@ function Membercenter() {
     // 生日格式處理
     const date = r[0].birthday;
     const slicedate = date.slice(0, 10);
-    const newDisplay = { ...res_data, birthday: slicedate };
-    setUsersDisplay(newDisplay);
+    const bitrDisplay = { ...res_data, birthday: slicedate };
+    if (res_data.avatar) {
+      const newDisplay = { ...bitrDisplay, avatar: r[0].avatar };
+      setUsersDisplay(newDisplay);
+      setDidAvatar(true);
+    }
+    setUsersDisplay(bitrDisplay);
   };
 
   useEffect(() => {
     getdata();
   }, []);
-  //to do 模擬點擊???????-----------------------------------------------
-
-  // const file = e.target;
-  // console.log(file)
-  // const file = e.target.files[0];
-
-  //大頭貼上傳至後端資料夾
-  //to do 大頭貼寫入資料庫--------------------------------------------
 
   const avatarchange = () => {
     const fd = new FormData(document.avatar_form);
@@ -85,7 +97,8 @@ function Membercenter() {
     })
       .then((r) => r.json())
       .then((data) => {
-        setAvatarName(data.filename);
+        setUsersDisplay({ ...usersDisplay, avatar: data.filename, level: 1 });
+        setDidAvatar(true);
       });
   };
   //錯誤訊息
@@ -141,7 +154,8 @@ function Membercenter() {
     })
       .then((r) => r.json())
       .then((result) => {
-        setUsersDisplay(result);
+        setUsersDisplay({ ...result, level: 2 });
+        getdata();
       });
   };
 
@@ -175,10 +189,14 @@ function Membercenter() {
         <div className="yu_profile">
           <div className="row-6 d-flex ">
             <div className="col">
-              <div className="yu_avatar_upload">
+              <div className="yu_avatar">
                 <figure className="d-flex yu_avatar_pic">
                   <img
-                    src={`http://localhost:3600/yuimgs/${avatarName}`}
+                    src={
+                      didavatar
+                        ? `http://localhost:3600/yuimgs/${usersDisplay.avatar}`
+                        : cat
+                    }
                     alt=""
                   />
                 </figure>
@@ -209,7 +227,7 @@ function Membercenter() {
               <div className="yu_member_title">
                 <p>
                   {isOnchange ? regForm.account : usersDisplay.account}
-                  目前會員等級 {isOnchange ? regForm.level : usersDisplay.level}
+                  目前會員等級 {isOnchange ? usersDisplay.level : usersDisplay.level}
                 </p>
               </div>
               <form
@@ -319,23 +337,38 @@ function Membercenter() {
           <div className="step">
             <div className="stone">
               <div className="yu_stone_figure">
-                <img src="../images/catpaw.svg" alt="" />
+                <img
+                  src={
+                    usersDisplay.level >= 1 ? stone1 : '../images/catpaw.svg'
+                  }
+                  alt=""
+                />
               </div>
-              <p className="yu_milestone_text">完成資料修改</p>
+              <p className="yu_milestone_text">完成大頭貼上傳</p>
             </div>
           </div>
           <div className="step">
             <div className="stone">
               <div className="yu_stone_figure">
-                <img src="../images/catpaw.svg" alt="" />
+                <img
+                  src={
+                    usersDisplay.level >= 2 ? stone2 : '../images/catpaw.svg'
+                  }
+                  alt=""
+                />
               </div>
-              <p className="yu_milestone_text">完成一筆訂單</p>
+              <p className="yu_milestone_text">完成個人資料</p>
             </div>
           </div>
           <div className="step">
             <div className="stone">
               <div className="yu_stone_figure">
-                <img src="../images/catpaw.svg" alt="" />
+                <img
+                  src={
+                    usersDisplay.level >= 3 ? stone3 : '../images/catpaw.svg'
+                  }
+                  alt=""
+                />
               </div>
               <p className="yu_milestone_text">完成五筆訂單</p>
             </div>
@@ -343,7 +376,12 @@ function Membercenter() {
           <div className="step">
             <div className="stone">
               <div className="yu_stone_figure">
-                <img src="../images/catpaw.svg" alt="" />
+                <img
+                  src={
+                    usersDisplay.level >= 4 ? stone4 : '../images/catpaw.svg'
+                  }
+                  alt=""
+                />
               </div>
               <p className="yu_milestone_text">單筆訂單滿xxx元</p>
             </div>

@@ -69,20 +69,17 @@
         left: 12rem;
         text-align: right;
     }
-    .yu_avatar_upload{
-        // border: 1px solid rgb(44, 2, 2);
+    .yu_avatar{
+        height: 25rem;
         position: relative;
     }
     .yu_avatar_pic{
-        position: relative;
-        width: 100%;
-        
+        width:60%;
+        margin: auto;
+        padding-top: 4rem;
         img{
             width: 100%;
-            position: relative;
-            top: 5rem;
             border-radius: 18px;
-         
         }
     }
     .yu_avatar_btn{
@@ -91,9 +88,8 @@
         color: white;
         border-radius: 18px;
         padding: .5rem 2rem;
-        // border: 1px solid red;
+        position: absolute;
         bottom: 0;
-        margin-top: 6rem;
     }
     .yu_profile-btn{
         border: none;
