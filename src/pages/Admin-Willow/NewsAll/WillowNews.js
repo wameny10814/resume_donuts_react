@@ -21,19 +21,33 @@ function WillowNews(props) {
   const clickSubmit = async (e) => {
     e.preventDefault();
     // console.log('asdqwe');
-
-    const data = mainform;
-    console.log(data);
-    const response = await axios.post(
-      'http://localhost:3600/willownews/newsadd',
-       data 
-    );
-    // const resdata = response.data;
-    // console.log(resdata.filename);
-    // setImgname(resdata.filename);
+    const tempdata = new FormData(document.uploadimgFrom);
+    // console.log('data', data.get('newsimg'));
+    const opt = tempdata.get('newsimg').name;
+    if (opt) {
+      const data = mainform;
+      console.log(data);
+      const response = await axios.post(
+        'http://localhost:3600/willownews/newsadd',
+        data
+      );
+      const resdata = response.data;
+      const info_bar = document.querySelector('#info-bar-success');
+      info_bar.style.display = 'block';
+      console.log(resdata);
+      setTimeout(() => {
+        console.log('Delayed for 1 second.');
+        setOption(0);
+      }, '1000');
+    } else {
+      const info_bar = document.querySelector('#info-bar-danger');
+      info_bar.style.display = 'block';
+    }
   };
 
   const logsee = async (e) => {
+    const info_bar = document.querySelector('#info-bar-danger');
+    info_bar.style.display = 'none';
     const data = new FormData(document.uploadimgFrom);
 
     const response = await axios.post(
@@ -86,6 +100,7 @@ function WillowNews(props) {
                 </div>
                 <div className="flex-grow-1">
                   <input
+                    required
                     type="text"
                     id="newstitle"
                     placeholder="文章標題"
@@ -120,7 +135,12 @@ function WillowNews(props) {
                   )}
                 </div>
                 <div>
-                  <input type="hidden" name="photos" value={`${imgname}`} />
+                  <input
+                    type="hidden"
+                    name="photos"
+                    value={`${imgname}`}
+                    required
+                  />
                 </div>
                 <div>
                   <button
@@ -132,6 +152,14 @@ function WillowNews(props) {
                   >
                     上傳圖片
                   </button>
+                  <div
+                    id="info-bar-danger"
+                    className="alert alert-danger"
+                    role="alert"
+                    style={{ display: 'none' }}
+                  >
+                    請選擇圖片
+                  </div>
                 </div>
               </div>
             </div>
@@ -160,6 +188,14 @@ function WillowNews(props) {
               </button>
             </div>
           </form>
+          <div
+            id="info-bar-success"
+            className="alert alert-success"
+            role="alert"
+            style={{ display: 'none' }}
+          >
+            送出成功
+          </div>
 
           {/* hidden form */}
           <form name="uploadimgFrom">

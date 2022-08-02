@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   useJsApiLoader,
   GoogleMap,
   MarkerF,
   MarkerClusterer,
+  DirectionsRenderer,
 } from '@react-google-maps/api';
 import TabPanel from './TabPanel';
 
@@ -13,13 +14,45 @@ function StoreMap() {
     googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
+  // const [directionResponse, setDirectionResponse] = useState(null);
+  // const [distance, setDistance] = useState('');
+  // const [duration, setDuration] = useState('');
+
+  // /** @type React.MutableRefObject<HTNLInputElement> */
+  // const originRef = useRef();
+  // /** @type React.MutableRefObject<HTNLInputElement> */
+  // const destiantionRef = useRef();
+
   const center = { lat: 25.0337702, lng: 121.5433378 };
-
   const [mapInstance, seMapInstance] = useState(null);
-
   if (!isLoaded) {
     return <p>Loading...</p>;
   }
+
+  // async function caculateRoute() {
+  //   if (originRef.current.value === '' || destiantionRef.current.value === '') {
+  //     return;
+  //   }
+  //   // eslint-disable-next-line no-undef
+  //   const directionService = new google.maps.directionService();
+  //   const results = await directionService.route({
+  //     origin: originRef.current.value,
+  //     destiantion: destiantionRef.current.value,
+  //     // eslint-disable-next-line no-undef
+  //     travelMode: google.maps.TravelMode.DRIVING,
+  //   });
+  //   setDirectionResponse(results);
+  //   setDistance(results.routes[0].leg[0].distance.text);
+  //   setDuration(results.routes[0].leg[0].duration.text);
+  // }
+
+  // function clearRoute() {
+  //   setDirectionResponse(null);
+  //   setDistance('');
+  //   setDuration('');
+  //   originRef.current.value = '';
+  //   destiantionRef.current.value = '';
+  // }
 
   const stores = [
     // { lat: 25.2480099, lng: 121.5170087 }, //測試
@@ -36,17 +69,16 @@ function StoreMap() {
   function createKey(stores) {
     return stores.lat + stores.lng;
   }
+
   return (
     <section className="container">
       <H2 title="店鋪資訊" Entitle="MAP" />
-      <div className="d-flex">
-        <div className="col-md-6 mapInfo">
+      <div className="d-md-flex">
+        <div className="col-12 col-md-6 mapInfo">
           <div className="">
             <button
               className="ProjectButton"
-              onClick={() => {
-                mapInstance.panTo(stores[0]);
-              }}
+              onClick={() => mapInstance.panTo(stores[0])}
             >
               北車店
             </button>
@@ -65,7 +97,13 @@ function StoreMap() {
           </div>
           <TabPanel></TabPanel>
         </div>
-        <div className="col-md-6">
+        <div className="col-12 col-md-6">
+          {/* <input type="text" ref={originRef} />
+          <input type="text" ref={destiantionRef} />
+          <button onClick={caculateRoute}>計算</button>
+          <button onClick={clearRoute}>重設</button> */}
+
+          {/* 會跳錯誤 */}
           <GoogleMap
             center={center}
             zoom={15}
@@ -85,10 +123,17 @@ function StoreMap() {
                     key={createKey(location)}
                     position={location}
                     clusterer={clusterer}
+                    icon={{
+                      url: './images/catpaw.svg',
+                      scaledSize: new window.google.maps.Size(40, 40),
+                    }}
                   />
                 ))
               }
             </MarkerClusterer>
+            {/* {directionResponse && (
+              <DirectionsRenderer directions={directionResponse} />
+            )} */}
           </GoogleMap>
         </div>
       </div>

@@ -14,6 +14,9 @@ function AdminPlace() {
   const [openreports, setOpenreports] = useState(false);
   const [option, setOption] = useState(0);
 
+
+
+
   const clickoption = (v) => {
     console.log(v);
     let numv = parseInt(v);

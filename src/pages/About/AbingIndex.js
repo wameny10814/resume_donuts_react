@@ -3,18 +3,20 @@ import Story from './Story';
 import HotProduct from './HotProduct';
 import News from './News';
 import Share from './Share';
-import CSR from './CSR';
+import Contribute from './Contribute';
 import StoreMap from './StoreMap';
+import Story2 from './Story2';
 
 function AbingIndex() {
   return (
     <>
       <About />
       <Story />
+      <Story2 />
       <HotProduct />
       <News />
       <Share />
-      <CSR />
+      <Contribute />
       <StoreMap />
     </>
   );

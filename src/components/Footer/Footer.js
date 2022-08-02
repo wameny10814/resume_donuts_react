@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='d-none d-md-block'>
       <div className="d-flex align-items-center justify-content-around h300">
         <div className="text-center">
           <div className="w-100">

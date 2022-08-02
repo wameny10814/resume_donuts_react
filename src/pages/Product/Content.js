@@ -1,5 +1,6 @@
 import './Product.css';
 import ImgOnClick from './components/Img-onclick';
+import ProductRecommandCard from './components/Product-recommand';
 
 function Content() {
   return (
@@ -24,6 +25,8 @@ function Content() {
             </a>
           </div>
         </div>
+        <p className='Mars-prod-name'>產品推薦</p>
+        <ProductRecommandCard />
       </div>
     </>
   );
