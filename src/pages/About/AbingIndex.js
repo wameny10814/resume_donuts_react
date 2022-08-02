@@ -5,13 +5,14 @@ import News from './News';
 import Share from './Share';
 import Contribute from './Contribute';
 import StoreMap from './StoreMap';
-
+import Story2 from './Story2';
 
 function AbingIndex() {
   return (
     <>
       <About />
       <Story />
+      <Story2 />
       <HotProduct />
       <News />
       <Share />
