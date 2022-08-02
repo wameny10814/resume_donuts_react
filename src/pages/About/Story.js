@@ -14,8 +14,7 @@ function Story() {
             <div className="d-flex">
               <div>
                 <p className="col-12 col-md-9 bingText-16 mb-5">
-                  我們是隱身在台北巷弄內的甜點店，在玄關處脫下鞋子，步上木階，希望帶給貴賓舒適自在的感受。
-                  嚴選無二的新鮮食材是我們負責任的態度，在這裡美食成為簡單易懂的共同語言，讓身心盈滿幸福能量。
+                  Pochi屋是隱藏在台北巷弄內的甜點店，希望帶給貴賓舒適自在的感受。提供健康美味兼具的甜點是我們負責任的態度，在這裡美食成為簡單易懂的共同語言，讓身心盈滿幸福能量。
                 </p>
                 <div>
                   <ProjectButton text="LEARN MORE" />
