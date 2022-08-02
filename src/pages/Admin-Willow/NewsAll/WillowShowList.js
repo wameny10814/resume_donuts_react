@@ -1,49 +1,100 @@
 import React from 'react';
 import { Table, Container, Row } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../scssstyle/WillowShowList.scss';
 function WillowShowList() {
+  const [newsdata, setNewsdata] = useState([]);
+
+  // 點選加1
+  const [control, setControl] = useState(0);
+
+  const getdatanews = async () => {
+    const response = await axios.get(
+      `http://localhost:3600/willownews/newsdata`
+    );
+    const resdata = response.data;
+    console.log(resdata);
+    setNewsdata(response.data);
+  };
+  const deledatanews = async (dsid) => {
+    console.log(dsid);
+    let con = control;
+
+    const response = await axios.delete(
+      `http://localhost:3600/willownews/newsdata?sid=${dsid}`
+    );
+    const resdata = response;
+    console.log("asdasdadads",resdata);
+
+    setControl(con + 1);
+  };
+
+  useEffect(() => {
+    getdatanews();
+    console.log("123")
+  }, [control]);
+
   return (
     <div id="willowshowlist">
-      <div className="container-fluild">
+      <div className="container">
         <h1>ShowList</h1>
         <div className="row">
-          <div className="col ">
+          <div className="col-12 mt-5">
             <h3>News</h3>
-            <div className="willow_focus_left">
+            <div className="willow_focus_left willow_minh">
               <table className="table">
                 <thead className="willow_table_thead_style3">
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">newsid</th>
+                    <th scope="col">Userid</th>
+                    <th scope="col">newsimg</th>
+                    <th scope="col">newstitle</th>
+                    <th scope="col">words</th>
+                    <th scope="col">newsAt</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th >1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th >2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th>3</th>
-                    <td >Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  {console.log('newsdata', newsdata)}
+                  {newsdata
+                    ? newsdata.map((row) => (
+                        <tr key={'mm' + row.newsid}>
+                          <th scope="row">
+                            <div className="d-flex w-50 justify-content-around">
+                              <div>
+                                <button
+                                  type="button"
+                                  className="btn-close"
+                                  aria-label="Close"
+                                  onClick={() => {
+                                    deledatanews(row.newsid);
+                                  }}
+                                ></button>
+                              </div>
+                              <div>{row.newsid}</div>
+                            </div>
+                          </th>
+                          <td>{row.userid}</td>
+                          <td className="willow_hdsty">
+                            <img
+                              src={`http://localhost:3600/willowimgs/${row.newsimg}`}
+                              className="w-75"
+                            />
+                          </td>
+                          <td>{row.newstitle}</td>
+                          <td>{row.words}</td>
+                          <td>{row.news_at}</td>
+                        </tr>
+                      ))
+                    : null}
                 </tbody>
               </table>
             </div>
           </div>
-          <div className="col">
+
+          <div className="col-12 mt-5">
             <h3>Activty</h3>
-            <div className="willow_focus_middle ">
+            <div className="willow_focus_middle willow_minh">
               <table className="table ">
                 <thead className="willow_table_thead_style1">
                   <tr>
@@ -68,16 +119,16 @@ function WillowShowList() {
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td >Larry the Bird</td>
+                    <td>Larry the Bird</td>
                     <td>@twitter</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div className="col">
+          <div className="col-12 mt-5 mb-5">
             <h3>Good Writing</h3>
-            <div className="willow_focus_right">
+            <div className="willow_focus_right willow_minh">
               <table className="table">
                 <thead className="willow_table_thead_style2">
                   <tr>
@@ -94,6 +145,9 @@ function WillowShowList() {
                         type="button"
                         className="btn-close"
                         aria-label="Close"
+                        // onClick={() => {
+                        //   getdatanews();
+                        // }}
                       ></button>
                       122
                     </th>
@@ -116,7 +170,7 @@ function WillowShowList() {
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td >Larry the Bird</td>
+                    <td>Larry the Bird</td>
                     <td>@twitter</td>
                   </tr>
                 </tbody>
