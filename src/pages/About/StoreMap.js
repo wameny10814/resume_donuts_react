@@ -73,14 +73,12 @@ function StoreMap() {
   return (
     <section className="container">
       <H2 title="店鋪資訊" Entitle="MAP" />
-      <div className="d-flex">
-        <div className="col-md-6 mapInfo">
+      <div className="d-md-flex">
+        <div className="col-12 col-md-6 mapInfo">
           <div className="">
             <button
               className="ProjectButton"
-              onClick={() => {
-                mapInstance.panTo(stores[0]);
-              }}
+              onClick={() => mapInstance.panTo(stores[0])}
             >
               北車店
             </button>
@@ -99,12 +97,13 @@ function StoreMap() {
           </div>
           <TabPanel></TabPanel>
         </div>
-        <div className="col-md-6">
+        <div className="col-12 col-md-6">
           {/* <input type="text" ref={originRef} />
           <input type="text" ref={destiantionRef} />
           <button onClick={caculateRoute}>計算</button>
           <button onClick={clearRoute}>重設</button> */}
 
+          {/* 會跳錯誤 */}
           <GoogleMap
             center={center}
             zoom={15}
