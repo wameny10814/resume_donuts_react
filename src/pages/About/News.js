@@ -1,12 +1,12 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
-import H2 from './H2';
+import H2 from '../../components/H2';
 
 function News() {
   return (
     <>
       <section className='my-5'>
         <H2 title="最新消息" Entitle="NEWS" />
-        <div className="container d-flex my-5 py-5 flex-wrap">
+        <div className="container d-flex my-5 flex-wrap">
           <div className="col-12 col-md-6">
             <img
               className="w-100 h-auto"

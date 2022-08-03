@@ -8,7 +8,7 @@ import {
 } from '@react-google-maps/api';
 import TabPanel from './TabPanel';
 
-import H2 from './H2';
+import H2 from '../../components/H2';
 function StoreMap() {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
@@ -71,7 +71,7 @@ function StoreMap() {
   }
 
   return (
-    <section className="container">
+    <section className="container mt-5 pt-5">
       <H2 title="店鋪資訊" Entitle="MAP" />
       <div className="d-md-flex">
         <div className="col-12 col-md-6 mapInfo">

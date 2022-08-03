@@ -1,10 +1,10 @@
-import H2 from './H2';
+import H2 from '../../components/H2';
 function Share() {
   return (
     <>
-      <section className="container my-5 py-5">
+      <section className="container">
         <H2 title="會員分享" Entitle="SOCIAL" />
-        <div className="d-flex justify-content-center share my-5 py-5">
+        <div className="d-flex justify-content-center share">
           <div className="col-md-6">
             <div className="d-flex h-50 w-100">
               <div className="w-50">
