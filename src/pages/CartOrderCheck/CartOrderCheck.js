@@ -3,9 +3,12 @@ import H2 from '../About/H2';
 
 function CartOrderCheck() {
   return (
-    <>
+    <div className="container">
       <H2 title="請確認訂單資訊" Entitle="ORDER CHECK" />
-    </>
+      <div className="loveyu_textInfoBox">
+        
+      </div>
+    </div>
   );
 }
 
