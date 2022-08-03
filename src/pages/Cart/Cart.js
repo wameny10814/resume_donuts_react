@@ -5,7 +5,7 @@ import React, { useState, useContext, createContext } from 'react';
 
 import productsData from './data/products.json';
 
-import H2 from '../About/H2';
+import H2 from '../../components/H2';
 
 // 初始化狀態的函示
 

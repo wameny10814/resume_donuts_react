@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext } from 'react';
-import H2 from '../About/H2';
+import H2 from '../../components/H2';
 
 function CartOrderInfo() {
   return (
