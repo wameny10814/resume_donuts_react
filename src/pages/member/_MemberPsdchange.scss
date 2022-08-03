@@ -1,0 +1,13 @@
+// *{
+//   outline: 1px solid red;
+// }
+.yu_psdchange_eye_relative {
+  width: 100%;
+  position: relative;
+  img {
+    width: 5%;
+    position: absolute;
+    right: 5%;
+    top: -2rem;
+  }
+}

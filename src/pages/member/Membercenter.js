@@ -11,7 +11,8 @@ import stone4 from './images/stone04.svg';
 
 // import './Membercenter.css';
 function Membercenter() {
-  const { authorized, token, account, level, logout } = useContext(AuthContext);
+  const { authorized, token, account, level, logout, setAuth, auth } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   //如未登入轉出至首頁
   if (authorized === false) {
@@ -33,7 +34,6 @@ function Membercenter() {
     level: '',
   });
   //avatar state
-  const [pickedAvatar, setPickedAvatar] = useState(false);
   const [didavatar, setDidAvatar] = useState('');
 
   //是否正在修改
@@ -78,6 +78,10 @@ function Membercenter() {
       const newDisplay = { ...bitrDisplay, avatar: r[0].avatar };
       setUsersDisplay(newDisplay);
       setDidAvatar(true);
+      setAuth({
+        ...auth,
+        level: usersDisplay.level,
+      });
     }
     setUsersDisplay(bitrDisplay);
   };
@@ -86,6 +90,7 @@ function Membercenter() {
     getdata();
   }, []);
 
+  const mobile_errmessage = useRef('');
   const avatarchange = () => {
     const fd = new FormData(document.avatar_form);
     fetch('http://localhost:3600/member/yuupload', {
@@ -97,8 +102,15 @@ function Membercenter() {
     })
       .then((r) => r.json())
       .then((data) => {
-        setUsersDisplay({ ...usersDisplay, avatar: data.filename, level: 1 });
+        //修改成功寫入呈現的state
+        setUsersDisplay({ ...usersDisplay, avatar: data.filename });
+        //判斷大頭貼修改成功
         setDidAvatar(true);
+        //更新authcontext
+        setAuth({
+          ...auth,
+          level: usersDisplay.level,
+        });
       });
   };
   //錯誤訊息
@@ -128,7 +140,6 @@ function Membercenter() {
   const changeFields = (event) => {
     const id = event.target.id;
     const val = event.target.value;
-    console.log({ id, val });
     setIsOnchange(true);
     setRegForm({
       ...regForm,
@@ -136,7 +147,6 @@ function Membercenter() {
       level: usersDisplay.level,
       account: usersDisplay.account,
     });
-    console.log(regForm);
   };
   //修改會員資料
   const update_member_data = async (event) => {
@@ -144,6 +154,13 @@ function Membercenter() {
     if (window.confirm('確定要修改會員資料嗎?') === false) {
       return;
     }
+    //手機號碼要09+八碼
+    // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
+    // if (mobile_re.test(regForm.mobiel) === false) {
+    //   mobile_errmessage.current.innerText = '手機格式錯誤';
+    //   console.log('check mobile', mobile_re.test(regForm.mobiel));
+    //   return mobile_re.test(regForm.mobiel);
+    // }
     fetch('http://localhost:3600/member/memberupdate', {
       method: 'POST',
       body: JSON.stringify(regForm),
@@ -154,8 +171,16 @@ function Membercenter() {
     })
       .then((r) => r.json())
       .then((result) => {
-        setUsersDisplay({ ...result, level: 2 });
+        //修改成功設定至state
+        setUsersDisplay(result);
+        //設定authcontext會員等級
+        setAuth({
+          ...auth,
+          level: result.level,
+        });
+        //畫面更新
         getdata();
+        // console.log('checkauth_edit_pro', auth);
       });
   };
 
@@ -227,7 +252,8 @@ function Membercenter() {
               <div className="yu_member_title">
                 <p>
                   {isOnchange ? regForm.account : usersDisplay.account}
-                  目前會員等級 {isOnchange ? usersDisplay.level : usersDisplay.level}
+                  目前會員等級{' '}
+                  {isOnchange ? usersDisplay.level : usersDisplay.level}
                 </p>
               </div>
               <form
@@ -281,9 +307,12 @@ function Membercenter() {
                     placeholder="mobile"
                     value={isOnchange ? regForm.mobile : usersDisplay.mobile}
                     onChange={changeFields}
+                    minLength={10}
                     required
                   />
-                  <p className="error">{regFormError.mobile}</p>
+                  <p className="error" ref={mobile_errmessage}>
+                    {regFormError.mobile}
+                  </p>
                 </div>
                 <div className="yu_profile_form_group  form-group">
                   <label htmlFor="address" className="col-3">
@@ -307,7 +336,7 @@ function Membercenter() {
                     className="birthday col-8"
                     name="level"
                     id="level"
-                    value={usersDisplay.level}
+                    value="'0'+{usersDisplay.level}"
                     style={{ display: 'none' }}
                   />
                 </div>{' '}
