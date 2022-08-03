@@ -124,8 +124,8 @@ function StoreMap() {
                     position={location}
                     clusterer={clusterer}
                     icon={{
-                      url: './images/catpaw.svg',
-                      scaledSize: new window.google.maps.Size(40, 40),
+                      url: './images/DountMap.gif',
+                      // scaledSize: new window.google.maps.Size(20, 20),
                     }}
                   />
                 ))
