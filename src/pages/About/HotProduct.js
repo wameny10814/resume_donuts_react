@@ -29,23 +29,23 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="mx-auto col-md-10 my-5">
+          <div className="mx-auto col-md-11 mb-4">
             <img className="w-100 h-100" src="./images/Hot-1.svg" alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mx-auto col-md-10 my-5">
+          <div className="mx-auto col-md-11 mt-5">
             <img className="w-100 h-100" src="./images/Hot-2.svg" alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mx-auto col-md-10 my-5">
-            <img className="w-100 h-100" src="./images/Hot-3.svg" alt="" />
+          <div className="mx-auto col-md-11 my-3">
+            <img className="w-100 h-100" src="./images/Hot-3.png" alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mx-auto col-md-10 my-5">
-            <img className="w-100 h-100" src="./images/Hot-2.svg" alt="" />
+          <div className="mx-auto col-md-11 mb-4">
+            <img className="w-100 h-100" src="./images/Hot-4.png" alt="" />
           </div>
         </SwiperSlide>
       </Swiper>
