@@ -8,6 +8,7 @@ export default function AuthContextProvider({ children }) {
     sid: 0,
     account: '',
     token: '',
+    level: '',
   };
   //已設定登入成功寫進localStorage
   // 先查看 localStorage 的資料是否表示已登入
@@ -36,7 +37,7 @@ export default function AuthContextProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ ...auth, setAuth, logout }}>
+    <AuthContext.Provider value={{ ...auth, setAuth, logout, auth }}>
       {children}
     </AuthContext.Provider>
   );

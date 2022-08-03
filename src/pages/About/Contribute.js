@@ -1,11 +1,11 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
-import H2 from './H2';
+import H2 from '../../components/H2';
 function Contribute() {
   return (
     <>
-      <section>
+      <section className="my-5">
         <H2 title="回饋社會" Entitle="Contribute " />
-        <div className="d-flex flex-wrap my-5">
+        <div className="d-flex flex-wrap">
           <div className="col-12 col-md-6">
             <div className="w-75 mx-auto">
               <p className="bingH4">我們重視猫的權益</p>

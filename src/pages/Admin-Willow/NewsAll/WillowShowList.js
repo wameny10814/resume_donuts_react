@@ -5,10 +5,10 @@ import axios from 'axios';
 import '../scssstyle/WillowShowList.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BsPenFill } from 'react-icons/bs';
-
-function WillowShowList() {
+import { AiOutlinePlusCircle } from 'react-icons/ai';
+function WillowShowList(props) {
   const [newsdata, setNewsdata] = useState([]);
-
+  const { setOption, setChoosesid } = props;
   // 點選加1
   const [control, setControl] = useState(0);
 
@@ -44,7 +44,19 @@ function WillowShowList() {
         <h1>ShowList</h1>
         <div className="row">
           <div className="col-12 mt-5">
-            <h3>News</h3>
+            <h3 className="d-flex w-25 justify-content-around">
+              <div>News</div>
+              <div className="d-flex ">
+                <div className="pt-1">新增</div>
+                <div className="willow_icons_add">
+                  <AiOutlinePlusCircle
+                    onClick={() => {
+                      setOption(1);
+                    }}
+                  />
+                </div>
+              </div>
+            </h3>
             <div className="willow_focus_left willow_minh">
               <table className="table table-striped text-center">
                 <thead className="willow_table_thead_style3">
@@ -92,7 +104,9 @@ function WillowShowList() {
                               <div className="willow_icons">
                                 <BsPenFill
                                   onClick={() => {
-                                    console.log('asdasdasd');
+                                    setChoosesid(row.newsid);
+                                    console.log(row.newsid)
+                                    setOption(11);
                                   }}
                                 />
                               </div>

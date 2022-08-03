@@ -32,7 +32,6 @@ function Login() {
     }
   };
 
-
   //設定登入資料
   const [myform, setMyform] = useState({
     account: '',
@@ -44,7 +43,6 @@ function Login() {
     const val = event.target.value;
     console.log({ id, val });
     setMyform({ ...myform, [id]: val });
-
   };
 
   //轉頁
@@ -55,8 +53,8 @@ function Login() {
 
     console.log(myform);
     // TODO: 欄位檢查-----------------------------------------------------------------
-    if (myform.account === "" || myform.password === "") {
-      return
+    if (myform.account === '' || myform.password === '') {
+      return;
     }
     fetch('http://localhost:3600/login-jwt', {
       method: 'POST',
@@ -67,51 +65,22 @@ function Login() {
     })
       .then((r) => r.json())
       .then((result) => {
-        console.log(result);
         if (result.success) {
           //登入成功 寫進localstorage & 跳轉到首頁
           //登入成功需刷新才能更改navbar -->使用authorized判定-->result 把authcontext的authorized放進去
           //登入成功會發回來 該會員 token account 及會員等級
           localStorage.setItem('auth', JSON.stringify(result.data));
-          console.log(result.data);
           setAuth({
             ...result.data,
             authorized: true,
           });
           alert('登入成功!');
-          // navigate('/');
+          navigate('/');
         } else {
           alert('帳密錯誤');
         }
       });
   };
-
-  // const toggleEye = () => {
-  //   console.log('toggle Eye');
-
-  //   setIsHidePass(!isHidePass);
-  //   if (eye === 'password') {
-  //     setEye('text');
-  //     // setPic('../../../images/Eye.svg');
-  //     // setCat('../../../images/logincat_blind.svg');
-  //   } else {
-  //     setEye('password');
-  //     // setCat('../../../images/logincat_blind.svg');
-  //     // setPic('../../../images/EyeSlash.svg');
-  //   }
-  // };
-
-  // const blurtexting = () => {
-  //   setCat('../../../images/logincat.svg');
-  // };
-
-  // useEffect(() => {
-  //   setCat('../../../images/logincat.svg');
-  //   return () => {
-  //     // Clean up the subscription
-  //     setCat('../../../images/logincat_blind.svg')
-  //   };
-  // },[eye]);
 
   return (
     <>
@@ -122,10 +91,7 @@ function Login() {
         <div className="row">
           <div className="col">
             <div className="logincat d-flex justify-content-center">
-              <img
-                src={isCatHide ? catHide : cat}
-                alt=""
-              />
+              <img src={isCatHide ? catHide : cat} alt="" />
               {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
             </div>
             <form action="" onSubmit={whenSubmit}>
@@ -161,20 +127,20 @@ function Login() {
                   <a href="#/">忘記密碼</a>
                 </div>
                 <button className="ProjectButton">登入</button>
-              <p>
-                第一次光臨嗎?
-                <Link to="/MemberRegister">點此註冊</Link>
-              </p>
-              <p>
-                <Link className="nav-link" to="/adminlogin">
-                  admin
-                </Link>
-              </p>
+                <p>
+                  第一次光臨嗎?
+                  <Link to="/MemberRegister">點此註冊</Link>
+                </p>
+                <p>
+                  <Link className="nav-link" to="/adminlogin">
+                    admin
+                  </Link>
+                </p>
               </div>
             </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

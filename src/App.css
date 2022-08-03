@@ -36,7 +36,7 @@
 
 .bingimg3 {
   bottom: 12%;
-  right: 50%;
+  right: 0%;
 }
 
 .bing-News-dot {
@@ -407,6 +407,17 @@
   position: absolute;
   top: -4.5rem;
   left: 45%;
+}
+
+.yu_psdchange_eye_relative {
+  width: 100%;
+  position: relative;
+}
+.yu_psdchange_eye_relative img {
+  width: 5%;
+  position: absolute;
+  right: 5%;
+  top: -2rem;
 }
 
 nav {

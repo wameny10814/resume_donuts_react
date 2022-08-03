@@ -25,7 +25,26 @@ function Content() {
             </a>
           </div>
         </div>
-        <p className='Mars-prod-name'>產品推薦</p>
+        <div className="Mars-cnt-nutriwr">
+          <div className="Mars-cnt-nutrition">
+            <p className="Mars-nutri-p">營養成分</p>
+            <div className="Mars-nutri-flex d-flex">
+              <p className="Mars-nutri-p">熱量：xx kCal</p>
+              <p className="Mars-nutri-p">蛋白質：xx g</p>
+              <p className="Mars-nutri-p">脂肪：x g</p>
+              <p className="Mars-nutri-p">碳水化合物：x g</p>
+              <p className="Mars-nutri-p">鈉：x mg</p>
+            </div>
+            <p className="Mars-nutri-p">過敏原資訊</p>
+            <div className="Mars-allergy-flex d-flex">
+              <p className="Mars-nutri-p">小麥：〇</p>
+              <p className="Mars-nutri-p">乳類：〇</p>
+              <p className="Mars-nutri-p">蛋：〇</p>
+              <p className="Mars-nutri-p">花生：Ｘ</p>
+            </div>
+          </div>
+        </div>
+        <p className="Mars-prod-name">產品推薦</p>
         <ProductRecommandCard />
       </div>
     </>
