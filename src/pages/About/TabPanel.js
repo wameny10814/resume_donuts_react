@@ -63,7 +63,6 @@ export default function BasicTabs() {
               fontSize: '1.5rem',
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
-
             }}
             label="大安店"
             {...a11yProps(1)}
@@ -73,7 +72,6 @@ export default function BasicTabs() {
               fontSize: '1.5rem',
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
-
             }}
             label="市府店"
             {...a11yProps(2)}

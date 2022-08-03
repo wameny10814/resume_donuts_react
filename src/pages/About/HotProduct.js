@@ -1,4 +1,3 @@
-import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -30,22 +29,22 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="mx-auto col-md-10">
+          <div className="mx-auto col-md-10 my-5">
             <img className="w-100 h-100" src="./images/Hot-1.svg" alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mx-auto col-md-10">
+          <div className="mx-auto col-md-10 my-5">
             <img className="w-100 h-100" src="./images/Hot-2.svg" alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mx-auto col-md-10">
+          <div className="mx-auto col-md-10 my-5">
             <img className="w-100 h-100" src="./images/Hot-3.svg" alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mx-auto col-md-10">
+          <div className="mx-auto col-md-10 my-5">
             <img className="w-100 h-100" src="./images/Hot-2.svg" alt="" />
           </div>
         </SwiperSlide>
