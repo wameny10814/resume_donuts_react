@@ -6,19 +6,20 @@ import WillowShowList from './NewsAll/WillowShowList';
 import WillowNews from './NewsAll/WillowNews';
 import WillowHavegoodPrice from './NewsAll/WillowHavegoodPrice';
 import WillowGoodWritings from './NewsAll/WillowGoodWritings';
+import WillowNewsupdate from './NewsAll/WillowNewsupdate';
+
 import WillowReport from './Report/WillowReport';
+
 import './scssstyle/AdminPlace.scss';
 
 function AdminPlace() {
   const [opennews, setOpennews] = useState(false);
   const [openreports, setOpenreports] = useState(false);
   const [option, setOption] = useState(0);
-
-
-
+  const [choosesid, setChoosesid] = useState(0);
 
   const clickoption = (v) => {
-    console.log(v);
+    //console.log(v);
     let numv = parseInt(v);
     setOption(numv);
   };
@@ -55,7 +56,7 @@ function AdminPlace() {
                       value={1}
                       onClick={(e) => {
                         clickoption(e.target.value);
-                        console.log('1', e.target.value);
+                        //console.log('1', e.target.value);
                       }}
                     >
                       News
@@ -67,7 +68,7 @@ function AdminPlace() {
                       value={2}
                       onClick={(e) => {
                         clickoption(e.target.value);
-                        console.log(e.target.value);
+                        //console.log(e.target.value);
                       }}
                     >
                       Activty
@@ -79,7 +80,7 @@ function AdminPlace() {
                       value={3}
                       onClick={(e) => {
                         clickoption(e.target.value);
-                        console.log(e.target.value);
+                        //console.log(e.target.value);
                       }}
                     >
                       Good Writing
@@ -107,7 +108,7 @@ function AdminPlace() {
                     value={4}
                     onClick={(e) => {
                       clickoption(e.target.value);
-                      console.log(e.target.value);
+                     // console.log(e.target.value);
                     }}
                   >
                     Report
@@ -120,11 +121,32 @@ function AdminPlace() {
       </div>
       <div className="container-fuild willow_minhight">
         <div className="row">
-          {option === 0 && <WillowShowList />}
-          {option === 1 && <WillowNews setOption={setOption} />}
-          {option === 2 && <WillowHavegoodPrice setOption={setOption} />}
-          {option === 3 && <WillowGoodWritings setOption={setOption} />}
-          {option === 4 && <WillowReport setOption={setOption} />}
+          {console.log(choosesid, choosesid)}
+          {option === 0 && (
+            <WillowShowList setOption={setOption} setChoosesid={setChoosesid} />
+          )}
+          {option === 1 && (
+            <WillowNews setOption={setOption} setChoosesid={setChoosesid} />
+          )}
+          {option === 2 && (
+            <WillowHavegoodPrice
+              setOption={setOption}
+              setChoosesid={setChoosesid}
+            />
+          )}
+          {option === 3 && (
+            <WillowGoodWritings
+              setOption={setOption}
+              setChoosesid={setChoosesid}
+            />
+          )}
+          {option === 4 && (
+            <WillowReport setOption={setOption} setChoosesid={setChoosesid} />
+          )}
+
+          {option === 11 && (
+            <WillowNewsupdate setOption={setOption} choosesid={choosesid} />
+          )}
         </div>
       </div>
     </div>
