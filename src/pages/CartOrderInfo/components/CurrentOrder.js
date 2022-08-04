@@ -39,9 +39,12 @@ const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 function CurrentOrder() {
   return (
     <>
-    <h3>商品明細</h3>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+      <h3>商品明細</h3>
+      <TableContainer
+        component={Paper}
+        sx={{ minWidth: 700, maxWidth: 950, margin: 'auto' }}
+      >
+        <Table aria-label="spanning table">
           <TableHead>
             <TableRow>
               <TableCell align="center">商品ID</TableCell>
