@@ -4,10 +4,9 @@ import H2 from '../../components/H2';
 function News() {
   return (
     <>
-      <section className='my-5'>
+      <section className="my-5">
         <H2 title="最新消息" Entitle="NEWS" />
-        <div className="container d-flex my-5 flex-wrap">
-        
+        <div className="container d-flex my-5">
           <div className="col-12 col-md-6">
             <img
               className="w-100 h-auto"
@@ -15,7 +14,7 @@ function News() {
               alt=""
             />
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 h-100">
             <p className="bingH4 mx-auto px-5">新聞標題</p>
             <p className="bingText-16 mx-auto px-5">
               說到最可愛的卡通代表，少不了三麗鷗最受歡迎的HELLO
