@@ -67,7 +67,7 @@ function App() {
           <Route path="Cart" element={<Cart />} />
           <Route path="CartOrderCheck" element={<CartOrderCheck />} />
           <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
-          <Route path="CartOrderInfo" element={<CartOrderInfo />} />
+          <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
           <Route path="Customized" element={<Customized />} />
 
           {/* 莊惟的頁面 */}

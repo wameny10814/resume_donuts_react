@@ -1,25 +1,40 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import '../scssstyle/WillowHavegoodPrice.scss';
 import axios from 'axios';
-function WillowHavegoodPrice(props) {
-  const { setOption } = props;
-
+function WillowNewsupdate(props) {
+  const { setOption, choosesid } = props;
+  const [showupdatenews, setShowupdatenews] = useState({
+    userid: 0,
+    goodtitle: '',
+    goodwords: '',
+    goodimg: '',
+  });
   const [imgname, setImgname] = useState('');
-  const [mainform, setMainform] = useState({
+  const [mainformee, setMainform] = useState({
     // userid,newstitle ,words, newsimg
     userid: 0,
-    starttime: '',
-    finishtime: '',
-    newstitle: '',
-    words: '',
-    newsimg: '',
-    newsstyle: 2,
+    goodtitle: '',
+    goodwords: '',
+    goodimg: '',
   });
+  console.log('setChoosesid', choosesid);
   const fakeClickUploadimage = () => {
     const c = document.getElementById('newsimg');
     console.log(c);
     c.click();
+  };
+  // 拿點選sid的data
+  const getdatanews = async (upsid) => {
+    const response = await axios.get(
+      `http://localhost:3600/willownews/goodwritingupdate?sid=${upsid}`
+    );
+    const resdata = response.data;
+    const showdata = resdata[0];
+    console.log('showgooddata', showdata);
+    setImgname(showdata.goodimg);
+    setMainform(showdata);
+    setShowupdatenews(showdata);
+    // setShowupdatenews(response.data);
   };
 
   const clickSubmit = async (e) => {
@@ -29,10 +44,10 @@ function WillowHavegoodPrice(props) {
     // console.log('data', data.get('newsimg'));
     const opt = tempdata.get('newsimg').name;
     if (opt) {
-      const data = mainform;
+      const data = mainformee;
       console.log(data);
-      const response = await axios.post(
-        'http://localhost:3600/willownews/goodpriceadd',
+      const response = await axios.put(
+         'http://localhost:3600/willownews/goodwritingupdate',
         data
       );
       const resdata = response.data;
@@ -40,7 +55,6 @@ function WillowHavegoodPrice(props) {
       info_bar.style.display = 'block';
       console.log(resdata);
       setTimeout(() => {
-        console.log('Delayed for 1 second.');
         setOption(0);
       }, '1000');
     } else {
@@ -62,22 +76,26 @@ function WillowHavegoodPrice(props) {
     console.log(resdata.filename);
     setImgname(resdata.filename);
 
-    setMainform({ ...mainform, ['newsimg']: resdata.filename });
+    setMainform({ ...mainformee, ['goodimg']: resdata.filename });
   };
   // console.log(mainform);
   const changeFields = (event) => {
     const id = event.target.id;
     const val = event.target.value;
     console.log({ id, val });
-    setMainform({ ...mainform, [id]: val });
+    //  [id]為運算過後的值,so if id:val,那就單純指"id"兩字
+    setMainform({ ...mainformee, [id]: val });
   };
-  console.log(mainform);
-  useEffect(() => {}, [imgname]);
+  console.log('setMainform', mainformee);
+  useEffect(() => {
+    getdatanews(choosesid);
+  }, []);
+
   return (
     <div id="willowhavegoodprice">
       <div className="container">
         <div className="row">
-          <h3>WillowHavegoodPrice-Activty</h3>
+          <h3>WillowNews-updateadd</h3>
           <div className="d-flex justify-content-end">
             <button
               type="button"
@@ -89,6 +107,7 @@ function WillowHavegoodPrice(props) {
               回首頁
             </button>
           </div>
+
           <form
             name="mainForm"
             onSubmit={(e) => {
@@ -98,52 +117,16 @@ function WillowHavegoodPrice(props) {
             <div className="form-group mt-3">
               <div className="d-flex">
                 <div className="mt-2 willow_mar_sm">
-                  <label>開始時間:</label>
-                </div>
-                <div>
-                  <input
-                    type="date"
-                    className="form-control"
-                    id="starttime"
-                    value={mainform.starttime}
-                    onChange={(e) => {
-                      changeFields(e);
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="form-group  mt-3">
-              <div className="d-flex">
-                <div className="mt-2 willow_mar_sm">
-                  <label>結束時間:</label>
-                </div>
-                <div>
-                  <input
-                    type="date"
-                    className="form-control"
-                    id="finishtime"
-                    value={mainform.finishtime}
-                    onChange={(e) => {
-                      changeFields(e);
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="form-group mt-3">
-              <div className="d-flex">
-                <div className="mt-2 willow_mar_sm">
                   <label>文章標題:</label>
                 </div>
                 <div className="flex-grow-1">
                   <input
                     required
                     type="text"
-                    id="newstitle"
+                    id="goodtitle"
                     placeholder="文章標題"
                     className="form-control"
-                    value={mainform.newstitle}
+                    value={mainformee.goodtitle}
                     onChange={(e) => {
                       changeFields(e);
                     }}
@@ -196,12 +179,11 @@ function WillowHavegoodPrice(props) {
                     role="alert"
                     style={{ display: 'none' }}
                   >
-                    請選擇圖片
+                    請選擇要修改圖片
                   </div>
                 </div>
               </div>
             </div>
-            {/* writing detail */}
             <div className="mb-3 mt-3">
               <div className="d-flex">
                 <div className="mt-2 willow_mar_sm">
@@ -210,10 +192,10 @@ function WillowHavegoodPrice(props) {
                 <div className=" flex-grow-1">
                   <textarea
                     className="form-control"
-                    id="words"
+                    id="goodwords"
                     cols="30"
                     rows="10"
-                    value={mainform.words}
+                    value={mainformee.goodwords}
                     onChange={(e) => {
                       changeFields(e);
                     }}
@@ -256,4 +238,4 @@ function WillowHavegoodPrice(props) {
   );
 }
 
-export default WillowHavegoodPrice;
+export default WillowNewsupdate;

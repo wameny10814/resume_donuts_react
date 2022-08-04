@@ -1,6 +1,6 @@
 #willowshowlist {
   .willow_minh {
-    height: 45vh;
+    height: 55vh;
     overflow: auto;
   }
 
@@ -43,29 +43,66 @@
   .willow_focus_right:hover {
     border: 1px solid #96966e;
   }
-  
+
   .willow_icons {
     svg {
-      color:#616153;
+      color: #616153;
       width: 1.2rem;
       height: 1.2rem;
-
-   
     }
-    :hover{
-      color:#96966e;
+    :hover {
+      color: #96966e;
     }
   }
   .willow_icons_add {
     svg {
-      color:#616153;
+      color: #616153;
       width: 2rem;
       height: 2rem;
-
-   
     }
-    :hover{
-      color:#96966e;
+    :hover {
+      color: #96966e;
     }
   }
+  .col_bline {
+    border-bottom: 1px solid #616153;
+    padding-bottom: 3rem;
+  }
+  .willow_w {
+    width: 30%;
+  }
+  .willow_p_5 {
+    padding: 0 15rem 0 15rem;
+  }
+  .willow_ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    // height: 100%;
+  }
+  .willow_wspeace {
+    white-space: nowrap;
+    width: 100%;
+  }
+  .willow_p{
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  // .willow_td_border {
+  //   thead {
+  //     th {
+  //       border-left: 1px solid #616153;
+  //       border-right: 1px solid #616153;
+  //     }
+  //   }
+  //   tbody {
+  //     th {
+  //       border-left: 1px solid #616153;
+  //     }
+  //     td {
+  //       border-left: 1px solid #616153;
+  //     }
+  //   }
+  // }
 }

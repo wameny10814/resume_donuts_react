@@ -32,23 +32,25 @@ function PersonalInfo() {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-        bgcolor: 'background.paper',
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div className="form-inline"></div>
-
-      <TextField id="filled-basic" label="姓名" variant="filled" />
-      <TextField id="filled-basic" label="行動電話" variant="filled" />
-      <TextField id="filled-basic" label="電子信箱" variant="filled" />
-      <ZipCode />
-      <TextField id="filled-basic" label="詳細地址" variant="filled" />
-    </Box>
+    <>
+      <h3>訂購人資料</h3>
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+          bgcolor: 'background.paper',
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div className="form-inline"></div>
+        <TextField id="filled-basic" label="姓名" variant="filled" />
+        <TextField id="filled-basic" label="行動電話" variant="filled" />
+        <TextField id="filled-basic" label="電子信箱" variant="filled" />
+        <ZipCode />
+        <TextField id="filled-basic" label="詳細地址" variant="filled" />
+      </Box>
+    </>
   );
 }
 

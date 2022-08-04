@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import '../scssstyle/WillowHavegoodPrice.scss';
 import axios from 'axios';
 function WillowNews(props) {
   const { setOption } = props;
+
   const [imgname, setImgname] = useState('');
   const [mainform, setMainform] = useState({
     // userid,newstitle ,words, newsimg

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-function WillowNews(props) {
+function WillowNewsupdate(props) {
   const { setOption, choosesid } = props;
   const [showupdatenews, setShowupdatenews] = useState({
     userid: 0,
@@ -240,4 +240,4 @@ function WillowNews(props) {
   );
 }
 
-export default WillowNews;
+export default WillowNewsupdate;

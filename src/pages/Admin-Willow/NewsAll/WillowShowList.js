@@ -8,9 +8,20 @@ import { BsPenFill } from 'react-icons/bs';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 function WillowShowList(props) {
   const [newsdata, setNewsdata] = useState([]);
+  const [goodwritingdata, setGoodWritingdata] = useState([]);
+  const [goodprice, setGoodprice] = useState([]);
   const { setOption, setChoosesid } = props;
   // 點選加1
   const [control, setControl] = useState(0);
+
+  const getdatagoodwriting = async () => {
+    const response = await axios.get(
+      `http://localhost:3600/willownews/goodwritingdata`
+    );
+    const resdata = response.data;
+    console.log('Good', resdata);
+    setGoodWritingdata(response.data);
+  };
 
   const getdatanews = async () => {
     const response = await axios.get(
@@ -20,6 +31,7 @@ function WillowShowList(props) {
     console.log(resdata);
     setNewsdata(response.data);
   };
+  // 刪除news
   const deledatanews = async (dsid) => {
     console.log(dsid);
     let con = control;
@@ -32,18 +44,35 @@ function WillowShowList(props) {
 
     setControl(con + 1);
   };
+  // 刪除good
+  const deledatagood = async (dsid) => {
+    console.log(dsid);
+    let con = control;
+
+    const response = await axios.delete(
+      `http://localhost:3600/willownews/goodwritingdata?sid=${dsid}`
+    );
+    const resdata = response;
+    console.log('asdasdadads', resdata);
+
+    setControl(con + 1);
+  };
   console.log(control);
   useEffect(() => {
     getdatanews();
+    getdatagoodwriting();
     console.log('123');
   }, [control]);
 
   return (
     <div id="willowshowlist">
-      <div className="container">
-        <h1>ShowList</h1>
-        <div className="row">
-          <div className="col-12 mt-5">
+      <div className="container-fuilter">
+        <h1 className="w-25 m-auto willow_ellipsis">
+          ShowListadasdasdasd asdddddddddddasdasdasda sdadsasdada sdadddddddddd
+          dddddddddddd
+        </h1>
+        <div className="row col_bline justify-content-center">
+          <div className="col-12 mt-5 willow_p_5">
             <h3 className="d-flex w-25 justify-content-around">
               <div>News</div>
               <div className="d-flex ">
@@ -105,7 +134,7 @@ function WillowShowList(props) {
                                 <BsPenFill
                                   onClick={() => {
                                     setChoosesid(row.newsid);
-                                    console.log(row.newsid)
+                                    console.log(row.newsid);
                                     setOption(11);
                                   }}
                                 />
@@ -119,9 +148,22 @@ function WillowShowList(props) {
               </table>
             </div>
           </div>
-
-          <div className="col-12 mt-5">
-            <h3>Activty</h3>
+        </div>
+        <div className="row col_bline justify-content-center">
+          <div className="col-12 mt-5 willow_p_5">
+            <h3 className="d-flex w-25 justify-content-around">
+              <div>Activty</div>
+              <div className="d-flex ">
+                <div className="pt-1">新增</div>
+                <div className="willow_icons_add">
+                  <AiOutlinePlusCircle
+                    onClick={() => {
+                      setOption(1);
+                    }}
+                  />
+                </div>
+              </div>
+            </h3>
             <div className="willow_focus_middle willow_minh">
               <table className="table table-striped">
                 <thead className="willow_table_thead_style1">
@@ -155,53 +197,86 @@ function WillowShowList(props) {
               </table>
             </div>
           </div>
-          <div className="col-12 mt-5 mb-5">
-            <h3>Good Writing</h3>
-            <div className="willow_focus_right willow_minh">
-              <table className="table table-striped table-striped">
-                <thead className="willow_table_thead_style2">
+        </div>
+        <div className="row  col_bline justify-content-center">
+          <div className="col-12 mt-5 mb-5 willow_p_5">
+            <h3 className="d-flex justify-content-around willow_w">
+              <div>Good Writing</div>
+              <div className="d-flex ">
+                <div className="pt-1">新增</div>
+                <div className="willow_icons_add">
+                  <AiOutlinePlusCircle
+                    onClick={() => {
+                      setOption(3);
+                    }}
+                  />
+                </div>
+              </div>
+            </h3>
+            <div className="willow_focus_left willow_minh">
+              <table className="table table-striped text-center">
+                <thead className="willow_table_thead_style3">
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">goodwritingid</th>
+                    <th scope="col">Userid</th>
+                    <th scope="col">goodimg</th>
+                    <th scope="col">goodtitle</th>
+                    <th scope="col">goodwords</th>
+                    <th scope="col">good_at</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        aria-label="Close"
-                        // onClick={() => {
-                        //   getdatanews();
-                        // }}
-                      ></button>
-                      122
-                    </th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        aria-label="Close"
-                      ></button>
-                      2
-                    </th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  {console.log('goodwritingdata', goodwritingdata)}
+                  {goodwritingdata
+                    ? goodwritingdata.map((row) => (
+                        <tr key={'good' + row.goodwritingid}>
+                          <th scope="row">
+                            <div className="d-flex w-50 justify-content-around">
+                              <div>
+                                <button
+                                  type="button"
+                                  className="btn-close"
+                                  aria-label="Close"
+                                  onClick={() => {
+                                    deledatagood(row.goodwritingid);
+                                  }}
+                                ></button>
+                              </div>
+                              <div>{row.goodwritingid}</div>
+                            </div>
+                          </th>
+                          <td className="">{row.userid}</td>
+                          <td className="willow_hdsty">
+                            <img
+                              src={`http://localhost:3600/willowimgs/${row.goodimg}`}
+                              className="w-75"
+                            />
+                          </td>
+                          <td>{row.goodtitle}</td>
+                          <td className="willow_p">
+                            <p className="willow_ellipsis ">
+                              {row.goodwords}
+                            </p>
+                          </td>
+                          <td>
+                            <div className="d-flex  justify-content-between">
+                              <div className="willow_wspeace">
+                                {row.good_at.slice(0, 10)}
+                              </div>
+                              <div className="willow_icons">
+                                <BsPenFill
+                                  onClick={() => {
+                                    setChoosesid(row.goodwritingid);
+                                    console.log(row.goodwritingid);
+                                    setOption(12);
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      ))
+                    : null}
                 </tbody>
               </table>
             </div>
