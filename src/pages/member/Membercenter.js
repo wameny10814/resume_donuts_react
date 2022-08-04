@@ -154,13 +154,6 @@ function Membercenter() {
     if (window.confirm('確定要修改會員資料嗎?') === false) {
       return;
     }
-    //手機號碼要09+八碼
-    // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
-    // if (mobile_re.test(regForm.mobiel) === false) {
-    //   mobile_errmessage.current.innerText = '手機格式錯誤';
-    //   console.log('check mobile', mobile_re.test(regForm.mobiel));
-    //   return mobile_re.test(regForm.mobiel);
-    // }
     fetch('http://localhost:3600/member/memberupdate', {
       method: 'POST',
       body: JSON.stringify(regForm),

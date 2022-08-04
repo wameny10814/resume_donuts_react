@@ -2,7 +2,7 @@ import React from 'react';
 // import './Login.css';
 import '../../components/Member/Eye.js';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
 import cat from './images/logincat.svg';
@@ -65,6 +65,7 @@ function Login() {
     })
       .then((r) => r.json())
       .then((result) => {
+        console.log('result', result);
         if (result.success) {
           //登入成功 寫進localstorage & 跳轉到首頁
           //登入成功需刷新才能更改navbar -->使用authorized判定-->result 把authcontext的authorized放進去

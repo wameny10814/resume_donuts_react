@@ -1,5 +1,5 @@
 #willowshowlist .willow_minh {
-  height: 20vh;
+  height: 45vh;
   overflow: auto;
 }
 #willowshowlist .willow_hdsty {
@@ -45,5 +45,13 @@
   height: 1.2rem;
 }
 #willowshowlist .willow_icons :hover {
+  color: #96966e;
+}
+#willowshowlist .willow_icons_add svg {
+  color: #616153;
+  width: 2rem;
+  height: 2rem;
+}
+#willowshowlist .willow_icons_add :hover {
   color: #96966e;
 }/*# sourceMappingURL=WillowShowList.css.map */

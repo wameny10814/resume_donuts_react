@@ -1,12 +1,20 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext } from 'react';
 import cat from './images/logincat.svg';
 import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
+import AuthContext from '../../pages/member/components/AuthContext';
 
 function MemberPsdchange() {
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
+
+  const { authorized, token } = useContext(AuthContext);
+
+  const [error, setError] = useState({
+    psdOld_error: '',
+    psdNew_error: '',
+  });
 
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
@@ -23,8 +31,62 @@ function MemberPsdchange() {
     }
   };
 
-  const whenSubmit = () => {
-    console.log('表單送出');
+  //設定輸入資料
+  const [myform, setMyform] = useState({
+    psdOld: '',
+    psdNew: '',
+    psdNewCheck: '',
+  });
+
+  const changeFields = (event) => {
+    const id = event.target.id;
+    const val = event.target.value;
+    console.log({ id, val });
+    setMyform({ ...myform, [id]: val });
+  };
+
+  const whenSubmit = (event) => {
+    event.preventDefault();
+    //欄位檢查
+
+    if (myform.psdNew === '' || myform.psdNewCheck === '') {
+      setError({ ...error, psdNew_error: '請填寫新密碼' });
+      return;
+    }
+
+    if (myform.psdNew !== myform.psdNewCheck) {
+      setError({ ...error, psdNew_error: '新密碼需相同' });
+      return;
+    }
+    //密碼檢查至少六碼包含英文小寫
+    const psd_reg = /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,}$/;
+    if (
+      psd_reg.test(myform.psdNew) === false &&
+      psd_reg.test(myform.psdNewCheck) === false
+    ) {
+      alert('新密碼格式錯誤');
+      return;
+    }
+
+    fetch('http://localhost:3600/member/membersdupdate', {
+      method: 'POST',
+      body: JSON.stringify(myform),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((r) => r.json())
+      .then((result) => {
+        console.log('result', result);
+        if (result.success) {
+          console.log(result);
+          alert('修改成功!');
+        } else {
+          console.log(result);
+          setError({ ...error, psdOld_error: '舊密碼輸入錯誤' });
+        }
+      });
   };
   return (
     <>
@@ -42,58 +104,75 @@ function MemberPsdchange() {
                 <div className="yu_inputblock ">
                   <label htmlFor="">請輸入舊密碼</label>
                   <input
-                    id="password"
+                    id="psdOld"
                     type={isHide ? 'password' : 'text'}
-                    name="passwrod"
+                    name="psdOld"
                     onFocus={checkIfHide}
                     onBlur={checkIfHide}
+                    onChange={changeFields}
+                    value={myform.psdOld}
                   />
-                  <div className="yu_psdchange_eye_relative">
+                  <div
+                    className="yu_psdchange_eye_relative"
+                    onClick={checkIfHide}
+                  >
                     <img
                       className="yu_psdchange_eye"
                       src={isHide ? eyeSlash : eye}
                       alt=""
                     />
                   </div>
-                  <span>舊密碼錯誤</span>
+                  <span className="psdchange_error">{error.psdOld_error}</span>
                 </div>
                 <div className="yu_inputblock ">
                   <label htmlFor="">請輸入新密碼</label>
                   <input
-                    id="password"
+                    id="psdNew"
                     type={isHide ? 'password' : 'text'}
-                    name="passwrod"
+                    name="psdNew"
                     onFocus={checkIfHide}
                     onBlur={checkIfHide}
+                    onChange={changeFields}
+                    value={myform.psdNew}
                   />
-                  <div className="yu_psdchange_eye_relative">
+                  <div
+                    className="yu_psdchange_eye_relative"
+                    onClick={checkIfHide}
+                  >
                     <img
                       className="yu_logineye"
                       src={isHide ? eyeSlash : eye}
                       alt=""
                     />
                   </div>
-                  <span>新密碼需輸入相同</span>
+                  <span className="psdchange_error">{error.psdNew_error}</span>
                 </div>
                 <div className="yu_inputblock ">
                   <label htmlFor="">請再次輸入新密碼</label>
                   <input
-                    id="password"
+                    id="psdNewCheck"
                     type={isHide ? 'password' : 'text'}
-                    name="passwrod"
+                    name="psdNewCheck"
                     onFocus={checkIfHide}
                     onBlur={checkIfHide}
+                    onChange={changeFields}
+                    value={myform.psdNewCheck}
                   />
-                  <div className="yu_psdchange_eye_relative">
+                  <div
+                    className="yu_psdchange_eye_relative"
+                    onClick={checkIfHide}
+                  >
                     <img
                       className="yu_logineye"
                       src={isHide ? eyeSlash : eye}
                       alt=""
                     />
                   </div>
-                  <span>新密碼需輸入相同</span>
+                  <span className="psdchange_error">{error.psdNew_error}</span>
                 </div>
-                <button className="ProjectButton">密碼確認更新</button>
+                <button type="submit" className="ProjectButton">
+                  密碼確認更新
+                </button>
               </div>
             </form>
           </div>
