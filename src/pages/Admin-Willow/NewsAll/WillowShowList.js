@@ -67,10 +67,7 @@ function WillowShowList(props) {
   return (
     <div id="willowshowlist">
       <div className="container-fuilter">
-        <h1 className="w-25 m-auto willow_ellipsis">
-          ShowListadasdasdasd asdddddddddddasdasdasda sdadsasdada sdadddddddddd
-          dddddddddddd
-        </h1>
+        <h1 className="w-75 m-auto">ShowList</h1>
         <div className="row col_bline justify-content-center">
           <div className="col-12 mt-5 willow_p_5">
             <h3 className="d-flex w-25 justify-content-around">
@@ -229,9 +226,12 @@ function WillowShowList(props) {
                   {console.log('goodwritingdata', goodwritingdata)}
                   {goodwritingdata
                     ? goodwritingdata.map((row) => (
-                        <tr key={'good' + row.goodwritingid}>
+                        <tr
+                          key={'good' + row.goodwritingid}
+                          className="align-items-center"
+                        >
                           <th scope="row">
-                            <div className="d-flex w-50 justify-content-around">
+                            <div className="d-flex w-50 willow_transform">
                               <div>
                                 <button
                                   type="button"
@@ -245,21 +245,23 @@ function WillowShowList(props) {
                               <div>{row.goodwritingid}</div>
                             </div>
                           </th>
-                          <td className="">{row.userid}</td>
+                          <td className="">
+                            <p className="willow_transform">{row.userid}</p>
+                          </td>
                           <td className="willow_hdsty">
                             <img
                               src={`http://localhost:3600/willowimgs/${row.goodimg}`}
-                              className="w-75"
+                              className="w-75 willow_transform1"
                             />
                           </td>
-                          <td>{row.goodtitle}</td>
-                          <td className="willow_p">
-                            <p className="willow_ellipsis ">
-                              {row.goodwords}
-                            </p>
+                          <td className="">
+                            <p className="willow_transform"> {row.goodtitle}</p>
                           </td>
-                          <td>
-                            <div className="d-flex  justify-content-between">
+                          <td className="willow_p ">
+                            <p className="willow_ellipsis">{row.goodwords}</p>
+                          </td>
+                          <td className="">
+                            <div className="d-flex  justify-content-between willow_transform">
                               <div className="willow_wspeace">
                                 {row.good_at.slice(0, 10)}
                               </div>

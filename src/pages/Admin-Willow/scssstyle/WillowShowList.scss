@@ -74,12 +74,30 @@
   .willow_p_5 {
     padding: 0 15rem 0 15rem;
   }
+  .willow_mp_5{
+    padding-top: 2rem;
+  }
+  .willow_transform{
+    transform:translateY(100%)
+  }
+  .willow_transform1{
+    transform:translateY(45%)
+  }
+  // .willow_ellipsis {
+  //   display: -webkit-box;
+  //   -webkit-line-clamp: 2;
+  //   -webkit-box-orient: vertical;
+  //   overflow: hidden;
+  //   // height: 100%;
+  // }
   .willow_ellipsis {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    // height: 100%;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 2;
+    // -webkit-box-orient: vertical;
+    overflow: auto;
+    text-indent: 4rem;
+    max-height: 6rem;
+    text-align: left;
   }
   .willow_wspeace {
     white-space: nowrap;
