@@ -1,7 +1,9 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import '../Product.css';
 
 function ProductSlide() {
+  const [ProductInfo, setProductInfo] = useState(0);
+
   return (
     // <ProductSlideCard />
     <div className="Mars-prod-wrap">
