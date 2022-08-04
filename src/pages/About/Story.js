@@ -19,7 +19,7 @@ function Story() {
               <div>
                 <ProjectButton className="w-25" text="LEARN MORE" />
               </div>
-              <div className="w-75">
+              <div className="w-75 float-end">
                 <img className="w-100" src="./images/story-23.svg" alt="" />
               </div>
             </div>
