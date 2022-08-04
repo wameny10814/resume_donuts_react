@@ -7,6 +7,7 @@ function News() {
       <section className='my-5'>
         <H2 title="最新消息" Entitle="NEWS" />
         <div className="container d-flex my-5 flex-wrap">
+        
           <div className="col-12 col-md-6">
             <img
               className="w-100 h-auto"
@@ -15,8 +16,8 @@ function News() {
             />
           </div>
           <div className="col-12 col-md-6">
-            <p className="bingH4 mx-auto col-10 pt-5 my-5">新聞標題</p>
-            <p className="bingText-16 mx-auto col-10">
+            <p className="bingH4 mx-auto px-5">新聞標題</p>
+            <p className="bingText-16 mx-auto px-5">
               說到最可愛的卡通代表，少不了三麗鷗最受歡迎的HELLO
               KITTY，外型可愛療癒，放在各種物品上更是加倍卡哇伊，大同電鍋最新推出11人份HELLO
               KITTY珍珠奶茶不鏽鋼電鍋，一邊吃粽子一編配珍珠奶茶，可愛模樣怎麼能不收藏啦！
@@ -24,7 +25,7 @@ function News() {
             <div className="text-center my-5">
               <ProjectButton text="MORE" />
             </div>
-            <ul className="mt-5">
+            <ul className="">
               <li className="bing-News-dot"></li>
               <li className="bing-News-dot"></li>
               <li className="bing-News-dot"></li>
