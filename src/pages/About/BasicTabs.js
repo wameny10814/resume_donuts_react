@@ -34,7 +34,10 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function BasicTabs(props) {
+  const { moveTo, stores } = props;
+  console.log(props);
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -50,6 +53,9 @@ export default function BasicTabs() {
           aria-label="basic tabs example"
         >
           <Tab
+            onClick={() => {
+              moveTo(stores[0]);
+            }}
             sx={{
               fontSize: '1.5rem',
               margin: '0 auto',
@@ -59,6 +65,9 @@ export default function BasicTabs() {
             {...a11yProps(0)}
           />
           <Tab
+            onClick={() => {
+              moveTo(stores[1]);
+            }}
             sx={{
               fontSize: '1.5rem',
               margin: '0 auto',

@@ -6,7 +6,7 @@ import {
   MarkerClusterer,
   DirectionsRenderer,
 } from '@react-google-maps/api';
-import TabPanel from './TabPanel';
+import BasicTabs from './BasicTabs';
 
 import H2 from '../../components/H2';
 function StoreMap() {
@@ -18,10 +18,10 @@ function StoreMap() {
   const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState('');
 
-  /** @type React.MutableRefObject<HTNLInputElement> */
+  /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef();
-  /** @type React.MutableRefObject<HTNLInputElement> */
-  const destiantionRef = useRef();
+  /** @type React.MutableRefObject<HTMLInputElement> */
+  const destinationRef = useRef();
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
   const [mapInstance, seMapInstance] = useState(null);
@@ -30,14 +30,22 @@ function StoreMap() {
   }
 
   async function caculateRoute() {
-    if (originRef.current.value === '' || destiantionRef.current.value === '') {
+    if (originRef.current.value === '' || destinationRef.current.value === '') {
       return;
     }
+
+    const o = JSON.parse(originRef.current.value);
+    const d = JSON.parse(destinationRef.current.value);
+    console.log(o, d);
     // eslint-disable-next-line no-undef
-    const directionService = new google.maps.directionService();
+    const directionService = new google.maps.DirectionsService();
     const results = await directionService.route({
-      origin: originRef.current.value,
-      destiantion: destiantionRef.current.value,
+      // origin: originRef.current.value,
+      // destiantion: destiantionRef.current.value,
+      // eslint-disable-next-line no-undef
+      origin: new google.maps.LatLng(o.lat, o.lng),
+      // eslint-disable-next-line no-undef
+      destination: new google.maps.LatLng(d.lat, d.lng),
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
     });
@@ -51,7 +59,7 @@ function StoreMap() {
     setDistance('');
     setDuration('');
     originRef.current.value = '';
-    destiantionRef.current.value = '';
+    destinationRef.current.value = '';
   }
 
   const stores = [
@@ -95,11 +103,25 @@ function StoreMap() {
               市府店
             </button>
           </div>
-          <TabPanel></TabPanel>
+          <BasicTabs
+            moveTo={(to) => {
+              mapInstance.panTo(to);
+            }}
+            stores={stores}
+          ></BasicTabs>
         </div>
         <div className="col-12 col-md-6">
-          <input type="text" ref={originRef} />
-          <input type="text" ref={destiantionRef} />
+          <input
+            type="text"
+            ref={originRef}
+            defaultValue={`{ "lat": 25.0337702, "lng": 121.5433378 }`}
+          />
+          <input
+            type="text"
+            ref={destinationRef}
+            defaultValue={`{ "lat": 25.0387702, "lng": 121.5933378 }`}
+          />
+          <p></p>
           <button onClick={caculateRoute}>計算</button>
           <button onClick={clearRoute}>重設</button>
 
@@ -115,7 +137,7 @@ function StoreMap() {
             onLoad={onLoad}
           >
             {/* 只有註解再打開才會有作用 */}
-            <MarkerClusterer>
+            <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
               {(clusterer) =>
                 stores.map((location) => (
                   <MarkerF
