@@ -7,6 +7,7 @@ import WillowNews from './NewsAll/WillowNews';
 import WillowHavegoodPrice from './NewsAll/WillowHavegoodPrice';
 import WillowGoodWritings from './NewsAll/WillowGoodWritings';
 import WillowNewsupdate from './NewsAll/WillowNewsupdate';
+import WillowGoodWritingupdate from './NewsAll/WillowGoodWritingupdate';
 
 import WillowReport from './Report/WillowReport';
 
@@ -108,7 +109,7 @@ function AdminPlace() {
                     value={4}
                     onClick={(e) => {
                       clickoption(e.target.value);
-                     // console.log(e.target.value);
+                      // console.log(e.target.value);
                     }}
                   >
                     Report
@@ -121,7 +122,7 @@ function AdminPlace() {
       </div>
       <div className="container-fuild willow_minhight">
         <div className="row">
-          {console.log(choosesid, choosesid)}
+          {console.log(option, choosesid)}
           {option === 0 && (
             <WillowShowList setOption={setOption} setChoosesid={setChoosesid} />
           )}
@@ -146,6 +147,12 @@ function AdminPlace() {
 
           {option === 11 && (
             <WillowNewsupdate setOption={setOption} choosesid={choosesid} />
+          )}
+          {option === 12 && (
+            <WillowGoodWritingupdate
+              setOption={setOption}
+              choosesid={choosesid}
+            />
           )}
         </div>
       </div>
