@@ -1,20 +1,5 @@
 [
 {
-    "type": "header",
-    "version": "5.2.0",
-    "comment": "Export to JSON plugin for PHPMyAdmin"
-},
-{
-    "type": "database",
-    "name": "proj_midterm"
-},
-{
-    "type": "table",
-    "name": "products",
-    "database": "proj_midterm",
-    "data": 
-[
-{
     "sid": "16",
     "product_name": "草莓波堤",
     "category_sid": "1",
@@ -184,8 +169,5 @@
     "product_img": "47b9a34cbca3936b3ea1bc0c43238935.jpg",
     "product_desc": "kkkkk",
     "created_at": "2022-06-13 12:08:44"
-}
-]
-
 }
 ]
