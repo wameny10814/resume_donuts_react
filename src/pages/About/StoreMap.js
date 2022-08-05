@@ -25,6 +25,7 @@ function StoreMap() {
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
   const [mapInstance, seMapInstance] = useState(null);
+
   if (!isLoaded) {
     return <p>Loading...</p>;
   }
@@ -36,12 +37,9 @@ function StoreMap() {
 
     const o = JSON.parse(originRef.current.value);
     const d = JSON.parse(destinationRef.current.value);
-    console.log(o, d);
     // eslint-disable-next-line no-undef
     const directionService = new google.maps.DirectionsService();
     const results = await directionService.route({
-      // origin: originRef.current.value,
-      // destiantion: destiantionRef.current.value,
       // eslint-disable-next-line no-undef
       origin: new google.maps.LatLng(o.lat, o.lng),
       // eslint-disable-next-line no-undef
@@ -50,8 +48,8 @@ function StoreMap() {
       travelMode: google.maps.TravelMode.DRIVING,
     });
     setDirectionResponse(results);
-    setDistance(results.routes[0].leg[0].distance.text);
-    setDuration(results.routes[0].leg[0].duration.text);
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
   }
 
   function clearRoute() {
@@ -63,8 +61,6 @@ function StoreMap() {
   }
 
   const stores = [
-    // { lat: 25.2480099, lng: 121.5170087 }, //測試
-    // { lat: 25.6480099, lng: 121.5170087 }, //測試
     { lat: 25.0480099, lng: 121.5170087 }, //北車
     { lat: 25.0337702, lng: 121.5433378 }, //大安
     { lat: 25.0404691, lng: 121.5667799 }, //市府
@@ -83,27 +79,9 @@ function StoreMap() {
       <H2 title="店鋪資訊" Entitle="MAP" />
       <div className="d-md-flex">
         <div className="col-12 col-md-6 mapInfo">
-          <div className="">
-            <button
-              className="ProjectButton"
-              onClick={() => mapInstance.panTo(stores[0])}
-            >
-              北車店
-            </button>
-            <button
-              className="ProjectButton"
-              onClick={() => mapInstance.panTo(stores[1])}
-            >
-              大安店
-            </button>
-            <button
-              className="ProjectButton"
-              onClick={() => mapInstance.panTo(stores[2])}
-            >
-              市府店
-            </button>
-          </div>
+          {/* 頁籤插件 把panTo()跟stores傳進去 */}
           <BasicTabs
+            caculateRoute={caculateRoute}
             moveTo={(to) => {
               mapInstance.panTo(to);
             }}
@@ -111,23 +89,9 @@ function StoreMap() {
           ></BasicTabs>
         </div>
         <div className="col-12 col-md-6">
-          <input
-            type="text"
-            ref={originRef}
-            defaultValue={`{ "lat": 25.0337702, "lng": 121.5433378 }`}
-          />
-          <input
-            type="text"
-            ref={destinationRef}
-            defaultValue={`{ "lat": 25.0387702, "lng": 121.5933378 }`}
-          />
-          <p></p>
-          <button onClick={caculateRoute}>計算</button>
-          <button onClick={clearRoute}>重設</button>
-
           <GoogleMap
             center={center}
-            zoom={15}
+            zoom={14}
             mapContainerStyle={{ width: '100%', height: '100%' }}
             options={{
               mapId: ['7d73f43b257d967e'],
@@ -136,7 +100,7 @@ function StoreMap() {
             }}
             onLoad={onLoad}
           >
-            {/* 只有註解再打開才會有作用 */}
+            {/* 套件BUG 只有註解再打開才會有作用 */}
             <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
               {(clusterer) =>
                 stores.map((location) => (
@@ -146,16 +110,30 @@ function StoreMap() {
                     clusterer={clusterer}
                     icon={{
                       url: './images/DountMap.gif',
-                      // scaledSize: new window.google.maps.Size(20, 20),
                     }}
                   />
                 ))
               }
             </MarkerClusterer>
+            {/* 在地圖上顯示路徑 */}
             {directionResponse && (
               <DirectionsRenderer directions={directionResponse} />
             )}
           </GoogleMap>
+          <input
+            type="text"
+            ref={originRef}
+            defaultValue={`{ "lat": 25.0337702, "lng": 121.5433378 }`}
+          />
+          <input
+            type="text"
+            ref={destinationRef}
+            defaultValue={`{ "lat": 25.0480099, "lng": 121.5170087 }`}
+          />
+          <button onClick={caculateRoute}>計算</button>
+          <button onClick={clearRoute}>重設</button>
+          <span>{distance}</span>
+          <span>{duration}</span>
         </div>
       </div>
     </section>
