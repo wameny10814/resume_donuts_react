@@ -81,11 +81,13 @@ function StoreMap() {
         <div className="col-12 col-md-6 mapInfo">
           {/* 頁籤插件 把panTo()跟stores傳進去 */}
           <BasicTabs
+            duration={duration}
+            distance={distance}
             caculateRoute={caculateRoute}
+            stores={stores}
             moveTo={(to) => {
               mapInstance.panTo(to);
             }}
-            stores={stores}
           ></BasicTabs>
         </div>
         <div className="col-12 col-md-6">

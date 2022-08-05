@@ -36,7 +36,7 @@ function a11yProps(index) {
 
 export default function BasicTabs(props) {
   // 接收傳進來的panTo函式
-  const { moveTo, stores, caculateRoute } = props;
+  const { moveTo, stores, caculateRoute, distance, duration } = props;
 
   const [value, setValue] = React.useState(0);
 
@@ -95,11 +95,14 @@ export default function BasicTabs(props) {
 
         <ul>
           <li>
-            <span className="bingH5">地址</span>
+            <p className="bingH5">地址</p>
+            <p className="bingText-16">台北市中正區北平西路3號</p>
             <button on onClick={caculateRoute}>
               計算
             </button>
-            <p className="bingText-16">台北市中正區北平西路3號</p>
+            <span className="bingText-16">
+              距離{distance}，開車前往大約{duration}
+            </span>
           </li>
           <li>
             <p className="bingH5">聯絡電話</p>
@@ -165,6 +168,12 @@ export default function BasicTabs(props) {
           <li>
             <p className="bingH5">地址</p>
             <p className="bingText-16">台北市大安區復興南路一段390號2樓</p>
+            <button on onClick={caculateRoute}>
+              計算
+            </button>
+            <span className="bingText-16">
+              距離{distance}，開車前往大約{duration}
+            </span>
           </li>
           <li>
             <p className="bingH5">聯絡電話</p>
@@ -227,11 +236,14 @@ export default function BasicTabs(props) {
         <p className="bingH4">ポッチーパン屋 市府店</p>
         <ul>
           <li>
-            <span className="bingH5">地址</span>
+            <p className="bingH5">地址</p>
+            <p className="bingText-16">台北市信義區忠孝東路五段2號</p>
             <button on onClick={caculateRoute}>
               計算
             </button>
-            <p className="bingText-16">台北市信義區忠孝東路五段2號</p>
+            <span className="bingText-16">
+              距離{distance}，開車前往大約{duration}
+            </span>
           </li>
           <li>
             <p className="bingH5">聯絡電話</p>
