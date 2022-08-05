@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../Product.css';
+import '../data/products.json';
 
 function ProductSlide(props) {
   const { sid, product_name, product_price, product_img } = props;
@@ -7,15 +8,20 @@ function ProductSlide(props) {
   const [ProductInfo, setProductInfo] = useState(0);
 
   return (
+    // .map() !!!!
+
     // <ProductSlideCard />
     <div className="Mars-prod-wrap">
       <div className="Mars-prod-imgwr">
         <a href="../Content">
+          {/* <img src={product_img} className="Mars-prod-img" alt=""></img> */}
           {/* eslint-disable-next-line prettier/prettier */}
           <img src="./images/uji-matcha.jpg" className="Mars-prod-img" alt=""></img>
         </a>
       </div>
+      {/* <p className="Mars-prod-name">{product_name}</p> */}
       <p className="Mars-prod-name">宇治抹茶那堤</p>
+      {/* <p className="Mars-prod-price">{product_price}</p>  */}
       <p className="Mars-prod-price">NT$ 35</p>
       <a href="../../Cart/">
         {/* eslint-disable-next-line prettier/prettier */}

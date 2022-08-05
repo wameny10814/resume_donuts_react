@@ -16,6 +16,15 @@ function Product() {
           <ProductSlide />
           <ProductSlide />
           <ProductSlide />
+          {/* 
+            products.map((v, i) => {
+              const {sid, product_name, product_price, product_image} = v
+
+              return (
+                <ProductSlide id={sid} name={product_name} price={product_price} image={product_image} />
+              )
+            })
+          */}
         </div>
         {/* 飲料區待定 */}
       </div>

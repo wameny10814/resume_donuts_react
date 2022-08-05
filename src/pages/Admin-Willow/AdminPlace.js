@@ -7,6 +7,7 @@ import WillowNews from './NewsAll/WillowNews';
 import WillowHavegoodPrice from './NewsAll/WillowHavegoodPrice';
 import WillowGoodWritings from './NewsAll/WillowGoodWritings';
 import WillowNewsupdate from './NewsAll/WillowNewsupdate';
+import WillowHavegoodPriceupdate from './NewsAll/WillowHavegoodPriceupdate';
 import WillowGoodWritingupdate from './NewsAll/WillowGoodWritingupdate';
 
 import WillowReport from './Report/WillowReport';
@@ -149,6 +150,12 @@ function AdminPlace() {
             <WillowNewsupdate setOption={setOption} choosesid={choosesid} />
           )}
           {option === 12 && (
+            <WillowHavegoodPriceupdate
+              setOption={setOption}
+              choosesid={choosesid}
+            />
+          )}
+          {option === 13 && (
             <WillowGoodWritingupdate
               setOption={setOption}
               choosesid={choosesid}

@@ -39,18 +39,6 @@
   right: 0%;
 }
 
-.bing-News-dot {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: #d9d9d9;
-  margin: 15px 0;
-}
-
-.bing-News-dot:hover {
-  background-color: #616153;
-}
-
 .share img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -79,14 +67,6 @@
 
 .mapInfo ul {
   padding-left: 0;
-}
-
-.bing-Map-dot {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: #616153;
-  margin: 15px 0;
 }
 
 .yu_header p {
