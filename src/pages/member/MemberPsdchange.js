@@ -4,6 +4,7 @@ import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
 import AuthContext from '../../pages/member/components/AuthContext';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function MemberPsdchange() {
   const [isCatHide, setIsCatHide] = useState(false);
@@ -92,11 +93,32 @@ function MemberPsdchange() {
     <>
       <div className="container">
         <header className="yu_header">
-          <p>密碼更新</p>
+          <h2>密碼更新</h2>
         </header>
         <div className="row">
-          <div className="col">
-            <div className="logincat d-flex justify-content-center">
+          <div className="col ">
+            <nav className="yu_bar_nav">
+              <div className="container yu_container">
+                <ul className="yu_bar_ul">
+                  <li>
+                    <Link className="nav-link" to="/Membercenter">
+                      <i className="fa-solid fa-user"></i>會員專區
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="nav-link" to="/MemberHistory">
+                      <i className="fa-solid fa-user"></i>會員訂單
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="nav-link" to="/MemberPsdchange">
+                      <i className="fa-solid fa-user"></i>發布評論
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div className="logincat d-flex justify-content-center yu_padchange_margintop ">
               <img src={isCatHide ? catHide : cat} alt="" />
             </div>
             <form action="" onSubmit={whenSubmit}>

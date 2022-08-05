@@ -166,6 +166,7 @@
 .yu_header {
   text-align: center;
   margin-bottom: 5rem;
+  color: #616153;
 }
 
 .yu_bar_ul {
@@ -381,6 +382,10 @@
   left: 45%;
 }
 
+.yu_padchange_margintop {
+  margin-top: 7rem;
+}
+
 .yu_psdchange_eye_relative {
   width: 100%;
   position: relative;
@@ -394,6 +399,37 @@
 
 .psdchange_error {
   color: #D01F1F;
+}
+
+.yu_history_col_table {
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 3rem 0;
+}
+
+.yu_history_table {
+  border-radius: 18px;
+}
+.yu_history_table tbody {
+  color: #616153;
+}
+.yu_history_table tbody tr > td {
+  text-align: center;
+  vertical-align: middle;
+}
+.yu_history_table th {
+  height: 4rem;
+  text-align: center;
+  vertical-align: middle;
+}
+.yu_history_table th td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.yu_history_thead {
+  background-color: #616153;
+  color: white;
 }
 
 nav {

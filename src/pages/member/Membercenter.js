@@ -188,7 +188,7 @@ function Membercenter() {
             <ul className="yu_bar_ul">
               <li>
                 <Link className="nav-link" to="/MemberHistory">
-                  <i className="fa-solid fa-user"></i>歷史訂單
+                  <i className="fa-solid fa-user"></i>會員訂單
                 </Link>
               </li>
               <li>
@@ -298,7 +298,9 @@ function Membercenter() {
                     name="mobile"
                     id="mobile"
                     placeholder="mobile"
-                    value={isOnchange ? regForm.mobile : usersDisplay.mobile}
+                    value={
+                      isOnchange ? regForm.mobile : '0' + usersDisplay.mobile
+                    }
                     onChange={changeFields}
                     minLength={10}
                     required
