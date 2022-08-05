@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import '../scssstyle/WillowHavegoodPrice.scss';
 import axios from 'axios';
-function WillowNewsupdate(props) {
+function WillowHavegoodPrice(props) {
   const { setOption, choosesid } = props;
   const [showupdatenews, setShowupdatenews] = useState({
     userid: 0,
+    starttime: '',
+    finishtime: '',
     newsid: 0,
     newstitle: '',
     words: '',
@@ -14,13 +17,13 @@ function WillowNewsupdate(props) {
   const [mainform, setMainform] = useState({
     // userid,newstitle ,words, newsimg
     userid: 0,
-    newsid: 0,
+    starttime: '',
+    finishtime: '',
     newstitle: '',
     words: '',
     newsimg: '',
-    newsstyle: 1,
+    newsstyle: 2,
   });
-  console.log('setChoosesid', choosesid);
   const fakeClickUploadimage = () => {
     const c = document.getElementById('newsimg');
     console.log(c);
@@ -29,7 +32,7 @@ function WillowNewsupdate(props) {
   // 拿點選sid的data
   const getdatanews = async (upsid) => {
     const response = await axios.get(
-      `http://localhost:3600/willownews/newsupdate?sid=${upsid}`
+      `http://localhost:3600/willownews/goodpriceupdate?sid=${upsid}`
     );
     const resdata = response.data;
     const showdata = resdata[0];
@@ -39,7 +42,6 @@ function WillowNewsupdate(props) {
     setShowupdatenews(showdata);
     // setShowupdatenews(response.data);
   };
-  
   const clickSubmit = async (e) => {
     e.preventDefault();
     // console.log('asdqwe');
@@ -50,7 +52,7 @@ function WillowNewsupdate(props) {
       const data = mainform;
       console.log(data);
       const response = await axios.put(
-        'http://localhost:3600/willownews/newsupdate',
+        'http://localhost:3600/willownews/goodpriceupdate',
         data
       );
       const resdata = response.data;
@@ -58,6 +60,7 @@ function WillowNewsupdate(props) {
       info_bar.style.display = 'block';
       console.log(resdata);
       setTimeout(() => {
+        console.log('Delayed for 1 second.');
         setOption(0);
       }, '1000');
     } else {
@@ -88,16 +91,24 @@ function WillowNewsupdate(props) {
     console.log({ id, val });
     setMainform({ ...mainform, [id]: val });
   };
-
+  console.log("mainform1",mainform);
   useEffect(() => {
     getdatanews(choosesid);
   }, []);
-
   return (
     <div id="willowhavegoodprice">
+      {
+        ((mainform.starttime = mainform.starttime.slice(0, 10)),
+        (mainform.finishtime = mainform.finishtime.slice(0, 10)),
+        console.log(
+          'mainformtest show',
+          mainform.starttime,
+          mainform.finishtime
+        ))
+      }
       <div className="container">
         <div className="row">
-          <h3>WillowNews-updateadd</h3>
+          <h3>WillowHavegoodPrice-Activty-update</h3>
           <div className="d-flex justify-content-end">
             <button
               type="button"
@@ -109,13 +120,48 @@ function WillowNewsupdate(props) {
               回首頁
             </button>
           </div>
-
           <form
             name="mainForm"
             onSubmit={(e) => {
               clickSubmit(e);
             }}
           >
+            <div className="form-group mt-3">
+              <div className="d-flex">
+                <div className="mt-2 willow_mar_sm">
+                  <label>開始時間:</label>
+                </div>
+                <div>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="starttime"
+                    value={mainform.starttime}
+                    onChange={(e) => {
+                      changeFields(e);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="form-group  mt-3">
+              <div className="d-flex">
+                <div className="mt-2 willow_mar_sm">
+                  <label>結束時間:</label>
+                </div>
+                <div>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="finishtime"
+                    value={mainform.finishtime}
+                    onChange={(e) => {
+                      changeFields(e);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
             <div className="form-group mt-3">
               <div className="d-flex">
                 <div className="mt-2 willow_mar_sm">
@@ -181,11 +227,12 @@ function WillowNewsupdate(props) {
                     role="alert"
                     style={{ display: 'none' }}
                   >
-                    請選擇要修改圖片
+                    請選擇圖片
                   </div>
                 </div>
               </div>
             </div>
+            {/* writing detail */}
             <div className="mb-3 mt-3">
               <div className="d-flex">
                 <div className="mt-2 willow_mar_sm">
@@ -240,4 +287,4 @@ function WillowNewsupdate(props) {
   );
 }
 
-export default WillowNewsupdate;
+export default WillowHavegoodPrice;
