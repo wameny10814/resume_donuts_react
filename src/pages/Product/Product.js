@@ -1,5 +1,6 @@
 import './Product.css';
 import ProductSlide from './components/Product-slide';
+import { ProductsData } from './data/products';
 
 function Product() {
   return (
@@ -13,18 +14,16 @@ function Product() {
         <div className=""></div>
         <div className="Mars-prod-filter-area"></div>
         <div className="Mars-product-slide">
-          <ProductSlide />
-          <ProductSlide />
-          <ProductSlide />
-          {/* 
-            products.map((v, i) => {
+          {ProductsData.map((v, i) => {
+            return <ProductSlide key={v.id} {...v} />;
+          })}
+          {/* ProductsData.map((v, i) => {
               const {sid, product_name, product_price, product_image} = v
 
               return (
                 <ProductSlide id={sid} name={product_name} price={product_price} image={product_image} />
               )
-            })
-          */}
+            }) */}
         </div>
         {/* 飲料區待定 */}
       </div>
