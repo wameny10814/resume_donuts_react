@@ -69,6 +69,10 @@
   padding-left: 0;
 }
 
+.bingControl {
+  background-color: #EBEBEB;
+}
+
 .yu_header p {
   text-align: center;
   font-weight: bold;
