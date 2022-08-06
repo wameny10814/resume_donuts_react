@@ -10,6 +10,7 @@
 .Mars-img-wrap {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .Mars-visual {
@@ -19,6 +20,12 @@
     margin-top: 68px;
     margin-bottom: 14px;
 }
+
+/* .Mars-img-wrap .Mars-prod-name {
+    position: absolute;
+    top: 75px;
+    left: 150px;
+} */
 
 .Mars-product-slide {
     margin-left: 0;

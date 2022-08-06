@@ -1,6 +1,11 @@
-function ImgOnClick(params) {
+function ImgOnClick() {
   const ImgWrap = document.querySelector('.Mars-cnt-imgwr');
-  ImgWrap.style = 'box-shadow: 0 5px 25px 0 rgb(0 0 0 / 10%);';
+  
+  // if (ImgWrap.style.boxShadow = '' || ImgWrap.style.boxShadow = 'none') {
+    ImgWrap.style = 'box-shadow: 0 5px 25px 0 rgb(0 0 0 / 10%);';
+  // } else {
+  //   ImgWrap.style = 'box-shadow: none;';
+  // }
 }
 
 export default ImgOnClick;
