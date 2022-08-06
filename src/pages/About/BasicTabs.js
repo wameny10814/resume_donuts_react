@@ -61,7 +61,7 @@ export default function BasicTabs(props) {
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
             }}
-            label="北車店"
+            label="大安店"
             {...a11yProps(0)}
           />
           <Tab
@@ -73,7 +73,7 @@ export default function BasicTabs(props) {
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
             }}
-            label="大安店"
+            label="北車店"
             {...a11yProps(1)}
           />
           <Tab
