@@ -8,7 +8,7 @@ function Product() {
       <div className="Mars-container">
         <div className="Mars-img-wrap">
           <img src="./images/mv_donut.jpg" className="Mars-visual" alt="" />
-          {/* <p className="Mars-prod-name">商品一覽</p> */}
+          <p className="Mars-prod-name">商品一覽</p>
         </div>
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
@@ -16,7 +16,7 @@ function Product() {
         <div className="Mars-prod-filter-area"></div>
         <div className="Mars-product-slide">
           {ProductsData.map((v, i) => {
-            return <ProductSlide key={v.id} {...v} />;
+            return <ProductSlide key={v.sid} {...v} />;
           })}
           {/* ProductsData.map((v, i) => {
               const {sid, product_name, product_price, product_image} = v

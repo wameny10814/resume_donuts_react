@@ -1,16 +1,16 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import '../Product.css';
 import '../data/products.json';
 
 function ProductSlide(props) {
+  // eslint-disable-next-line no-unused-vars
   const { sid, product_name, product_price, product_img } = props;
 
-  const [ProductInfo, setProductInfo] = useState(0);
+  // const [ProductInfo, setProductInfo] = useState(0);
 
   return (
-    // .map() !!!!
+    // <ProductSlideCard /> ?
 
-    // <ProductSlideCard />
     <div className="Mars-prod-wrap">
       <div className="Mars-prod-imgwr">
         <a href="../Content">
