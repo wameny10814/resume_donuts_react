@@ -16,7 +16,7 @@ function Product() {
         <div className="Mars-prod-filter-area"></div>
         <div className="Mars-product-slide">
           {ProductsData.map((v, i) => {
-            return <ProductSlide key={v.id} {...v} />;
+            return <ProductSlide key={v.sid} {...v} />;
           })}
           {/* ProductsData.map((v, i) => {
               const {sid, product_name, product_price, product_image} = v
