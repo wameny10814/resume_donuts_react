@@ -21,11 +21,12 @@
     margin-bottom: 14px;
 }
 
-/* .Mars-img-wrap .Mars-prod-name {
+.Mars-img-wrap .Mars-prod-name {
     position: absolute;
-    top: 75px;
-    left: 150px;
-} */
+    top: 100px;
+    left: 75px;
+    color: #FFF;
+}
 
 .Mars-product-slide {
     margin-left: 0;
