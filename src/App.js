@@ -39,6 +39,9 @@ import AbingIndex from './pages/About/AbingIndex';
 //context
 import AuthContextProvider from '../src/pages/member/components/AuthConextProvider';
 
+// willow context
+import AdminAuthConextProvider from '../src/pages/Admin-Willow/admin_components/Admin_AuthConextProvider';
+
 // react router 錄影檔 7/19 14:33
 function App() {
   // 設定會員登入狀態 錄影檔 7/19 14:55
@@ -47,45 +50,50 @@ function App() {
   return (
     <BrowserRouter>
       <AuthContextProvider>
-        <Navbar />
+        <AdminAuthConextProvider>
+          <Navbar />
 
-        {/* 路由表 */}
-        <Routes>
-          {/* bing的頁面 */}
-          <Route path="/" element={<AbingIndex />} />
+          {/* 路由表 */}
+          <Routes>
+            {/* bing的頁面 */}
+            <Route path="/" element={<AbingIndex />} />
 
-          {/* Yu的頁面 */}
-          <Route path="Login" element={<Login />} />
-          <Route path="Membercenter" element={<Membercenter />} />
-          <Route path="MemberRegister" element={<MemberRegister />} />
-          <Route path="MemberHistory" element={<MemberHistory />} />
-          <Route path="MemberPsdchange" element={<MemberPsdchange />} />
-          <Route path="Cat" element={<Cat />} />
+            {/* Yu的頁面 */}
+            <Route path="Login" element={<Login />} />
+            <Route path="Membercenter" element={<Membercenter />} />
+            <Route path="MemberRegister" element={<MemberRegister />} />
+            <Route path="MemberHistory" element={<MemberHistory />} />
+            <Route path="MemberPsdchange" element={<MemberPsdchange />} />
+            <Route path="Cat" element={<Cat />} />
 
-          {/* LoveYu的頁面 */}
-          <Route path="ProductsYu" element={<ProductsYu />} />
-          <Route path="Cart" element={<Cart />} />
-          <Route path="CartOrderCheck" element={<CartOrderCheck />} />
-          <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
-          <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
-          <Route path="Customized" element={<Customized />} />
+            {/* LoveYu的頁面 */}
+            <Route path="ProductsYu" element={<ProductsYu />} />
+            <Route path="Cart" element={<Cart />} />
+            <Route path="CartOrderCheck" element={<CartOrderCheck />} />
+            <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
+            <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
+            <Route path="Customized" element={<Customized />} />
 
-          {/* 莊惟的頁面 */}
-          <Route path="Product" element={<Product />} />
-          <Route path="Content" element={<Content />} />
+            {/* 莊惟的頁面 */}
+            <Route path="Product" element={<Product />} />
+            <Route path="Content" element={<Content />} />
 
-          {/* willow的頁面 */}
+            {/* willow的頁面 */}
 
-          <Route path="adminlogin" element={<WillowAdminLogin />} />
+            <Route path="adminlogin" element={<WillowAdminLogin />} />
 
-          <Route path="adminplace" element={<WillowAdminPlace />} />
-          <Route path="willownews" element={<WillowNews />} />
-          <Route path="willowhavegoodprice" element={<WillowHavegoodPrice />} />
-          <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
-          <Route path="willowreport" element={<WillowReport />} />
-        </Routes>
+            <Route path="adminplace" element={<WillowAdminPlace />} />
+            <Route path="willownews" element={<WillowNews />} />
+            <Route
+              path="willowhavegoodprice"
+              element={<WillowHavegoodPrice />}
+            />
+            <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
+            <Route path="willowreport" element={<WillowReport />} />
+          </Routes>
 
-        <Footer />
+          <Footer />
+        </AdminAuthConextProvider>
       </AuthContextProvider>
       <BackgroundWaveAnimation />
     </BrowserRouter>

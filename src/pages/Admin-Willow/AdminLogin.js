@@ -1,11 +1,17 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AdminAuthContext from '../Admin-Willow/admin_components/AdminAuthContext';
 import './scssstyle/AdminLoginStyle.scss';
 import axios from 'axios';
 function AdminLogin() {
+  const navigate = useNavigate();
+  const { setAdmin_Auth } = useContext(AdminAuthContext);
+
   const [adminlogin, setAdminLogin] = useState({
     admin_account: '',
     admin_password: '',
   });
+
   const changeFields = (event) => {
     const id = event.target.id;
     const val = event.target.value;
@@ -16,7 +22,7 @@ function AdminLogin() {
   const clickSubmit = async (e) => {
     e.preventDefault();
     const data = adminlogin;
-    console.log("asd",data);
+    console.log('asd', data);
     const response = await axios.post(
       'http://localhost:3600/adminlogin-jwt',
       data
@@ -24,7 +30,18 @@ function AdminLogin() {
     const resdata = response.data;
     // const info_bar = document.querySelector('#info-bar-success');
     // info_bar.style.display = 'block';
-    console.log(resdata);
+    // console.log(resdata);
+    // console.log(resdata.admin_success);
+    // console.log(resdata.admin_data.admin_account);
+    // console.log(resdata.admin_data.admin_name);
+    if (resdata.admin_success) {
+      localStorage.setItem('admin_auth', JSON.stringify(resdata.admin_data));
+      
+      setAdmin_Auth({ ...resdata.admin_data, admin_authorized: true });
+      navigate('/adminplace');
+    } else {
+      alert('帳號密碼輸入有誤');
+    }
     // setTimeout(() => {
     //   console.log('Delayed for 1 second.');
     // }, '1000');
