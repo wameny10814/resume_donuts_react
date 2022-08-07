@@ -22,6 +22,10 @@ function Customized() {
     const tasteImg = new Image();
     tasteImg.src = `/images/Customized/${tasteName}.jpg`;
     const ingredientsImg = new Image();
+    //尚未完成條件
+    if (ingredientsName.length > 1) {
+      ingredientsImg.src = `/images/Customized/${ingredientsName}.jpg`;
+    }
     ingredientsImg.src = `/images/Customized/${ingredientsName}.jpg`;
 
     console.log(ingredientsName);
