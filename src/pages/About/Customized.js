@@ -1,10 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
 import H2 from '../../components/H2';
 
+//patternName是可控表單 set後塞成patternimg.src的一部分
+
+//patternimg是創造出來的圖片塞到Pattern
+//再用ctx.drawImage把Pattern畫出來
+
 function Customized() {
   const cuscanvas = useRef(null);
   //挑選本體
-  const [tasteImg, setTasteImg] = useState('');
+  const [taste, setTaste] = useState('');
+  const [bgcolor, setBgcolor] = useState('#123456');
 
   const [tasteName, setTasteName] = useState(['origin']);
   const tasteNameOptions = ['origin', 'strawberry', 'matcha', 'chocolate'];
@@ -13,21 +19,23 @@ function Customized() {
   const ingredientsNameOptions = ['sugar', 'cotton', 'chocolate2'];
 
   useEffect(() => {
-    const backimg = new Image();
-    backimg.src = `/imgs/Customized/${tasteName}.png`;
+    const tasteImg = new Image();
+    tasteImg.src = `/images/Customized/${tasteName}.jpg`;
     // backimg.src = '/imgs/Customized/style_01.png';
+    console.log(tasteImg);
 
-    backimg.onload = () => {
-      setTasteImg(backimg);
+    tasteImg.onload = () => {
+      setTaste(tasteImg);
     };
   }, [tasteName]);
 
   useEffect(() => {
-    if (tasteImg && cuscanvas) {
+    if (taste && cuscanvas) {
       const ctx = cuscanvas.current.getContext('2d');
-      ctx.drawImage(tasteImg, 0, 0, 0, 0);
+
+      ctx.drawImage(taste, 100, 100, 200, 200);
     }
-  }, [tasteImg, cuscanvas]);
+  }, [taste, cuscanvas]);
 
   return (
     <>
@@ -83,7 +91,7 @@ function Customized() {
           </div>
 
           <div className="col-12 col-md-8">
-            <canvas ref={cuscanvas} width={100} height={500} />
+            <canvas ref={cuscanvas} width={800} height={600} />
           </div>
         </div>
       </div>
