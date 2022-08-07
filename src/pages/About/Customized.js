@@ -8,34 +8,38 @@ import H2 from '../../components/H2';
 
 function Customized() {
   const cuscanvas = useRef(null);
-  //挑選本體
+  //挑選本體taste
   const [taste, setTaste] = useState('');
-  const [bgcolor, setBgcolor] = useState('#123456');
-
   const [tasteName, setTasteName] = useState(['origin']);
   const tasteNameOptions = ['origin', 'strawberry', 'matcha', 'chocolate'];
   //挑選配料
-  const [ingredientsName, setIngredientsName] = useState(['']);
+
+  const [ingredients, setIngredients] = useState(['']);
+  const [ingredientsName, setIngredientsName] = useState(['sugar']);
   const ingredientsNameOptions = ['sugar', 'cotton', 'chocolate2'];
 
   useEffect(() => {
     const tasteImg = new Image();
     tasteImg.src = `/images/Customized/${tasteName}.jpg`;
-    // backimg.src = '/imgs/Customized/style_01.png';
-    console.log(tasteImg);
+    const ingredientsImg = new Image();
+    ingredientsImg.src = `/images/Customized/${ingredientsName}.jpg`;
+
+    console.log(ingredientsName);
 
     tasteImg.onload = () => {
       setTaste(tasteImg);
+      setIngredients(ingredientsImg);
     };
-  }, [tasteName]);
+  }, [tasteName, ingredientsName]);
 
   useEffect(() => {
     if (taste && cuscanvas) {
       const ctx = cuscanvas.current.getContext('2d');
 
       ctx.drawImage(taste, 100, 100, 200, 200);
+      ctx.drawImage(ingredients, 100, 100, 200, 200);
     }
-  }, [taste, cuscanvas]);
+  }, [cuscanvas, taste, ingredients]);
 
   return (
     <>
