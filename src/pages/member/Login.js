@@ -10,6 +10,7 @@ import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
 
+import Mail from './Mail';
 function Login() {
   //設定密碼眼睛&貓貓
   // const [eye, setEye] = useState('password');
@@ -125,7 +126,7 @@ function Login() {
                       alt=""
                     />
                   </div>
-                  <a href="#/">忘記密碼</a>
+                  <Mail/>
                 </div>
                 <button className="ProjectButton">登入</button>
                 <p>
