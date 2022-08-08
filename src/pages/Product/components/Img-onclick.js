@@ -1,11 +1,29 @@
+import React, { useState } from 'react';
+
 function ImgOnClick() {
-  const ImgWrap = document.querySelector('.Mars-cnt-imgwr');
-  
-  // if (ImgWrap.style.boxShadow = '' || ImgWrap.style.boxShadow = 'none') {
-    ImgWrap.style = 'box-shadow: 0 5px 25px 0 rgb(0 0 0 / 10%);';
+  const [clicked, setClicked] = useState(false);
+  const clickedBool = () => setClicked(!clicked);
+
+  // if (clicked) {
+  //   this.style = 'box-shadow: 0 5px 25px 0 rgb(0 0 0 / 10%);';
   // } else {
-  //   ImgWrap.style = 'box-shadow: none;';
+  //   this.style = 'box-shadow: none;';
   // }
+
+  return (
+    <div
+      className="Mars-cnt-imgwr"
+      onClick={clickedBool}
+      style={
+        clicked
+          ? { boxShadow: '0 5px 25px 0 rgb(0 0 0 / 10%)' }
+          : { boxShadow: 'none' }
+      }
+    >
+      {/* eslint-disable-next-line prettier/prettier */}
+      <img src="./images/uji-matcha.jpg" alt="" className="Mars-cnt-img" />
+    </div>
+  );
 }
 
 export default ImgOnClick;
