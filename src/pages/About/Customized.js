@@ -7,7 +7,7 @@ import H2 from '../../components/H2';
 //再用ctx.drawImage把Pattern畫出來
 
 function Customized() {
-  const cuscanvas = useRef(null);
+  const realRef = useRef();
   //挑選本體taste
   const [taste, setTaste] = useState('');
   const [tasteName, setTasteName] = useState('origin');
@@ -15,32 +15,34 @@ function Customized() {
   //挑選配料
 
   const [ingredients1, setIngredients1] = useState('');
-  const [ingredients1Name, setIngredients1Name] = useState('sugar');
-  const ingredients1NameOptions = ['', 'sugar', 'cotton', 'chocolate2'];
+  const [ingredients1Name, setIngredients1Name] = useState('');
+  const ingredients1NameOptions = ['sugar', 'cotton', 'chocolate2'];
 
-  useEffect(() => {
-    const tasteImg = new Image();
-    tasteImg.src = `/images/Customized/${tasteName}.png`;
-    const ingredients1Img = new Image();
+  const getImageFromPath = (path) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = path;
+      img.onload = () => {
+        resolve(img);
+      };
+    });
+  };
+  //背景
+  const renderCanvas = async () => {
+    const ctx = realRef.current.getContext('2d');
+    const bg = await getImageFromPath('/images/Customized/bg.jpg');
+    ctx.drawImage(bg, 0, 0);
 
-    ingredients1Img.src = `/images/Customized/${ingredients1Name}.jpg`;
-
-    console.log(ingredients1Img.src);
-
-    tasteImg.onload = () => {
-      setTaste(tasteImg);
-      setIngredients1(ingredients1Img);
-    };
-  }, [tasteName, ingredients1Name]);
-
-  useEffect(() => {
-    if (taste && cuscanvas) {
-      const ctx = cuscanvas.current.getContext('2d');
-
-      ctx.drawImage(taste, 0, 0, 200, 200);
-      ctx.drawImage(ingredients1, 0, 0, 200, 200);
+    let i = 0;
+    for (let item of ingredients1Name) {
+      const img = await getImageFromPath(`/images/Customized/${item}.jpg`);
+      ctx.drawImage(img, 0, 0);
     }
-  }, [cuscanvas, taste, ingredients1]);
+  };
+
+  useEffect(() => {
+    renderCanvas();
+  }, [ingredients1Name]);
 
   return (
     <>
@@ -65,15 +67,32 @@ function Customized() {
               );
             })}
             <h6>挑選甜甜圈配料1</h6>
+            <h1>核取方塊(群組)</h1>
             {ingredients1NameOptions.map((v, i) => {
               return (
                 <div key={i}>
                   <input
-                    type="radio"
-                    checked={ingredients1Name === v}
+                    type="checkbox"
+                    checked={ingredients1Name.includes(v)}
                     value={v}
                     onChange={(e) => {
-                      setIngredients1Name(e.target.value);
+                      //先判斷是否有在likeList狀態陣列中
+                      if (ingredients1Name.includes(e.target.value)) {
+                        // if有 -> 移出陣列
+                        const newIngredients1Name = ingredients1Name.filter(
+                          (v, i) => {
+                            return v !== e.target.value;
+                          }
+                        );
+                        setIngredients1Name(newIngredients1Name);
+                      } else {
+                        // else -> 加入陣列
+                        const newIngredients1Name = [
+                          ...ingredients1Name,
+                          e.target.value,
+                        ];
+                        setIngredients1Name(newIngredients1Name);
+                      }
                     }}
                   />
                   <label>{v}</label>
@@ -83,7 +102,7 @@ function Customized() {
           </div>
 
           <div className="col-12 col-md-8">
-            <canvas ref={cuscanvas} width={800} height={600} />
+            <canvas ref={realRef} width={800} height={600} />
           </div>
         </div>
       </div>
