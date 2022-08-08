@@ -11,7 +11,7 @@ import BasicTabs from './BasicTabs';
 import H2 from '../../components/H2';
 function StoreMap() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
+    // googleMapsApiKey: 'AIzaSyDLkElszSVl12F3Pt6hA1Jo7_7eWP_ERno',
   });
 
   const [directionResponse, setDirectionResponse] = useState(null);
@@ -61,8 +61,8 @@ function StoreMap() {
   }
 
   const stores = [
-    { lat: 25.0480099, lng: 121.5170087 }, //北車
     { lat: 25.0337702, lng: 121.5433378 }, //大安
+    { lat: 25.0480099, lng: 121.5170087 }, //北車
     { lat: 25.0404691, lng: 121.5667799 }, //市府
   ];
 

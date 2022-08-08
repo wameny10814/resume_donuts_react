@@ -8,10 +8,10 @@ function Content() {
       <div className="Mars-cnt-container">
         <div className="Mars-breadcrumb"></div>
         <div className="Mars-cnt-main d-flex">
-          <div className="Mars-cnt-imgwr" onClick={ImgOnClick}>
-            {/* eslint-disable-next-line prettier/prettier */}
-            <img src="./images/uji-matcha.jpg" alt="" className="Mars-cnt-img" />
-          </div>
+          <ImgOnClick />
+          {/* <div className="Mars-cnt-imgwr">
+            <img src="./images/uji-matcha.jpg" alt="" className="Mars-cnt-img"/>
+          </div> */}
           <div className="Mars-cnt-info">
             <p className="Mars-prod-name">宇治抹茶波提</p>
             <p className="Mars-cnt-engnum">Pon-de Uji Matcha</p>

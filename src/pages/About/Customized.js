@@ -7,43 +7,42 @@ import H2 from '../../components/H2';
 //再用ctx.drawImage把Pattern畫出來
 
 function Customized() {
-  const cuscanvas = useRef(null);
+  const realRef = useRef();
   //挑選本體taste
   const [taste, setTaste] = useState('');
-  const [tasteName, setTasteName] = useState(['origin']);
-  const tasteNameOptions = ['origin', 'strawberry', 'matcha', 'chocolate'];
+  const [tasteName, setTasteName] = useState('origin');
+  const tasteNameOptions = ['', 'origin', 'strawberry', 'matcha', 'Ponde'];
   //挑選配料
 
-  const [ingredients, setIngredients] = useState(['']);
-  const [ingredientsName, setIngredientsName] = useState(['sugar']);
-  const ingredientsNameOptions = ['sugar', 'cotton', 'chocolate2'];
+  const [ingredients1, setIngredients1] = useState('');
+  const [ingredients1Name, setIngredients1Name] = useState('');
+  const ingredients1NameOptions = ['sugar', 'cotton', 'chocolate2'];
+
+  const getImageFromPath = (path) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = path;
+      img.onload = () => {
+        resolve(img);
+      };
+    });
+  };
+  //背景
+  const renderCanvas = async () => {
+    const ctx = realRef.current.getContext('2d');
+    const bg = await getImageFromPath('/images/Customized/bg.jpg');
+    ctx.drawImage(bg, 0, 0);
+
+    let i = 0;
+    for (let item of ingredients1Name) {
+      const img = await getImageFromPath(`/images/Customized/${item}.jpg`);
+      ctx.drawImage(img, 0, 0);
+    }
+  };
 
   useEffect(() => {
-    const tasteImg = new Image();
-    tasteImg.src = `/images/Customized/${tasteName}.jpg`;
-    const ingredientsImg = new Image();
-    //尚未完成條件
-    if (ingredientsName.length > 1) {
-      ingredientsImg.src = `/images/Customized/${ingredientsName}.jpg`;
-    }
-    ingredientsImg.src = `/images/Customized/${ingredientsName}.jpg`;
-
-    console.log(ingredientsName);
-
-    tasteImg.onload = () => {
-      setTaste(tasteImg);
-      setIngredients(ingredientsImg);
-    };
-  }, [tasteName, ingredientsName]);
-
-  useEffect(() => {
-    if (taste && cuscanvas) {
-      const ctx = cuscanvas.current.getContext('2d');
-
-      ctx.drawImage(taste, 100, 100, 200, 200);
-      ctx.drawImage(ingredients, 100, 100, 200, 200);
-    }
-  }, [cuscanvas, taste, ingredients]);
+    renderCanvas();
+  }, [ingredients1Name]);
 
   return (
     <>
@@ -67,28 +66,32 @@ function Customized() {
                 </div>
               );
             })}
-            <h6>挑選甜甜圈口味(多選)</h6>
-            {ingredientsNameOptions.map((v, i) => {
+            <h6>挑選甜甜圈配料1</h6>
+            <h1>核取方塊(群組)</h1>
+            {ingredients1NameOptions.map((v, i) => {
               return (
                 <div key={i}>
                   <input
                     type="checkbox"
-                    checked={ingredientsName.includes(v)}
+                    checked={ingredients1Name.includes(v)}
                     value={v}
                     onChange={(e) => {
-                      if (ingredientsName.includes(e.target.value)) {
-                        const newIngredients = ingredientsName.filter(
+                      //先判斷是否有在likeList狀態陣列中
+                      if (ingredients1Name.includes(e.target.value)) {
+                        // if有 -> 移出陣列
+                        const newIngredients1Name = ingredients1Name.filter(
                           (v, i) => {
                             return v !== e.target.value;
                           }
                         );
-                        setIngredientsName(newIngredients);
+                        setIngredients1Name(newIngredients1Name);
                       } else {
-                        const newIngredients = [
-                          ...ingredientsName,
+                        // else -> 加入陣列
+                        const newIngredients1Name = [
+                          ...ingredients1Name,
                           e.target.value,
                         ];
-                        setIngredientsName(newIngredients);
+                        setIngredients1Name(newIngredients1Name);
                       }
                     }}
                   />
@@ -99,7 +102,7 @@ function Customized() {
           </div>
 
           <div className="col-12 col-md-8">
-            <canvas ref={cuscanvas} width={800} height={600} />
+            <canvas ref={realRef} width={800} height={600} />
           </div>
         </div>
       </div>
