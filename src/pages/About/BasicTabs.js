@@ -35,8 +35,8 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs(props) {
-  const { moveTo, stores } = props;
-  console.log(props);
+  // 接收傳進來的panTo函式
+  const { moveTo, stores, caculateRoute, distance, duration } = props;
 
   const [value, setValue] = React.useState(0);
 
@@ -57,11 +57,11 @@ export default function BasicTabs(props) {
               moveTo(stores[0]);
             }}
             sx={{
-              fontSize: '1.5rem',
+              fontSize: '2rem',
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
             }}
-            label="北車店"
+            label="大安店"
             {...a11yProps(0)}
           />
           <Tab
@@ -69,16 +69,19 @@ export default function BasicTabs(props) {
               moveTo(stores[1]);
             }}
             sx={{
-              fontSize: '1.5rem',
+              fontSize: '2rem',
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
             }}
-            label="大安店"
+            label="北車店"
             {...a11yProps(1)}
           />
           <Tab
+            onClick={() => {
+              moveTo(stores[2]);
+            }}
             sx={{
-              fontSize: '1.5rem',
+              fontSize: '2rem',
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
             }}
@@ -88,27 +91,35 @@ export default function BasicTabs(props) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <p className="bingH4">ポッチーパン屋 北車站</p>
+        <p className="bingH4">ポッチーパン屋 北車店</p>
 
         <ul>
           <li>
-            <p className="bingH4">地址</p>
+            <p className="bingH5">地址</p>
             <p className="bingText-16">台北市中正區北平西路3號</p>
+            <button on onClick={caculateRoute}>
+              計算
+            </button>
+            <span className="bingText-16">
+              距離{distance}，開車前往大約{duration}
+            </span>
           </li>
           <li>
-            <p className="bingH4">聯絡電話</p>
+            <p className="bingH5">聯絡電話</p>
             <p className="bingText-16">02-23713558</p>
           </li>
           <li>
-            <p className="bingH4">E-MAIL</p>
+            <p className="bingH5">E-MAIL</p>
             <p className="bingText-16">LoveMeowDonut@meowmeow.com</p>
           </li>
           <li>
-            <p className="bingH4">營業時間</p>
+            <p className="bingH5">營業時間</p>
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">營業起訖</th>
+                  <th className="bingH6" scope="col">
+                    營業起訖
+                  </th>
                   <th scope="col">月</th>
                   <th scope="col">火</th>
                   <th scope="col">水</th>
@@ -120,9 +131,11 @@ export default function BasicTabs(props) {
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">10：00～20：00</th>
+                  <th className="bingH6" scope="row">
+                    10：00～20：00
+                  </th>
                   <td>
-                    <i className="fa-regular fa-circle"></i>{' '}
+                    <i className="fa-regular fa-circle"></i>
                   </td>
                   <td>
                     <i className="fa-solid fa-circle"></i>
@@ -153,23 +166,31 @@ export default function BasicTabs(props) {
 
         <ul>
           <li>
-            <p className="bingH4">地址</p>
+            <p className="bingH5">地址</p>
             <p className="bingText-16">台北市大安區復興南路一段390號2樓</p>
+            <button on onClick={caculateRoute}>
+              計算
+            </button>
+            <span className="bingText-16">
+              距離{distance}，開車前往大約{duration}
+            </span>
           </li>
           <li>
-            <p className="bingH4">聯絡電話</p>
+            <p className="bingH5">聯絡電話</p>
             <p className="bingText-16">02-33778778</p>
           </li>
           <li>
-            <p className="bingH4">E-MAIL</p>
+            <p className="bingH5">E-MAIL</p>
             <p className="bingText-16">LoveMeowDonut@meowmeow.com</p>
           </li>
           <li>
-            <p className="bingH4">營業時間</p>
+            <p className="bingH5">營業時間</p>
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">營業起訖</th>
+                  <th className="bingH6" scope="col">
+                    營業起訖
+                  </th>
                   <th scope="col">月</th>
                   <th scope="col">火</th>
                   <th scope="col">水</th>
@@ -181,7 +202,9 @@ export default function BasicTabs(props) {
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">10：00～20：00</th>
+                  <th className="bingH6" scope="row">
+                    10：00～20：00
+                  </th>
                   <td>
                     <i className="fa-regular fa-circle"></i>{' '}
                   </td>
@@ -201,7 +224,7 @@ export default function BasicTabs(props) {
                     <i className="fa-solid fa-circle"></i>
                   </td>
                   <td>
-                    <i className="fa-solid fa-circle"></i>
+                    <i className="fa-regular fa-circle"></i>
                   </td>
                 </tr>
               </tbody>
@@ -211,26 +234,33 @@ export default function BasicTabs(props) {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <p className="bingH4">ポッチーパン屋 市府店</p>
-
         <ul>
           <li>
-            <p className="bingH4">地址</p>
+            <p className="bingH5">地址</p>
             <p className="bingText-16">台北市信義區忠孝東路五段2號</p>
+            <button on onClick={caculateRoute}>
+              計算
+            </button>
+            <span className="bingText-16">
+              距離{distance}，開車前往大約{duration}
+            </span>
           </li>
           <li>
-            <p className="bingH4">聯絡電話</p>
+            <p className="bingH5">聯絡電話</p>
             <p className="bingText-16">02-55671284</p>
           </li>
           <li>
-            <p className="bingH4">E-MAIL</p>
+            <p className="bingH5">E-MAIL</p>
             <p className="bingText-16">LoveMeowDonut@meowmeow.com</p>
           </li>
           <li>
-            <p className="bingH4">營業時間</p>
+            <p className="bingH5">營業時間</p>
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">營業起訖</th>
+                  <th className="bingH6" scope="col">
+                    營業起訖
+                  </th>
                   <th scope="col">月</th>
                   <th scope="col">火</th>
                   <th scope="col">水</th>
@@ -242,7 +272,9 @@ export default function BasicTabs(props) {
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">10：00～20：00</th>
+                  <th className="bingH6" scope="row">
+                    10：00～20：00
+                  </th>
                   <td>
                     <i className="fa-regular fa-circle"></i>{' '}
                   </td>

@@ -2,9 +2,15 @@
     font-family: 'Zen Maru Gothic', sans-serif;
 }
 
+.Mars-container {
+    margin-left: 158px;
+    margin-right: 158px;
+}
+
 .Mars-img-wrap {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .Mars-visual {
@@ -15,6 +21,13 @@
     margin-bottom: 14px;
 }
 
+.Mars-img-wrap .Mars-prod-name {
+    position: absolute;
+    top: 100px;
+    left: 75px;
+    color: #FFF;
+}
+
 .Mars-product-slide {
     margin-left: 0;
     margin-right: 0;
@@ -23,6 +36,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .Mars-prod-wrap {
@@ -30,7 +44,7 @@
     flex-direction: column;
     align-items: center;
     max-width: 340px;
-    margin: 10px 10px;
+    margin: 10px 30px;
 }
 
 .Mars-prod-wrap>div, .Mars-prod-wrap>span, .Mars-prod-wrap>button {
