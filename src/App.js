@@ -13,13 +13,15 @@ import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
 import Customized from './pages/Customized/Customized';
 
+//Yuchen
 import Membercenter from './pages/member/Membercenter';
 import Login from './pages/member/Login';
 import MemberRegister from './pages/member/MemberRegister';
 import MemberHistory from './pages/member/MemberHistory';
 import MemberPsdchange from './pages/member/MemberPsdchange';
 import Cat from './pages/member/Cat';
-
+import PsdForgot from './pages/member/PsdForgot';
+import PsdForgot02 from './pages/member/PsdForgot02';
 
 // Mars
 import Product from './pages/Product/Product';
@@ -67,6 +69,9 @@ function App() {
             <Route path="MemberHistory" element={<MemberHistory />} />
             <Route path="MemberPsdchange" element={<MemberPsdchange />} />
             <Route path="Cat" element={<Cat />} />
+            <Route path="PsdForgot" element={<PsdForgot />} />
+            <Route path="PsdForgot02" element={<PsdForgot02 />} />
+        
 
             {/* LoveYu的頁面 */}
             <Route path="ProductsYu" element={<ProductsYu />} />

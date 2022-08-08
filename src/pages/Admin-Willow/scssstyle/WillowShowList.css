@@ -1,0 +1,91 @@
+#willowshowlist .willow_minh {
+  height: 55vh;
+  overflow: auto;
+}
+#willowshowlist .willow_hdsty {
+  width: 20%;
+}
+#willowshowlist .willow_table_thead_style1 {
+  color: white;
+  background-color: #616153;
+}
+#willowshowlist .willow_table_thead_style2 {
+  color: white;
+  background-color: #92927f;
+}
+#willowshowlist .willow_table_thead_style3 {
+  color: white;
+  background-color: #96966e;
+}
+#willowshowlist .willow_height {
+  height: 500px;
+  overflow: scroll;
+}
+#willowshowlist .willow_focus_middle {
+  border: 1px solid #ffffff;
+}
+#willowshowlist .willow_focus_middle:hover {
+  border: 1px solid #616153;
+}
+#willowshowlist .willow_focus_left {
+  border: 1px solid #ffffff;
+}
+#willowshowlist .willow_focus_left:hover {
+  border: 1px solid #92927f;
+}
+#willowshowlist .willow_focus_right {
+  border: 1px solid #ffffff;
+}
+#willowshowlist .willow_focus_right:hover {
+  border: 1px solid #96966e;
+}
+#willowshowlist .willow_icons svg {
+  color: #616153;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+#willowshowlist .willow_icons :hover {
+  color: #96966e;
+}
+#willowshowlist .willow_icons_add svg {
+  color: #616153;
+  width: 2rem;
+  height: 2rem;
+}
+#willowshowlist .willow_icons_add :hover {
+  color: #96966e;
+}
+#willowshowlist .col_bline {
+  border-bottom: 1px solid #616153;
+  padding-bottom: 3rem;
+}
+#willowshowlist .willow_w {
+  width: 30%;
+}
+#willowshowlist .willow_p_5 {
+  padding: 0 15rem 0 15rem;
+}
+#willowshowlist .willow_mp_5 {
+  padding-top: 2rem;
+}
+#willowshowlist .willow_hmax {
+  max-height: 20rem;
+  max-width: 18rem;
+}
+#willowshowlist .willow_ellipsis {
+  overflow: auto;
+  text-indent: 4rem;
+  max-height: 4.5rem;
+  text-align: left;
+}
+#willowshowlist .willow_wspeace {
+  white-space: nowrap;
+  width: 100%;
+}
+#willowshowlist .willow_p {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+#willowshowlist .willow_pl {
+  padding-left: 1rem;
+}/*# sourceMappingURL=WillowShowList.css.map */
