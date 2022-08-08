@@ -126,7 +126,9 @@ function Login() {
                       alt=""
                     />
                   </div>
-                  <Mail/>
+                  <p>
+                  <Link to="/PsdForgot">忘記密碼</Link>
+                </p>
                 </div>
                 <button className="ProjectButton">登入</button>
                 <p>
