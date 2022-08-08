@@ -10,40 +10,37 @@ function Customized() {
   const cuscanvas = useRef(null);
   //挑選本體taste
   const [taste, setTaste] = useState('');
-  const [tasteName, setTasteName] = useState(['origin']);
-  const tasteNameOptions = ['origin', 'strawberry', 'matcha', 'chocolate'];
+  const [tasteName, setTasteName] = useState('origin');
+  const tasteNameOptions = ['', 'origin', 'strawberry', 'matcha', 'Ponde'];
   //挑選配料
 
-  const [ingredients, setIngredients] = useState(['']);
-  const [ingredientsName, setIngredientsName] = useState(['sugar']);
-  const ingredientsNameOptions = ['sugar', 'cotton', 'chocolate2'];
+  const [ingredients1, setIngredients1] = useState('');
+  const [ingredients1Name, setIngredients1Name] = useState('sugar');
+  const ingredients1NameOptions = ['', 'sugar', 'cotton', 'chocolate2'];
 
   useEffect(() => {
     const tasteImg = new Image();
-    tasteImg.src = `/images/Customized/${tasteName}.jpg`;
-    const ingredientsImg = new Image();
-    //尚未完成條件
-    if (ingredientsName.length > 1) {
-      ingredientsImg.src = `/images/Customized/${ingredientsName}.jpg`;
-    }
-    ingredientsImg.src = `/images/Customized/${ingredientsName}.jpg`;
+    tasteImg.src = `/images/Customized/${tasteName}.png`;
+    const ingredients1Img = new Image();
 
-    console.log(ingredientsName);
+    ingredients1Img.src = `/images/Customized/${ingredients1Name}.jpg`;
+
+    console.log(ingredients1Img.src);
 
     tasteImg.onload = () => {
       setTaste(tasteImg);
-      setIngredients(ingredientsImg);
+      setIngredients1(ingredients1Img);
     };
-  }, [tasteName, ingredientsName]);
+  }, [tasteName, ingredients1Name]);
 
   useEffect(() => {
     if (taste && cuscanvas) {
       const ctx = cuscanvas.current.getContext('2d');
 
-      ctx.drawImage(taste, 100, 100, 200, 200);
-      ctx.drawImage(ingredients, 100, 100, 200, 200);
+      ctx.drawImage(taste, 0, 0, 200, 200);
+      ctx.drawImage(ingredients1, 0, 0, 200, 200);
     }
-  }, [cuscanvas, taste, ingredients]);
+  }, [cuscanvas, taste, ingredients1]);
 
   return (
     <>
@@ -67,29 +64,16 @@ function Customized() {
                 </div>
               );
             })}
-            <h6>挑選甜甜圈口味(多選)</h6>
-            {ingredientsNameOptions.map((v, i) => {
+            <h6>挑選甜甜圈配料1</h6>
+            {ingredients1NameOptions.map((v, i) => {
               return (
                 <div key={i}>
                   <input
-                    type="checkbox"
-                    checked={ingredientsName.includes(v)}
+                    type="radio"
+                    checked={ingredients1Name === v}
                     value={v}
                     onChange={(e) => {
-                      if (ingredientsName.includes(e.target.value)) {
-                        const newIngredients = ingredientsName.filter(
-                          (v, i) => {
-                            return v !== e.target.value;
-                          }
-                        );
-                        setIngredientsName(newIngredients);
-                      } else {
-                        const newIngredients = [
-                          ...ingredientsName,
-                          e.target.value,
-                        ];
-                        setIngredientsName(newIngredients);
-                      }
+                      setIngredients1Name(e.target.value);
                     }}
                   />
                   <label>{v}</label>
