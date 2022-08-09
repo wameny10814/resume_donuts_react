@@ -15,7 +15,7 @@ function Customized() {
   //挑選配料
   const [ingredients1, setIngredients1] = useState('');
   const [ingredients1Name, setIngredients1Name] = useState('');
-  const ingredients1NameOptions = ['chocolate', 'milk', 'sugar','rice','strawberry'];
+  const ingredients1NameOptions = ['chocolate', 'strawberry', 'milk', 'sugar'];
 
   const getImageFromPath = (path) => {
     return new Promise((resolve, reject) => {
@@ -31,7 +31,9 @@ function Customized() {
     const ctx = realRef.current.getContext('2d');
     const bg = await getImageFromPath('/images/Customized/bg.jpg');
     ctx.drawImage(bg, 0, 0);
-    const tasteimg = await getImageFromPath(`/images/Customized/basic/${tasteName}.png`);
+    const tasteimg = await getImageFromPath(
+      `/images/Customized/basic/${tasteName}.png`
+    );
     ctx.drawImage(tasteimg, 0, 0);
 
     let i = 0;
