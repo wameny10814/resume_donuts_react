@@ -15,7 +15,7 @@ function Customized() {
   //挑選配料
   const [ingredients1, setIngredients1] = useState('');
   const [ingredients1Name, setIngredients1Name] = useState('');
-  const ingredients1NameOptions = ['chocolate', 'milk', 'sugar','rice'];
+  const ingredients1NameOptions = ['chocolate', 'milk', 'sugar','rice','strawberry'];
 
   const getImageFromPath = (path) => {
     return new Promise((resolve, reject) => {
