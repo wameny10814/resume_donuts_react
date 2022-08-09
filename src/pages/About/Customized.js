@@ -1,21 +1,24 @@
 import { useState, useRef, useEffect } from 'react';
 import H2 from '../../components/H2';
 
-//patternName是可控表單 set後塞成patternimg.src的一部分
-
-//patternimg是創造出來的圖片塞到Pattern
-//再用ctx.drawImage把Pattern畫出來
-
 function Customized() {
   const realRef = useRef();
-  //挑選本體taste
-  const [taste, setTaste] = useState('');
-  const [tasteName, setTasteName] = useState('origin');
-  const tasteNameOptions = ['origin', 'strawberry', 'matcha', 'Ponde'];
-  //挑選配料
-  const [ingredients1, setIngredients1] = useState('');
-  const [ingredients1Name, setIngredients1Name] = useState('');
-  const ingredients1NameOptions = ['chocolate', 'strawberry', 'milk', 'sugar'];
+  //挑選donut
+  const [donut, setDonut] = useState('origin');
+  const donutOptions = ['origin', 'strawberry', 'matcha', 'Ponde'];
+  //挑選糖霜
+  const [layer, setLayer] = useState('');
+  const layerOptions = ['chocolate', 'strawberry', 'milk', 'sugar'];
+  //配料
+  const [decoration, setDecoration] = useState('');
+  const decorationOptions = [
+    'cotton',
+    'rice',
+    'strawberry',
+    'sugarpowder',
+    'onion',
+    'dot',
+  ];
 
   const getImageFromPath = (path) => {
     return new Promise((resolve, reject) => {
@@ -26,28 +29,37 @@ function Customized() {
       };
     });
   };
-  //背景
+  //畫圖
   const renderCanvas = async () => {
     const ctx = realRef.current.getContext('2d');
     const bg = await getImageFromPath('/images/Customized/bg.jpg');
     ctx.drawImage(bg, 0, 0);
-    const tasteimg = await getImageFromPath(
-      `/images/Customized/basic/${tasteName}.png`
-    );
-    ctx.drawImage(tasteimg, 0, 0);
 
-    let i = 0;
-    for (let item of ingredients1Name) {
-      const img = await getImageFromPath(
-        `/images/Customized/layer/${item}.png`
-      );
-      ctx.drawImage(img, 0, 0);
-    }
+    const donutImg = await getImageFromPath(
+      `/images/Customized/basic/${donut}.png`
+    );
+    ctx.drawImage(donutImg, 0, 0);
+
+    const decorationImg = await getImageFromPath(
+      `/images/Customized/decoration/${decoration}.png`
+    );
+    ctx.drawImage(decorationImg, 0, 0);
+    const layerImg = await getImageFromPath(
+      `/images/Customized/layer/${layer}.png`
+    );
+    ctx.drawImage(layerImg, 0, 0);
+
+    // for (let i of layer) {
+    //   const layerImg = await getImageFromPath(
+    //     `/images/Customized/layer/${i}.png`
+    //   );
+    //   ctx.drawImage(layerImg, 0, 0);
+    // }
   };
 
   useEffect(() => {
     renderCanvas();
-  }, [tasteName, ingredients1Name]);
+  }, [donut, layer, decoration]);
 
   return (
     <>
@@ -56,48 +68,47 @@ function Customized() {
         <div className="d-flex">
           <div className="col-12 col-md-4 bingControl h-100">
             <h6>挑選甜甜圈口味(單選)</h6>
-            {tasteNameOptions.map((v, i) => {
+            {donutOptions.map((v, i) => {
               return (
                 <div key={i}>
                   <input
                     type="radio"
-                    checked={tasteName === v}
+                    checked={donut === v}
                     value={v}
                     onChange={(e) => {
-                      setTasteName(e.target.value);
+                      setDonut(e.target.value);
                     }}
                   />
                   <label>{v}</label>
                 </div>
               );
             })}
-            <h6>挑選甜甜圈配料1</h6>
-            <h1>核取方塊(群組)</h1>
-            {ingredients1NameOptions.map((v, i) => {
+            <h6>挑選糖霜(單選)</h6>
+            {layerOptions.map((v, i) => {
               return (
                 <div key={i}>
                   <input
-                    type="checkbox"
-                    checked={ingredients1Name.includes(v)}
+                    type="radio"
+                    checked={layer === v}
                     value={v}
                     onChange={(e) => {
-                      //先判斷是否有在likeList狀態陣列中
-                      if (ingredients1Name.includes(e.target.value)) {
-                        // if有 -> 移出陣列
-                        const newIngredients1Name = ingredients1Name.filter(
-                          (v, i) => {
-                            return v !== e.target.value;
-                          }
-                        );
-                        setIngredients1Name(newIngredients1Name);
-                      } else {
-                        // else -> 加入陣列
-                        const newIngredients1Name = [
-                          ...ingredients1Name,
-                          e.target.value,
-                        ];
-                        setIngredients1Name(newIngredients1Name);
-                      }
+                      setLayer(e.target.value);
+                    }}
+                  />
+                  <label>{v}</label>
+                </div>
+              );
+            })}
+            <h6>挑選配料(單選)</h6>
+            {decorationOptions.map((v, i) => {
+              return (
+                <div key={i}>
+                  <input
+                    type="radio"
+                    checked={decoration === v}
+                    value={v}
+                    onChange={(e) => {
+                      setDecoration(e.target.value);
                     }}
                   />
                   <label>{v}</label>
@@ -116,3 +127,31 @@ function Customized() {
 }
 
 export default Customized;
+
+// <h6>挑選甜甜圈糖霜</h6>
+//             {layerOptions.map((v, i) => {
+//               return (
+//                 <div key={i}>
+//                   <input
+//                     type="checkbox"
+//                     checked={layer.includes(v)}
+//                     value={v}
+//                     onChange={(e) => {
+//                       //先判斷是否有在likeList狀態陣列中
+//                       if (layer.includes(e.target.value)) {
+//                         // if有 -> 移出陣列
+//                         const newLayer = layer.filter((v, i) => {
+//                           return v !== e.target.value;
+//                         });
+//                         setLayer(newLayer);
+//                       } else {
+//                         // else -> 加入陣列
+//                         const newLayer = [...layer, e.target.value];
+//                         setLayer(newLayer);
+//                       }
+//                     }}
+//                   />
+//                   <label>{v}</label>
+//                 </div>
+//               );
+//             })}
