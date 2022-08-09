@@ -6,8 +6,9 @@ import Footer from './components/Footer/Footer';
 import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
 import './App.css';
 
+//LOVEYU
 import Cart from './pages/Cart/Cart';
-import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
+// import ProductsYu from './pages/Cart/Products-Yu/Products-Yu';
 import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
 import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
@@ -74,7 +75,7 @@ function App() {
         
 
             {/* LoveYu的頁面 */}
-            <Route path="ProductsYu" element={<ProductsYu />} />
+            {/* <Route path="ProductsYu" element={<ProductsYu />} /> */}
             <Route path="Cart" element={<Cart />} />
             <Route path="CartOrderCheck" element={<CartOrderCheck />} />
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
