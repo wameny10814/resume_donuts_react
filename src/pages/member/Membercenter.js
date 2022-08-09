@@ -173,7 +173,6 @@ function Membercenter() {
         });
         //畫面更新
         getdata();
-        // console.log('checkauth_edit_pro', auth);
       });
   };
 
@@ -194,11 +193,6 @@ function Membercenter() {
               <li>
                 <Link className="nav-link" to="/MemberPsdchange">
                   <i className="fa-solid fa-user"></i>密碼更新
-                </Link>
-              </li>
-              <li>
-                <Link className="nav-link" to="/MemberPsdchange">
-                  <i className="fa-solid fa-user"></i>發布評論
                 </Link>
               </li>
             </ul>

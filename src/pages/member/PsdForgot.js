@@ -35,8 +35,10 @@ function PsdForgot(props) {
     email: '',
   });
   const [confirmedEmail, setConfirmedEmail] = useState('');
-  const [emailblock, setEmailblock] = useState('block');
   const [didConfirmed, setDidConfirmed] = useState(false);
+
+  const [uuu, setUuu] = useState(false);
+  const [bbb, setBbb] = useState(false);
 
   const changeFields = (event) => {
     const id = event.target.id;
@@ -54,6 +56,7 @@ function PsdForgot(props) {
     if (myform.email === '') {
       return;
     }
+
     fetch('http://localhost:3600/member/checkmail', {
       method: 'POST',
       body: JSON.stringify(myform),
@@ -69,8 +72,9 @@ function PsdForgot(props) {
         } else {
           setDidConfirmed(true);
           setConfirmedEmail(result[0].email);
-          setEmailblock('none');
-        //   navigate('/PsdForgot02');
+          setUuu(true);
+          // element.classList.add('fadeout');
+          // window.scroll(0, 620);
         }
       });
   };
@@ -82,34 +86,57 @@ function PsdForgot(props) {
         </header>
         <div className="row">
           <div className="col">
-            <div className="logincat d-flex justify-content-center">
-              <img src={isCatHide ? catHide : cat} alt="" />
-              {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
-            </div>
-            <form action="" onSubmit={whenSubmit}>
-              <div className="yu_logincard d-flex">
-                <div className="yu_inputblock">
-                  <label htmlFor="">請輸入信箱</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={myform.email}
-                    onChange={changeFields}
-                  />
+            {/* <div className="logincat d-flex justify-content-center">
+              <img src={isCatHide ? catHide : cat} alt="" /> */}
+            {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
+            {/* </div> */}
+            {uuu ? (
+              bbb ? (
+                <PsdForgot03 userEmail={confirmedEmail}></PsdForgot03>
+              ) : (
+                <PsdForgot02
+                  userEmail={confirmedEmail}
+                  setBbb={setBbb}
+                ></PsdForgot02>
+              )
+            ) : (
+              <form action="" onSubmit={whenSubmit} className="eee" id="myDIV">
+                <div className="yu_logincard d-flex">
+                  <div className="yu_inputblock">
+                    <label htmlFor="">請輸入信箱</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={myform.email}
+                      onChange={changeFields}
+                    />
+                  </div>
+                  <div className="yu-psdforgot-btn-div">
+                    <button
+                      type="submit"
+                      className="ProjectButton yu-psdforgot-btn"
+                    >
+                      送出
+                    </button>
+                    <button
+                      type="submit"
+                      className="ProjectButton yu-psdforgot-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        console.log('fill');
+                        setMyform({
+                          ...myform,
+                          email: 'wameny10814@gmail.com',
+                        });
+                      }}
+                    >
+                      自動
+                    </button>
+                  </div>
                 </div>
-                <div className="yu-psdforgot-btn-div">
-                  <button
-                    type="submit"
-                    className="ProjectButton yu-psdforgot-btn"
-                  >
-                    送出
-                  </button>
-                </div>
-              </div>
-            </form>
-            <PsdForgot02 userEmail={confirmedEmail}></PsdForgot02>
-            <PsdForgot03 userEmail={confirmedEmail}></PsdForgot03>
+              </form>
+            )}
           </div>
         </div>
       </div>

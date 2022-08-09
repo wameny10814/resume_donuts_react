@@ -28,7 +28,7 @@ function MemberRegister() {
   const changeFields = (event) => {
     const id = event.target.id;
     const val = event.target.value;
-    // console.log({ id, val });
+    console.log({ id, val });
     setRegForm({ ...regForm, [id]: val });
   };
   const navigate = useNavigate();
@@ -183,7 +183,26 @@ function MemberRegister() {
                     />
                     <p className="reg_error"> {regFormError.email}</p>
                   </div>
-                  <button type="submit" className="ProjectButton">註冊</button>
+                  <button type="submit" className="ProjectButton">
+                    註冊
+                  </button>
+                  <button
+                    className="ProjectButton"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      console.log('fill');
+                      setRegForm({
+                        ...regForm,
+                        account: 'yuchen',
+                        pass_hash: 'yuchen123',
+                        password_check: 'yuchen123',
+                        birthday: '2012-12-12',
+                        email: 'yuchen@mail.com',
+                      });
+                    }}
+                  >
+                    自動
+                  </button>
                 </div>
               </form>
 
