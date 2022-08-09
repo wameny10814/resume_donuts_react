@@ -16,7 +16,11 @@ function PsdForgot02(props) {
   //     useremail: '',
   //   });
 
-  const { userEmail } = props;
+  const { userEmail, setBbb, setUuu } = props;
+
+  const [error, setError] = useState({
+    valid_error: '',
+  });
 
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
@@ -43,10 +47,9 @@ function PsdForgot02(props) {
     const val = event.target.value;
     // console.log({ id, val });
     setMyform({ ...myform, [id]: val, email: userEmail });
-    console.log('myform', myform);
+    setError({ ...error, valid_error: '' });
+    // console.log('myform', myform);
   };
-  //轉頁
-  const navigate = useNavigate();
 
   const whenSubmit = (event) => {
     event.preventDefault();
@@ -66,21 +69,24 @@ function PsdForgot02(props) {
       .then((result) => {
         console.log('result', result.success);
         if (result.success === true) {
-        // navigate('/PsdForgot03');
-          alert('正確');
+          // 正確
+          // window.scroll(0, 1400);
+          // setUuu(false);
+          setBbb(true);
         } else {
-          alert('驗證碼輸入錯誤');
+          setError({ ...error, valid_error: '驗證碼輸入錯誤' });
         }
       });
   };
   return (
     <>
-      <div
-        className="container yu_container"
-        onClick={checkIfHide}
-        style={{ display: 'block' }}
-      >
-        <form action="" onSubmit={whenSubmit}>
+      <div className="container yu_container" onClick={checkIfHide}>
+        <form
+          action=""
+          onSubmit={whenSubmit}
+          className="psdcard-margin"
+          id="myDIV02"
+        >
           <div className="yu_logincard d-flex">
             <div className="yu_inputblock">
               <label htmlFor="">電子信箱</label>
@@ -95,6 +101,7 @@ function PsdForgot02(props) {
                 value={myform.valid}
                 onChange={changeFields}
               />
+              <span className="psdchange_error">{error.valid_error}</span>
             </div>
 
             <div className="yu-psdforgot-btn-div">

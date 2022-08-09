@@ -173,7 +173,6 @@ function Membercenter() {
         });
         //畫面更新
         getdata();
-        // console.log('checkauth_edit_pro', auth);
       });
   };
 
