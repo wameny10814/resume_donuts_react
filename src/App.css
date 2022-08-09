@@ -440,6 +440,30 @@
   text-align: center;
 }
 
+.fadeout {
+  -webkit-animation-name: animation;
+          animation-name: animation;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+@-webkit-keyframes animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 nav {
   background-color: none;
 }
