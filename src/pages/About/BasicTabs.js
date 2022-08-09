@@ -61,7 +61,7 @@ export default function BasicTabs(props) {
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
             }}
-            label="北車店"
+            label="大安店"
             {...a11yProps(0)}
           />
           <Tab
@@ -73,7 +73,7 @@ export default function BasicTabs(props) {
               margin: '0 auto',
               fontFamily: 'Zen Maru Gothic',
             }}
-            label="大安店"
+            label="北車店"
             {...a11yProps(1)}
           />
           <Tab
@@ -98,7 +98,7 @@ export default function BasicTabs(props) {
             <p className="bingH5">地址</p>
             <p className="bingText-16">台北市中正區北平西路3號</p>
             <button on onClick={caculateRoute}>
-              計算
+              立即前往
             </button>
             <span className="bingText-16">
               距離{distance}，開車前往大約{duration}
@@ -169,7 +169,7 @@ export default function BasicTabs(props) {
             <p className="bingH5">地址</p>
             <p className="bingText-16">台北市大安區復興南路一段390號2樓</p>
             <button on onClick={caculateRoute}>
-              計算
+              立即前往
             </button>
             <span className="bingText-16">
               距離{distance}，開車前往大約{duration}
@@ -239,7 +239,7 @@ export default function BasicTabs(props) {
             <p className="bingH5">地址</p>
             <p className="bingText-16">台北市信義區忠孝東路五段2號</p>
             <button on onClick={caculateRoute}>
-              計算
+              立即前往
             </button>
             <span className="bingText-16">
               距離{distance}，開車前往大約{duration}

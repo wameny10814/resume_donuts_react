@@ -1,9 +1,18 @@
 import { React, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../pages/member/components/AuthContext';
+import AdminAuthContext from '../../pages/Admin-Willow/admin_components/AdminAuthContext';
 
 function Navbar(props) {
   const { authorized, account, logout } = useContext(AuthContext);
+
+  const {
+    admin_authorized,
+    admin_sid,
+    admin_name,
+    admiadmin_account,
+    admin_logout,
+  } = useContext(AdminAuthContext);
 
   const Author = (props) => {
     const authorized = props.authorized;
@@ -29,13 +38,33 @@ function Navbar(props) {
       );
     } else {
       console.log('3', authorized);
-      return (
-        <li className="nav-item">
-          <Link className="nav-link" to="Login">
-            <i className="fa-solid fa-user"></i>會員登入
-          </Link>
-        </li>
-      );
+      if (admin_authorized === true) {
+        console.log('4', admin_authorized);
+        return (
+          <>
+            <li className="nav-item">
+              <i className="fa-solid fa-user"></i>Admin-Place-{admin_name}
+            </li>
+            <div className="nav-item">
+              <li
+                className="nav-link yu_pointer"
+                onClick={() => admin_logout()}
+              >
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                登出
+              </li>
+            </div>
+          </>
+        );
+      } else {
+        return (
+          <li className="nav-item">
+            <Link className="nav-link" to="Login">
+              <i className="fa-solid fa-user"></i>會員登入
+            </Link>
+          </li>
+        );
+      }
     }
     // else if(authorizedadmin==="true"){
 
@@ -83,7 +112,10 @@ function Navbar(props) {
             </li>
           </ul>
           <ul className="navbar-nav">
-            <Author authorized={authorized} />
+            <Author
+              authorized={authorized}
+              admin_authorized={admin_authorized}
+            />
 
             {/* {authorized ? (
               <>

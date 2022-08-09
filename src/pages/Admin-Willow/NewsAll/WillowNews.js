@@ -200,7 +200,8 @@ function WillowNews(props) {
           </div>
 
           {/* hidden form */}
-          <form name="uploadimgFrom">
+          {/* 在上方函式已加formdata so 這裡不用加了encType="multipart/form-data" */}
+          <form name="uploadimgFrom" >
             <div>
               <input
                 id="newsimg"

@@ -1,5 +1,9 @@
 #willow_adminloginstyle .willow_minhight {
+<<<<<<< HEAD
   min-height: 50vh;
+=======
+  min-height: 80vh;
+>>>>>>> 8739929d02f46451a69e722f31327d0be35a8394
 }
 #willow_adminloginstyle .willow_button {
   color: #f5f5f5;

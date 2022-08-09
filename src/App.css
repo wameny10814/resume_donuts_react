@@ -69,6 +69,10 @@
   padding-left: 0;
 }
 
+.bingControl {
+  background-color: #EBEBEB;
+}
+
 .yu_header p {
   text-align: center;
   font-weight: bold;
@@ -430,6 +434,10 @@
 .yu_history_thead {
   background-color: #616153;
   color: white;
+}
+
+.yu-psdforgot-btn-div {
+  text-align: center;
 }
 
 nav {
