@@ -8,7 +8,7 @@ function Customized() {
   const donutOptions = ['origin', 'strawberry', 'matcha', 'Ponde'];
   //挑選糖霜
   const [layer, setLayer] = useState('');
-  const layerOptions = ['chocolate', 'strawberry', 'milk', 'sugar'];
+  const layerOptions = ['chocolate', 'strawberry', 'milk', 'sugar', 'dot'];
   //配料
   const [decoration, setDecoration] = useState('');
   const decorationOptions = [
@@ -17,7 +17,6 @@ function Customized() {
     'strawberry',
     'sugarpowder',
     'onion',
-    'dot',
   ];
 
   const getImageFromPath = (path) => {
@@ -40,14 +39,15 @@ function Customized() {
     );
     ctx.drawImage(donutImg, 0, 0);
 
-    const decorationImg = await getImageFromPath(
-      `/images/Customized/decoration/${decoration}.png`
-    );
-    ctx.drawImage(decorationImg, 0, 0);
     const layerImg = await getImageFromPath(
       `/images/Customized/layer/${layer}.png`
     );
     ctx.drawImage(layerImg, 0, 0);
+
+    const decorationImg = await getImageFromPath(
+      `/images/Customized/decoration/${decoration}.png`
+    );
+    ctx.drawImage(decorationImg, 0, 0);
 
     // for (let i of layer) {
     //   const layerImg = await getImageFromPath(
