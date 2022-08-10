@@ -13,6 +13,7 @@ import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
 import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
 import Customized from './pages/Customized/Customized';
+import Checkout from './pages/CartOrderCheck/Checkout';
 
 //Yuchen
 import Membercenter from './pages/member/Membercenter';
@@ -72,7 +73,6 @@ function App() {
             <Route path="Cat" element={<Cat />} />
             <Route path="PsdForgot" element={<PsdForgot />} />
             <Route path="PsdForgot02" element={<PsdForgot02 />} />
-        
 
             {/* LoveYu的頁面 */}
             {/* <Route path="ProductsYu" element={<ProductsYu />} /> */}
@@ -81,6 +81,9 @@ function App() {
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
             <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
             <Route path="Customized" element={<Customized />} />
+            <Route path="Checkout" element={<Checkout />} />
+
+
 
             {/* 莊惟的頁面 */}
             <Route path="Product" element={<Product />} />
