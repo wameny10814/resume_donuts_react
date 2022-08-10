@@ -3,7 +3,7 @@ function Share() {
   return (
     <>
       <section className="container">
-        <H2 title="會員分享" Entitle="SOCIAL" />
+        <H2 title="好文分享" Entitle="SHARE" />
         <div className="d-flex justify-content-center share">
           <div className="col-md-6">
             <div className="d-flex h-50 w-100">

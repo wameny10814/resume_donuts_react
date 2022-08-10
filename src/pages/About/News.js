@@ -1,136 +1,68 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 import H2 from '../../components/H2';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 
+import axios from 'axios';
+
 function News() {
+  const [newsData, setNewsData] = useState([]);
+  const [control, setControl] = useState(0);
+
+  const getNewsData = async () => {
+    const response = await axios.get(
+      `http://localhost:3600/willownews/showalldata`
+    );
+    const resdata = response.data;
+    setNewsData(resdata);
+  };
+
+  useEffect(() => {
+    getNewsData();
+  }, []);
+
+  // finishtime: "2022-09-27"
+  // news_at: "2022-08-05T05:22:04.000Z"
+  // newsid: 27
+  // newsimg: "e6080e13-2e83-4cee-a440-492d5d9d898d.jpg"
+  // newsstyle: 2
+  // newstitle: "蕙蕙蕙123"
+  // starttime: "2022-08-09"
+  // userid: 0
+  // words: "qweqweqweqweqweqewqweqwe"
+
   return (
     <>
-      <section className="my-5">
-        <H2 title="最新消息" Entitle="NEWS" />
-        <Swiper loop={true} autoplay={true} className="mySwiper">
-          <SwiperSlide>
-            <div className="container d-flex my-5">
-              <div className="col-12 col-md-6">
-                <img
-                  className="w-100 h-auto"
-                  src="./images/News-img-1.svg"
-                  alt=""
-                />
-              </div>
-              <div className="col-12 col-md-6 h-100">
-                <p className="bingH4 mx-auto px-5">新聞標題</p>
-                <p className="bingText-16 mx-auto px-5">
-                  說到最可愛的卡通代表，少不了三麗鷗最受歡迎的HELLO
-                  KITTY，外型可愛療癒，放在各種物品上更是加倍卡哇伊，大同電鍋最新推出11人份HELLO
-                  KITTY珍珠奶茶不鏽鋼電鍋，一邊吃粽子一編配珍珠奶茶，可愛模樣怎麼能不收藏啦！
-                </p>
-                <div className="text-center my-5">
-                  <ProjectButton text="MORE" />
+      {console.log(newsData)}
+      <H2 title="最新消息" Entitle="NEWS" />
+      <Swiper loop={true} autoplay={true} className="mySwiper">
+        {newsData.map((v, i) => {
+          return (
+            <SwiperSlide key={v.newsid}>
+              <div className="container d-flex my-5">
+                <div className="col-12 col-md-6">
+                  <img
+                    className="w-100 h-auto"
+                    src="./images/News-img-1.svg"
+                    alt=""
+                  />
                 </div>
-
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="container d-flex my-5">
-              <div className="col-12 col-md-6">
-                <img
-                  className="w-100 h-auto"
-                  src="./images/News-img-1.svg"
-                  alt=""
-                />
-              </div>
-              <div className="col-12 col-md-6 h-100">
-                <p className="bingH4 mx-auto px-5">新聞標題</p>
-                <p className="bingText-16 mx-auto px-5">
-                  說到最可愛的卡通代表，少不了三麗鷗最受歡迎的HELLO
-                  KITTY，外型可愛療癒，放在各種物品上更是加倍卡哇伊，大同電鍋最新推出11人份HELLO
-                  KITTY珍珠奶茶不鏽鋼電鍋，一邊吃粽子一編配珍珠奶茶，可愛模樣怎麼能不收藏啦！
-                </p>
-                <div className="text-center my-5">
-                  <ProjectButton text="MORE" />
+                <div className="col-12 col-md-6 h-100">
+                  <p className="bingH4 mx-auto px-5">{v.newstitle}</p>
+                  <p className="bingText-16 mx-auto px-5">{v.words}</p>
+                  <div className="text-center my-5">
+                    <ProjectButton text="MORE" />
+                  </div>
                 </div>
-
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="container d-flex my-5">
-              <div className="col-12 col-md-6">
-                <img
-                  className="w-100 h-auto"
-                  src="./images/News-img-1.svg"
-                  alt=""
-                />
-              </div>
-              <div className="col-12 col-md-6 h-100">
-                <p className="bingH4 mx-auto px-5">新聞標題</p>
-                <p className="bingText-16 mx-auto px-5">
-                  說到最可愛的卡通代表，少不了三麗鷗最受歡迎的HELLO
-                  KITTY，外型可愛療癒，放在各種物品上更是加倍卡哇伊，大同電鍋最新推出11人份HELLO
-                  KITTY珍珠奶茶不鏽鋼電鍋，一邊吃粽子一編配珍珠奶茶，可愛模樣怎麼能不收藏啦！
-                </p>
-                <div className="text-center my-5">
-                  <ProjectButton text="MORE" />
-                </div>
-
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="container d-flex my-5">
-              <div className="col-12 col-md-6">
-                <img
-                  className="w-100 h-auto"
-                  src="./images/News-img-1.svg"
-                  alt=""
-                />
-              </div>
-              <div className="col-12 col-md-6 h-100">
-                <p className="bingH4 mx-auto px-5">新聞標題</p>
-                <p className="bingText-16 mx-auto px-5">
-                  說到最可愛的卡通代表，少不了三麗鷗最受歡迎的HELLO
-                  KITTY，外型可愛療癒，放在各種物品上更是加倍卡哇伊，大同電鍋最新推出11人份HELLO
-                  KITTY珍珠奶茶不鏽鋼電鍋，一邊吃粽子一編配珍珠奶茶，可愛模樣怎麼能不收藏啦！
-                </p>
-                <div className="text-center my-5">
-                  <ProjectButton text="MORE" />
-                </div>
-
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="container d-flex my-5">
-              <div className="col-12 col-md-6">
-                <img
-                  className="w-100 h-auto"
-                  src="./images/News-img-1.svg"
-                  alt=""
-                />
-              </div>
-              <div className="col-12 col-md-6 h-100">
-                <p className="bingH4 mx-auto px-5">新聞標題</p>
-                <p className="bingText-16 mx-auto px-5">
-                  說到最可愛的卡通代表，少不了三麗鷗最受歡迎的HELLO
-                  KITTY，外型可愛療癒，放在各種物品上更是加倍卡哇伊，大同電鍋最新推出11人份HELLO
-                  KITTY珍珠奶茶不鏽鋼電鍋，一邊吃粽子一編配珍珠奶茶，可愛模樣怎麼能不收藏啦！
-                </p>
-                <div className="text-center my-5">
-                  <ProjectButton text="MORE" />
-                </div>
-
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </section>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </>
   );
 }
