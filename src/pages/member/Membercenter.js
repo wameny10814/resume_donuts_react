@@ -40,11 +40,11 @@ function Membercenter() {
   const [isOnchange, setIsOnchange] = useState(false);
   //抓用戶輸入會員資料的值
   const [regForm, setRegForm] = useState({
-    birthday: '',
-    email: '',
-    mobiel: '',
-    address: '',
-    account: '',
+    birthday: usersRaw.birthday,
+    email: usersRaw.email,
+    mobiel: usersRaw.mobiel,
+    address: usersRaw.address,
+    account: usersRaw.account,
   });
 
   const [regFormError, setRegFormError] = useState({
@@ -75,15 +75,22 @@ function Membercenter() {
     const slicedate = date.slice(0, 10);
     const bitrDisplay = { ...res_data, birthday: slicedate };
     if (res_data.avatar) {
-      const newDisplay = { ...bitrDisplay, avatar: r[0].avatar };
-      setUsersDisplay(newDisplay);
+      // console.log('bitrDisplay', bitrDisplay);
+      setUsersDisplay(bitrDisplay);
+      // console.log('usersDisplay', usersDisplay);
       setDidAvatar(true);
+      // console.log('authgetdata0', level);
       setAuth({
         ...auth,
         level: usersDisplay.level,
       });
+      // console.log('authgetdata01', level);
+    } else {
+      setUsersDisplay(bitrDisplay);
+      // console.log('authgetdata02', level);
     }
-    setUsersDisplay(bitrDisplay);
+
+    // console.log('authgetdata03', level);
   };
 
   useEffect(() => {
@@ -102,15 +109,20 @@ function Membercenter() {
     })
       .then((r) => r.json())
       .then((data) => {
+        getdata();
         //修改成功寫入呈現的state
-        setUsersDisplay({ ...usersDisplay, avatar: data.filename });
+        // setUsersDisplay({ ...usersDisplay, avatar: data.filename });
+        // console.log('levelnow', usersDisplay);
         //判斷大頭貼修改成功
         setDidAvatar(true);
         //更新authcontext
+
+        //畫面更新
         setAuth({
           ...auth,
           level: usersDisplay.level,
         });
+        console.log('auth頭貼', level);
       });
   };
   //錯誤訊息
@@ -173,6 +185,7 @@ function Membercenter() {
         });
         //畫面更新
         getdata();
+        console.log('auth資料', level);
       });
   };
 
@@ -238,7 +251,7 @@ function Membercenter() {
             <div className="col-6 yu_profile_editing">
               <div className="yu_member_title">
                 <p>
-                  {isOnchange ? regForm.account : usersDisplay.account}
+                  {isOnchange ? usersDisplay.account : usersDisplay.account}
                   目前會員等級{' '}
                   {isOnchange ? usersDisplay.level : usersDisplay.level}
                 </p>
@@ -328,7 +341,7 @@ function Membercenter() {
                     value="'0'+{usersDisplay.level}"
                     style={{ display: 'none' }}
                   />
-                </div>{' '}
+                </div>
                 <div className="yu_profile_form_group form-group">
                   <input
                     type="text"
