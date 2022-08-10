@@ -39,8 +39,9 @@ import WillowHavegoodPrice from './pages/Admin-Willow/NewsAll/WillowHavegoodPric
 import WillowGoodWritings from './pages/Admin-Willow/NewsAll/WillowGoodWritings';
 
 import WillowReport from './pages/Admin-Willow/Report/WillowReport';
-// 首頁
+// 首頁 客製化
 import AbingIndex from './pages/About/AbingIndex';
+import BingCustomized from './pages/About/BingCustomized';
 
 //context
 import AuthContextProvider from '../src/pages/member/components/AuthConextProvider';
@@ -63,6 +64,7 @@ function App() {
           <Routes>
             {/* bing的頁面 */}
             <Route path="/" element={<AbingIndex />} />
+            <Route path="/abingindex/customized" element={<BingCustomized />} />
 
             {/* Yu的頁面 */}
             <Route path="Login" element={<Login />} />

@@ -6,12 +6,12 @@ import News from './News';
 import Share from './Share';
 import Contribute from './Contribute';
 import StoreMap from './StoreMap';
-import Customized from './Customized';
+import BingCustomized from './BingCustomized';
 
 function AbingIndex() {
   return (
     <>
-      {/* <Customized /> */}
+      {/* <BingCustomized /> */}
       <About />
       <Story />
       <Story2 />

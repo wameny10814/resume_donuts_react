@@ -14,6 +14,11 @@ function PsdForgot03(props) {
 
   const { userEmail } = props;
 
+  const [error, setError] = useState({
+    psdOld_error: '',
+    psdNew_error: '',
+  });
+
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
     if (e.target.tagName === 'INPUT' && e.type === 'focus') {
@@ -40,7 +45,8 @@ function PsdForgot03(props) {
     const val = event.target.value;
     // console.log({ id, val });
     setMyform({ ...myform, [id]: val, email: userEmail });
-    console.log('myform', myform);
+    // console.log('myform', myform);
+    setError({ ...error, psdNew_error: '' });
   };
 
   const whenSubmit = (event) => {
@@ -48,6 +54,11 @@ function PsdForgot03(props) {
 
     console.log(myform);
     if (myform.valid === '') {
+      return;
+    }
+
+    if (myform.psdNew !== myform.psdNewCheck) {
+      setError({ ...error, psdNew_error: '新密碼需相同' });
       return;
     }
     fetch('http://localhost:3600/member/checkvalidtochangepsd', {
@@ -71,12 +82,9 @@ function PsdForgot03(props) {
   return (
     <>
       <div className="container">
-        <header className="yu_header">
-          <h2>密碼更新</h2>
-        </header>
-        <div className="logincat d-flex justify-content-center yu_padchange_margintop ">
+        {/* <div className="logincat d-flex justify-content-center yu_padchange_margintop ">
           <img src={isCatHide ? catHide : cat} alt="" />
-        </div>
+        </div> */}
         <form action="" onSubmit={whenSubmit}>
           <div className="yu_logincard d-flex">
             <div className="yu_inputblock ">
@@ -97,7 +105,7 @@ function PsdForgot03(props) {
                   alt=""
                 />
               </div>
-              {/* <span className="psdchange_error">{error.psdNew_error}</span> */}
+              <span className="psdchange_error">{error.psdNew_error}</span>
             </div>
             <div className="yu_inputblock ">
               <label htmlFor="">請再次輸入新密碼</label>
@@ -117,7 +125,7 @@ function PsdForgot03(props) {
                   alt=""
                 />
               </div>
-              {/* <span className="psdchange_error">{error.psdNew_error}</span> */}
+              <span className="psdchange_error">{error.psdNew_error}</span>
             </div>
             <button type="submit" className="ProjectButton">
               密碼確認更新
