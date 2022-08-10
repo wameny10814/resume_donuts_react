@@ -18,3 +18,6 @@ function GetInfosFromProdPage() {
 //     getData();
 //     localStorage.setItem("Room", JSON.stringify(bookingList));
 // }, [bookingList]);
+
+// 學長姐程式碼
+// https://github.com/EasonLiu0913/honki_react/blob/master/src/wei/pages/Product.js
