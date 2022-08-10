@@ -42,8 +42,8 @@ function Navbar(props) {
         console.log('4', admin_authorized);
         return (
           <>
-            <li className="nav-item">
-              <i className="fa-solid fa-user"></i>Admin-Place-{admin_name}
+            <li className="nav-item nav-link">
+              <i className="fa-solid fa-user "></i>Admin-Place-{admin_name}
             </li>
             <div className="nav-item">
               <li
