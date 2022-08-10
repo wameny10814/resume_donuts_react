@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 
 function GetInfosFromProdPage() {
   const [infos, setInfos] = useState[''];
-  const infosOnChange = setInfos(infos);
+  const infosOnChange = (e) => setInfos(infos);
+  
+
+//   return (
+//     <div className="Mars-" onChange={infosOnChange}></div>
+//   )
 }
 
 // 一樣用 v.sid 傳送到商品內容頁 (Content.js)
@@ -13,3 +18,6 @@ function GetInfosFromProdPage() {
 //     getData();
 //     localStorage.setItem("Room", JSON.stringify(bookingList));
 // }, [bookingList]);
+
+// 學長姐程式碼
+// https://github.com/EasonLiu0913/honki_react/blob/master/src/wei/pages/Product.js

@@ -12,7 +12,7 @@ import Cart from './pages/Cart/Cart';
 import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
 import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
-import Customized from './pages/Customized/Customized';
+import Checkout from './pages/CartOrderCheck/Checkout';
 
 //Yuchen
 import Membercenter from './pages/member/Membercenter';
@@ -81,7 +81,9 @@ function App() {
             <Route path="CartOrderCheck" element={<CartOrderCheck />} />
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
             <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
-            <Route path="Customized" element={<Customized />} />
+            <Route path="Checkout" element={<Checkout />} />
+
+
 
             {/* 莊惟的頁面 */}
             <Route path="Product" element={<Product />} />
