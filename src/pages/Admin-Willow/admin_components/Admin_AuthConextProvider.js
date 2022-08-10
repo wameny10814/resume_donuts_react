@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import AdminAuthContext from './AdminAuthContext';
 import { useNavigate } from 'react-router-dom';
+// const AdminAuthContext = React.createContext({
+//   //admin_authorized 登入狀態
+//   admin_authorized: false,
+//   admin_sid: 0,
+//   admin_name: '',
+//   admin_account: '',
+//   admin_token: '',
+// });
 
 function Admin_AuthConextProvider({ children }) {
   //先看localstorge的資料是否有登入
