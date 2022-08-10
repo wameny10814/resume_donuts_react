@@ -66,55 +66,64 @@ function Customized() {
       <div className="container vh-100">
         <H2 title={'製作獨特的甜甜圈'} Entitle={'Customized'}></H2>
         <div className="d-flex">
-          <div className="col-12 col-md-4 bingControl h-100">
-            <h6>挑選甜甜圈口味(單選)</h6>
-            {donutOptions.map((v, i) => {
-              return (
-                <div key={i}>
-                  <input
-                    type="radio"
-                    checked={donut === v}
-                    value={v}
-                    onChange={(e) => {
-                      setDonut(e.target.value);
-                    }}
-                  />
-                  <label>{v}</label>
-                </div>
-              );
-            })}
-            <h6>挑選糖霜(單選)</h6>
-            {layerOptions.map((v, i) => {
-              return (
-                <div key={i}>
-                  <input
-                    type="radio"
-                    checked={layer === v}
-                    value={v}
-                    onChange={(e) => {
-                      setLayer(e.target.value);
-                    }}
-                  />
-                  <label>{v}</label>
-                </div>
-              );
-            })}
-            <h6>挑選配料(單選)</h6>
-            {decorationOptions.map((v, i) => {
-              return (
-                <div key={i}>
-                  <input
-                    type="radio"
-                    checked={decoration === v}
-                    value={v}
-                    onChange={(e) => {
-                      setDecoration(e.target.value);
-                    }}
-                  />
-                  <label>{v}</label>
-                </div>
-              );
-            })}
+          <div className="col-12 col-md-4 h-100">
+            <h6>挑選甜甜圈口味</h6>
+            <div className="d-flex flex-wrap">
+              {donutOptions.map((v, i) => {
+                return (
+                  <div key={i}>
+                    <input
+                      type="radio"
+                      checked={donut === v}
+                      value={v}
+                      onChange={(e) => {
+                        setDonut(e.target.value);
+                      }}
+                    />
+                    <img src={`/images/Customized/basic/${v}Icon.png`} alt="" />
+                  </div>
+                );
+              })}
+            </div>
+            <h6>挑選糖霜</h6>
+            <div className="d-flex flex-wrap">
+              {layerOptions.map((v, i) => {
+                return (
+                  <div key={i}>
+                    <input
+                      type="radio"
+                      checked={layer === v}
+                      value={v}
+                      onChange={(e) => {
+                        setLayer(e.target.value);
+                      }}
+                    />
+                    <img src={`/images/Customized/layer/${v}Icon.png`} alt="" />
+                  </div>
+                );
+              })}
+            </div>
+            <h6>挑選配料</h6>
+            <div className="d-flex flex-wrap">
+              {decorationOptions.map((v, i) => {
+                return (
+                  <div key={i}>
+                    <input
+                      type="radio"
+                      checked={decoration === v}
+                      value={v}
+                      onChange={(e) => {
+                        setDecoration(e.target.value);
+                      }}
+                    />
+                    <img
+                      src={`/images/Customized/decoration/${v}Icon.png`}
+                      alt=""
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="col-12 col-md-8">
