@@ -72,6 +72,7 @@ function Login() {
           //登入成功需刷新才能更改navbar -->使用authorized判定-->result 把authcontext的authorized放進去
           //登入成功會發回來 該會員 token account 及會員等級
           localStorage.setItem('auth', JSON.stringify(result.data));
+          console.log('result.data', result.data);
           setAuth({
             ...result.data,
             authorized: true,
@@ -127,8 +128,8 @@ function Login() {
                     />
                   </div>
                   <p>
-                  <Link to="/PsdForgot">忘記密碼</Link>
-                </p>
+                    <Link to="/PsdForgot">忘記密碼</Link>
+                  </p>
                 </div>
                 <button className="ProjectButton">登入</button>
                 <p>

@@ -2,8 +2,34 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AuthContext from '../../pages/member/components/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function MemberHistory() {
+  const { authorized, token, account, level, logout, setAuth, auth } =
+    useContext(AuthContext);
+
+  // 第一次記錄伺服器的原始資料用
+  const [usersRaw, setUsersRaw] = useState('');
+
+  const getdata = async () => {
+    const response = await axios.get(
+      'http://localhost:3600/member/memberhistory',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const r = response.data;
+    const res_data = r[0];
+    console.log('res', res_data);
+    setUsersRaw(res_data);
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
   return (
     <>
       <div className="container">
@@ -21,11 +47,6 @@ function MemberHistory() {
               <li>
                 <Link className="nav-link" to="/MemberPsdchange">
                   <i className="fa-solid fa-user"></i>密碼更新
-                </Link>
-              </li>
-              <li>
-                <Link className="nav-link" to="/MemberPsdchange">
-                  <i className="fa-solid fa-user"></i>發布評論
                 </Link>
               </li>
             </ul>

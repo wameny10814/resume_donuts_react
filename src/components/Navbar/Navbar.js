@@ -25,7 +25,7 @@ function Navbar(props) {
         <>
           <li className="nav-item">
             <Link className="nav-link" to="Membercenter">
-              <i className="fa-solid fa-user"></i>會員專區
+              <i className="fa-solid fa-user"></i>會員專區{account}
             </Link>
           </li>
           <div className="nav-item">

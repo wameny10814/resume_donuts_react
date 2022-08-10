@@ -54,7 +54,9 @@ function Admin_AuthConextProvider({ children }) {
 
   return (
     // { ...admin_auth, setAdmin_Auth, admin_logout, admin_auth }
-    <AdminAuthContext.Provider value={{ ...admin_auth, setAdmin_Auth ,admin_logout}}>
+    <AdminAuthContext.Provider
+      value={{ ...admin_auth, setAdmin_Auth, admin_logout }}
+    >
       {children}
     </AdminAuthContext.Provider>
   );
