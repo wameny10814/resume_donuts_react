@@ -5,17 +5,23 @@ function BingCustomized() {
   const realRef = useRef();
   //挑選donut
   const [donut, setDonut] = useState('origin');
-  const donutOptions = ['origin', 'strawberry', 'matcha', 'Ponde'];
+  const [donutPrice, setDonutPrice] = useState(15);
+  const donutPriceOptions = [15, 20, 20, 25];
+  const donutOptions = ['origin', 'strawberry', 'Ponde', 'matcha'];
   //挑選糖霜
   const [layer, setLayer] = useState('');
-  const layerOptions = ['chocolate', 'strawberry', 'milk', 'sugar', 'dot'];
+  const [layerPrice, setLayerPrice] = useState(0);
+  const layerPriceOptions = [5, 10, 10, 15, 20];
+  const layerOptions = ['sugar', 'chocolate', 'strawberry', 'milk', 'dot'];
   //配料
   const [decoration, setDecoration] = useState('');
+  const [decorationPrice, setDecorationPrice] = useState(0);
+  const decorationPriceOptions = [5, 5, 10, 10, 15];
   const decorationOptions = [
-    'cotton',
     'rice',
-    'strawberry',
     'sugarpowder',
+    'cotton',
+    'strawberry',
     'onion',
   ];
 
@@ -48,7 +54,7 @@ function BingCustomized() {
       `/images/Customized/decoration/${decoration}.png`
     );
     ctx.drawImage(decorationImg, 0, 0);
-
+    //多選寫法
     // for (let i of layer) {
     //   const layerImg = await getImageFromPath(
     //     `/images/Customized/layer/${i}.png`
@@ -63,9 +69,9 @@ function BingCustomized() {
 
   return (
     <>
-      <div className="container vh-100">
+      <div className="container h-100">
         <H2 title={'製作獨特的甜甜圈'} Entitle={'Customized'}></H2>
-        <div className="d-flex">
+        <div className="d-flex flex-wrap">
           <div className="col-12 col-md-4 h-100">
             <h6>挑選甜甜圈口味</h6>
             <div className="d-flex flex-wrap">
@@ -78,9 +84,18 @@ function BingCustomized() {
                       value={v}
                       onChange={(e) => {
                         setDonut(e.target.value);
+                        setDonutPrice(donutPriceOptions[i]);
                       }}
                     />
-                    <img src={`/images/Customized/basic/${v}Icon.png`} alt="" />
+                    <div>
+                      <img
+                        src={`/images/Customized/basic/${v}Icon.png`}
+                        alt=""
+                      />
+                      <p className="text-center bingText-16">
+                        {donutPriceOptions[i]}元
+                      </p>
+                    </div>
                   </div>
                 );
               })}
@@ -96,9 +111,18 @@ function BingCustomized() {
                       value={v}
                       onChange={(e) => {
                         setLayer(e.target.value);
+                        setLayerPrice(layerPriceOptions[i]);
                       }}
                     />
-                    <img src={`/images/Customized/layer/${v}Icon.png`} alt="" />
+                    <div>
+                      <img
+                        src={`/images/Customized/layer/${v}Icon.png`}
+                        alt=""
+                      />
+                      <p className="text-center bingText-16">
+                        {layerPriceOptions[i]}元
+                      </p>
+                    </div>
                   </div>
                 );
               })}
@@ -114,20 +138,43 @@ function BingCustomized() {
                       value={v}
                       onChange={(e) => {
                         setDecoration(e.target.value);
+                        setDecorationPrice(decorationPriceOptions[i]);
                       }}
                     />
-                    <img
-                      src={`/images/Customized/decoration/${v}Icon.png`}
-                      alt=""
-                    />
+                    <div>
+                      <img
+                        className=""
+                        src={`/images/Customized/decoration/${v}Icon.png`}
+                        alt=""
+                      />
+                      <p className="text-center bingText-16">
+                        {decorationPriceOptions[i]}元
+                      </p>
+                    </div>
                   </div>
                 );
               })}
             </div>
           </div>
-
           <div className="col-12 col-md-8">
-            <canvas ref={realRef} width={800} height={600} />
+            <div className="d-flex flex-wrap">
+              <canvas ref={realRef} width={800} height={600} />
+              <div className="w-75">
+                <p className="bingH6 d-flex justify-content-between">
+                  donut：<span>+{donutPrice}元</span>
+                </p>
+                <p className="bingH6 d-flex justify-content-between">
+                  layer：<span>+{layerPrice}元</span>
+                </p>
+                <p className="bingH6 d-flex justify-content-between">
+                  decoration：<span>+{decorationPrice}元</span>
+                </p>
+                <hr />
+                <p className="text-center bingH5">
+                  目前價錢{donutPrice + layerPrice + decorationPrice}元
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -136,6 +183,8 @@ function BingCustomized() {
 }
 
 export default BingCustomized;
+
+//多選寫法
 
 // <h6>挑選甜甜圈糖霜</h6>
 //             {layerOptions.map((v, i) => {
