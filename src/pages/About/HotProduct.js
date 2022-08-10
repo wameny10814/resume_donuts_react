@@ -1,5 +1,6 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -48,10 +49,12 @@ export default function App() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mx-auto col-md-11 mb-4">
-            <img className="w-100 h-100" src="./images/Hot-4.png" alt="" />
-            <p className="text-center bingH5 pb-5">隱藏版甜甜圈</p>
-          </div>
+          <Link to={'/abingindex/customized'}>
+            <div className="mx-auto col-md-11 mb-4">
+              <img className="w-100 h-100" src="./images/Hot-4.png" alt="" />
+              <p className="text-center bingH5 pb-5">隱藏版甜甜圈</p>
+            </div>
+          </Link>
         </SwiperSlide>
       </Swiper>
     </>

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import H2 from '../../components/H2';
 
-function Customized() {
+function BingCustomized() {
   const realRef = useRef();
   //挑選donut
   const [donut, setDonut] = useState('origin');
@@ -135,7 +135,7 @@ function Customized() {
   );
 }
 
-export default Customized;
+export default BingCustomized;
 
 // <h6>挑選甜甜圈糖霜</h6>
 //             {layerOptions.map((v, i) => {
