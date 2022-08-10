@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 function GetInfosFromProdPage() {
   const [infos, setInfos] = useState[''];
-  const infosOnChange = setInfos(infos);
+  const infosOnChange = (e) => setInfos(infos);
+  
 
 //   return (
 //     <div className="Mars-" onChange={infosOnChange}></div>
