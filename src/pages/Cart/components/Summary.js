@@ -22,8 +22,8 @@ function Summary(props) {
           <div className="col">總價</div>
           <div className="col text-right">${totalPrice}</div>
         </div>
-        <Link to="CartOrderInfo">
-          <MainButton text="前往付款" />
+        <Link to="Checkout">
+          <MainButton text="前往結帳" />
         </Link>
       </div>
     </>
