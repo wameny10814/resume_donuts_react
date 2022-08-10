@@ -11,7 +11,7 @@ import Customized from './Customized';
 function AbingIndex() {
   return (
     <>
-      <Customized />
+      {/* <Customized /> */}
       <About />
       <Story />
       <Story2 />
