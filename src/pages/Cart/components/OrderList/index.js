@@ -13,7 +13,7 @@ function OrderList(props) {
       <div className="col-md-8 cart">
         <div className="title">
           <div className="col align-self-center text-right text-muted">
-            您購物車中共有 <b>{currentItem}</b> 種商品項目
+            您購物車中共有 <b>{productsInOrder.length}</b> 種商品項目
           </div>
           <div className="col">
             {' '}
