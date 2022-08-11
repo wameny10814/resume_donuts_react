@@ -1,15 +1,18 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useEffect, useRef, version } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AuthContext from '../../pages/member/components/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import ProductList from './MemberHistoryList';
 
-function MemberHistory() {
+function MemberHistory(props) {
   const { authorized, token, account, level, logout, setAuth, auth } =
     useContext(AuthContext);
 
   // 第一次記錄伺服器的原始資料用
-  const [usersRaw, setUsersRaw] = useState('');
+  const [usersRaw, setUsersRaw] = useState([]);
+
+  const [PODisplay, setPODisplay] = useState([]);
 
   const getdata = async () => {
     const response = await axios.get(
@@ -20,10 +23,16 @@ function MemberHistory() {
         },
       }
     );
-    const r = response.data;
-    const res_data = r[0];
+    //回來是陣列rrrr
+    const res_data = response.data;
     console.log('res', res_data);
+
+    //原始資料set state
     setUsersRaw(res_data);
+    // 訂單日期格式處理
+
+
+    setPODisplay(res_data);
   };
 
   useEffect(() => {
@@ -58,30 +67,15 @@ function MemberHistory() {
               <thead className="yu_history_thead">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">付款狀態</th>
+                  <th scope="col">訂單總金額</th>
+                  <th scope="col">訂單成立日期</th>
                 </tr>
               </thead>
               <tbody className="yu_history_tbody">
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
+                {PODisplay.map((v, i) => {
+                  return <ProductList key={i} detail={v} />;
+                })}
               </tbody>
             </table>
           </div>
