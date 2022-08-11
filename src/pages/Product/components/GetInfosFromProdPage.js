@@ -5,6 +5,16 @@ function GetInfosFromProdPage() {
   const infosOnChange = (e) => setInfos(infos);
   
 
+  // const getProductDetail = async () => {
+  //   const response = await fetch('http://localhost:3000/Product/' + sid, {
+  //     method: 'get',
+  //   })
+  //   const data = await response.json()
+  //   console.log(data)
+  //   setProductDetail(data.detail[0])
+  //   setProductRelated(data.related)
+  // }
+
 //   return (
 //     <div className="Mars-" onChange={infosOnChange}></div>
 //   )
