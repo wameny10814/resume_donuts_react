@@ -1,4 +1,3 @@
-import { BsBootstrap } from 'react-icons/bs';
 function ProductItem(props) {
   // 每個商品的物件
   // {
