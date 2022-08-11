@@ -11,7 +11,6 @@ import axios from 'axios';
 
 function News() {
   const [newsData, setNewsData] = useState([]);
-  const [control, setControl] = useState(0);
 
   const getNewsData = async () => {
     const response = await axios.get(
@@ -37,7 +36,6 @@ function News() {
 
   return (
     <>
-      {console.log(newsData)}
       <H2 title="最新消息" Entitle="NEWS" />
       <Swiper loop={true} autoplay={true} className="mySwiper">
         {newsData.map((v, i) => {
@@ -47,7 +45,7 @@ function News() {
                 <div className="col-12 col-md-6">
                   <img
                     className="w-100 h-auto"
-                    src="./images/News-img-1.svg"
+                    src={`http://localhost:3600/willowimgs/${v.newsimg}`}
                     alt=""
                   />
                 </div>
