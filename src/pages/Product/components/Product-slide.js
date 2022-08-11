@@ -21,7 +21,7 @@ function ProductSlide(props) {
       </div>
       <p className="Mars-prod-name">{product_name}</p>
       {/* <p className="Mars-prod-name">宇治抹茶那堤</p> */}
-      <p className="Mars-prod-price">{product_price}</p>
+      <p className="Mars-prod-price">${product_price}</p>
       {/* <p className="Mars-prod-price">NT$ 35</p> */}
       <a href="../../Cart/">
         {/* eslint-disable-next-line prettier/prettier */}

@@ -6,11 +6,13 @@
     
     .card {
       margin: auto;
-      max-width: 950px;
+      max-width: 1200px;
       width: 90%;
       box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       border-radius: 1rem;
       border: transparent;
+      margin-bottom: 15vh;
+
     }
     
     
@@ -65,12 +67,15 @@
     }
     
     .close {
-      margin-left: auto;
-      font-size: 0.7rem;
+      font-size: 1.2rem;
+      color: rgb(208, 106, 106);
+      :hover{
+        color: rgb(190, 42, 42);
+      }
     }
     
     img {
-      width: 3.5rem;
+      width: 5rem;
     }
     
     .back-to-shop {
