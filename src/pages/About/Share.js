@@ -2,14 +2,21 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import H2 from '../../components/H2';
 function Share() {
-  const [shareData, setShareData] = useState([]);
+  const [share1Data, setShare1Data] = useState([]);
+  const [share2Data, setShare2Data] = useState([]);
+  const [share3Data, setShare3Data] = useState([]);
+  const [share4Data, setShare4Data] = useState([]);
+  const [share5Data, setShare5Data] = useState([]);
+  const [share6Data, setShare6Data] = useState([]);
+  const [share7Data, setShare7Data] = useState([]);
+  const [share8Data, setShare8Data] = useState([]);
 
   //資料結構
-  // good_at: "2022-08-04T11:01:24.000Z"
-  // goodimg: "3e408862-c955-4b88-9f90-1f774952f87f.jpg"
-  // goodtitle: "安安"
-  // goodwords: "這篇文章介紹了CSS文字的水平和垂直對齊方式
-  // goodwritingid: 6
+  //   good_at: "2022-08-11T03:42:53.000Z"
+  // goodimg: "732a871b-6268-47d5-a211-abb05369f218.jpg"
+  // goodtitle: "123"
+  // goodwords: "123"
+  // goodwritingid: 14
   // userid: 0
 
   const getShareData = async () => {
@@ -17,7 +24,14 @@ function Share() {
       `http://localhost:3600/willownews/goodwritingdata`
     );
     const resdata = response.data;
-    setShareData(resdata);
+    setShare1Data(resdata[0]);
+    setShare2Data(resdata[1]);
+    setShare3Data(resdata[2]);
+    setShare4Data(resdata[3]);
+    setShare5Data(resdata[4]);
+    setShare6Data(resdata[5]);
+    setShare7Data(resdata[6]);
+    setShare8Data(resdata[7]);
   };
 
   useEffect(() => {
@@ -26,7 +40,7 @@ function Share() {
 
   return (
     <>
-      {console.log(shareData[0])}
+      {console.log('qweqwe', share1Data.goodimg)}
       <section className="container">
         <H2 title="好文分享" Entitle="SHARE" />
         <div className="d-flex justify-content-center share">
@@ -35,14 +49,14 @@ function Share() {
               <div className="w-50">
                 <img
                   className="w-100 h-100"
-                  src="./images/Share-1.svg"
+                  src={`http://localhost:3600/willowimgs/${share1Data.goodimg}`}
                   alt=""
                 />
               </div>
               <div className="w-50">
                 <img
                   className="w-100 h-100"
-                  src="./images/Share-2.svg"
+                  src={`http://localhost:3600/willowimgs/${share2Data.goodimg}`}
                   alt=""
                 />
               </div>
@@ -52,14 +66,14 @@ function Share() {
                 <div className="h-50">
                   <img
                     className="w-100 h-100"
-                    src="./images/Share-3.svg"
+                    src={`http://localhost:3600/willowimgs/${share3Data.goodimg}`}
                     alt=""
                   />
                 </div>
                 <div className="h-50">
                   <img
                     className="w-100 h-100"
-                    src="./images/Share-4.svg"
+                    src={`http://localhost:3600/willowimgs/${share4Data.goodimg}`}
                     alt=""
                   />
                 </div>
@@ -67,21 +81,33 @@ function Share() {
               <div className="shareW-60">
                 <img
                   className="w-100 h-100"
-                  src="./images/Share-5.svg"
+                  src={`http://localhost:3600/willowimgs/${share5Data.goodimg}`}
                   alt=""
                 />
               </div>
             </div>
           </div>
           <div className="col-md-2">
-            <img className="h-100 w-100" src="./images/Share-6.svg" alt="" />
+            <img
+              className="w-100 h-100"
+              src={`http://localhost:3600/willowimgs/${share6Data.goodimg}`}
+              alt=""
+            />{' '}
           </div>
           <div className="col-md-4">
             <div className="h-50">
-              <img className="w-100 h-100" src="./images/Share-7.svg" alt="" />
+              <img
+                className="w-100 h-100"
+                src={`http://localhost:3600/willowimgs/${share7Data.goodimg}`}
+                alt=""
+              />{' '}
             </div>
             <div className="h-50">
-              <img className="w-100 h-100" src="./images/Share-8.svg" alt="" />
+              <img
+                className="w-100 h-100"
+                src={`http://localhost:3600/willowimgs/${share8Data.goodimg}`}
+                alt=""
+              />{' '}
             </div>
           </div>
         </div>
