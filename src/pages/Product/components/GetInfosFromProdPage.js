@@ -16,20 +16,20 @@ function GetInfosFromProdPage() {
   // }
 
   // async function getProductIdServer() {
-  //   const url = `http://localhost:6005/product/product-list/${id}`
+  //   const url = `http://localhost:3000/Product/${id}`
 
   //   // 注意header資料格式要設定，伺服器才知道是json格式
   //   const request = new Request(url, {
   //     method: 'GET',
   //     headers: new Headers({
   //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
+  //       'Content-Type': 'application/json',
   //     }),
   //   })
 
   //   const response = await fetch(request)
   //   const data = await response.json()
-  //   const imgData = data.proMutImg
+  //   const imgData = data.product_image
   //   const imgArr = JSON.parse(imgData)
   //   // console.log(data)
   //   // console.log(imgData)
@@ -40,23 +40,18 @@ function GetInfosFromProdPage() {
   //   // 設定資料
   //   console.log('data', data)
   //   setProduct(data)
-  //   setProId(data.proId)
-  //   setProName(data.proName)
-  //   setProPrice(data.proPrice)
-  //   setProDes(data.proDes)
-  //   setProClass(data.proClass)
-  //   setProNum(id)
-  //   setSqlProductId(data.proId)
+  //   setProId(data.sid)
+  //   setProName(data.product_name)
+  //   setProPrice(data.product_price)
+  //   setProDes(data.product_desc)
 
-  //   // setStarValue(data.starValue)
-  //   // setUserId(data.userId)
-  //   // setComments(data.comments)
   //   console.log('proNum', proNum)
   // }
   // useEffect(() => {
   //   getProductIdServer()
   // }, [])
 
+// 這區是我的
 //   return (
 //     <div className="Mars-" onChange={infosOnChange}></div>
 //   )
