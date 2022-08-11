@@ -49,10 +49,10 @@ export default function App() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <Link to={'/abingindex/customized'}>
+          <Link className="text-decoration-none" to={'/abingindex/customized'}>
             <div className="mx-auto col-md-11 mb-4">
               <img className="w-100 h-100" src="./images/Hot-4.png" alt="" />
-              <p className="text-center bingH5 pb-5">隱藏版甜甜圈</p>
+              <p className="text-center bingH5 pb-5">客製化甜甜圈</p>
             </div>
           </Link>
         </SwiperSlide>
