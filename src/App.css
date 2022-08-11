@@ -69,10 +69,6 @@
   padding-left: 0;
 }
 
-.bingControl {
-  background-color: #EBEBEB;
-}
-
 .yu_header p {
   text-align: center;
   font-weight: bold;
@@ -516,26 +512,17 @@ footer .footerp {
   background-color: #5a5a4c;
 }
 
-.loveyu-dountBox {
-  width: 50%;
-}
-.loveyu-dountBox .loveyu-dountObj {
-  width: 100%;
-}
-.loveyu-dountBox .loveyu-dountObj img {
-  width: 100%;
-}
-
 .cartBox .title {
   margin-bottom: 5vh;
 }
 .cartBox .card {
   margin: auto;
-  max-width: 950px;
+  max-width: 1200px;
   width: 90%;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;
   border: transparent;
+  margin-bottom: 15vh;
 }
 .cartBox .cart {
   background-color: #fff;
@@ -575,11 +562,14 @@ footer .footerp {
   padding: 0 1vh;
 }
 .cartBox .close {
-  margin-left: auto;
-  font-size: 0.7rem;
+  font-size: 1.2rem;
+  color: rgb(208, 106, 106);
+}
+.cartBox .close :hover {
+  color: rgb(190, 42, 42);
 }
 .cartBox img {
-  width: 3.5rem;
+  width: 5rem;
 }
 .cartBox .back-to-shop {
   margin-top: 4.5rem;
