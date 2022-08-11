@@ -1,7 +1,32 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import H2 from '../../components/H2';
 function Share() {
+  const [shareData, setShareData] = useState([]);
+
+  //資料結構
+  // good_at: "2022-08-04T11:01:24.000Z"
+  // goodimg: "3e408862-c955-4b88-9f90-1f774952f87f.jpg"
+  // goodtitle: "安安"
+  // goodwords: "這篇文章介紹了CSS文字的水平和垂直對齊方式
+  // goodwritingid: 6
+  // userid: 0
+
+  const getShareData = async () => {
+    const response = await axios.get(
+      `http://localhost:3600/willownews/goodwritingdata`
+    );
+    const resdata = response.data;
+    setShareData(resdata);
+  };
+
+  useEffect(() => {
+    getShareData();
+  }, []);
+
   return (
     <>
+      {console.log(shareData[0])}
       <section className="container">
         <H2 title="好文分享" Entitle="SHARE" />
         <div className="d-flex justify-content-center share">

@@ -3,7 +3,7 @@ import Summary from './components/Summary';
 
 import React, { useState, useContext, createContext } from 'react';
 
-import productsData from './data/products.json';
+import productsData from '../Product/data/products.json';
 
 import H2 from '../../components/H2';
 
@@ -11,21 +11,15 @@ import H2 from '../../components/H2';
 
 // 每個商品的物件
 // {
-//     id: 5,
-//     name: '咖啡色 T-shirt',
-//     category: 'Shirt',
-//     image: 'https://i.imgur.com/1GrakTl.jpg',
-//     price: 300,
-//   }
-// 變為
-// {
-//     id: 5,
-//     name: '咖啡色 T-shirt',
-//     category: 'Shirt',
-//     image: 'https://i.imgur.com/1GrakTl.jpg',
-//     price: 300,
-//     conut:1, 紀錄每個商品被買了幾個
-//   }
+//   "sid": "1",
+//   "product_name": "草莓波堤",
+//   "category_sid": "1",
+//   "product_price": "$35",
+//   "product_img": "./images/pon-de-strawberry.jpeg",
+//   "product_desc": "草莓甜甜的滋味，配上波堤可愛的風格",
+//   "created_at": "2022-05-31 08:28:44"
+//   "conut":"1", 紀錄每個商品被買了幾個
+// }
 
 const initState = (prosuctArray) => {
   const state = [];
@@ -53,7 +47,15 @@ function Cart() {
   const calcTotalPrice = () => {
     let total = 0;
     for (let i = 0; i < productsInOrder.length; i++) {
-      total += productsInOrder[i].count * productsInOrder[i].price;
+      total += productsInOrder[i].count * productsInOrder[i].product_price;
+    }
+    return total;
+  };
+
+  const calcCurrentItem = () => {
+    let total = 0;
+    for (let i = 0; i < productsInOrder.length; i++) {
+      total += productsInOrder[i].count;
     }
     return total;
   };
@@ -68,6 +70,7 @@ function Cart() {
             <OrderList
               productsInOrder={productsInOrder}
               setProductsInOrder={setProductsInOrder}
+              currentItem={calcCurrentItem()}
             />
             <Summary
               totalNumber={calcTotalNumber()}
