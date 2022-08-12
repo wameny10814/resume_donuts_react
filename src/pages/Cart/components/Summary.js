@@ -22,7 +22,7 @@ function Summary(props) {
           <div className="col">總價</div>
           <div className="col text-right">${totalPrice}</div>
         </div>
-        <Link className="text-decoration-none" to="/Checkout">
+        <Link className="text-decoration-none" to="/Cart/CartOrderInfo">
           <MainButton text="前往結帳" />
         </Link>
         <Link className="text-decoration-none" to="/Product">

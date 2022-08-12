@@ -3,6 +3,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -37,7 +41,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function BasicTabs() {
+export default function PaymentTabs() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -58,13 +62,64 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+        <Typography variant="h6">到店取貨</Typography>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Typography variant="h6">信用卡付款</Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <TextField
+              required
+              id="cardName"
+              label="Name on card"
+              fullWidth
+              autoComplete="cc-name"
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              required
+              id="cardNumber"
+              label="Card number"
+              fullWidth
+              autoComplete="cc-number"
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              required
+              id="expDate"
+              label="Expiry date"
+              fullWidth
+              autoComplete="cc-exp"
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              required
+              id="cvv"
+              label="CVV"
+              helperText="Last three digits on signature strip"
+              fullWidth
+              autoComplete="cc-csc"
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <FormControlLabel
+              control={
+                <Checkbox color="secondary" name="saveCard" value="yes" />
+              }
+              label="Remember credit card details for next time"
+            />
+          </Grid>
+        </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Typography variant="h6">超商取貨</Typography>
       </TabPanel>
     </Box>
   );
