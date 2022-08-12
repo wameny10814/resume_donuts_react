@@ -80,7 +80,7 @@ function App() {
             <Route path="Cart" element={<Cart />} />
             <Route path="CartOrderCheck" element={<CartOrderCheck />} />
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
-            <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
+            <Route path="/Cart/CartOrderInfo" element={<CartOrderInfo />} />
             <Route path="Checkout" element={<Checkout />} />
 
 
