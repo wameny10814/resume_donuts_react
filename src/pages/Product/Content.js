@@ -1,24 +1,60 @@
 import './Product.css';
-import ImgOnClick from './components/Img-onclick';
 import ProductRecommandCard from './components/Product-recommand';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { ProductsData } from './data/products';
 
 function Content() {
+  const [clicked, setClicked] = useState(false);
+  const clickedBool = () => setClicked(!clicked);
+
+  const [product, setProduct] = useState({
+    sid: 0,
+    product_name: '',
+    category_sid: 0,
+    product_price: 0,
+    product_image: '',
+    product_desc: '',
+    created_at: '',
+  });
+
+  const { productId } = useParams();
+
+  useEffect(() => {
+    //getProduct
+    const p = ProductsData.find((v, i) => v.sid === Number(productId));
+
+    if (p) {
+      setProduct(p);
+    }
+  }, []);
+
   return (
     <>
       <div className="Mars-cnt-container">
         <div className="Mars-breadcrumb"></div>
         <div className="Mars-cnt-main d-flex">
-          <ImgOnClick />
+          <div
+            className="Mars-cnt-imgwr"
+            onClick={clickedBool}
+            style={
+              clicked
+                ? { boxShadow: '0 5px 25px 0 rgb(0 0 0 / 10%)' }
+                : { boxShadow: 'none' }
+            }
+          >
+            {/* eslint-disable-next-line prettier/prettier */}
+            <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" />
+            {/* img src={`../{product.product_image}`} */}
+          </div>
           {/* <div className="Mars-cnt-imgwr">
             <img src="./images/uji-matcha.jpg" alt="" className="Mars-cnt-img"/>
           </div> */}
           <div className="Mars-cnt-info">
-            <p className="Mars-prod-name">宇治抹茶波提</p>
+            <p className="Mars-prod-name">{product.product_name}</p>
             <p className="Mars-cnt-engnum">Pon-de Uji Matcha</p>
-            <p className="Mars-cnt-engnum">NT$ 45</p>
-            <p className="Mars-cnt-desc">
-              大家好！我是好吃的宇治抹茶波堤！嚴選京都宇治的茶葉，和波堤是絶妙搭配
-            </p>
+            <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
+            <p className="Mars-cnt-desc">{product.product_desc}</p>
             <a href="../Cart">
               {/* eslint-disable-next-line prettier/prettier */}
               <button className="Mars-cart-btn"><i class="fa-solid fa-circle-plus"></i> 加入購物車</button>

@@ -40,9 +40,7 @@ const payments = [
 export default function Review() {
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Order summary
-      </Typography>
+      <Typography variant="h6">再次確認訂單</Typography>
       <List disablePadding>
         {products.map((product) => (
           <ListItem key={product.name} sx={{ py: 1, px: 0 }}>

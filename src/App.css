@@ -86,6 +86,28 @@
   padding-left: 0;
 }
 
+<<<<<<< HEAD
+=======
+.bingSelect {
+  min-width: 4rem;
+  min-height: 4rem;
+  position: relative;
+}
+.bingSelect input {
+  margin: 0 1rem;
+  position: absolute;
+  width: 55%;
+  height: 100%;
+}
+.bingSelect img {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+>>>>>>> 6f4118f135934d0bba0f762ca80dd23464c89050
 .yu_header p {
   text-align: center;
   font-weight: bold;
