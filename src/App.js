@@ -83,11 +83,13 @@ function App() {
             <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
             <Route path="Checkout" element={<Checkout />} />
 
-
-
             {/* 莊惟的頁面 */}
+            {/* <Route path="ProductWrap" element={<ProductWrap />}> 
+              <Route index element={<Product />}>*/}
             <Route path="Product" element={<Product />} />
+            {/* <Route path=':productId' element={<Detail />} /> */}
             <Route path="Content" element={<Content />} />
+            {/* </Route> */}
 
             {/* willow的頁面 */}
 
