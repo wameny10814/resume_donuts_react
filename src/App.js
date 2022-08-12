@@ -85,7 +85,7 @@ function App() {
             <Route path="Checkout" element={<Checkout />} />
 
             {/* 莊惟的頁面 */}
-            <Route path="ProductWrap" element={<ProductWrap />}>
+            <Route path="Product" element={<ProductWrap />}>
               <Route index element={<Product />} />
               {/* <Route path="Product" element={<Product />} /> */}
               <Route path=":productId" element={<Content />} />
