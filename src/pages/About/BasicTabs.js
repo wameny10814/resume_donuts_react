@@ -101,7 +101,7 @@ export default function BasicTabs(props) {
               立即前往
             </button>
             <span className="bingText-16">
-              距離{distance}，開車前往大約{duration}
+              距離{distance}，開車前往預估{duration}
             </span>
           </li>
           <li>
@@ -172,7 +172,7 @@ export default function BasicTabs(props) {
               立即前往
             </button>
             <span className="bingText-16">
-              距離{distance}，開車前往大約{duration}
+              距離{distance}，開車前往預估{duration}
             </span>
           </li>
           <li>
@@ -242,7 +242,7 @@ export default function BasicTabs(props) {
               立即前往
             </button>
             <span className="bingText-16">
-              距離{distance}，開車前往大約{duration}
+              距離{distance}，開車前往預估{duration}
             </span>
           </li>
           <li>
