@@ -1,8 +1,9 @@
-import React from 'react';
+// import React from 'react';
+import * as React from 'react';
 // import './Login.css';
 import '../../components/Member/Eye.js';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
 import cat from './images/logincat.svg';
@@ -10,13 +11,18 @@ import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
 
+import {confirm} from '../../components/Confirm';
+
 import Mail from './Mail';
+import { faSleigh } from '@fortawesome/free-solid-svg-icons';
 function Login() {
   //設定密碼眼睛&貓貓
   // const [eye, setEye] = useState('password');
 
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
+
+  const [loginTrue, setLoginTrue] = useState(false);
 
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
@@ -77,10 +83,10 @@ function Login() {
             ...result.data,
             authorized: true,
           });
-          alert('登入成功!');
+          // confirm('登入成功!');
           navigate('/');
         } else {
-          alert('帳密錯誤');
+          confirm('帳號或密碼錯誤!');
         }
       });
   };
@@ -131,7 +137,9 @@ function Login() {
                     <Link to="/PsdForgot">忘記密碼</Link>
                   </p>
                 </div>
-                <button className="ProjectButton">登入</button>
+                <button type="submit" className="ProjectButton">
+                  登入
+                </button>
                 <p>
                   第一次光臨嗎?
                   <Link to="/MemberRegister">點此註冊</Link>
