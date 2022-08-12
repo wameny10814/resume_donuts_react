@@ -149,6 +149,7 @@ function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
+              {/* <Link className="nav-link" to="ProductWrap"> */}
               <Link className="nav-link" to="Product">
                 <i className="fa-solid fa-shop"></i>商品一覽
               </Link>
