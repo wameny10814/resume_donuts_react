@@ -25,6 +25,7 @@ import PsdForgot from './pages/member/PsdForgot';
 import PsdForgot02 from './pages/member/PsdForgot02';
 
 // Mars
+import ProductWrap from './pages/Product/ProductWrap';
 import Product from './pages/Product/Product';
 import Content from './pages/Product/Content';
 
@@ -84,12 +85,12 @@ function App() {
             <Route path="Checkout" element={<Checkout />} />
 
             {/* 莊惟的頁面 */}
-            {/* <Route path="ProductWrap" element={<ProductWrap />}> 
-              <Route index element={<Product />}>*/}
-            <Route path="Product" element={<Product />} />
-            {/* <Route path=':productId' element={<Detail />} /> */}
-            <Route path="Content" element={<Content />} />
-            {/* </Route> */}
+            <Route path="Product" element={<ProductWrap />}>
+              <Route index element={<Product />} />
+              {/* <Route path="Product" element={<Product />} /> */}
+              <Route path=":productId" element={<Content />} />
+              {/* <Route path="Content" element={<Content />} /> */}
+            </Route>
 
             {/* willow的頁面 */}
 

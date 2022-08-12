@@ -4,7 +4,7 @@ import { Card, Image } from 'semantic-ui-react';
 function ProductRecommandCard() {
   return (
     <Card>
-      <Image src="./images/pon-de-strawberry.jpeg" wrapped ui={false} />
+      <Image src="../images/pon-de-strawberry.jpeg" wrapped ui={false} />
       <Card.Content>
         <Card.Header>草莓波堤</Card.Header>
         <Card.Description>
