@@ -19,7 +19,7 @@ function Product() {
             return (
               <div className="Mars-prod-wrap">
                 <div className="Mars-prod-imgwr">
-                  <Link to={`/Content/${v.sid}`}>
+                  <Link to={`./${v.sid}`}>
                     {/* eslint-disable-next-line prettier/prettier */}
                     <img src={v.product_img} className="Mars-prod-img" alt=""></img>
                     {/* <img src="./images/uji-matcha.jpg" className="Mars-prod-img" alt=""></img> */}
