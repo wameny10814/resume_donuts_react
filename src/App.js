@@ -85,12 +85,12 @@ function App() {
             <Route path="Checkout" element={<Checkout />} />
 
             {/* 莊惟的頁面 */}
-            {/* <Route path="ProductWrap" element={<ProductWrap />}> */}
+            <Route path="ProductWrap" element={<ProductWrap />}>
+              <Route index element={<Product />} />
               {/* <Route path="Product" element={<Product />} /> */}
-              <Route path="Product" element={<Product />} />
-              {/* <Route path="Content/:productId" element={<Content />} /> */}
-              <Route path="Content" element={<Content />} />
-            {/* </Route> */}
+              <Route path=":productId" element={<Content />} />
+              {/* <Route path="Content" element={<Content />} /> */}
+            </Route>
 
             {/* willow的頁面 */}
 
