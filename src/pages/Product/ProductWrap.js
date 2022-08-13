@@ -1,11 +1,11 @@
-import { Outlet, useParams } from "react-router"
+// import { Outlet, useParams } from "react-router"
 
-function ProductWrap() {
-    return (
-        <>
-            <Outlet />
-        </>
-    )
-}
+// function ProductWrap {
+//     return (
+//         <>
+//             <Outlet />
+//         </>
+//     )
+// }
 
-export default ProductWrap
+// export default ProductWrap
