@@ -87,11 +87,11 @@ function App() {
             <Route path="CartOrderReview" element={<CartOrderReview />} />
 
             {/* 莊惟的頁面 */}
-            <Route path="ProductWrap" element={<ProductWrap />}> 
+            <Route path="Product" element={<ProductWrap />}> 
               <Route index element={<Product />} />
-            {/* <Route path="Product" element={<Product />} /> */}
-            <Route path=':productId' element={<Content />} />
-            {/* <Route path="Content" element={<Content />} /> */}
+              {/* <Route path="Product" element={<Product />} /> */}
+              <Route path=':productId' element={<Content />} />
+              {/* <Route path="Content" element={<Content />} /> */}
             </Route>
 
             {/* willow的頁面 */}
