@@ -29,13 +29,7 @@ function ProductItem(props) {
             <img alt="" className="img-fluid" src={product_img} />
           </div>
           <div className="col">
-            <div className="row text-muted">
-              {category_sid === '1'
-                ? '波提'
-                : category_sid === '2'
-                ? '圓形甜甜圈'
-                : '歐菲香'}
-            </div>
+            <div className="row text-muted">{category_sid}</div>
             <div className="row">{product_name}</div>
           </div>
           <div className="col">

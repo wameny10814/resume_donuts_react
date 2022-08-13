@@ -7,6 +7,13 @@ import CreditCard from './components/CreditCard';
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 
 function CartOrderInfo() {
+  // 訂購人資料
+  const [personalData, setPersonalData] = useState({
+    shipName: '',
+    shipPhone: '',
+    shipEmail: '',
+  });
+
   // 信用卡資料
   const [creditCardData, setCreditCardData] = useState({
     creditCardNum: '',
@@ -15,16 +22,31 @@ function CartOrderInfo() {
     creditSecurityCode: '',
   });
 
+  // const [formDone, setFormDone] = useState(false);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setFormDone(true);
+  // };
+
   return (
     <div className="container">
       <H2 title="訂單資訊" Entitle="ORDER INFO" />
       <CurrentOrder />
-      <PersonalInfo />
+      <PersonalInfo
+        personalData={personalData}
+        setPersonalData={setPersonalData}
+      />
       <CreditCard
         creditCardData={creditCardData}
         setCreditCardData={setCreditCardData}
       />
-      <ProjectButton className="w-25" text="下一步" />
+      <ProjectButton
+        className="w-25"
+        text="下一步"
+        // type="submit"
+        // value="submit"
+      />
     </div>
   );
 }

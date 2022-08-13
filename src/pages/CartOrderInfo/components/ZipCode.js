@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { countries, townships, postcodes } from '../../Cart/data/townships';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -24,9 +23,9 @@ function ZipCode() {
         }}
       >
         <MenuItem value="-1">選擇縣市</MenuItem>
-        {countries.map((value, index) => (
-          <MenuItem key={index} value={index}>
-            {value}
+        {countries.map((v, i) => (
+          <MenuItem key={i} value={i}>
+            {v}
           </MenuItem>
         ))}
       </TextField>
@@ -42,16 +41,14 @@ function ZipCode() {
       >
         <MenuItem value="-1">選擇區域</MenuItem>
         {country > -1 &&
-          townships[country].map((value, index) => (
-            <MenuItem key={index} value={index}>
-              {value}
+          townships[country].map((v, i) => (
+            <MenuItem key={i} value={i}>
+              {v}
             </MenuItem>
           ))}
       </TextField>
       {/* 如果country與township的索引值均大於-1時(也就是都有選的情況下)，呈現postcode */}
       {/* `條件 && 呈現` 是 `if(條件){呈現}` 的簡寫法，只在React JSX中可以使用 */}
-      
- 
     </>
   );
 }

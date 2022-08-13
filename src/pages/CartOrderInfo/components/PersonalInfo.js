@@ -5,6 +5,10 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import ZipCode from './ZipCode';
 
+// shipName: '',
+// shipPhone: '',
+// shipEmail: '',
+
 const selectCountys = [
   {
     value: 'TPE',
@@ -24,11 +28,17 @@ const selectCountys = [
   },
 ];
 
-function PersonalInfo() {
-  const [selectCounty, setSelectCounty] = React.useState('');
+function PersonalInfo(props) {
+  const { personalData, setPersonalData } = props;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectCounty(event.target.value);
+  const handleFieldChange = (e) => {
+    const newPersonalData = {
+      ...personalData,
+      [e.target.name]: e.target.value,
+    };
+    setPersonalData(newPersonalData);
+
+    console.log(newPersonalData);
   };
 
   return (
@@ -44,9 +54,34 @@ function PersonalInfo() {
         autoComplete="off"
       >
         <div className="form-inline"></div>
-        <TextField id="filled-basic" label="姓名" variant="filled" />
-        <TextField id="filled-basic" label="行動電話" variant="filled" />
-        <TextField id="filled-basic" label="電子信箱" variant="filled" />
+        <TextField
+          id="filled-basic"
+          label="姓名"
+          variant="filled"
+          type="text"
+          name="shipName"
+          value={personalData.shipName}
+          onChange={handleFieldChange}
+        />
+
+        <TextField
+          id="filled-basic"
+          label="行動電話"
+          variant="filled"
+          type="text"
+          name="shipName"
+          value={personalData.shipPhone}
+          onChange={handleFieldChange}
+        />
+        <TextField
+          id="filled-basic"
+          label="電子信箱"
+          variant="filled"
+          type="text"
+          name="shipName"
+          value={personalData.shipEmail}
+          onChange={handleFieldChange}
+        />
         <ZipCode />
         <TextField id="filled-basic" label="詳細地址" variant="filled" />
       </Box>

@@ -67,26 +67,3 @@
 .mapInfo ul {
   padding-left: 0;
 }
-
-.bingSelect {
-  min-width: 4rem;
-  min-height: 4rem;
-  position: relative;
-  // outline: 1px solid lawngreen;
-
-  input {
-    margin: 0 1rem;
-    position: absolute;
-    width: 55%;
-    height: 100%;
-  }
-
-  img {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    pointer-events: none;
-    // background: #fff;
-    border-radius: 50%;
-  }
-}
