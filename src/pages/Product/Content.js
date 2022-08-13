@@ -44,7 +44,7 @@ function Content() {
             }
           >
             {/* eslint-disable-next-line prettier/prettier */}
-            <img src="./images/uji-matcha.jpg" alt="" className="Mars-cnt-img" />
+            <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" />
             {/* img src={`../{product.product_image}`} */}
           </div>
           <div className="Mars-cnt-info">
