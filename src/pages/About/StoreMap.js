@@ -27,8 +27,6 @@ function StoreMap() {
     { lat: 25.0404691, lng: 121.5667799 }, //市府
   ];
 
-
-
   const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
@@ -149,8 +147,6 @@ function StoreMap() {
               <DirectionsRenderer directions={directionResponse} />
             )}
           </GoogleMap>
-          <span>{distance}</span>
-          <span>{duration}</span>
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { useState } from 'react';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -58,6 +59,9 @@ export default function BasicTabs(props) {
     // eslint-disable-next-line no-undef
     google.maps.TravelMode.WALKING,
   ];
+  const [moveTw, setMoveTw] = useState('');
+
+  const moveOptionstw = ['騎腳踏車', '開車', '大眾運輸', '走路'];
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -302,6 +306,7 @@ export default function BasicTabs(props) {
                       value={v}
                       onChange={(e) => {
                         setMove(e.target.value);
+                        setMoveTw(moveOptionstw[i]);
                       }}
                     />
                     <img src={`./images/map/${v}.png`} alt="" />
@@ -314,7 +319,7 @@ export default function BasicTabs(props) {
             </button>
 
             <span className="bingText-16">
-              距離{distance}，開車前往預估{duration}
+              距離{distance}，{moveTw}前往預估{duration}
             </span>
           </li>
           <li>
