@@ -72,6 +72,7 @@
 .bingSelect {
   min-width: 4rem;
   min-height: 4rem;
+  margin: 0 1rem;
   position: relative;
 }
 .bingSelect input {
@@ -85,7 +86,13 @@
   z-index: 0;
   width: 100%;
   pointer-events: none;
+  background: rgb(176, 176, 176);
   border-radius: 50%;
+}
+
+.bingTable {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .yu_header p {
