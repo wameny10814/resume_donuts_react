@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { useState } from 'react';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -39,6 +40,16 @@ export default function BasicTabs(props) {
   const { moveTo, stores, caculateRoute, distance, duration } = props;
 
   const [value, setValue] = React.useState(0);
+  const moveOptions = [
+    // eslint-disable-next-line no-undef
+    google.maps.TravelMode.BICYCLING,
+    // eslint-disable-next-line no-undef
+    google.maps.TravelMode.DRIVING,
+    // eslint-disable-next-line no-undef
+    google.maps.TravelMode.TRANSIT,
+    // eslint-disable-next-line no-undef
+    google.maps.TravelMode.WALKING,
+  ];
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -238,11 +249,28 @@ export default function BasicTabs(props) {
           <li>
             <p className="bingH5">地址</p>
             <p className="bingText-16">台北市信義區忠孝東路五段2號</p>
-            <button on onClick={caculateRoute}>
-              立即前往
+            <div className="d-flex">
+              {moveOptions.map((v, i) => {
+                return (
+                  <div className="bingSelect" key={i}>
+                    <input
+                      type="radio"
+                      checked={move === v}
+                      value={v}
+                      onChange={(e) => {
+                        setMove(e.target.value);
+                      }}
+                    />
+                    <img src={`./images/map/${v}.png`} alt="" />
+                  </div>
+                );
+              })}
+            </div>
+            <button on onClick={caculateRoute2}>
+              立即計算
             </button>
             <span className="bingText-16">
-              距離{distance}，開車前往大約{duration}
+              距離{distance}，開車前往預估{duration}
             </span>
           </li>
           <li>

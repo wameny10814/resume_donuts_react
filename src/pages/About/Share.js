@@ -26,6 +26,7 @@ function Share() {
 
   return (
     <>
+<<<<<<< HEAD
       {console.log(shareData[0])}
       <section className="container">
         <H2 title="好文分享" Entitle="SHARE" />
@@ -50,6 +51,22 @@ function Share() {
             <div className="d-flex h-50 w-100">
               <div className="shareW-40">
                 <div className="h-50">
+=======
+      <H2 title="好文分享" Entitle="SHARE" />
+      <section className="container">
+        {shareData.length > 0 && (
+          <div className="d-flex justify-content-center share">
+            <div className="col-md-6">
+              <div className="d-flex h-50 w-100">
+                <div className="w-50">
+                  <img
+                    className="w-100 h-100"
+                    src={`http://localhost:3600/willowimgs/${shareData[0].goodimg}`}
+                    alt=""
+                  />
+                </div>
+                <div className="w-50">
+>>>>>>> b546b9a9d94615df5b2112ae104f986ad31bd7b3
                   <img
                     className="w-100 h-100"
                     src="./images/Share-3.svg"
@@ -64,12 +81,26 @@ function Share() {
                   />
                 </div>
               </div>
+<<<<<<< HEAD
               <div className="shareW-60">
+=======
+            </div>
+            <div className="col-md-2">
+              <img
+                className="w-100 h-100"
+                src={`http://localhost:3600/willowimgs/${shareData[5].goodimg}`}
+                alt=""
+              />
+            </div>
+            <div className="col-md-4">
+              <div className="h-50">
+>>>>>>> b546b9a9d94615df5b2112ae104f986ad31bd7b3
                 <img
                   className="w-100 h-100"
                   src="./images/Share-5.svg"
                   alt=""
                 />
+<<<<<<< HEAD
               </div>
             </div>
           </div>
@@ -85,6 +116,19 @@ function Share() {
             </div>
           </div>
         </div>
+=======
+              </div>
+              <div className="h-50">
+                <img
+                  className="w-100 h-100"
+                  src={`http://localhost:3600/willowimgs/${shareData[7].goodimg}`}
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        )}
+>>>>>>> b546b9a9d94615df5b2112ae104f986ad31bd7b3
       </section>
     </>
   );

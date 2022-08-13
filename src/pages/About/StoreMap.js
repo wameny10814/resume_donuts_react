@@ -17,6 +17,7 @@ function StoreMap() {
   const [directionResponse, setDirectionResponse] = useState(null);
   const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState('');
+<<<<<<< HEAD
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef();
@@ -24,6 +25,18 @@ function StoreMap() {
   const destinationRef = useRef();
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
+=======
+  const [move, setMove] = useState('');
+
+  const center = { lat: 25.0337702, lng: 121.5433378 };
+
+  const stores = [
+    { lat: 25.0337702, lng: 121.5433378 }, //大安
+    { lat: 25.0480099, lng: 121.5170087 }, //北車
+    { lat: 25.0404691, lng: 121.5667799 }, //市府
+  ];
+
+>>>>>>> b546b9a9d94615df5b2112ae104f986ad31bd7b3
   const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
@@ -122,6 +135,7 @@ function StoreMap() {
               <DirectionsRenderer directions={directionResponse} />
             )}
           </GoogleMap>
+<<<<<<< HEAD
           <input
             type="text"
             ref={originRef}
@@ -136,6 +150,8 @@ function StoreMap() {
           <button onClick={clearRoute}>重設</button>
           <span>{distance}</span>
           <span>{duration}</span>
+=======
+>>>>>>> b546b9a9d94615df5b2112ae104f986ad31bd7b3
         </div>
       </div>
     </section>
