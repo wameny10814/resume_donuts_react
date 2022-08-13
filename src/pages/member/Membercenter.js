@@ -9,8 +9,6 @@ import stone2 from './images/stone02.svg';
 import stone3 from './images/stone03.svg';
 import stone4 from './images/stone04.svg';
 
-import {confirm} from '../../components/Confirm';
-
 // import './Membercenter.css';
 function Membercenter() {
   const { authorized, token, account, level, logout, setAuth, auth } =
@@ -165,7 +163,7 @@ function Membercenter() {
   //修改會員資料
   const update_member_data = async (event) => {
     event.preventDefault();
-    if (confirm('確定要修改會員資料嗎?') === false) {
+    if (window.confirm('確定要修改會員資料嗎?') === false) {
       return;
     }
     fetch('http://localhost:3600/member/memberupdate', {

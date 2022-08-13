@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   useJsApiLoader,
   GoogleMap,
@@ -17,6 +17,15 @@ function StoreMap() {
   const [directionResponse, setDirectionResponse] = useState(null);
   const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState('');
+<<<<<<< HEAD
+
+  /** @type React.MutableRefObject<HTMLInputElement> */
+  const originRef = useRef();
+  /** @type React.MutableRefObject<HTMLInputElement> */
+  const destinationRef = useRef();
+
+  const center = { lat: 25.0337702, lng: 121.5433378 };
+=======
   const [move, setMove] = useState('');
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
@@ -27,6 +36,7 @@ function StoreMap() {
     { lat: 25.0404691, lng: 121.5667799 }, //市府
   ];
 
+>>>>>>> b546b9a9d94615df5b2112ae104f986ad31bd7b3
   const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
@@ -34,16 +44,12 @@ function StoreMap() {
   }
 
   async function caculateRoute() {
-    clearRoute();
-    // if (originRef.current.value === '' || destinationRef.current.value === '') {
-    //   return;
-    // }
+    if (originRef.current.value === '' || destinationRef.current.value === '') {
+      return;
+    }
 
-    const o = { lat: 25.0337702, lng: 121.5433378 };
-    // const o = JSON.parse(originRef.current.value);
-    const d = { lat: 25.0480099, lng: 121.5170087 };
-    // const d = JSON.parse(destinationRef.current.value);
-    console.log(o);
+    const o = JSON.parse(originRef.current.value);
+    const d = JSON.parse(destinationRef.current.value);
     // eslint-disable-next-line no-undef
     const directionService = new google.maps.DirectionsService();
     const results = await directionService.route({
@@ -59,35 +65,19 @@ function StoreMap() {
     setDuration(results.routes[0].legs[0].duration.text);
   }
 
-  async function caculateRoute2() {
-    clearRoute();
-    // if (originRef.current.value === '' || destinationRef.current.value === '') {
-    //   return;
-    // }
-
-    const o = { lat: 25.0337702, lng: 121.5433378 };
-    const d = { lat: 25.0404691, lng: 121.5667799 };
-    console.log(o);
-    // eslint-disable-next-line no-undef
-    const directionService = new google.maps.DirectionsService();
-    const results = await directionService.route({
-      // eslint-disable-next-line no-undef
-      origin: new google.maps.LatLng(o.lat, o.lng),
-      // eslint-disable-next-line no-undef
-      destination: new google.maps.LatLng(d.lat, d.lng),
-      // eslint-disable-next-line no-undef
-      travelMode: move,
-    });
-    setDirectionResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
-  }
-
   function clearRoute() {
     setDirectionResponse(null);
     setDistance('');
     setDuration('');
+    originRef.current.value = '';
+    destinationRef.current.value = '';
   }
+
+  const stores = [
+    { lat: 25.0337702, lng: 121.5433378 }, //大安
+    { lat: 25.0480099, lng: 121.5170087 }, //北車
+    { lat: 25.0404691, lng: 121.5667799 }, //市府
+  ];
 
   const onLoad = (map) => {
     seMapInstance(map);
@@ -102,13 +92,11 @@ function StoreMap() {
       <H2 title="店鋪資訊" Entitle="MAP" />
       <div className="d-md-flex">
         <div className="col-12 col-md-6 mapInfo">
+          {/* 頁籤插件 把panTo()跟stores傳進去 */}
           <BasicTabs
             duration={duration}
             distance={distance}
             caculateRoute={caculateRoute}
-            caculateRoute2={caculateRoute2}
-            move={move}
-            setMove={setMove}
             stores={stores}
             moveTo={(to) => {
               mapInstance.panTo(to);
@@ -147,6 +135,23 @@ function StoreMap() {
               <DirectionsRenderer directions={directionResponse} />
             )}
           </GoogleMap>
+<<<<<<< HEAD
+          <input
+            type="text"
+            ref={originRef}
+            defaultValue={`{ "lat": 25.0337702, "lng": 121.5433378 }`}
+          />
+          <input
+            type="text"
+            ref={destinationRef}
+            defaultValue={`{ "lat": 25.0480099, "lng": 121.5170087 }`}
+          />
+          <button onClick={caculateRoute}>計算</button>
+          <button onClick={clearRoute}>重設</button>
+          <span>{distance}</span>
+          <span>{duration}</span>
+=======
+>>>>>>> b546b9a9d94615df5b2112ae104f986ad31bd7b3
         </div>
       </div>
     </section>

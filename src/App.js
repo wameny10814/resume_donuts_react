@@ -13,6 +13,7 @@ import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
 import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
 import Checkout from './pages/CartOrderCheck/Checkout';
+import CartOrderReview from './pages/CartOrderReview/CartOrderReview';
 
 //Yuchen
 import Membercenter from './pages/member/Membercenter';
@@ -81,16 +82,17 @@ function App() {
             <Route path="Cart" element={<Cart />} />
             <Route path="CartOrderCheck" element={<CartOrderCheck />} />
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
-            <Route path="/Cart/CartOrderInfo" element={<CartOrderInfo />} />
+            <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
             <Route path="Checkout" element={<Checkout />} />
+            <Route path="CartOrderReview" element={<CartOrderReview />} />
 
             {/* 莊惟的頁面 */}
-            <Route path="ProductWrap" element={<ProductWrap />}>
-              <Route index element={<Product />} />
-              {/* <Route path="Product" element={<Product />} /> */}
-              <Route path=':productId' element={<Content />} />
-             {/* <Route path="Content" element={<Content />} /> */}
-            </Route>
+            {/* <Route path="ProductWrap" element={<ProductWrap />}> 
+              <Route index element={<Product />}>*/}
+            <Route path="Product" element={<Product />} />
+            {/* <Route path=':productId' element={<Detail />} /> */}
+            <Route path="Content" element={<Content />} />
+            {/* </Route> */}
 
             {/* willow的頁面 */}
 

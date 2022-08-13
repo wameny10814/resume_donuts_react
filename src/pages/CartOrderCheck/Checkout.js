@@ -102,7 +102,7 @@ export default function Checkout() {
                     onClick={handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? '完成結帳' : '下一步'}
                   </Button>
                 </Box>
               </React.Fragment>
