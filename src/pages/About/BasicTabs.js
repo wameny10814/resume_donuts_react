@@ -37,7 +37,16 @@ function a11yProps(index) {
 
 export default function BasicTabs(props) {
   // 接收傳進來的panTo函式
-  const { moveTo, stores, caculateRoute, distance, duration } = props;
+  const {
+    moveTo,
+    stores,
+    caculateRoute,
+    caculateRoute2,
+    move,
+    setMove,
+    distance,
+    duration,
+  } = props;
 
   const [value, setValue] = React.useState(0);
   const moveOptions = [
@@ -50,6 +59,9 @@ export default function BasicTabs(props) {
     // eslint-disable-next-line no-undef
     google.maps.TravelMode.WALKING,
   ];
+  const [moveTw, setMoveTw] = useState('');
+
+  const moveOptionstw = ['騎腳踏車', '開車', '大眾運輸', '走路'];
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -108,11 +120,29 @@ export default function BasicTabs(props) {
           <li>
             <p className="bingH5">地址</p>
             <p className="bingText-16">台北市中正區北平西路3號</p>
+            <div className="d-flex">
+              {moveOptions.map((v, i) => {
+                return (
+                  <div className="bingSelect" key={i}>
+                    <input
+                      type="radio"
+                      checked={move === v}
+                      value={v}
+                      onChange={(e) => {
+                        setMove(e.target.value);
+                      }}
+                    />
+                    <img src={`./images/map/${v}.png`} alt="" />
+                  </div>
+                );
+              })}
+            </div>
             <button on onClick={caculateRoute}>
               立即前往
             </button>
+
             <span className="bingText-16">
-              距離{distance}，開車前往大約{duration}
+              距離{distance}，開車前往預估{duration}
             </span>
           </li>
           <li>
@@ -179,11 +209,28 @@ export default function BasicTabs(props) {
           <li>
             <p className="bingH5">地址</p>
             <p className="bingText-16">台北市大安區復興南路一段390號2樓</p>
+            <div className="d-flex">
+              {moveOptions.map((v, i) => {
+                return (
+                  <div className="bingSelect" key={i}>
+                    <input
+                      type="radio"
+                      checked={move === v}
+                      value={v}
+                      onChange={(e) => {
+                        setMove(e.target.value);
+                      }}
+                    />
+                    <img src={`./images/map/${v}.png`} alt="" />
+                  </div>
+                );
+              })}
+            </div>
             <button on onClick={caculateRoute}>
               立即前往
             </button>
             <span className="bingText-16">
-              距離{distance}，開車前往大約{duration}
+              距離{distance}，開車前往預估{duration}
             </span>
           </li>
           <li>
@@ -259,6 +306,7 @@ export default function BasicTabs(props) {
                       value={v}
                       onChange={(e) => {
                         setMove(e.target.value);
+                        setMoveTw(moveOptionstw[i]);
                       }}
                     />
                     <img src={`./images/map/${v}.png`} alt="" />
@@ -269,8 +317,9 @@ export default function BasicTabs(props) {
             <button on onClick={caculateRoute2}>
               立即計算
             </button>
+
             <span className="bingText-16">
-              距離{distance}，開車前往預估{duration}
+              距離{distance}，{moveTw}前往預估{duration}
             </span>
           </li>
           <li>
@@ -328,6 +377,7 @@ export default function BasicTabs(props) {
               </tbody>
             </table>
           </li>
+          <li></li>
         </ul>
       </TabPanel>
     </Box>

@@ -22,3 +22,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+src/pages/Admin-Willow/scssstyle/WillowShowList.css.map
+src/pages/Admin-Willow/scssstyle/WillowShowList.css
+src/pages/Admin-Willow/scssstyle/WillowHavegoodPrice.css.map
+src/pages/Admin-Willow/scssstyle/WillowHavegoodPrice.css
+src/pages/Admin-Willow/scssstyle/AdminPlace.css.map
+src/pages/Admin-Willow/scssstyle/AdminPlace.css
+src/pages/Admin-Willow/scssstyle/AdminLoginStyle.css.map
