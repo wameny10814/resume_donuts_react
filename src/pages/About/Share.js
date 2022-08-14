@@ -78,7 +78,7 @@ function Share() {
                 className="w-100 h-100"
                 src={`http://localhost:3600/willowimgs/${shareData[5].goodimg}`}
                 alt=""
-              />{' '}
+              />
             </div>
             <div className="col-md-4">
               <div className="h-50">
@@ -86,14 +86,14 @@ function Share() {
                   className="w-100 h-100"
                   src={`http://localhost:3600/willowimgs/${shareData[6].goodimg}`}
                   alt=""
-                />{' '}
+                />
               </div>
               <div className="h-50">
                 <img
                   className="w-100 h-100"
                   src={`http://localhost:3600/willowimgs/${shareData[7].goodimg}`}
                   alt=""
-                />{' '}
+                />
               </div>
             </div>
           </div>

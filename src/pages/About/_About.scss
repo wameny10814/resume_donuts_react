@@ -71,8 +71,8 @@
 .bingSelect {
   min-width: 4rem;
   min-height: 4rem;
+  margin: 0 1rem;
   position: relative;
-  // outline: 1px solid lawngreen;
 
   input {
     margin: 0 1rem;
@@ -86,7 +86,12 @@
     z-index: 0;
     width: 100%;
     pointer-events: none;
-    // background: #fff;
+    background: rgb(176, 176, 176);
     border-radius: 50%;
   }
+}
+
+.bingTable {
+  margin: 0 !important;
+  padding: 0 !important;
 }
