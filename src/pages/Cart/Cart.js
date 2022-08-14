@@ -1,7 +1,7 @@
 import OrderList from './components/OrderList';
 import Summary from './components/Summary';
 
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 
 import productsData from '../Product/data/products.json';
 
@@ -36,6 +36,30 @@ function Cart() {
     initState(productsData)
   );
 
+  // local測試  8/13 22:05
+  const [newCartData, setNewCartData] = useState({ new: 'newDDDD' });
+  useEffect(() => {
+    localStorage.setItem('myCartData', JSON.stringify(productsData));
+  }, [productsData]);
+  useEffect(() => {
+    let a = JSON.parse(localStorage.getItem('myCartData'));
+    console.log('購物車資料', a);
+    console.log(localStorage.key(0));
+  }, []);
+
+  const clearLocalS = () => {
+    localStorage.removeItem('myCartData');
+  };
+
+  const setNewLocalS = () => {
+    //塞資料進去
+    localStorage.setItem('newCartData', JSON.stringify(newCartData));
+    localStorage.setItem('font', 'Helvetica');
+    localStorage.setItem('arr', [1, 2, 3, 4, 5, 6, 7, 8]);
+  };
+
+  // local測試
+
   const calcTotalNumber = () => {
     let total = 0;
     for (let i = 0; i < productsInOrder.length; i++) {
@@ -62,6 +86,22 @@ function Cart() {
 
   return (
     <section className="cartBox">
+      {/* local test */}
+      <button
+        onClick={() => {
+          setNewLocalS();
+        }}
+      >
+        set new
+      </button>
+      <button
+        onClick={() => {
+          clearLocalS();
+        }}
+      >
+        remove one
+      </button>
+      {/* local test */}
       <div className="container">
         <H2 title="我的購物車" Entitle="CART" />
 

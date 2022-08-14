@@ -14,6 +14,7 @@ import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
 import Checkout from './pages/CartOrderCheck/Checkout';
 import CartOrderReview from './pages/CartOrderReview/CartOrderReview';
+import NodeTest from './pages/Cart/NodeTest';
 
 //Yuchen
 import Membercenter from './pages/member/Membercenter';
@@ -85,6 +86,8 @@ function App() {
             <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
             <Route path="Checkout" element={<Checkout />} />
             <Route path="CartOrderReview" element={<CartOrderReview />} />
+            <Route path="NodeTest" element={<NodeTest />} />
+
 
             {/* 莊惟的頁面 */}
             <Route path="Product" element={<ProductWrap />}> 

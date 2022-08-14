@@ -1,4 +1,6 @@
 import React, { useState, useContext, createContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import H2 from '../../components/H2';
 
 import PersonalInfo from './components/PersonalInfo';
@@ -22,31 +24,40 @@ function CartOrderInfo() {
     creditSecurityCode: '',
   });
 
-  // const [formDone, setFormDone] = useState(false);
+  // 建立表提交事件
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setFormDone(true);
-  // };
+  const navigate = useNavigate(); // 頁面轉跳
+  const OrderInfoSubmit = (event) => {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+
+    console.log(personalData, creditCardData);
+
+    // 檢查欄位
+    if (
+      personalData.shipName === '' ||
+      personalData.shipPhone === '' ||
+      creditCardData.creditCardNum === ''
+    ) {
+      return;
+    }
+  };
 
   return (
     <div className="container">
       <H2 title="訂單資訊" Entitle="ORDER INFO" />
-      <CurrentOrder />
-      <PersonalInfo
-        personalData={personalData}
-        setPersonalData={setPersonalData}
-      />
-      <CreditCard
-        creditCardData={creditCardData}
-        setCreditCardData={setCreditCardData}
-      />
-      <ProjectButton
-        className="w-25"
-        text="下一步"
-        // type="submit"
-        // value="submit"
-      />
+      <form action="" onSubmit={OrderInfoSubmit}>
+        <CurrentOrder />
+        <PersonalInfo
+          personalData={personalData}
+          setPersonalData={setPersonalData}
+        />
+        <CreditCard
+          creditCardData={creditCardData}
+          setCreditCardData={setCreditCardData}
+        />
+        <ProjectButton className="w-25" text="下一步" />
+      </form>
     </div>
   );
 }

@@ -37,6 +37,10 @@ const invoiceTaxes = TAX_RATE * invoiceSubtotal;
 const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
 function CurrentOrder() {
+  // local test
+
+  // local test
+
   return (
     <>
       <h3>商品明細</h3>
@@ -86,6 +90,7 @@ function CurrentOrder() {
           </TableRow>
         </Table>
       </TableContainer>
+
     </>
   );
 }

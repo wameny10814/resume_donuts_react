@@ -4,6 +4,8 @@ import useLocalStorage from './useLocalstorage';
 
 const CartContext = createContext(null);
 
+
+
 // initialState = {
 //   items: [],
 //   isEmpty: true,
@@ -12,10 +14,15 @@ const CartContext = createContext(null);
 // }
 
 // item = {
-//   id: '',
-//   quantity: 0,
-//   name: '',
-//   price: 0,
+//   sid: '',
+//   "product_name": "",
+//   "category_sid": "",
+//   "product_price": "",
+//   "product_img": "",
+//   "product_desc": "",
+//   "created_at": ""
+//   "conut":"", 紀錄每個商品被買了幾個
+
 // }
 
 export const CartProvider = ({
