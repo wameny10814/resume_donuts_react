@@ -14,7 +14,7 @@ function Content() {
     product_name: '',
     category_sid: '',
     product_price: '',
-    product_image: '',
+    product_img: '',
     product_desc: '',
     created_at: '',
   });
@@ -45,7 +45,7 @@ function Content() {
             }
           >
             {/* eslint-disable-next-line prettier/prettier */}
-            <img src={product.product_image} alt="" className="Mars-cnt-img" />
+            <img src={`../${product.product_img}`} alt="" className="Mars-cnt-img" />
             {/* <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" /> */}
           </div>
           <div className="Mars-cnt-info">
