@@ -13,8 +13,6 @@ import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
 import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
 import Checkout from './pages/CartOrderCheck/Checkout';
-import CartOrderReview from './pages/CartOrderReview/CartOrderReview';
-import NodeTest from './pages/Cart/NodeTest';
 
 //Yuchen
 import Membercenter from './pages/member/Membercenter';
@@ -41,6 +39,8 @@ import WillowHavegoodPrice from './pages/Admin-Willow/NewsAll/WillowHavegoodPric
 import WillowGoodWritings from './pages/Admin-Willow/NewsAll/WillowGoodWritings';
 
 import WillowReport from './pages/Admin-Willow/Report/WillowReport';
+import Grap from './pages/Admin-Willow/Report/Grap';
+
 // 首頁 客製化
 import AbingIndex from './pages/About/AbingIndex';
 import BingCustomized from './pages/About/BingCustomized';
@@ -83,10 +83,8 @@ function App() {
             <Route path="Cart" element={<Cart />} />
             <Route path="CartOrderCheck" element={<CartOrderCheck />} />
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
-            <Route path="Cart/CartOrderInfo" element={<CartOrderInfo />} />
+            <Route path="/Cart/CartOrderInfo" element={<CartOrderInfo />} />
             <Route path="Checkout" element={<Checkout />} />
-            <Route path="CartOrderReview" element={<CartOrderReview />} />
-            <Route path="NodeTest" element={<NodeTest />} />
 
             {/* 莊惟的頁面 */}
             <Route path="Product" element={<ProductWrap />}>
@@ -108,6 +106,7 @@ function App() {
             />
             <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
             <Route path="willowreport" element={<WillowReport />} />
+            <Route path="grap" element={<Grap />} />
           </Routes>
 
           <Footer />
