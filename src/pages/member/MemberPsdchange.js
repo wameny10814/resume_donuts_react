@@ -5,6 +5,7 @@ import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
 import AuthContext from '../../pages/member/components/AuthContext';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import {confirm} from '../../components/Confirm';
 
 function MemberPsdchange() {
   const [isCatHide, setIsCatHide] = useState(false);
@@ -65,7 +66,8 @@ function MemberPsdchange() {
       psd_reg.test(myform.psdNew) === false &&
       psd_reg.test(myform.psdNewCheck) === false
     ) {
-      alert('新密碼格式錯誤');
+      // alert('新密碼格式錯誤');
+      confirm('新密碼格式錯誤');
       return;
     }
 
@@ -81,10 +83,10 @@ function MemberPsdchange() {
       .then((result) => {
         console.log('result', result);
         if (result.success) {
-          console.log(result);
-          alert('修改成功!');
+          // console.log(result);
+          confirm('修改成功!');
         } else {
-          console.log(result);
+          // console.log(result);
           setError({ ...error, psdOld_error: '舊密碼輸入錯誤' });
         }
       });

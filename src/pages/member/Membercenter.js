@@ -22,7 +22,7 @@ function Membercenter() {
   }
 
   // 第一次記錄伺服器的原始資料用
-  const [usersRaw, setUsersRaw] = useState('');
+  const [usersRaw, setUsersRaw] = useState({});
   // 呈現資料用
   const [usersDisplay, setUsersDisplay] = useState({
     account: '',
@@ -70,34 +70,38 @@ function Membercenter() {
       }
     );
     const r = response.data;
-    const res_data = r[0];
+    const res_data = r;
+    console.log('res_data',res_data);
     setUsersRaw(res_data);
     // 生日格式處理
-    const date = r[0].birthday;
+    const date = r.birthday;
     const slicedate = date.slice(0, 10);
     const bitrDisplay = { ...res_data, birthday: slicedate };
     if (res_data.avatar) {
-      // console.log('bitrDisplay', bitrDisplay);
       setUsersDisplay(bitrDisplay);
-      // console.log('usersDisplay', usersDisplay);
       setDidAvatar(true);
-      // console.log('authgetdata0', level);
       setAuth({
         ...auth,
-        level: usersDisplay.level,
+        level: bitrDisplay.level,
       });
-      // console.log('authgetdata01', level);
     } else {
       setUsersDisplay(bitrDisplay);
-      // console.log('authgetdata02', level);
+    
     }
 
-    // console.log('authgetdata03', level);
+    
   };
 
   useEffect(() => {
     getdata();
   }, []);
+//監聽level
+  useEffect(() => {
+    setAuth({
+      ...auth,
+      level: usersDisplay.level,
+    });
+  }, [level]);
 
   const mobile_errmessage = useRef('');
   const avatarchange = () => {
@@ -117,13 +121,7 @@ function Membercenter() {
         // console.log('levelnow', usersDisplay);
         //判斷大頭貼修改成功
         setDidAvatar(true);
-        //更新authcontext
-
-        //畫面更新
-        setAuth({
-          ...auth,
-          level: usersDisplay.level,
-        });
+     
         console.log('auth頭貼', level);
       });
   };
@@ -403,7 +401,7 @@ function Membercenter() {
                   alt=""
                 />
               </div>
-              <p className="yu_milestone_text">完成五筆訂單</p>
+              <p className="yu_milestone_text">完成三筆訂單</p>
             </div>
           </div>
           <div className="step">

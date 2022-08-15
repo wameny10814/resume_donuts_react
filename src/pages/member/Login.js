@@ -83,8 +83,8 @@ function Login() {
             ...result.data,
             authorized: true,
           });
-          // confirm('登入成功!');
-          navigate('/');
+          confirm('登入成功!');
+          // navigate('/');
         } else {
           confirm('帳號或密碼錯誤!');
         }

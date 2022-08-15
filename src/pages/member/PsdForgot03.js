@@ -7,6 +7,7 @@ import cat from './images/logincat.svg';
 import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
+import {confirm} from '../../components/Confirm';
 
 function PsdForgot03(props) {
   const [isCatHide, setIsCatHide] = useState(false);
@@ -72,9 +73,9 @@ function PsdForgot03(props) {
       .then((result) => {
         console.log('result', result.success);
         if (result.success === true) {
-          alert('修改成功');
+          confirm('修改成功');
         } else {
-          alert('修改失敗');
+          confirm('修改失敗');
         }
       });
   };
