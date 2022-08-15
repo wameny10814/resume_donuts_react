@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './Product.css';
 import ProductRecommandCard from './components/Product-recommand';
 import { useState } from 'react';
