@@ -40,6 +40,7 @@ import WillowGoodWritings from './pages/Admin-Willow/NewsAll/WillowGoodWritings'
 
 import WillowReport from './pages/Admin-Willow/Report/WillowReport';
 import Grap from './pages/Admin-Willow/Report/Grap';
+import Graptime from './pages/Admin-Willow/Report/Graptime';
 
 // 首頁 客製化
 import AbingIndex from './pages/About/AbingIndex';
@@ -107,6 +108,7 @@ function App() {
             <Route path="willowgoodwritings" element={<WillowGoodWritings />} />
             <Route path="willowreport" element={<WillowReport />} />
             <Route path="grap" element={<Grap />} />
+            <Route path="graptime" element={<Graptime />} />
           </Routes>
 
           <Footer />

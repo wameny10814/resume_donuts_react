@@ -43,14 +43,13 @@ function Grap() {
       //countByAge[ageInterval]等於ageInterval
       if (categories[row.p_name]) {
         if (categories[row.p_name].countByAge[ageInterval])
-          categories[row.p_name].countByAge[ageInterval] += row.total_quantity;
-        else
-          categories[row.p_name].countByAge[ageInterval] = row.total_quantity;
+          categories[row.p_name].countByAge[ageInterval] += row.quantity;
+        else categories[row.p_name].countByAge[ageInterval] = row.quantity;
       } else {
         categories[row.p_name] = {
           countByAge: {},
         };
-        categories[row.p_name].countByAge[ageInterval] = row.total_quantity;
+        categories[row.p_name].countByAge[ageInterval] = row.quantity;
       }
     });
     //最後return要的陣列以及類別
@@ -61,6 +60,7 @@ function Grap() {
     };
   }, [showChart, chooseValue]);
   console.log(chartData.categories);
+  console.log(chartData.ageIntervalList)
   const vshow = (e) => {
     setChooseValue(e.target.value);
   };
@@ -72,7 +72,8 @@ function Grap() {
   useEffect(() => {
     getshowchat();
   }, []);
-
+  const test = Object.keys(chartData.categories)
+  console.log("test",test)
   const series = Object.keys(chartData.categories).map((key) => {
     const countByAge = chartData.categories[key].countByAge;
     return {
@@ -160,8 +161,8 @@ function Grap() {
   return (
     <div>
       <label className="form-label">Example range</label>
-      <div className="d-flex">
-        <div className="w-50">
+      <div className="">
+        <div className="w-50 m-auto">
           <input
             type="range"
             className="form-range"
@@ -173,16 +174,11 @@ function Grap() {
               vshow(e);
               console.log('chooseValue', chooseValue);
             }}
-          />
+          />{' '}
         </div>
-        <div className="d-flex">
-          <div>
-            <input
-              value={'區間   ' + chooseValue + '   歲'}
-              readOnly
-              className="w-75"
-            />
-          </div>
+        <div className="w-25 m-auto text-center d-flex">
+          <p className='align-items-center m-0 mt-1'>區間為: </p>
+          <input value={chooseValue + '   歲'} readOnly className="w-25 pb-2" />
         </div>
       </div>
 
