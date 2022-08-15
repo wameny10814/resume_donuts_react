@@ -32,8 +32,10 @@ const initState = (prosuctArray) => {
 
 function Cart() {
   // 多樣產品的共用狀態，三樣產品為[1,1,1],四樣產品為[1,1,1,1]以此類推
-  const [productsInOrder, setProductsInOrder] = useState(initState(''));
-  console.log('productsInOrder', productsInOrder);
+  const [productsInOrder, setProductsInOrder] = useState(
+    initState(productsData)
+  );
+
   // local測試  8/13 22:05
   const [newCartData, setNewCartData] = useState({ new: 'newDDDD' });
   useEffect(() => {
