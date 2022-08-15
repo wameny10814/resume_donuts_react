@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-function GetInfosFromProdPage() {
-  const [infos, setInfos] = useState[''];
-  const infosOnChange = (e) => setInfos(infos);
+// function GetInfosFromProdPage() {
+//   const [infos, setInfos] = useState[''];
+//   const infosOnChange = (e) => setInfos(infos);
   
 
   // const getProductDetail = async () => {
@@ -60,7 +60,7 @@ function GetInfosFromProdPage() {
 //   return (
 //     <div className="Mars-" onChange={infosOnChange}></div>
 //   )
-}
+// }
 
 // 一樣用 v.sid 傳送到商品內容頁 (Content.js)
 // e.target.value
