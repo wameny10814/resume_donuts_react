@@ -15,7 +15,6 @@ export default function App() {
   return (
     <>
       <H2 title="人氣商品" Entitle="HOT" />
-
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
