@@ -54,13 +54,13 @@ function BingCustomized() {
       `/images/Customized/decoration/${decoration}.png`
     );
     ctx.drawImage(decorationImg, 0, 0);
-    //多選寫法
-    // for (let i of layer) {
-    //   const layerImg = await getImageFromPath(
-    //     `/images/Customized/layer/${i}.png`
-    //   );
-    //   ctx.drawImage(layerImg, 0, 0);
-    // }
+    // 多選寫法
+    for (let i of layer) {
+      const layerImg = await getImageFromPath(
+        `/images/Customized/layer/${i}.png`
+      );
+      ctx.drawImage(layerImg, 0, 0);
+    }
   };
 
   useEffect(() => {
@@ -173,6 +173,7 @@ function BingCustomized() {
                 <p className="text-center bingH5">
                   目前價錢{donutPrice + layerPrice + decorationPrice}元
                 </p>
+                <button>加入購物車</button>
               </div>
             </div>
           </div>

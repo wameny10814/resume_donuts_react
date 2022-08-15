@@ -3,7 +3,7 @@ import axios from 'axios';
 import H2 from '../../components/H2';
 function Share() {
   const [shareData, setShareData] = useState([]);
-  
+
   //資料結構
   //   good_at: "2022-08-11T03:42:53.000Z"
   // goodimg: "732a871b-6268-47d5-a211-abb05369f218.jpg"
@@ -26,9 +26,9 @@ function Share() {
 
   return (
     <>
+      <H2 title="好文分享" Entitle="SHARE" />
       {shareData.length > 0 && (
         <section className="container">
-          <H2 title="好文分享" Entitle="SHARE" />
           <div className="d-flex justify-content-center share">
             <div className="col-md-6">
               <div className="d-flex h-50 w-100">

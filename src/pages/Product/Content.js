@@ -1,6 +1,7 @@
 import './Product.css';
 import ProductRecommandCard from './components/Product-recommand';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
 
@@ -9,10 +10,10 @@ function Content() {
   const clickedBool = () => setClicked(!clicked);
 
   const [product, setProduct] = useState({
-    sid: 0,
+    sid: '',
     product_name: '',
-    category_sid: 0,
-    product_price: 0,
+    category_sid: '',
+    product_price: '',
     product_image: '',
     product_desc: '',
     created_at: '',
@@ -22,7 +23,7 @@ function Content() {
 
   useEffect(() => {
     //getProduct
-    const p = ProductsData.find((v, i) => v.sid === Number(productId));
+    const p = ProductsData.find((v, i) => v.sid === productId);
 
     if (p) {
       setProduct(p);
@@ -44,8 +45,8 @@ function Content() {
             }
           >
             {/* eslint-disable-next-line prettier/prettier */}
-            <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" />
-            {/* img src={`../{product.product_image}`} */}
+            <img src={product.product_image} alt="" className="Mars-cnt-img" />
+            {/* <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" /> */}
           </div>
           <div className="Mars-cnt-info">
             <p className="Mars-prod-name">{product.product_name}</p>
