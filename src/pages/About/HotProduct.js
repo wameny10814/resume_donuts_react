@@ -1,5 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import AuthContext from '../../pages/member/components/AuthContext';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 // Import Swiper styles
@@ -12,6 +14,8 @@ import H2 from '../../components/H2';
 import { Pagination, Navigation } from 'swiper';
 
 export default function App() {
+  const { authorized, token, account, level, logout, setAuth, auth } =
+    useContext(AuthContext);
   return (
     <>
       <H2 title="人氣商品" Entitle="HOT" />
@@ -47,14 +51,19 @@ export default function App() {
             <p className="text-center bingH5 pb-5">台式甜甜圈</p>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <Link className="text-decoration-none" to={'/abingindex/customized'}>
-            <div className="mx-auto col-md-11 mb-4">
-              <img className="w-100 h-100" src="./images/Hot-4.png" alt="" />
-              <p className="text-center bingH5 pb-5">客製化甜甜圈</p>
-            </div>
-          </Link>
-        </SwiperSlide>
+        {authorized === true ? (
+          <SwiperSlide>
+            <Link
+              className="text-decoration-none"
+              to={'/abingindex/customized'}
+            >
+              <div className="mx-auto col-md-11 mb-4">
+                <img className="w-100 h-100" src="./images/Hot-4.png" alt="" />
+                <p className="text-center bingH5 pb-5">客製化甜甜圈</p>
+              </div>
+            </Link>
+          </SwiperSlide>
+        ) : null}
       </Swiper>
     </>
   );
