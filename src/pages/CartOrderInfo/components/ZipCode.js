@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { countries, townships, postcodes } from '../../Cart/data/townships';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
+import { useForm } from 'react-hook-form';
 
 function ZipCode() {
   console.log(countries, townships, postcodes);
@@ -9,11 +8,15 @@ function ZipCode() {
   const [country, setCountry] = useState(-1);
   const [township, setTownship] = useState(-1);
 
+  // country: '',
+  // township: '',
+  // addressDetail: '',
+
   return (
     <>
-      <TextField
-        select
-        label="縣市"
+      縣市
+      <select
+        className="dropdown"
         value={country}
         onChange={(e) => {
           // 將字串轉成數字
@@ -22,31 +25,29 @@ function ZipCode() {
           setTownship(-1);
         }}
       >
-        <MenuItem value="-1">選擇縣市</MenuItem>
-        {countries.map((v, i) => (
-          <MenuItem key={i} value={i}>
-            {v}
-          </MenuItem>
+        <option value="-1">選擇縣市</option>
+        {countries.map((value, index) => (
+          <option key={index} value={index}>
+            {value}
+          </option>
         ))}
-      </TextField>
-
-      <TextField
-        select
-        label="地區"
+      </select>
+      地區
+      <select
         value={township}
         onChange={(e) => {
           // 將字串轉成數字
           setTownship(+e.target.value);
         }}
       >
-        <MenuItem value="-1">選擇區域</MenuItem>
+        <option value="-1">選擇區域</option>
         {country > -1 &&
-          townships[country].map((v, i) => (
-            <MenuItem key={i} value={i}>
-              {v}
-            </MenuItem>
+          townships[country].map((value, index) => (
+            <option key={index} value={index}>
+              {value}
+            </option>
           ))}
-      </TextField>
+      </select>
       {/* 如果country與township的索引值均大於-1時(也就是都有選的情況下)，呈現postcode */}
       {/* `條件 && 呈現` 是 `if(條件){呈現}` 的簡寫法，只在React JSX中可以使用 */}
     </>
