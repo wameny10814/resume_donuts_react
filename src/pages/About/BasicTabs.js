@@ -66,6 +66,9 @@ export default function BasicTabs(props) {
     setValue(newValue);
   };
 
+  const [clicked, setClicked] = useState(false);
+  const clickedBool = () => setClicked(!clicked);
+
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 2, borderColor: 'divider' }}>
@@ -190,7 +193,7 @@ export default function BasicTabs(props) {
           </li>
           <li className="mt-5">
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
-              立即計算距離與時間
+              請選擇交通工具計算距離與時間
             </p>
             <div className="d-flex">
               {moveOptions.map((v, i) => {
@@ -204,9 +207,18 @@ export default function BasicTabs(props) {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
                         caculateRoute();
+                        clickedBool();
                       }}
                     />
-                    <img src={`./images/map/${v}.png`} alt="" />
+                    <img
+                      style={
+                        move === v
+                          ? { background: '#000' }
+                          : { background: '#f5f5f5' }
+                      }
+                      src={`./images/map/${v}.png`}
+                      alt=""
+                    />
                   </div>
                 );
               })}
@@ -295,7 +307,7 @@ export default function BasicTabs(props) {
           </li>
           <li className="mt-5">
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
-              立即計算距離與時間
+              請選擇交通工具計算距離與時間
             </p>
             <div className="d-flex">
               {moveOptions.map((v, i) => {
@@ -309,9 +321,18 @@ export default function BasicTabs(props) {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
                         caculateRoute();
+                        clickedBool();
                       }}
                     />
-                    <img src={`./images/map/${v}.png`} alt="" />
+                    <img
+                      style={
+                        move === v
+                          ? { background: '#000' }
+                          : { background: '#f5f5f5' }
+                      }
+                      src={`./images/map/${v}.png`}
+                      alt=""
+                    />
                   </div>
                 );
               })}
@@ -399,7 +420,7 @@ export default function BasicTabs(props) {
           </li>
           <li className="mt-5">
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
-              立即計算距離與時間
+              請選擇交通工具計算距離與時間
             </p>
             <div className="d-flex">
               {moveOptions.map((v, i) => {
@@ -413,9 +434,18 @@ export default function BasicTabs(props) {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
                         caculateRoute2();
+                        clickedBool();
                       }}
                     />
-                    <img src={`./images/map/${v}.png`} alt="" />
+                    <img
+                      style={
+                        move === v
+                          ? { background: '#000' }
+                          : { background: '#f5f5f5' }
+                      }
+                      src={`./images/map/${v}.png`}
+                      alt=""
+                    />
                   </div>
                 );
               })}
