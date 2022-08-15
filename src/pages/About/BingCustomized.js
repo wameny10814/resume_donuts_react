@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+
 import H2 from '../../components/H2';
 
 function BingCustomized() {

@@ -1,7 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import AuthContext from '../../pages/member/components/AuthContext';
-import { useState, useRef, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 // Import Swiper styles
@@ -14,8 +14,7 @@ import H2 from '../../components/H2';
 import { Pagination, Navigation } from 'swiper';
 
 export default function App() {
-  const { authorized, token, account, level, logout, setAuth, auth } =
-    useContext(AuthContext);
+  const { authorized } = useContext(AuthContext);
   return (
     <>
       <H2 title="人氣商品" Entitle="HOT" />
