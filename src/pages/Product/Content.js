@@ -79,7 +79,7 @@ function Content() {
             </div>
           </div>
         </div>
-        <p className="Mars-prod-name">產品推薦</p>
+        <p className="Mars-prod-name">産品推薦</p>
         <ProductRecommandCard />
       </div>
     </>
