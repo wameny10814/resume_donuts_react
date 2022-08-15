@@ -4,49 +4,50 @@
 // creditSecurityCode: '',
 
 function CreditCard(props) {
-  const { creditCardData, setCreditCardData } = props;
+  const { personalData, setPersonalData } = props;
 
   const handleFieldChange = (e) => {
-    const newCreditCardData = {
-      ...creditCardData,
+    const newPersonalData = {
+      ...personalData,
       [e.target.name]: e.target.value,
     };
-    setCreditCardData(newCreditCardData);
+    setPersonalData(newPersonalData);
 
-    console.log(newCreditCardData);
+    console.log(newPersonalData);
   };
   return (
     <>
       <div className="container">
         <h3>信用卡資訊</h3>
+
         <section className="cartBox">
           <div className="card">
             卡號
             <input
               type="text"
               name="creditCardNum"
-              value={creditCardData.creditCardNum}
+              value={personalData.creditCardNum}
               onChange={handleFieldChange}
             />
             到期日
             <input
               type="text"
               name="creditCardDate"
-              value={creditCardData.creditCardDate}
+              value={personalData.creditCardDate}
               onChange={handleFieldChange}
             />
             持卡人姓名
             <input
               type="text"
               name="creditCardName"
-              value={creditCardData.creditCardName}
+              value={personalData.creditCardName}
               onChange={handleFieldChange}
             />
             檢核碼
             <input
               type="text"
               name="creditSecurityCode"
-              value={creditCardData.creditSecurityCode}
+              value={personalData.creditSecurityCode}
               onChange={handleFieldChange}
             />
           </div>

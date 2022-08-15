@@ -1,10 +1,7 @@
 import React, { useState, useContext, createContext, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
 import ZipCode from './ZipCode';
-
 import axios from 'axios';
 
 // shipName: '',
@@ -13,6 +10,7 @@ import axios from 'axios';
 
 function PersonalInfo(props) {
   const { personalData, setPersonalData } = props;
+
 
   const handleFieldChange = (e) => {
     const newPersonalData = {
@@ -74,54 +72,56 @@ function PersonalInfo(props) {
             ...personalData,
             shipName: '111',
             shipPhone: '111',
-            shipEmail: '111',
+            shipEmail: '111@ss.ss',
+            country: '臺北市',
+            township: '大安區',
+            addressDetail: '復興南路99號2樓',
+            creditCardNum: '8899 3344 2244 2233',
+            creditCardDate: '10/25',
+            creditCardName: '游小豪',
+            creditSecurityCode: '889',
           });
         }}
       >
         同步會員資料
       </button>
 
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
-          bgcolor: 'background.paper',
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <div className="form-inline"></div>
-        <TextField
-          id="filled-basic"
-          label="姓名"
-          variant="filled"
-          type="text"
-          name="shipName"
-          value={personalData.shipName}
-          onChange={handleFieldChange}
-        />
-
-        <TextField
-          id="filled-basic"
-          label="行動電話"
-          variant="filled"
-          type="text"
-          name="shipPhone"
-          value={personalData.shipPhone}
-          onChange={handleFieldChange}
-        />
-        <TextField
-          id="filled-basic"
-          label="電子信箱"
-          variant="filled"
-          type="email"
-          name="shipEmail"
-          value={personalData.shipEmail}
-          onChange={handleFieldChange}
-        />
-        <ZipCode />
-        <TextField id="filled-basic" label="詳細地址" variant="filled" />
-      </Box>
+      <section className="cartBox">
+        <div className="card">
+     
+          姓名
+          <input
+            type="text"
+            name="shipName"
+            value={personalData.shipName}
+            onChange={handleFieldChange}
+          />
+          電話
+          <input
+            type="text"
+            name="shipPhone"
+            value={personalData.shipPhone}
+            onChange={handleFieldChange}
+          />
+          E-mail
+          <input
+            type="email"
+            name="shipEmail"
+            value={personalData.shipEmail}
+            onChange={handleFieldChange}
+          />
+          <ZipCode
+            personalData={personalData}
+            setPersonalData={setPersonalData}
+          />
+          詳細地址（街道/門牌/樓層）
+          <input
+            type="text"
+            name="addressDetail"
+            value={personalData.addressDetail}
+          />
+        </div>
+      </section>
     </>
   );
 }

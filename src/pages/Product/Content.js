@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './Product.css';
 import ProductRecommandCard from './components/Product-recommand';
 import { useState } from 'react';
@@ -14,7 +15,7 @@ function Content() {
     product_name: '',
     category_sid: '',
     product_price: '',
-    product_image: '',
+    product_img: '',
     product_desc: '',
     created_at: '',
   });
@@ -45,7 +46,7 @@ function Content() {
             }
           >
             {/* eslint-disable-next-line prettier/prettier */}
-            <img src={product.product_image} alt="" className="Mars-cnt-img" />
+            <img src={`../${product.product_img}`} alt="" className="Mars-cnt-img" />
             {/* <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" /> */}
           </div>
           <div className="Mars-cnt-info">
@@ -78,7 +79,7 @@ function Content() {
             </div>
           </div>
         </div>
-        <p className="Mars-prod-name">產品推薦</p>
+        <p className="Mars-prod-name">産品推薦</p>
         <ProductRecommandCard />
       </div>
     </>

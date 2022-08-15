@@ -88,12 +88,11 @@ function App() {
             <Route path="CartOrderReview" element={<CartOrderReview />} />
             <Route path="NodeTest" element={<NodeTest />} />
 
-
             {/* 莊惟的頁面 */}
-            <Route path="Product" element={<ProductWrap />}> 
+            <Route path="Product" element={<ProductWrap />}>
               <Route index element={<Product />} />
               {/* <Route path="Product" element={<Product />} /> */}
-              <Route path=':productId' element={<Content />} />
+              <Route path=":productId" element={<Content />} />
               {/* <Route path="Content" element={<Content />} /> */}
             </Route>
 
