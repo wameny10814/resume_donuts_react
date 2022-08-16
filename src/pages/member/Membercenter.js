@@ -214,7 +214,7 @@ function Membercenter() {
           </div>
         </nav>
         <div className="yu_profile">
-          <div className="row-6 d-flex ">
+          <div className="row-6 d-flex  yu_center">
             <div className="col">
               <div className="yu_avatar">
                 <figure className="d-flex yu_avatar_pic">
@@ -355,7 +355,7 @@ function Membercenter() {
                   />
                 </div>
                 <div className="d-flex ">
-                  <button type="submit" className=" mt-5 yu_profile-btn">
+                  <button type="submit" className=" yu_profile-btn">
                     修改會員資料
                   </button>
                 </div>

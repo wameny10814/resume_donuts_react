@@ -37,14 +37,12 @@ const Confirmation = ({
           {/* btn在這 */}
           <Button
             className="pochi-confirm-btn-pri mx-2 px-4 py-2"
-            style={{ backgroundColor: '#616153', border: 'none' }}
             onClick={() => proceed(false)}
           >
             取消
           </Button>
           <Button
             className="pochi-confirm-btn-pri mx-2 px-4 py-2"
-            style={{ backgroundColor: '#616153', border: 'none' }}
             onClick={() => proceed(true)}
           >
             確認
