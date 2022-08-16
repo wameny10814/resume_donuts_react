@@ -15,9 +15,9 @@ function StoreMap() {
   });
 
   const [directionResponse, setDirectionResponse] = useState(null);
-  const [distance, setDistance] = useState('');
-  const [duration, setDuration] = useState('');
-  const [move, setMove] = useState('');
+  const [distance, setDistance] = useState('...');
+  const [duration, setDuration] = useState('...');
+  const [move, setMove] = useState('WALKING');
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
 
@@ -27,14 +27,12 @@ function StoreMap() {
     { lat: 25.0404691, lng: 121.5667799 }, //市府
   ];
 
-
-
   const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
     return <p>Loading...</p>;
   }
-
+  //計算路徑
   async function caculateRoute() {
     clearRoute();
     // if (originRef.current.value === '' || destinationRef.current.value === '') {
@@ -45,31 +43,6 @@ function StoreMap() {
     // const o = JSON.parse(originRef.current.value);
     const d = { lat: 25.0480099, lng: 121.5170087 };
     // const d = JSON.parse(destinationRef.current.value);
-    console.log(o);
-    // eslint-disable-next-line no-undef
-    const directionService = new google.maps.DirectionsService();
-    const results = await directionService.route({
-      // eslint-disable-next-line no-undef
-      origin: new google.maps.LatLng(o.lat, o.lng),
-      // eslint-disable-next-line no-undef
-      destination: new google.maps.LatLng(d.lat, d.lng),
-      // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
-    });
-    setDirectionResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
-  }
-
-  async function caculateRoute2() {
-    clearRoute();
-    // if (originRef.current.value === '' || destinationRef.current.value === '') {
-    //   return;
-    // }
-
-    const o = { lat: 25.0337702, lng: 121.5433378 };
-    const d = { lat: 25.0404691, lng: 121.5667799 };
-    console.log(o);
     // eslint-disable-next-line no-undef
     const directionService = new google.maps.DirectionsService();
     const results = await directionService.route({
@@ -85,6 +58,25 @@ function StoreMap() {
     setDuration(results.routes[0].legs[0].duration.text);
   }
 
+  async function caculateRoute2() {
+    clearRoute();
+    const o = { lat: 25.0337702, lng: 121.5433378 };
+    const d = { lat: 25.0404691, lng: 121.5667799 };
+    // eslint-disable-next-line no-undef
+    const directionService = new google.maps.DirectionsService();
+    const results = await directionService.route({
+      // eslint-disable-next-line no-undef
+      origin: new google.maps.LatLng(o.lat, o.lng),
+      // eslint-disable-next-line no-undef
+      destination: new google.maps.LatLng(d.lat, d.lng),
+      // eslint-disable-next-line no-undef
+      travelMode: move,
+    });
+    setDirectionResponse(results);
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
+  }
+  //清除距離與時間
   function clearRoute() {
     setDirectionResponse(null);
     setDistance('');
@@ -129,7 +121,6 @@ function StoreMap() {
             }}
             onLoad={onLoad}
           >
-            {/* 套件BUG 只有註解再打開才會有作用 */}
             <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
               {(clusterer) =>
                 stores.map((location) => (
@@ -149,8 +140,6 @@ function StoreMap() {
               <DirectionsRenderer directions={directionResponse} />
             )}
           </GoogleMap>
-          <span>{distance}</span>
-          <span>{duration}</span>
         </div>
       </div>
     </section>

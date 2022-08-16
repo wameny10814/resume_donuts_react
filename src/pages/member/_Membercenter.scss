@@ -97,7 +97,7 @@
         color: #F2A99B;
         background-color: white;
         border: 1px solid #F2A99B;
-        
+
     }
     .yu_profile-btn{
         border: none;
@@ -123,11 +123,7 @@
     }
     .yu_stone_figure{
         width: 15vh;
-        // transition: 1s;
     }
-    // .yu_stone_figure:hover{
-    //     margin-top: -3rem;
-    // }
     .yu_stone_figure img{
         width: 100%;
     }
@@ -139,9 +135,12 @@
     }
     .stone{
         transition: 1s;
-        
+
     }
     .stone:hover{
         margin-top: -3rem;
     }
+    // .yu_flex{
+    //     position: relative;
+    // }
 

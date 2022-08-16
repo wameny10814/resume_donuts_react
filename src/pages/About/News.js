@@ -1,7 +1,7 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 import H2 from '../../components/H2';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles

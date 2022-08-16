@@ -1,17 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './Product.css';
-import ImgOnClick from './components/Img-onclick';
 import ProductRecommandCard from './components/Product-recommand';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
 
 function Content() {
+  const [clicked, setClicked] = useState(false);
+  const clickedBool = () => setClicked(!clicked);
+
   const [product, setProduct] = useState({
-    sid: 0,
+    sid: '',
     product_name: '',
-    category_sid: 0,
-    product_price: 0,
-    product_image: '',
+    category_sid: '',
+    product_price: '',
+    product_img: '',
     product_desc: '',
     created_at: '',
   });
@@ -20,7 +24,7 @@ function Content() {
 
   useEffect(() => {
     //getProduct
-    const p = ProductsData.find((v, i) => v.sid === Number(productId));
+    const p = ProductsData.find((v, i) => v.sid === productId);
 
     if (p) {
       setProduct(p);
@@ -32,16 +36,23 @@ function Content() {
       <div className="Mars-cnt-container">
         <div className="Mars-breadcrumb"></div>
         <div className="Mars-cnt-main d-flex">
-          <ImgOnClick />
-          {/* <div className="Mars-cnt-imgwr">
-            <img src="./images/uji-matcha.jpg" alt="" className="Mars-cnt-img"/>
-          </div> */}
+          <div
+            className="Mars-cnt-imgwr"
+            onClick={clickedBool}
+            style={
+              clicked
+                ? { boxShadow: '0 5px 25px 0 rgb(0 0 0 / 10%)' }
+                : { boxShadow: 'none' }
+            }
+          >
+            {/* eslint-disable-next-line prettier/prettier */}
+            <img src={`../${product.product_img}`} alt="" className="Mars-cnt-img" />
+            {/* <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" /> */}
+          </div>
           <div className="Mars-cnt-info">
             <p className="Mars-prod-name">{product.product_name}</p>
             <p className="Mars-cnt-engnum">Pon-de Uji Matcha</p>
-            <p className="Mars-cnt-engnum">
-              NT$ {product.product_price}
-            </p>
+            <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
             <p className="Mars-cnt-desc">{product.product_desc}</p>
             <a href="../Cart">
               {/* eslint-disable-next-line prettier/prettier */}
@@ -68,7 +79,7 @@ function Content() {
             </div>
           </div>
         </div>
-        <p className="Mars-prod-name">產品推薦</p>
+        <p className="Mars-prod-name">産品推薦</p>
         <ProductRecommandCard />
       </div>
     </>

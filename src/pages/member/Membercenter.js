@@ -8,7 +8,6 @@ import stone1 from './images/stone01.svg';
 import stone2 from './images/stone02.svg';
 import stone3 from './images/stone03.svg';
 import stone4 from './images/stone04.svg';
-
 import {confirm} from '../../components/Confirm';
 
 // import './Membercenter.css';

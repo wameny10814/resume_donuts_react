@@ -1,6 +1,24 @@
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
+import React, { useState, useEffect } from 'react';
+
+import axios from 'axios';
+
 import H2 from '../../components/H2';
 function Contribute() {
+  const [countData, setCountData] = useState(0);
+
+  const getCount = async () => {
+    const response = await axios.get(`http://localhost:3600/willownews/count`);
+    const resdata = response.data;
+    // console.log("resdata",resdata.con);
+    console.log('resdata', resdata);
+    setCountData(resdata);
+  };
+
+  useEffect(() => {
+    getCount();
+  }, []);
+
   return (
     <>
       <section className="my-5">
@@ -16,9 +34,13 @@ function Contribute() {
               <ProjectButton text="GO SHOPPING" />
               <p className="bingH4 text-center mt-5 mb-3">共已捐贈</p>
               <div className="text-center mt-5 mb-4">
-                <span className="bingH2 CSRNum1">2</span>
-                <span className="bingH2 CSRNum2">0</span>
-                <span className="bingH2 CSRNum2">0</span>
+                <span className="bingH2 CSRNum2">
+                  {countData < 10
+                    ? '00' + countData
+                    : countData < 100
+                    ? '0' + countData
+                    : countData}
+                </span>
                 <span className="bingH5"> 份</span>
               </div>
               <div className="text-center">
