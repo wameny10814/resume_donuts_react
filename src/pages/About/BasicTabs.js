@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 
@@ -65,9 +64,6 @@ export default function BasicTabs(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const [clicked, setClicked] = useState(false);
-  const clickedBool = () => setClicked(!clicked);
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -207,13 +203,12 @@ export default function BasicTabs(props) {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
                         caculateRoute();
-                        clickedBool();
                       }}
                     />
                     <img
                       style={
                         move === v
-                          ? { background: '#000' }
+                          ? { background: '#616153' }
                           : { background: '#f5f5f5' }
                       }
                       src={`./images/map/${v}.png`}
@@ -321,13 +316,12 @@ export default function BasicTabs(props) {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
                         caculateRoute();
-                        clickedBool();
                       }}
                     />
                     <img
                       style={
                         move === v
-                          ? { background: '#000' }
+                          ? { background: '#616153' }
                           : { background: '#f5f5f5' }
                       }
                       src={`./images/map/${v}.png`}
@@ -434,13 +428,12 @@ export default function BasicTabs(props) {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
                         caculateRoute2();
-                        clickedBool();
                       }}
                     />
                     <img
                       style={
                         move === v
-                          ? { background: '#000' }
+                          ? { background: '#616153' }
                           : { background: '#f5f5f5' }
                       }
                       src={`./images/map/${v}.png`}

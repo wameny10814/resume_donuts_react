@@ -36,31 +36,33 @@ function News() {
 
   return (
     <>
-      <H2 title="最新消息" Entitle="NEWS" />
-      <Swiper loop={true} autoplay={true} className="mySwiper">
-        {newsData.map((v, i) => {
-          return (
-            <SwiperSlide key={v.newsid}>
-              <div className="container d-flex my-5">
-                <div className="col-12 col-md-6">
-                  <img
-                    className="w-100 h-auto"
-                    src={`http://localhost:3600/willowimgs/${v.newsimg}`}
-                    alt=""
-                  />
-                </div>
-                <div className="col-12 col-md-6 h-100">
-                  <p className="bingH4 mx-auto px-5">{v.newstitle}</p>
-                  <p className="bingText-16 mx-auto px-5">{v.words}</p>
-                  <div className="text-center my-5">
-                    <ProjectButton text="MORE" />
+      <div className="vh-100">
+        <H2 title="最新消息" Entitle="NEWS" />
+        <Swiper loop={true} autoplay={true} className="mySwiper">
+          {newsData.map((v, i) => {
+            return (
+              <SwiperSlide key={v.newsid}>
+                <div className="container d-flex my-5">
+                  <div className="col-12 col-md-6">
+                    <img
+                      className="w-100 h-auto"
+                      src={`http://localhost:3600/willowimgs/${v.newsimg}`}
+                      alt=""
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 h-100">
+                    <p className="bingH4 mx-auto px-5">{v.newstitle}</p>
+                    <p className="bingText-16 mx-auto px-5">{v.words}</p>
+                    <div className="text-center my-5">
+                      <ProjectButton text="MORE" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </>
   );
 }

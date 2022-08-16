@@ -41,6 +41,11 @@ function Product(props) {
 
   // 測試購物車------------------
 
+  // Filter功能-----------------
+  // const PondeFilter = ProductsData.filter(category_sid = 1)
+  // const DonutFilter = ProductsData.filter(category_sid = 2)
+  // const OldFashionFilter = ProductsData.filter((ProductsData.category_sid = 3));
+
   return (
     <>
       <div className="Mars-container">
@@ -50,8 +55,9 @@ function Product(props) {
         </div>
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
-        <div className=""></div>
-        <div className="Mars-prod-filter-area"></div>
+        {/* <div className="Mars-prod-filter-area">
+          <div className="Mars-prod-filter" onClick={(e) => {}}></div>
+        </div> */}
         <div className="Mars-product-slide">
           {productData.map((v, i) => {
             return (
@@ -59,19 +65,11 @@ function Product(props) {
                 <div className="Mars-prod-imgwr">
                   <Link to={`./${v.sid}`}>
                     {/* eslint-disable-next-line prettier/prettier */}
-                    <img
-                      src={v.product_img}
-                      className="Mars-prod-img"
-                      alt=""
-                    ></img>
-                    {/* <img src="./images/uji-matcha.jpg" className="Mars-prod-img" alt=""></img> */}
+                    <img src={v.product_img} className="Mars-prod-img" alt=""></img>
                   </Link>
                 </div>
                 <p className="Mars-prod-name">{v.product_name}</p>
-                {/* <p className="Mars-prod-name">宇治抹茶那堤</p> */}
                 <p className="Mars-prod-price">NT$ {v.product_price}</p>
-                {/* <p className="Mars-prod-price">NT$ 35</p> */}
-                {/* <a href="../../Cart/"> */}
                 {/* eslint-disable-next-line prettier/prettier */}
                 <button
                 className="ProjectButton"
@@ -90,12 +88,10 @@ function Product(props) {
                 >
                   <i class="fa-solid fa-circle-plus"></i> 加入購物車
                 </button>
-                {/* </a> */}
               </div>
             );
           })}
         </div>
-        {/* 飲料區待定 */}
       </div>
     </>
   );
