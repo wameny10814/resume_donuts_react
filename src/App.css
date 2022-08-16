@@ -767,6 +767,11 @@ footer .footerp {
   border: 1px solid #616153;
 }
 
+.ProjectButton i {
+  color: #FFF;
+  margin-right: 3px;
+}
+
 #root {
   font-family: "Noto Sans TC", sans-serif;
   font-family: "Zen Maru Gothic", sans-serif;

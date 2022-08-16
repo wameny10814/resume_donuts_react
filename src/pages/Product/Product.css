@@ -75,25 +75,6 @@
     font-size: 16px;
 }
 
-.Mars-cart-btn {
-    width: 160px;
-    height: 48px;
-    background: #616153;
-    opacity: 0.8;
-    border-radius: 64px;
-
-    color: #FFF;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 0%;
-}
-
-.Mars-cart-btn i {
-    color: #FFF;
-    margin-right: 3px;
-}
-
 /* ---商品內容頁--- */
 
 .Mars-cnt-container {
