@@ -8,6 +8,7 @@ import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
 
+
 function PsdForgot02(props) {
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
@@ -70,8 +71,6 @@ function PsdForgot02(props) {
         console.log('result', result.success);
         if (result.success === true) {
           // 正確
-          // window.scroll(0, 1400);
-          // setUuu(false);
           setBbb(true);
         } else {
           setError({ ...error, valid_error: '驗證碼輸入錯誤' });

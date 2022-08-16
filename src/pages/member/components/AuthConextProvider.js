@@ -8,7 +8,7 @@ export default function AuthContextProvider({ children }) {
     sid: 0,
     account: '',
     token: '',
-    level: '',
+    level: 0,
   };
   //已設定登入成功寫進localStorage
   // 先查看 localStorage 的資料是否表示已登入

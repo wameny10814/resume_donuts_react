@@ -60,6 +60,7 @@
     background-position-x: 1000px;
   }
 }
+
 @-webkit-keyframes animate2 {
   0% {
     background-position-x: 0;
@@ -68,6 +69,7 @@
     background-position-x: -1000px;
   }
 }
+
 @keyframes animate2 {
   0% {
     background-position-x: 0;
@@ -76,6 +78,7 @@
     background-position-x: -1000px;
   }
 }
+
 @-webkit-keyframes animate3 {
   0% {
     background-position-x: 0;
@@ -84,6 +87,7 @@
     background-position-x: 1000px;
   }
 }
+
 @keyframes animate3 {
   0% {
     background-position-x: 0;
@@ -91,4 +95,5 @@
   100% {
     background-position-x: 1000px;
   }
-}/*# sourceMappingURL=BackgroundWaveAnimation.css.map */
+}
+/*# sourceMappingURL=BackgroundWaveAnimation.css.map */

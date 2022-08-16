@@ -5,7 +5,7 @@ function Share() {
   const [shareData, setShareData] = useState([]);
 
   //資料結構
-  //   good_at: "2022-08-11T03:42:53.000Z"
+  // good_at: "2022-08-11T03:42:53.000Z"
   // goodimg: "732a871b-6268-47d5-a211-abb05369f218.jpg"
   // goodtitle: "123"
   // goodwords: "123"

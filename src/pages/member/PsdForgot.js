@@ -10,6 +10,7 @@ import eyeSlash from './images/EyeSlash.svg';
 import PsdForgot02 from './PsdForgot02';
 import PsdForgot03 from './PsdForgot03';
 import { display, style } from '@mui/system';
+import {confirm} from '../../components/Confirm';
 
 function PsdForgot(props) {
   const [isCatHide, setIsCatHide] = useState(false);
@@ -68,7 +69,7 @@ function PsdForgot(props) {
       .then((result) => {
         // console.log('result', result[0].email);
         if (!result.success) {
-          alert('查無此信箱!');
+          confirm('查無此信箱!');
         } else {
           setDidConfirmed(true);
           setConfirmedEmail(result[0].email);
