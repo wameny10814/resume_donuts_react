@@ -72,7 +72,6 @@ function Product(props) {
                 <p className="Mars-prod-price">NT$ {v.product_price}</p>
                 <button
                 className="ProjectButton"
-                  // className="Mars-cart-btn"
                   onClick={() =>
                     handleAddToCarts(
                       productData.sid,
