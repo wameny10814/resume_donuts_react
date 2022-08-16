@@ -12,7 +12,6 @@ function Content(props) {
   const [clicked, setClicked] = useState(false);
   const clickedBool = () => setClicked(!clicked);
 
-  const [CartProductData, setCartProductData] = useState(ProductsData);
   const handleAddToCarts = (
     sid,
     product_name,
@@ -79,7 +78,7 @@ function Content(props) {
             <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
             <p className="Mars-cnt-desc">{product.product_desc}</p>
               {/* eslint-disable-next-line prettier/prettier */}
-              <button className="Mars-cart-btn"
+              <button className="ProjectButton"
                 onClick={() =>
                   handleAddToCarts(
                     product.sid,
