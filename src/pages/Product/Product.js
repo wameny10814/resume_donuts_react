@@ -42,22 +42,24 @@ function Product(props) {
   // 測試購物車------------------
 
   // Filter功能-----------------
-  // const PondeFilter = ProductsData.filter(category_sid = 1)
-  // const DonutFilter = ProductsData.filter(category_sid = 2)
-  // const OldFashionFilter = ProductsData.filter((ProductsData.category_sid = 3));
+  const PondeFilter = () => productData.filter((productData.category_sid === "1"));
+  const DonutFilter = () => productData.filter((productData.category_sid === "2"));
+  const OldFashionFilter = () => productData.filter((productData.category_sid === "3"));
 
   return (
     <>
       <div className="Mars-container">
         <div className="Mars-img-wrap">
           <img src="./images/mv_donut.jpg" className="Mars-visual" alt="" />
-          <h2 className="Mars-prod-name">商品一覽</h2>
+          <h2 className="Mars-prod-h2">商品一覽</h2>
         </div>
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
-        {/* <div className="Mars-prod-filter-area">
-          <div className="Mars-prod-filter" onClick={(e) => {}}></div>
-        </div> */}
+        <div className="Mars-prod-filter-area">
+          <div className="Mars-prod-filter" onClick={PondeFilter}>波堤</div> {/* onClick={PondeFilter()} */}
+          <div className="Mars-prod-filter" onClick={DonutFilter}>多那茲</div>
+          <div className="Mars-prod-filter" onClick={OldFashionFilter}>歐菲香</div>
+        </div>
         <div className="Mars-product-slide">
           {productData.map((v, i) => {
             return (

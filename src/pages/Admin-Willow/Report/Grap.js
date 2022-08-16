@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import axios from 'axios';
-function Grap() {
+function Grap(props) {
+  const { setReportOption } = props;
   const [showChart, setShowChart] = useState([]);
   const [chooseValue, setChooseValue] = useState(10);
 
@@ -161,6 +162,17 @@ function Grap() {
   return (
     <div>
       <label className="form-label">Example range</label>
+      <div className="d-flex justify-content-end">
+        <button
+          type="button"
+          className="btn  mt-3 willow_button"
+          onClick={() => {
+            setReportOption(0);
+          }}
+        >
+          回上一頁
+        </button>
+      </div>
       <div className="">
         <div className="w-50 m-auto">
           <input
