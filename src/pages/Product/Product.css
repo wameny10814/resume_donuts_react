@@ -55,6 +55,11 @@
     height: 295px;
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 3px 25px 0 rgb(0 0 0 / 10%);
+}
+
+.Mars-prod-imgwr:hover {
+    box-shadow: none;
 }
 
 .Mars-prod-img {
