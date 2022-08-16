@@ -76,7 +76,7 @@ function WillowShowList(props) {
         <h1 className="w-75 m-auto">ShowList</h1>
         {/* ---News--- */}
         <div className="row col_bline justify-content-center">
-          <div className="col-12 mt-5 willow_p_5">
+          <div className="col-12 mt-5 willow_p_5 ">
             <h3 className="d-flex w-25 justify-content-around">
               <div>News</div>
               <div className="d-flex ">
@@ -90,7 +90,7 @@ function WillowShowList(props) {
                 </div>
               </div>
             </h3>
-            <div className="willow_focus_left willow_minh">
+            <div className="willow_focus_left willow_minh w-100">
               <table className="table table-striped text-center">
                 <thead className="willow_table_thead_style3">
                   <tr>
@@ -152,10 +152,6 @@ function WillowShowList(props) {
               </table>
             </div>
           </div>
-        </div>
-        {/* ---goodprice activity--- */}
-      
-        <div className="row col_bline justify-content-center">
           <div className="col-12 mt-5 willow_p_5">
             <h3 className="d-flex w-25 justify-content-around">
               <div>Activty</div>
@@ -170,7 +166,7 @@ function WillowShowList(props) {
                 </div>
               </div>
             </h3>
-            <div className="willow_focus_left willow_minh">
+            <div className="willow_focus_left willow_minh w-100">
               <table className="table table-striped text-center">
                 <thead className="willow_table_thead_style3">
                   <tr>
@@ -185,7 +181,6 @@ function WillowShowList(props) {
                   </tr>
                 </thead>
                 <tbody>
-               
                   {goodpricedata
                     ? goodpricedata.map((row) => (
                         <tr key={'act' + row.newsid}>
@@ -238,9 +233,6 @@ function WillowShowList(props) {
               </table>
             </div>
           </div>
-        </div>
-        {/* ---Good Writing--- */}
-        <div className="row  col_bline justify-content-center">
           <div className="col-12 mt-5 mb-5 willow_p_5">
             <h3 className="d-flex justify-content-around willow_w">
               <div>Good Writing</div>
@@ -255,7 +247,7 @@ function WillowShowList(props) {
                 </div>
               </div>
             </h3>
-            <div className="willow_focus_left willow_minh">
+            <div className="willow_focus_left willow_minh w-100">
               <table className="table table-striped text-center">
                 <thead className="willow_table_thead_style3">
                   <tr>
