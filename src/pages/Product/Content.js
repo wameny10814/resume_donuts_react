@@ -6,9 +6,32 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
 
-function Content() {
+function Content(props) {
+  // const { setCarts, carts } = props;
+
   const [clicked, setClicked] = useState(false);
   const clickedBool = () => setClicked(!clicked);
+
+  // const handleAddToCarts = (
+  //   sid,
+  //   product_name,
+  //   category_sid,
+  //   product_price,
+  //   product_img,
+  //   product_desc,
+  //   created_at
+  // ) =>
+  //   setCarts(
+  //     carts.concat({
+  //       sid,
+  //       product_name,
+  //       category_sid,
+  //       product_price,
+  //       product_img,
+  //       product_desc,
+  //       created_at,
+  //     })
+  //   );
 
   const [product, setProduct] = useState({
     sid: '',
@@ -56,7 +79,21 @@ function Content() {
             <p className="Mars-cnt-desc">{product.product_desc}</p>
             <a href="../Cart">
               {/* eslint-disable-next-line prettier/prettier */}
-              <button className="Mars-cart-btn"><i class="fa-solid fa-circle-plus"></i> 加入購物車</button>
+              <button className="Mars-cart-btn"
+                // onClick={() =>
+                //   handleAddToCarts(
+                //     product.sid,
+                //     product.product_name,
+                //     product.category_sid,
+                //     product.product_price,
+                //     product.product_img,
+                //     product.product_desc,
+                //     product.created_at
+                //   )
+                // }
+              >
+                <i class="fa-solid fa-circle-plus"></i> 加入購物車
+              </button>
             </a>
           </div>
         </div>
