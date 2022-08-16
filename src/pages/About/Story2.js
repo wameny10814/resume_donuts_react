@@ -1,7 +1,7 @@
 function Story2() {
   return (
     <>
-      <section className="container mt-5">
+      <section className="container mt-5 vh-100">
         <div className="d-flex">
           <div className=" col-md-4 d-none d-md-block">
             <img src="./images/story2.svg" alt="" />
