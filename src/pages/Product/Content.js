@@ -30,7 +30,8 @@ function Content(props) {
         product_img,
         product_desc,
         created_at,
-      })
+      }),
+      alert('成功加入購物車')
     );
 
   const [product, setProduct] = useState({

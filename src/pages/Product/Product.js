@@ -51,7 +51,7 @@ function Product(props) {
       <div className="Mars-container">
         <div className="Mars-img-wrap">
           <img src="./images/mv_donut.jpg" className="Mars-visual" alt="" />
-          <p className="Mars-prod-name">商品一覽</p>
+          <h2 className="Mars-prod-name">商品一覽</h2>
         </div>
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
