@@ -4,7 +4,7 @@ const ProjectButton = (prop) => {
   const { text } = prop;
   return (
     <>
-      <a className="ProjectButton">{text}</a>
+      <button className="ProjectButton">{text}</button>
     </>
   );
 };

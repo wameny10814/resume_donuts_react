@@ -402,12 +402,15 @@ const data = {
     白沙鄉: '884',
     湖西鄉: '885',
   },
-}
+};
 
-export const countries = Object.getOwnPropertyNames(data)
+// 拿到整個 JS 的資料
+export const countries = Object.getOwnPropertyNames(data);
+// 拿到陣列中 屬性名稱
 export const townships = countries.map((v, i, array) =>
   Object.getOwnPropertyNames(data[array[i]])
-)
+);
+// 拿到陣列中 值
 export const postcodes = countries.map((v, i, array) =>
   Object.values(data[array[i]])
-)
+);

@@ -2,8 +2,9 @@
     border-radius: 18px;
     overflow: hidden;
     // border: 1px solid red;
-    //這裡加了inline style padding 0 蓋過col padding設定
-    margin: 3rem 0;
+    //這裡加了important padding 0 蓋過col padding設定
+    padding: 0% !important;
+    margin: 5rem;
     
 }
 .yu_history_table{

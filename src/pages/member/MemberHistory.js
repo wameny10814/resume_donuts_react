@@ -62,7 +62,7 @@ function MemberHistory(props) {
           </div>
         </nav>
         <div className="row">
-          <div className="col yu_history_col_table" style={{ padding: '0%' }}>
+          <div className="col yu_history_col_table">
             <table class="table table-hover yu_history_table">
               <thead className="yu_history_thead">
                 <tr>

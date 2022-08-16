@@ -1,19 +1,45 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './Product.css';
 import ProductRecommandCard from './components/Product-recommand';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
 
-function Content() {
+function Content(props) {
+  const { setCarts, carts } = props;
+
   const [clicked, setClicked] = useState(false);
   const clickedBool = () => setClicked(!clicked);
 
+  const handleAddToCarts = (
+    sid,
+    product_name,
+    category_sid,
+    product_price,
+    product_img,
+    product_desc,
+    created_at
+  ) =>
+    setCarts(
+      carts.concat({
+        sid,
+        product_name,
+        category_sid,
+        product_price,
+        product_img,
+        product_desc,
+        created_at,
+      }),
+      alert('成功加入購物車')
+    );
+
   const [product, setProduct] = useState({
-    sid: 0,
+    sid: '',
     product_name: '',
-    category_sid: 0,
-    product_price: 0,
-    product_image: '',
+    category_sid: '',
+    product_price: '',
+    product_img: '',
     product_desc: '',
     created_at: '',
   });
@@ -22,7 +48,7 @@ function Content() {
 
   useEffect(() => {
     //getProduct
-    const p = ProductsData.find((v, i) => v.sid === Number(productId));
+    const p = ProductsData.find((v, i) => v.sid === productId);
 
     if (p) {
       setProduct(p);
@@ -44,21 +70,34 @@ function Content() {
             }
           >
             {/* eslint-disable-next-line prettier/prettier */}
-            <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" />
-            {/* img src={`../{product.product_image}`} */}
+            <img
+              src={`../${product.product_img}`}
+              alt=""
+              className="Mars-cnt-img"
+            />
+            {/* <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" /> */}
           </div>
-          {/* <div className="Mars-cnt-imgwr">
-            <img src="./images/uji-matcha.jpg" alt="" className="Mars-cnt-img"/>
-          </div> */}
           <div className="Mars-cnt-info">
             <p className="Mars-prod-name">{product.product_name}</p>
             <p className="Mars-cnt-engnum">Pon-de Uji Matcha</p>
             <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
             <p className="Mars-cnt-desc">{product.product_desc}</p>
-            <a href="../Cart">
               {/* eslint-disable-next-line prettier/prettier */}
-              <button className="Mars-cart-btn"><i class="fa-solid fa-circle-plus"></i> 加入購物車</button>
-            </a>
+              <button className="ProjectButton"
+                onClick={() =>
+                  handleAddToCarts(
+                    product.sid,
+                    product.product_name,
+                    product.category_sid,
+                    product.product_price,
+                    product.product_img,
+                    product.product_desc,
+                    product.created_at
+                  )
+                }
+              >
+                <i class="fa-solid fa-circle-plus"></i> 加入購物車
+              </button>
           </div>
         </div>
         <div className="Mars-cnt-nutriwr">
@@ -80,7 +119,7 @@ function Content() {
             </div>
           </div>
         </div>
-        <p className="Mars-prod-name">產品推薦</p>
+        <p className="Mars-prod-name">産品推薦</p>
         <ProductRecommandCard />
       </div>
     </>

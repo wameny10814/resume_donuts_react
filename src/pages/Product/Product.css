@@ -21,10 +21,12 @@
     margin-bottom: 14px;
 }
 
-.Mars-img-wrap .Mars-prod-name {
+.Mars-img-wrap .Mars-prod-h2 {
     position: absolute;
     top: 100px;
     left: 75px;
+    background-color: #e5e5e5;
+    border-radius: 10px;
 }
 
 .Mars-product-slide {
@@ -55,6 +57,11 @@
     height: 295px;
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 3px 25px 0 rgb(0 0 0 / 10%);
+}
+
+.Mars-prod-imgwr:hover {
+    box-shadow: none;
 }
 
 .Mars-prod-img {
@@ -68,25 +75,6 @@
 
 .Mars-prod-price {
     font-size: 16px;
-}
-
-.Mars-cart-btn {
-    width: 160px;
-    height: 48px;
-    background: #616153;
-    opacity: 0.8;
-    border-radius: 64px;
-
-    color: #FFF;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 0%;
-}
-
-.Mars-cart-btn i {
-    color: #FFF;
-    margin-right: 3px;
 }
 
 /* ---商品內容頁--- */

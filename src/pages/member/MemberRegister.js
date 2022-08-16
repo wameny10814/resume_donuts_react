@@ -9,6 +9,25 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function MemberRegister() {
+
+  const [isCatHide, setIsCatHide] = useState(false);
+  const [isHide, setIsHide] = useState(true);
+
+  const checkIfHide = (e) => {
+    console.log('hi', e.target.tagName);
+    if (e.target.tagName === 'INPUT' && e.type === 'focus') {
+      setIsCatHide(isHide);
+    } else if (e.target.tagName === 'INPUT' && e.type === 'blur') {
+      setIsCatHide(false);
+    } else if (e.target.tagName === 'DIV') {
+      setIsCatHide(false);
+    } else if (e.target.tagName === 'IMG') {
+      const nowHide = !isHide;
+      setIsCatHide(nowHide);
+      setIsHide(nowHide);
+    }
+  };
+
   const [regForm, setRegForm] = useState({
     account: '',
     pass_hash: '',
@@ -95,7 +114,7 @@ function MemberRegister() {
         <div className="row">
           <div className="col">
             <div className="yu_regCat d-flex justify-content-center">
-              <img src={cat} alt="" />
+            <img src={isCatHide ? catHide : cat} alt="" />
             </div>
 
             <div className="yu_regcard">
@@ -130,16 +149,18 @@ function MemberRegister() {
                     </label>
                     <input
                       id="pass_hash"
-                      type="password"
+                      type={isHide ? 'password' : 'text'}
                       name="pass_hash"
+                      onFocus={checkIfHide}
+                      onBlur={checkIfHide}
                       value={regForm.pass_hash}
                       onChange={changeFields}
                       minLength={6}
                       required
                     />
                     <p className="reg_error">{regFormError.pass_hash}</p>
-                    <div className="reg_absolute">
-                      <img className="reg_eye" src={eye} alt="" />
+                    <div className="reg_absolute" onClick={checkIfHide}>
+                      <img className="reg_eye" src={isHide ? eyeSlash : eye} alt="" />
                     </div>
                   </div>
                   <div className="inputblock ">
@@ -148,15 +169,17 @@ function MemberRegister() {
                     </label>
                     <input
                       id="password_check"
-                      type="password"
+                      type={isHide ? 'password' : 'text'}
                       name="password_check"
+                      onFocus={checkIfHide}
+                      onBlur={checkIfHide}
                       value={regForm.password_check}
                       onChange={changeFields}
                       required
                     />
                     <p className="reg_error">{regFormError.password_check}</p>
-                    <div className="reg_absolute">
-                      <img className="reg_eye" src={eye} alt="" />
+                    <div className="reg_absolute" onClick={checkIfHide}>
+                      <img className="reg_eye" src={isHide ? eyeSlash : eye} alt="" />
                     </div>
                   </div>
                   <div className="inputblock">

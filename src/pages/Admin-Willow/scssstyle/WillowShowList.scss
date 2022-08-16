@@ -73,6 +73,12 @@
   }
   .willow_p_5 {
     padding: 0 15rem 0 15rem;
+    @media screen and (max-width:768px) {
+      padding: 0 2rem 0 2rem;
+    }
+    @media screen and (max-width:400px) {
+      padding: 0
+    }
   }
   .willow_mp_5 {
     padding-top: 2rem;
@@ -93,6 +99,7 @@
     text-indent: 4rem;
     max-height: 4.5rem;
     text-align: left;
+   
   }
   .willow_wspeace {
     white-space: nowrap;

@@ -71,14 +71,16 @@
 .bingSelect {
   min-width: 4rem;
   min-height: 4rem;
+  margin: 0 1rem;
   position: relative;
-  // outline: 1px solid lawngreen;
 
   input {
     margin: 0 1rem;
     position: absolute;
-    width: 55%;
+    left: -0.5rem;
+    width: 75%;
     height: 100%;
+    cursor: pointer;
   }
 
   img {
@@ -86,7 +88,11 @@
     z-index: 0;
     width: 100%;
     pointer-events: none;
-    // background: #fff;
     border-radius: 50%;
   }
+}
+
+.bingTable {
+  margin: 0 !important;
+  padding: 0 !important;
 }

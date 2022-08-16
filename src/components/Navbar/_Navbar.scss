@@ -20,6 +20,18 @@ padding: 30px 30px;
 .yu_pointer{
     cursor: pointer;
     margin-left: .5rem;
+    
+}
+.cartTag{
+    // position: fixed;
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(154, 102, 102);
+    color: rgb(255, 255, 255);
+    text-align: center;
 }
 
 
