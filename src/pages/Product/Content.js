@@ -7,9 +7,13 @@ import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
 
 function Content(props) {
-  const { setCarts, carts } = props;
-  const [productData, setProductData] = useState(ProductsData);
+  // const { setCarts, carts } = props;
 
+  const [clicked, setClicked] = useState(false);
+  const clickedBool = () => setClicked(!clicked);
+
+  const { setCarts, carts } = props;
+  const [CartProductData, setCartProductData] = useState(ProductsData);
   const handleAddToCarts = (
     sid,
     product_name,
@@ -28,33 +32,8 @@ function Content(props) {
         product_img,
         product_desc,
         created_at,
-      }),
-      alert('成功加入購物車') // 跳窗為預設樣式，再看要不要改
+      })
     );
-
-  const [clicked, setClicked] = useState(false);
-  const clickedBool = () => setClicked(!clicked);
-
-  // const handleAddToCarts = (
-  //   sid,
-  //   product_name,
-  //   category_sid,
-  //   product_price,
-  //   product_img,
-  //   product_desc,
-  //   created_at
-  // ) =>
-  //   setCarts(
-  //     carts.concat({
-  //       sid,
-  //       product_name,
-  //       category_sid,
-  //       product_price,
-  //       product_img,
-  //       product_desc,
-  //       created_at,
-  //     })
-  //   );
 
   const [product, setProduct] = useState({
     sid: '',
@@ -92,11 +71,7 @@ function Content(props) {
             }
           >
             {/* eslint-disable-next-line prettier/prettier */}
-            <img
-              src={`../${product.product_img}`}
-              alt=""
-              className="Mars-cnt-img"
-            />
+            <img src={`../${product.product_img}`} alt="" className="Mars-cnt-img" />
             {/* <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" /> */}
           </div>
           <div className="Mars-cnt-info">
@@ -104,23 +79,24 @@ function Content(props) {
             <p className="Mars-cnt-engnum">Pon-de Uji Matcha</p>
             <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
             <p className="Mars-cnt-desc">{product.product_desc}</p>
+            <a href="../Cart">
               {/* eslint-disable-next-line prettier/prettier */}
-              <button
-                className="Mars-cart-btn"
-                onClick={() =>
-                  handleAddToCarts(
-                    productData.sid,
-                    productData.product_name,
-                    productData.category_sid,
-                    productData.product_price,
-                    productData.product_img,
-                    productData.product_desc,
-                    productData.created_at
-                  )
-                }
+              <button className="Mars-cart-btn"
+                // onClick={() =>
+                //   handleAddToCarts(
+                //     product.sid,
+                //     product.product_name,
+                //     product.category_sid,
+                //     product.product_price,
+                //     product.product_img,
+                //     product.product_desc,
+                //     product.created_at
+                //   )
+                // }
               >
                 <i class="fa-solid fa-circle-plus"></i> 加入購物車
               </button>
+            </a>
           </div>
         </div>
         <div className="Mars-cnt-nutriwr">
