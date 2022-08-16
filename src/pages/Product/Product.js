@@ -1,8 +1,45 @@
+import { useState } from 'react';
 import './Product.css';
 import { ProductsData } from './data/products';
 import { Link } from 'react-router-dom';
 
-function Product() {
+function Product(props) {
+  // 測試購物車------------------
+  const { setCarts, carts } = props;
+
+  const [productData, setProductData] = useState(ProductsData);
+  // "sid": "1",
+  // "product_name": "草莓波堤",
+  // "category_sid": "1",
+  // "product_price":"35",
+  // "product_img": "./images/pon-de-strawberry.jpeg",
+  // "product_desc": "草莓甜甜的滋味，配上波堤可愛的風格",
+  // "created_at": "2022-05-31 08:28:44"
+
+  // const handleAddToCarts = (e) => setCarts({ ...carts, sid: e.sid });
+  const handleAddToCarts = (
+    sid,
+    product_name,
+    category_sid,
+    product_price,
+    product_img,
+    product_desc,
+    created_at
+  ) =>
+    setCarts(
+      carts.concat({
+        sid,
+        product_name,
+        category_sid,
+        product_price,
+        product_img,
+        product_desc,
+        created_at,
+      })
+    );
+
+  // 測試購物車------------------
+
   return (
     <>
       <div className="Mars-container">
@@ -15,13 +52,17 @@ function Product() {
         <div className=""></div>
         <div className="Mars-prod-filter-area"></div>
         <div className="Mars-product-slide">
-          {ProductsData.map((v, i) => {
+          {productData.map((v, i) => {
             return (
               <div className="Mars-prod-wrap">
                 <div className="Mars-prod-imgwr">
                   <Link to={`./${v.sid}`}>
                     {/* eslint-disable-next-line prettier/prettier */}
-                    <img src={v.product_img} className="Mars-prod-img" alt=""></img>
+                    <img
+                      src={v.product_img}
+                      className="Mars-prod-img"
+                      alt=""
+                    ></img>
                     {/* <img src="./images/uji-matcha.jpg" className="Mars-prod-img" alt=""></img> */}
                   </Link>
                 </div>
@@ -29,10 +70,25 @@ function Product() {
                 {/* <p className="Mars-prod-name">宇治抹茶那堤</p> */}
                 <p className="Mars-prod-price">NT$ {v.product_price}</p>
                 {/* <p className="Mars-prod-price">NT$ 35</p> */}
-                <a href="../../Cart/">
-                  {/* eslint-disable-next-line prettier/prettier */}
-                  <button className="Mars-cart-btn"><i class="fa-solid fa-circle-plus"></i> 加入購物車</button>
-                </a>
+                {/* <a href="../../Cart/"> */}
+                {/* eslint-disable-next-line prettier/prettier */}
+                <button
+                  className="Mars-cart-btn"
+                  onClick={() =>
+                    handleAddToCarts(
+                      productData.sid,
+                      productData.product_name,
+                      productData.category_sid,
+                      productData.product_price,
+                      productData.product_img,
+                      productData.product_desc,
+                      productData.created_at
+                    )
+                  }
+                >
+                  <i class="fa-solid fa-circle-plus"></i> 加入購物車
+                </button>
+                {/* </a> */}
               </div>
             );
           })}

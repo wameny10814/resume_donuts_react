@@ -5,6 +5,7 @@ import AdminAuthContext from '../../pages/Admin-Willow/admin_components/AdminAut
 
 function Navbar(props) {
   const { authorized, account, logout } = useContext(AuthContext);
+  const { carts } = props;
 
   const {
     admin_authorized,
@@ -146,6 +147,7 @@ function Navbar(props) {
             <li className="nav-item">
               <Link className="nav-link" to="Cart">
                 <i className="fa-solid fa-cart-shopping"></i>購物車
+                <span>({carts.length})</span>
               </Link>
             </li>
             <li className="nav-item">
