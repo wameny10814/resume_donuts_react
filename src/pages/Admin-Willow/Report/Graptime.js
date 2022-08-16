@@ -4,21 +4,49 @@ import axios from 'axios';
 
 function Graptime(props) {
   const { setReportOption } = props;
+  const [reportCount, setReportCount] = useState(0);
   const [originData, setOriginData] = useState([]);
-  const [chooseValue, setChooseValue] = useState(0);
-
+  const [chooseValue, setChooseValue] = useState(1);
+  const [chooseReportDate, setChooseReportDate] = useState({
+    start: '',
+    end: '',
+  });
   //get grapdata
+  const roption = (e) => {
+    let numv = parseInt(e.target.value);
+
+    setChooseValue(numv);
+  };
   const getshowchat = async () => {
-    const response = await axios.get(
-      `http://localhost:3600/willownews/graptimedata?sid=${chooseValue}`
-    );
-    const resdata = response.data;
-    console.log(resdata);
-    setOriginData(resdata);
+    if (chooseValue !== 6) {
+      console.log('!!chooseasdasdReportDate.start1', !!chooseReportDate.start);
+      const response = await axios.get(
+        `http://localhost:3600/willownews/graptimedata?sid=${chooseValue}`
+      );
+      const resdata = response.data;
+      console.log(resdata);
+      setOriginData(resdata);
+    } else if (chooseReportDate.start && chooseReportDate.end) {
+      console.log('!!chooseReportDate.start2', !!chooseReportDate.start);
+      const response = await axios.get(
+        `http://localhost:3600/willownews/graptimedata?sid=${chooseValue}&&start=${chooseReportDate.start}&&end=${chooseReportDate.end}`
+      );
+      const resdata = response.data;
+      console.log("resdata6",resdata);
+      setOriginData(resdata);
+    }
+    console.log('!!chooseReportDate.start3', !!chooseReportDate.start);
   };
   useEffect(() => {
     getshowchat();
-  }, [chooseValue]);
+  }, [chooseValue, reportCount]);
+
+  const changeFields = (event) => {
+    const id = event.target.id;
+    const val = event.target.value;
+    console.log({ id, val });
+    setChooseReportDate({ ...chooseReportDate, [id]: val });
+  };
   const chartData = useMemo(() => {
     const TastList = [];
     const chatCount = {};
@@ -62,16 +90,7 @@ function Graptime(props) {
       data: chartData.TastList.map((x) => countByThing[x.tastOption] || 0),
     };
   });
-  //   const series = [
-  //     {
-  //       name: 'series1',
-  //       data: [31, 40, 28, 51, 42, 109, 100],
-  //     },
-  //     {
-  //       name: 'series2',
-  //       data: [11, 32, 45, 32, 34, 52, 41],
-  //     },
-  //   ];
+
   const options = {
     chart: {
       height: 350,
@@ -108,39 +127,127 @@ function Graptime(props) {
           回上一頁
         </button>
       </div>
-      <div className="container">
+      <div className="container mb-5">
         <div className="row">
           <div className="col willow_marbottom">
             <button
               type="button"
-              className="btn  mt-3 willow_button willow_marleft"
-              value={3}
+              className="btn  mt-3 willow_button2 willow_marleft"
+              value={5}
               onClick={(e) => {
-                setChooseValue(e.target.value);
+                let con = reportCount;
+                roption(e)
+                setReportCount(con + 1);
               }}
             >
               近一年
             </button>
+            {/* ----------------------- */}
             <button
               type="button"
-              className="btn  mt-3 willow_button willow_marleft"
-              value={2}
+              className="btn  mt-3 willow_button2 willow_marleft"
+              value={4}
               onClick={(e) => {
-                setChooseValue(e.target.value);
+                let con = reportCount;
+                roption(e)
+                setReportCount(con + 1);
               }}
             >
               近半年
             </button>
+            {/* ----------------------- */}
             <button
               type="button"
-              className="btn  mt-3 willow_button willow_marleft"
-              value={1}
+              className="btn  mt-3 willow_button2 willow_marleft"
+              value={3}
               onClick={(e) => {
-                setChooseValue(e.target.value);
+                let con = reportCount;
+                roption(e)
+                setReportCount(con + 1);
+              }}
+            >
+              近三個月
+            </button>
+            {/* ----------------------- */}
+            <button
+              type="button"
+              className="btn  mt-3 willow_button2 willow_marleft"
+              value={2}
+              onClick={(e) => {
+                let con = reportCount;
+                roption(e)
+                setReportCount(con + 1);
               }}
             >
               近一個月
             </button>
+            {/* ----------------------- */}
+            <button
+              type="button"
+              className="btn  mt-3 willow_button2 willow_marleft"
+              value={1}
+              onClick={(e) => {
+                let con = reportCount;
+                roption(e)
+                setReportCount(con + 1);
+              }}
+            >
+              近一個禮拜
+            </button>
+            {/* ----------------------- */}
+          </div>
+          <div className="col d-flex justify-content-around align-items-center willow_border">
+            <div className="form-group mt-3">
+              <div className="d-flex">
+                <div className="mt-2 willow_mar_sm">
+                  <label>開始時間:</label>
+                </div>
+                <div>
+                  <input
+                    type="date"
+                    id="start"
+                    value={chooseReportDate.start}
+                    onChange={(e) => {
+                      changeFields(e);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="form-group  mt-3">
+              <div className="d-flex">
+                <div className="mt-2 willow_mar_sm">
+                  <label>結束時間:</label>
+                </div>
+                <div>
+                  <input
+                    type="date"
+                    id="end"
+                    value={chooseReportDate.end}
+                    onChange={(e) => {
+                      changeFields(e);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <div className="mb-2">
+                <button
+                  type="button"
+                  className="btn willow_button2  "
+                  value={6}
+                  onClick={(e) => {
+                    let con = reportCount;
+                    roption(e)
+                    setReportCount(con + 1);
+                  }}
+                >
+                  收尋
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
