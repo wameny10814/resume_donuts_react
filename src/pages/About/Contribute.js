@@ -11,7 +11,6 @@ function Contribute() {
     const response = await axios.get(`http://localhost:3600/willownews/count`);
     const resdata = response.data;
     // console.log("resdata",resdata.con);
-    console.log('resdata', resdata);
     setCountData(resdata);
   };
 
