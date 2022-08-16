@@ -69,7 +69,6 @@ function Product(props) {
                 </div>
                 <p className="Mars-prod-name">{v.product_name}</p>
                 <p className="Mars-prod-price">NT$ {v.product_price}</p>
-                {/* eslint-disable-next-line prettier/prettier */}
                 <button
                   className="Mars-cart-btn"
                   onClick={() =>

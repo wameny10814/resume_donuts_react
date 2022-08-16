@@ -7,31 +7,31 @@ import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
 
 function Content(props) {
-  // const { setCarts, carts } = props;
-
   const [clicked, setClicked] = useState(false);
   const clickedBool = () => setClicked(!clicked);
 
-  // const handleAddToCarts = (
-  //   sid,
-  //   product_name,
-  //   category_sid,
-  //   product_price,
-  //   product_img,
-  //   product_desc,
-  //   created_at
-  // ) =>
-  //   setCarts(
-  //     carts.concat({
-  //       sid,
-  //       product_name,
-  //       category_sid,
-  //       product_price,
-  //       product_img,
-  //       product_desc,
-  //       created_at,
-  //     })
-  //   );
+  const { setCarts, carts } = props;
+  const [CartProductData, setCartProductData] = useState(ProductsData);
+  const handleAddToCarts = (
+    sid,
+    product_name,
+    category_sid,
+    product_price,
+    product_img,
+    product_desc,
+    created_at
+  ) =>
+    setCarts(
+      carts.concat({
+        sid,
+        product_name,
+        category_sid,
+        product_price,
+        product_img,
+        product_desc,
+        created_at,
+      })
+    );
 
   const [product, setProduct] = useState({
     sid: '',
@@ -70,31 +70,28 @@ function Content(props) {
           >
             {/* eslint-disable-next-line prettier/prettier */}
             <img src={`../${product.product_img}`} alt="" className="Mars-cnt-img" />
-            {/* <img src="../images/uji-matcha.jpg" alt="" className="Mars-cnt-img" /> */}
           </div>
           <div className="Mars-cnt-info">
             <p className="Mars-prod-name">{product.product_name}</p>
             <p className="Mars-cnt-engnum">Pon-de Uji Matcha</p>
             <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
             <p className="Mars-cnt-desc">{product.product_desc}</p>
-            <a href="../Cart">
-              {/* eslint-disable-next-line prettier/prettier */}
-              <button className="Mars-cart-btn"
-                // onClick={() =>
-                //   handleAddToCarts(
-                //     product.sid,
-                //     product.product_name,
-                //     product.category_sid,
-                //     product.product_price,
-                //     product.product_img,
-                //     product.product_desc,
-                //     product.created_at
-                //   )
-                // }
-              >
-                <i class="fa-solid fa-circle-plus"></i> 加入購物車
-              </button>
-            </a>
+            <button
+              className="Mars-cart-btn"
+              onClick={() =>
+                handleAddToCarts(
+                  CartProductData.sid,
+                  CartProductData.product_name,
+                  CartProductData.category_sid,
+                  CartProductData.product_price,
+                  CartProductData.product_img,
+                  CartProductData.product_desc,
+                  CartProductData.created_at
+                )
+              }
+            >
+              <i class="fa-solid fa-circle-plus"></i> 加入購物車
+            </button>
           </div>
         </div>
         <div className="Mars-cnt-nutriwr">
