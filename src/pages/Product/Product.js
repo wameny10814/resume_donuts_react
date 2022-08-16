@@ -35,7 +35,8 @@ function Product(props) {
         product_img,
         product_desc,
         created_at,
-      })
+      }),
+      alert('成功加入購物車') // 跳窗為預設樣式，再看要不要改
     );
 
   // 測試購物車------------------
@@ -70,7 +71,8 @@ function Product(props) {
                 <p className="Mars-prod-name">{v.product_name}</p>
                 <p className="Mars-prod-price">NT$ {v.product_price}</p>
                 <button
-                  className="Mars-cart-btn"
+                className="ProjectButton"
+                  // className="Mars-cart-btn"
                   onClick={() =>
                     handleAddToCarts(
                       productData.sid,
