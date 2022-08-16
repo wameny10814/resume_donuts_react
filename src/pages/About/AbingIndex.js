@@ -15,7 +15,7 @@ function AbingIndex() {
       <Story2 />
       <HotProduct />
       <News />
-      {/* <Share /> */}
+      <Share />
       <Contribute />
       <StoreMap />
     </>

@@ -36,9 +36,9 @@ function News() {
 
   return (
     <>
-      <div className="vh-100">
+      <div className="vh-100 bingback">
         <H2 title="最新消息" Entitle="NEWS" />
-        <Swiper loop={true} autoplay={true} className="mySwiper">
+        <Swiper loop={true} className="mySwiper">
           {newsData.map((v, i) => {
             return (
               <SwiperSlide key={v.newsid}>
