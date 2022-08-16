@@ -2,20 +2,15 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import axios from 'axios';
 
-function Graptime() {
+function Graptime(props) {
+  const { setReportOption } = props;
   const [originData, setOriginData] = useState([]);
   const [chooseValue, setChooseValue] = useState(0);
-  const [outputtData, setOutputData] = useState({
-    strawberry: 0,
-    matcha: 0,
-    oldFashion: 0,
-    chocolateOldfashion: 0,
-  });
 
   //get grapdata
   const getshowchat = async () => {
     const response = await axios.get(
-      `http://localhost:3600/willownews/graptimedata?sid=3`
+      `http://localhost:3600/willownews/graptimedata?sid=${chooseValue}`
     );
     const resdata = response.data;
     console.log(resdata);
@@ -23,16 +18,11 @@ function Graptime() {
   };
   useEffect(() => {
     getshowchat();
-  }, []);
+  }, [chooseValue]);
   const chartData = useMemo(() => {
     const TastList = [];
     const chatCount = {};
-    // let chatCount = {
-    //   strawberry: 0,
-    //   matcha: 0,
-    //   oldFashion: 0,
-    //   chocolateOldfashion: 0,
-    // };
+
     originData.map((p) => {
       const tastThing = p.created_at.slice(0, 10);
       const hasTast = TastList.find((x) => x.tastOption === tastThing);
@@ -54,17 +44,7 @@ function Graptime() {
         chatCount[p.p_name].countByThing[tastThing] = p.quantity;
       }
       TastList.sort((a, b) => (a.tastThing > b.tastThing ? 1 : -1));
-      //   if (p.product_sid === 1) {
-      //     chatCount.strawberry += p.quantity;
-      //   } else if (p.product_sid === 2) {
-      //     chatCount.matcha += p.quantity;
-      //   } else if (p.product_sid === 3) {
-      //     chatCount.oldFashion += p.quantity;
-      //   } else if (p.product_sid === 4) {
-      //     chatCount.chocolateOldfashion += p.quantity;
-      //   } else if (p.product_sid === 5) {
-      //   } else {
-      //   }
+
       console.log('tempCount1', chatCount.strawberry);
     });
     return {
@@ -73,8 +53,6 @@ function Graptime() {
     };
   }, [originData, chooseValue]);
   console.log('chartDataasdasdasd', chartData.chatCount);
-
-  //   const getCountThingName = (x) => `${x}`;
 
   const series = Object.keys(chartData.chatCount).map((key) => {
     const countByThing = chartData.chatCount[key].countByThing;
@@ -119,7 +97,53 @@ function Graptime() {
   return (
     <div>
       <div>Graptime</div>
-
+      <div className="d-flex justify-content-end mb-5">
+        <button
+          type="button"
+          className="btn  mt-3 willow_button "
+          onClick={() => {
+            setReportOption(0);
+          }}
+        >
+          回上一頁
+        </button>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col willow_marbottom">
+            <button
+              type="button"
+              className="btn  mt-3 willow_button willow_marleft"
+              value={3}
+              onClick={(e) => {
+                setChooseValue(e.target.value);
+              }}
+            >
+              近一年
+            </button>
+            <button
+              type="button"
+              className="btn  mt-3 willow_button willow_marleft"
+              value={2}
+              onClick={(e) => {
+                setChooseValue(e.target.value);
+              }}
+            >
+              近半年
+            </button>
+            <button
+              type="button"
+              className="btn  mt-3 willow_button willow_marleft"
+              value={1}
+              onClick={(e) => {
+                setChooseValue(e.target.value);
+              }}
+            >
+              近一個月
+            </button>
+          </div>
+        </div>
+      </div>
       <div id="chart">
         <ReactApexChart
           options={options}

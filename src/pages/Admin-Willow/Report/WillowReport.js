@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Grap from './Grap';
+import GrapTime from './Graptime';
+
 function WillowReport() {
-  const [reportOption, setReportOption] = useState(100);
+  const [reportOption, setReportOption] = useState(0);
   const roption = (e) => {
     let numv = parseInt(e.target.value);
 
@@ -16,9 +18,10 @@ function WillowReport() {
             <button
               type="button"
               className="btn willow_button"
-              value={101}
+              value={1}
               onClick={(e) => {
                 roption(e);
+                console.log();
               }}
             >
               依時間
@@ -28,10 +31,9 @@ function WillowReport() {
             <button
               type="button"
               className="btn willow_button"
-              value={100}
+              value={2}
               onClick={(e) => {
                 roption(e);
-                console.log(reportOption);
               }}
             >
               依年齡
@@ -40,10 +42,13 @@ function WillowReport() {
         </div>
       </div>
 
-      <div className="container  mb-5">
+      <div className="container  mb-5 willow_minh">
         <div className="row">
           {console.log('reportOption', reportOption)}
-          {reportOption === 100 && <Grap setReportOption={setReportOption} />}
+
+          {reportOption === 0 && <></>}
+          {reportOption === 1 && <GrapTime setReportOption={setReportOption} />}
+          {reportOption === 2 && <Grap setReportOption={setReportOption} />}
         </div>
       </div>
     </div>
