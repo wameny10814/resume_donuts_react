@@ -1,9 +1,31 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
+import AuthContext from '../../pages/member/components/AuthContext';
+import axios from 'axios';
 
 import H2 from '../../components/H2';
 
 function BingCustomized() {
+  const { authorized, sid } = useContext(AuthContext);
+
   const realRef = useRef();
+
+  const changeFields = (event) => {
+    const id = event.target.id;
+    const val = event.target.value;
+    setMain({ ...main, [id]: val });
+  };
+
+  // var can = realRef.current.toDataURL('image/png');
+  // console.log(can);
+
+  const [main, setMain] = useState({
+    mem: sid,
+    img: '',
+    donut: 'origin',
+    layer: '',
+    decoration: '',
+    price: '',
+  });
   //挑選donut
   const [donut, setDonut] = useState('origin');
   const [donutPrice, setDonutPrice] = useState(15);
@@ -25,6 +47,7 @@ function BingCustomized() {
     'strawberry',
     'onion',
   ];
+  const totalPrice = donutPrice + layerPrice + decorationPrice;
 
   const getImageFromPath = (path) => {
     return new Promise((resolve, reject) => {
@@ -56,16 +79,28 @@ function BingCustomized() {
     );
     ctx.drawImage(decorationImg, 0, 0);
     // 多選寫法
-    for (let i of layer) {
-      const layerImg = await getImageFromPath(
-        `/images/Customized/layer/${i}.png`
-      );
-      ctx.drawImage(layerImg, 0, 0);
-    }
+    // for (let i of layer) {
+    //   const layerImg = await getImageFromPath(
+    //     `/images/Customized/layer/${i}.png`
+    //   );
+    //   ctx.drawImage(layerImg, 0, 0);
+    // }
+  };
+
+  //寫入資料庫
+  const logsee = async (e) => {
+    const data = main;
+
+    const response = await axios.post(
+      'http://localhost:3600/willownews/addcustom',
+      data
+    );
+    const resdata = response.data;
   };
 
   useEffect(() => {
     renderCanvas();
+    setMain({ ...main, price: totalPrice });
   }, [donut, layer, decoration]);
 
   return (
@@ -80,12 +115,14 @@ function BingCustomized() {
                 return (
                   <div key={i}>
                     <input
+                      id="donut"
                       type="radio"
                       checked={donut === v}
                       value={v}
                       onChange={(e) => {
                         setDonut(e.target.value);
                         setDonutPrice(donutPriceOptions[i]);
+                        changeFields(e);
                       }}
                     />
                     <div>
@@ -107,12 +144,14 @@ function BingCustomized() {
                 return (
                   <div key={i}>
                     <input
+                      id="layer"
                       type="radio"
                       checked={layer === v}
                       value={v}
                       onChange={(e) => {
                         setLayer(e.target.value);
                         setLayerPrice(layerPriceOptions[i]);
+                        changeFields(e);
                       }}
                     />
                     <div>
@@ -134,12 +173,14 @@ function BingCustomized() {
                 return (
                   <div key={i}>
                     <input
+                      id="decoration"
                       type="radio"
                       checked={decoration === v}
                       value={v}
                       onChange={(e) => {
                         setDecoration(e.target.value);
                         setDecorationPrice(decorationPriceOptions[i]);
+                        changeFields(e);
                       }}
                     />
                     <div>
@@ -171,10 +212,8 @@ function BingCustomized() {
                   decoration：<span>+{decorationPrice}元</span>
                 </p>
                 <hr />
-                <p className="text-center bingH5">
-                  目前價錢{donutPrice + layerPrice + decorationPrice}元
-                </p>
-                <button>加入購物車</button>
+                <p className="text-center bingH5">目前價錢{totalPrice}元</p>
+                <button onClick={logsee}>加入購物車</button>
               </div>
             </div>
           </div>
