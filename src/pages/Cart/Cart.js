@@ -4,8 +4,6 @@ import axios from 'axios';
 import React, { useState, useContext, createContext, useEffect } from 'react';
 import AuthContext from '../../pages/member/components/AuthContext';
 
-// 假資料，暫時不用
-// import productsData from '../Product/data/products.json';
 
 import H2 from '../../components/H2';
 
