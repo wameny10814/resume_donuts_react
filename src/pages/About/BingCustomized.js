@@ -18,14 +18,6 @@ function BingCustomized() {
   // var can = realRef.current.toDataURL('image/png');
   // console.log(can);
 
-  const [main, setMain] = useState({
-    mem: sid,
-    img: '',
-    donut: 'origin',
-    layer: '',
-    decoration: '',
-    price: '',
-  });
   //挑選donut
   const [donut, setDonut] = useState('origin');
   const [donutPrice, setDonutPrice] = useState(15);
@@ -78,14 +70,20 @@ function BingCustomized() {
       `/images/Customized/decoration/${decoration}.png`
     );
     ctx.drawImage(decorationImg, 0, 0);
-    // 多選寫法
-    // for (let i of layer) {
-    //   const layerImg = await getImageFromPath(
-    //     `/images/Customized/layer/${i}.png`
-    //   );
-    //   ctx.drawImage(layerImg, 0, 0);
-    // }
+
+    var base64 = realRef.current.toDataURL('image/jpeg', 0.1);
+    setMain({ ...main, img: base64 });
+    console.log(base64);
   };
+  //客製化資料
+  const [main, setMain] = useState({
+    mem: sid,
+    img: '',
+    donut: 'origin',
+    layer: '',
+    decoration: '',
+    price: '',
+  });
 
   //寫入資料庫
   const logsee = async (e) => {
@@ -224,6 +222,14 @@ function BingCustomized() {
 }
 
 export default BingCustomized;
+
+// 多選選單寫法
+// for (let i of layer) {
+//   const layerImg = await getImageFromPath(
+//     `/images/Customized/layer/${i}.png`
+//   );
+//   ctx.drawImage(layerImg, 0, 0);
+// }
 
 //多選寫法
 
