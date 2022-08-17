@@ -13,6 +13,7 @@ function MemberHistory(props) {
   const [usersRaw, setUsersRaw] = useState([]);
 
   const [PODisplay, setPODisplay] = useState([]);
+  const [getPO, setGetPO] = useState(true);
 
   const getdata = async () => {
     const response = await axios.get(
@@ -60,16 +61,20 @@ function MemberHistory(props) {
         </nav>
         <div className="row">
           <div className="col yu_history_col_table">
-  const [PODisplay, setPODisplay] = useState([]);
             <table class="table table-hover yu_history_table">
-              <thead className="yu_history_thead" >
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">付款狀態</th>
-                  <th scope="col">訂單總金額</th>
-                  <th scope="col">訂單成立日期</th>
-                </tr>
-              </thead>
+              {getPO ? (
+                <p>目前未有訂單</p>
+              ) : (
+                <thead className="yu_history_thead">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">付款狀態</th>
+                    <th scope="col">訂單總金額</th>
+                    <th scope="col">訂單成立日期</th>
+                  </tr>
+                </thead>
+              )}
+
               <tbody className="yu_history_tbody">
                 {PODisplay.map((v, i) => {
                   return <ProductList key={i} detail={v} />;

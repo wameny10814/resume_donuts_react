@@ -60,7 +60,7 @@ function WillowNews(props) {
     console.log(resdata.filename);
     setImgname(resdata.filename);
 
-    setMainform({ ...mainform, ['newsimg']: resdata.filename });
+    setMainform({ ...mainform, newsimg: resdata.filename });
   };
   // console.log(mainform);
   const changeFields = (event) => {
@@ -147,7 +147,7 @@ function WillowNews(props) {
                 <div>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn willow_button"
                     onClick={() => {
                       fakeClickUploadimage();
                     }}
@@ -201,7 +201,7 @@ function WillowNews(props) {
 
           {/* hidden form */}
           {/* 在上方函式已加formdata so 這裡不用加了encType="multipart/form-data" */}
-          <form name="uploadimgFrom" >
+          <form name="uploadimgFrom" className="willow_hidden">
             <div>
               <input
                 id="newsimg"
