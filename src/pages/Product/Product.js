@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Product.css';
 import { ProductsData } from './data/products';
 import { Link } from 'react-router-dom';
@@ -56,6 +56,11 @@ function Product(props) {
     const newOFData = productData.filter((v) => v.category_sid === '3');
     setProductData(newOFData);
   };
+  const UnFilter = () => {
+    setProductData(ProductsData);
+  };
+
+  // 主頁面render
   return (
     <>
       <div className="Mars-container">
@@ -89,6 +94,14 @@ function Product(props) {
             }}
           >
             歐菲香
+          </button>
+          <button
+            className="Mars-prod-filter"
+            onClick={() => {
+              UnFilter();
+            }}
+          >
+            全部
           </button>
         </div>
         <div className="Mars-product-slide">
