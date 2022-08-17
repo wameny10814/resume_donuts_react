@@ -9,36 +9,25 @@ import axios from 'axios';
 // shipEmail: '',
 
 function PersonalInfo(props) {
-  const { personalData, setPersonalData } = props;
-
-
-  const handleFieldChange = (e) => {
-    const newPersonalData = {
-      ...personalData,
-      [e.target.name]: e.target.value,
-    };
-    setPersonalData(newPersonalData);
-
-    console.log(newPersonalData);
-  };
+  const { personalData, setPersonalData, handleFieldChange } = props;
 
   // 連接後端拿會員資料同步
-  const [memberData, setMemberData] = useState([]);
-  const memberInfo = {
-    shipName: '111',
-    shipPhone: '222',
-    shipEmail: '333',
-  };
+  // const [memberData, setMemberData] = useState([]);
+  // const memberInfo = {
+  //   shipName: '111',
+  //   shipPhone: '222',
+  //   shipEmail: '333',
+  // };
 
-  const getMemberData = async () => {
-    const response = await axios.get(`http://localhost:3600/member/memberdata`);
-    const resdata = response.data;
-    setMemberData(resdata);
-  };
+  // const getMemberData = async () => {
+  //   const response = await axios.get(`http://localhost:3600/member/memberdata`);
+  //   const resdata = response.data;
+  //   setMemberData(resdata);
+  // };
 
-  useEffect(() => {
-    getMemberData();
-  }, []);
+  // useEffect(() => {
+  //   getMemberData();
+  // }, []);
 
   // `sid` int(11) NOT NULL,
   // `account` varchar(255) NOT NULL,
@@ -58,9 +47,10 @@ function PersonalInfo(props) {
 
   return (
     <>
-      {memberData.map((v, i) => {
+    {/* 測試後端拿會員資料 */}
+      {/* {memberData.map((v, i) => {
         return <p>{v.name[0]}</p>;
-      })}
+      })} */}
 
       <h3>訂購人資料</h3>
       <button
@@ -88,7 +78,6 @@ function PersonalInfo(props) {
 
       <section className="cartBox">
         <div className="card">
-     
           姓名
           <input
             type="text"

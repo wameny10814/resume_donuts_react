@@ -4,17 +4,8 @@
 // creditSecurityCode: '',
 
 function CreditCard(props) {
-  const { personalData, setPersonalData } = props;
+  const { personalData, setPersonalData, handleFieldChange } = props;
 
-  const handleFieldChange = (e) => {
-    const newPersonalData = {
-      ...personalData,
-      [e.target.name]: e.target.value,
-    };
-    setPersonalData(newPersonalData);
-
-    console.log(newPersonalData);
-  };
   return (
     <>
       <div className="container">
