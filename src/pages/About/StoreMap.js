@@ -19,7 +19,11 @@ function StoreMap() {
   const [distance, setDistance] = useState('...');
   const [duration, setDuration] = useState('...');
   const [move, setMove] = useState('WALKING');
-  const [mapInstance, seMapInstance] = useState(null);
+  const [mapInstance, setMapInstance] = useState(null);
+  const [selected, setSelected] = useState(null);
+  const [storeName, setStoreName] = useState('');
+  const [storeProduct, setStoreProduct] = useState('');
+  const [storeAddress, setStoreAddress] = useState('');
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
 
@@ -27,6 +31,13 @@ function StoreMap() {
     { lat: 25.0337702, lng: 121.5433378 }, //大安
     { lat: 25.0480099, lng: 121.5170087 }, //北車
     { lat: 25.0404691, lng: 121.5667799 }, //市府
+  ];
+  const storeNameOption = ['大安', '北車', '市府'];
+  const storeProductOption = ['daan', 'station', 'cityhall'];
+  const storeAddressOption = [
+    '台北市大安區復興南路一段390號2樓',
+    '台北市中正區北平西路3號',
+    '台北市信義區忠孝東路五段2號',
   ];
 
   if (!isLoaded) {
@@ -84,7 +95,7 @@ function StoreMap() {
   }
 
   const onLoad = (map) => {
-    seMapInstance(map);
+    setMapInstance(map);
   };
 
   function createKey(stores) {
@@ -121,18 +132,19 @@ function StoreMap() {
             }}
             onLoad={onLoad}
           >
-            <InfoWindow position={center}>
-              <div>
-                <h1>大安店</h1>
-              </div>
-            </InfoWindow>
             <MarkerClusterer averageCenter enableRetinaIcons gridSize={120}>
               {(clusterer) =>
-                stores.map((location) => (
+                stores.map((location, index) => (
                   <Marker
                     key={createKey(location)}
                     position={location}
                     clusterer={clusterer}
+                    onClick={() => {
+                      setSelected(location);
+                      setStoreName(storeNameOption[index]);
+                      setStoreProduct(storeProductOption[index]);
+                      setStoreAddress(storeAddressOption[index]);
+                    }}
                     icon={{
                       url: './images/DountMap.gif',
                       scaledSize: new window.google.maps.Size(150, 150),
@@ -147,6 +159,25 @@ function StoreMap() {
             {directionResponse && (
               <DirectionsRenderer directions={directionResponse} />
             )}
+            {selected ? (
+              <InfoWindow
+                position={selected}
+                onCloseClick={() => {
+                  setSelected(null);
+                }}
+              >
+                <div>
+                  <h6 className="bingH6">Pochi屋 {storeName}店</h6>
+                  <p>地址：{storeAddress}</p>
+                  <p className="bingText-16">門市限定產品</p>
+                  <img
+                    className="w-100"
+                    src={`/images/map/${storeProduct}.jpg`}
+                    alt=""
+                  />
+                </div>
+              </InfoWindow>
+            ) : null}
           </GoogleMap>
         </div>
       </div>
