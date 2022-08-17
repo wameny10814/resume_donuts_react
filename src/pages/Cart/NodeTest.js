@@ -6,12 +6,12 @@ function NodeTest() {
     password: 'password',
   };
   useEffect(() => {
-    fetch('http://localhost:3600/home')
+    fetch('http://localhost:3600/cartsData')
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
   useEffect(() => {
-    fetch('http://localhost:3600/home', {
+    fetch('http://localhost:3600/cartsData', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

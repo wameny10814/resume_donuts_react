@@ -24,18 +24,18 @@ function Summary(props) {
         </div>
         <Link className="text-decoration-none" to="/Cart/CartOrderInfo">
           {/* 判斷購物車數量是否有大於1，如果沒有，按鈕無效化 */}
-          <buttom
+          <button
             type="submit"
             className="ProjectButton"
             // disabled={!carts.length <= 0}
           >
             前往結賬
-          </buttom>
+          </button>
         </Link>
         <Link className="text-decoration-none" to="/Product">
-          <buttom type="submit" className="ProjectButton">
+          <button type="submit" className="ProjectButton">
             繼續購物
-          </buttom>
+          </button>
         </Link>
       </div>
     </>

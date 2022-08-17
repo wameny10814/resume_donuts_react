@@ -74,6 +74,18 @@ function CartOrderInfo(props) {
       return;
     }
   };
+  // 點擊送出就把資料送到後端
+  // const postOrderInfo = async () => {
+  //   const response = await axios.post(
+  // http://localhost:3600/CartDatabase
+  //   );
+  //   const resdata = response.data; // 這邊應該是用requist?
+  //   setCustomData(resdata);  // 因為是送出資料，要不要set再研究看看
+  // };
+
+  // useEffect(() => {
+  //   getCustomData();
+  // }, []);
 
   return (
     <div className="container">
