@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import H2 from '../../components/H2';
+import Pop from './component/Pop';
 function Share() {
   const [shareData, setShareData] = useState([]);
 
@@ -33,67 +34,67 @@ function Share() {
             <div className="col-md-6">
               <div className="d-flex h-50 w-100">
                 <div className="w-50">
-                  <img
-                    className="w-100 h-100"
-                    src={`http://localhost:3600/willowimgs/${shareData[0].goodimg}`}
-                    alt=""
-                  />
+                  <Pop
+                    imgPath={shareData[0].goodimg}
+                    title={shareData[0].goodtitle}
+                    content={shareData[0].goodwords}
+                  ></Pop>
                 </div>
                 <div className="w-50">
-                  <img
-                    className="w-100 h-100"
-                    src={`http://localhost:3600/willowimgs/${shareData[1].goodimg}`}
-                    alt=""
-                  />
+                  <Pop
+                    imgPath={shareData[1].goodimg}
+                    title={shareData[1].goodtitle}
+                    content={shareData[1].goodwords}
+                  ></Pop>
                 </div>
               </div>
               <div className="d-flex h-50 w-100">
                 <div className="shareW-40">
                   <div className="h-50">
-                    <img
-                      className="w-100 h-100"
-                      src={`http://localhost:3600/willowimgs/${shareData[2].goodimg}`}
-                      alt=""
-                    />
+                    <Pop
+                      imgPath={shareData[2].goodimg}
+                      title={shareData[2].goodtitle}
+                      content={shareData[2].goodwords}
+                    ></Pop>
                   </div>
                   <div className="h-50">
-                    <img
-                      className="w-100 h-100"
-                      src={`http://localhost:3600/willowimgs/${shareData[3].goodimg}`}
-                      alt=""
-                    />
+                    <Pop
+                      imgPath={shareData[3].goodimg}
+                      title={shareData[3].goodtitle}
+                      content={shareData[3].goodwords}
+                    ></Pop>
                   </div>
                 </div>
                 <div className="shareW-60">
-                  <img
-                    className="w-100 h-100"
-                    src={`http://localhost:3600/willowimgs/${shareData[4].goodimg}`}
-                    alt=""
-                  />
+                  <Pop
+                    imgPath={shareData[4].goodimg}
+                    title={shareData[4].goodtitle}
+                    content={shareData[4].goodwords}
+                  ></Pop>
                 </div>
               </div>
             </div>
             <div className="col-md-2">
-              <img
-                className="w-100 h-100"
-                src={`http://localhost:3600/willowimgs/${shareData[5].goodimg}`}
-                alt=""
-              />
+              <Pop
+                imgPath={shareData[5].goodimg}
+                title={shareData[5].goodtitle}
+                content={shareData[5].goodwords}
+              ></Pop>
             </div>
             <div className="col-md-4">
               <div className="h-50">
-                <img
-                  className="w-100 h-100"
-                  src={`http://localhost:3600/willowimgs/${shareData[6].goodimg}`}
-                  alt=""
-                />
+                <Pop
+                  imgPath={shareData[6].goodimg}
+                  title={shareData[6].goodtitle}
+                  content={shareData[6].goodwords}
+                ></Pop>
               </div>
               <div className="h-50">
-                <img
-                  className="w-100 h-100"
-                  src={`http://localhost:3600/willowimgs/${shareData[7].goodimg}`}
-                  alt=""
-                />
+                <Pop
+                  imgPath={shareData[7].goodimg}
+                  title={shareData[7].goodtitle}
+                  content={shareData[7].goodwords}
+                ></Pop>
               </div>
             </div>
           </div>
