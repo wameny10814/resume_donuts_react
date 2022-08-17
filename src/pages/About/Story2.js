@@ -20,8 +20,9 @@ function Story2() {
       },
     });
     gsap.from(ballRef.current, {
+      scale: 1.5,
       rotation: -360,
-      duration: 2,
+      duration: 3,
       opacity: 0,
       scrollTrigger: {
         trigger: ballRef.current,
