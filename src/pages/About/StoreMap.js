@@ -5,6 +5,7 @@ import {
   Marker,
   MarkerClusterer,
   DirectionsRenderer,
+  InfoWindow,
 } from '@react-google-maps/api';
 import BasicTabs from './BasicTabs';
 
@@ -120,6 +121,11 @@ function StoreMap() {
             }}
             onLoad={onLoad}
           >
+            <InfoWindow position={center}>
+              <div>
+                <h1>大安店</h1>
+              </div>
+            </InfoWindow>
             <MarkerClusterer averageCenter enableRetinaIcons gridSize={120}>
               {(clusterer) =>
                 stores.map((location) => (
