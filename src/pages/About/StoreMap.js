@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   useJsApiLoader,
   GoogleMap,
-  MarkerF,
+  Marker,
   MarkerClusterer,
   DirectionsRenderer,
 } from '@react-google-maps/api';
@@ -18,6 +18,7 @@ function StoreMap() {
   const [distance, setDistance] = useState('...');
   const [duration, setDuration] = useState('...');
   const [move, setMove] = useState('WALKING');
+  const [mapInstance, seMapInstance] = useState(null);
 
   const center = { lat: 25.0337702, lng: 121.5433378 };
 
@@ -26,8 +27,6 @@ function StoreMap() {
     { lat: 25.0480099, lng: 121.5170087 }, //北車
     { lat: 25.0404691, lng: 121.5667799 }, //市府
   ];
-
-  const [mapInstance, seMapInstance] = useState(null);
 
   if (!isLoaded) {
     return <p>Loading...</p>;
@@ -121,10 +120,10 @@ function StoreMap() {
             }}
             onLoad={onLoad}
           >
-            <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
+            <MarkerClusterer averageCenter enableRetinaIcons gridSize={120}>
               {(clusterer) =>
                 stores.map((location) => (
-                  <MarkerF
+                  <Marker
                     key={createKey(location)}
                     position={location}
                     clusterer={clusterer}
