@@ -95,7 +95,6 @@ function WillowShowList(props) {
                 <thead className="willow_table_thead_style3">
                   <tr>
                     <th scope="col">newsid</th>
-                    <th scope="col">Userid</th>
                     <th scope="col">newsimg</th>
                     <th scope="col">newstitle</th>
                     <th scope="col">words</th>
@@ -122,7 +121,6 @@ function WillowShowList(props) {
                               <div>{row.newsid}</div>
                             </div>
                           </th>
-                          <td>{row.userid}</td>
                           <td className="willow_hdsty">
                             <img
                               src={`http://localhost:3600/willowimgs/${row.newsimg}`}
@@ -130,10 +128,15 @@ function WillowShowList(props) {
                             />
                           </td>
                           <td>{row.newstitle}</td>
-                          <td>{row.words}</td>
+
                           <td>
-                            <div className="d-flex w-50 justify-content-between m-auto">
-                              <div> {row.news_at.slice(0, 10)}</div>
+                            <div className="willow_ellipsis">{row.words} </div>
+                          </td>
+                          <td>
+                            <div className="d-flex  justify-content-between">
+                              <div className="willow_wspeace">
+                                {row.news_at.slice(0, 10)}
+                              </div>
                               <div className="willow_icons">
                                 <BsPenFill
                                   onClick={() => {
@@ -171,7 +174,6 @@ function WillowShowList(props) {
                 <thead className="willow_table_thead_style3">
                   <tr>
                     <th scope="col">newsid</th>
-                    <th scope="col">Userid</th>
                     <th scope="col">Start</th>
                     <th scope="col">Finish</th>
                     <th scope="col">newsimg</th>
@@ -199,9 +201,16 @@ function WillowShowList(props) {
                               <div>{row.newsid}</div>
                             </div>
                           </th>
-                          <td>{row.userid}</td>
-                          <td>{row.starttime.slice(0, 10)}</td>
-                          <td>{row.finishtime.slice(0, 10)}</td>
+                          <td>
+                            <div className="willow_wspeace">
+                              {row.starttime.slice(0, 10)}
+                            </div>
+                          </td>
+                          <td>
+                            <div className="willow_wspeace">
+                              {row.finishtime.slice(0, 10)}
+                            </div>
+                          </td>
                           <td className="willow_hdsty">
                             <img
                               src={`http://localhost:3600/willowimgs/${row.newsimg}`}
@@ -209,7 +218,9 @@ function WillowShowList(props) {
                             />
                           </td>
                           <td>{row.newstitle}</td>
-                          <td>{row.words}</td>
+                          <td>
+                            <div className="willow_ellipsis">{row.words} </div>
+                          </td>
                           <td>
                             <div className="d-flex  justify-content-between">
                               <div className="willow_wspeace">
@@ -252,7 +263,6 @@ function WillowShowList(props) {
                 <thead className="willow_table_thead_style3">
                   <tr>
                     <th scope="col">goodwritingid</th>
-                    <th scope="col">Userid</th>
                     <th scope="col">goodimg</th>
                     <th scope="col">goodtitle</th>
                     <th scope="col">goodwords</th>
@@ -282,9 +292,6 @@ function WillowShowList(props) {
                               <div>{row.goodwritingid}</div>
                             </div>
                           </th>
-                          <td className="">
-                            <p className="">{row.userid}</p>
-                          </td>
                           <td className="willow_hdsty">
                             <img
                               src={`http://localhost:3600/willowimgs/${row.goodimg}`}
@@ -308,7 +315,6 @@ function WillowShowList(props) {
                                 <BsPenFill
                                   onClick={() => {
                                     setChoosesid(row.goodwritingid);
-                                    console.log(row.goodwritingid);
                                     setOption(13);
                                   }}
                                 />

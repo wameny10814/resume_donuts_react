@@ -82,7 +82,7 @@ function WillowHavegoodPrice(props) {
     console.log(resdata.filename);
     setImgname(resdata.filename);
 
-    setMainform({ ...mainform, ['newsimg']: resdata.filename });
+    setMainform({ ...mainform, newsimg: resdata.filename });
   };
   // console.log(mainform);
   const changeFields = (event) => {
@@ -91,7 +91,7 @@ function WillowHavegoodPrice(props) {
     console.log({ id, val });
     setMainform({ ...mainform, [id]: val });
   };
-  console.log("mainform1",mainform);
+  console.log('mainform1', mainform);
   useEffect(() => {
     getdatanews(choosesid);
   }, []);
@@ -214,7 +214,7 @@ function WillowHavegoodPrice(props) {
                 <div>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn  willow_button"
                     onClick={() => {
                       fakeClickUploadimage();
                     }}
@@ -268,7 +268,7 @@ function WillowHavegoodPrice(props) {
           </div>
 
           {/* hidden form */}
-          <form name="uploadimgFrom">
+          <form name="uploadimgFrom" className="willow_hidden">
             <div>
               <input
                 id="newsimg"

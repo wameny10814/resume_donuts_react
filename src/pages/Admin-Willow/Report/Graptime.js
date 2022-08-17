@@ -32,7 +32,7 @@ function Graptime(props) {
         `http://localhost:3600/willownews/graptimedata?sid=${chooseValue}&&start=${chooseReportDate.start}&&end=${chooseReportDate.end}`
       );
       const resdata = response.data;
-      console.log("resdata6",resdata);
+      console.log('resdata6', resdata);
       setOriginData(resdata);
     }
     console.log('!!chooseReportDate.start3', !!chooseReportDate.start);
@@ -71,7 +71,7 @@ function Graptime(props) {
         };
         chatCount[p.p_name].countByThing[tastThing] = p.quantity;
       }
-      TastList.sort((a, b) => (a.tastThing > b.tastThing ? 1 : -1));
+      TastList.sort((a, b) => (a.tastOption > b.tastOption ? 1 : -1));
 
       console.log('tempCount1', chatCount.strawberry);
     });
@@ -81,7 +81,7 @@ function Graptime(props) {
     };
   }, [originData, chooseValue]);
   console.log('chartDataasdasdasd', chartData.chatCount);
-
+  console.log('chartDataasdasdasd', chartData.TastList);
   const series = Object.keys(chartData.chatCount).map((key) => {
     const countByThing = chartData.chatCount[key].countByThing;
     console.log('countByThing', countByThing);
@@ -136,7 +136,7 @@ function Graptime(props) {
               value={5}
               onClick={(e) => {
                 let con = reportCount;
-                roption(e)
+                roption(e);
                 setReportCount(con + 1);
               }}
             >
@@ -149,7 +149,7 @@ function Graptime(props) {
               value={4}
               onClick={(e) => {
                 let con = reportCount;
-                roption(e)
+                roption(e);
                 setReportCount(con + 1);
               }}
             >
@@ -162,7 +162,7 @@ function Graptime(props) {
               value={3}
               onClick={(e) => {
                 let con = reportCount;
-                roption(e)
+                roption(e);
                 setReportCount(con + 1);
               }}
             >
@@ -175,7 +175,7 @@ function Graptime(props) {
               value={2}
               onClick={(e) => {
                 let con = reportCount;
-                roption(e)
+                roption(e);
                 setReportCount(con + 1);
               }}
             >
@@ -188,7 +188,7 @@ function Graptime(props) {
               value={1}
               onClick={(e) => {
                 let con = reportCount;
-                roption(e)
+                roption(e);
                 setReportCount(con + 1);
               }}
             >
@@ -240,11 +240,11 @@ function Graptime(props) {
                   value={6}
                   onClick={(e) => {
                     let con = reportCount;
-                    roption(e)
+                    roption(e);
                     setReportCount(con + 1);
                   }}
                 >
-                  收尋
+                  搜尋
                 </button>
               </div>
             </div>
