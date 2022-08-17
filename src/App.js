@@ -57,7 +57,7 @@ function App() {
 
   //------- 設定購物車 -----------------------
   const [carts, setCarts] = useState([]);
-
+  const [personalDataFinal, setPersonalDataFinal] = useState([]);
   //------- 設定購物車 -----------------------
 
   return (
@@ -89,7 +89,14 @@ function App() {
             />
             <Route
               path="/Cart/CartOrderInfo"
-              element={<CartOrderInfo setCarts={setCarts} carts={carts} />}
+              element={
+                <CartOrderInfo
+                  carts={carts}
+                  setCarts={setCarts}
+                  personalDataFinal={personalDataFinal}
+                  setPersonalDataFinal={setPersonalDataFinal}
+                />
+              }
             />
             <Route
               path="/Cart/CartOrderCheck"

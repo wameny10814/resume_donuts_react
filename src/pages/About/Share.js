@@ -18,6 +18,7 @@ function Share() {
     );
     const resdata = response.data;
     setShareData(resdata);
+    
   };
 
   useEffect(() => {

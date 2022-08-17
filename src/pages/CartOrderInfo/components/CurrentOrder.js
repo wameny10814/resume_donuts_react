@@ -24,7 +24,7 @@ function CurrentOrder(props) {
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">序</th>
+                    <th scope="col">商品編號</th>
                     <th scope="col">商品圖片</th>
                     <th scope="col">商品名稱</th>
                     <th scope="col">單價</th>
@@ -37,8 +37,8 @@ function CurrentOrder(props) {
                   const subtotal = v.count * v.product_price;
                   return (
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
+                      <tr key={v.sid}>
+                        <th scope="row">{v.sid}</th>
                         <td>{v.product_img}</td>
                         <td>{v.product_name}</td>
                         <td>{v.product_price}</td>
