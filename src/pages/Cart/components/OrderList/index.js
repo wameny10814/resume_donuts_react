@@ -3,9 +3,9 @@ import { useState } from 'react';
 import ProductItem from './ProductItem';
 // import { useCart } from '../../../../utils/useCart'
 
-
 function OrderList(props) {
-  const { productsInOrder, setProductsInOrder, currentItem } = props;
+  const { productsInOrder, setProductsInOrder, currentItem, carts, setCarts } =
+    props;
   // const { clearCart } = useCart();
 
   return (
@@ -14,17 +14,6 @@ function OrderList(props) {
         <div className="title">
           <div className="col align-self-center text-right text-muted">
             您購物車中共有 <b>{productsInOrder.length}</b> 種商品項目
-          </div>
-          <div className="col">
-            {' '}
-            {/* <button
-              className="btn btn-outline-secondary"
-              onClick={() => {
-                clearCart();
-              }}
-            >
-              clear cart
-            </button> */}
           </div>
         </div>
         {productsInOrder.map((v, i) => {

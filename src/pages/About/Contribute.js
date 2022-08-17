@@ -11,7 +11,6 @@ function Contribute() {
     const response = await axios.get(`http://localhost:3600/willownews/count`);
     const resdata = response.data;
     // console.log("resdata",resdata.con);
-    console.log('resdata', resdata);
     setCountData(resdata);
   };
 
@@ -21,7 +20,7 @@ function Contribute() {
 
   return (
     <>
-      <section className="my-5">
+      <section className="my-5 bingback">
         <H2 title="回饋社會" Entitle="Contribute " />
         <div className="d-flex flex-wrap">
           <div className="col-12 col-md-6">

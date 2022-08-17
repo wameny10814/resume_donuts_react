@@ -33,22 +33,28 @@ export default function App() {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="mx-auto col-md-11">
-              <img className="w-100 h-100" src="./images/Hot-2.png" alt="" />
-              <p className="text-center bingH5 pb-5">飲品</p>
-            </div>
+            <Link className="text-decoration-none" to={'Product'}>
+              <div className="mx-auto col-md-11">
+                <img className="w-100 h-100" src="./images/Hot-2.png" alt="" />
+                <p className="text-center bingH5 pb-5">飲品</p>
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="mx-auto col-md-11">
-              <img className="w-100 h-100" src="./images/Hot-1.png" alt="" />
-              <p className="text-center bingH5 pb-5">招牌波堤</p>
-            </div>
+            <Link className="text-decoration-none" to={'Product'}>
+              <div className="mx-auto col-md-11">
+                <img className="w-100 h-100" src="./images/Hot-1.png" alt="" />
+                <p className="text-center bingH5 pb-5">招牌波堤</p>
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="mx-auto col-md-11">
-              <img className="w-100 h-100" src="./images/Hot-3.png" alt="" />
-              <p className="text-center bingH5 pb-5">台式甜甜圈</p>
-            </div>
+            <Link className="text-decoration-none" to={'Product'}>
+              <div className="mx-auto col-md-11">
+                <img className="w-100 h-100" src="./images/Hot-3.png" alt="" />
+                <p className="text-center bingH5 pb-5">台式甜甜圈</p>
+              </div>
+            </Link>
           </SwiperSlide>
           {authorized === true ? (
             <SwiperSlide>

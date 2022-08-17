@@ -62,7 +62,7 @@ function WillowHavegoodPrice(props) {
     console.log(resdata.filename);
     setImgname(resdata.filename);
 
-    setMainform({ ...mainform, ['newsimg']: resdata.filename });
+    setMainform({ ...mainform, newsimg: resdata.filename });
   };
   // console.log(mainform);
   const changeFields = (event) => {

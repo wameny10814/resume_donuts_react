@@ -1,3 +1,7 @@
+.bingback {
+  background-color: #fff;
+}
+
 .bing-maxwidth {
   max-width: 75%;
 }
@@ -581,7 +585,7 @@ nav {
 }
 
 .navContainer {
-  padding: 30px 30px;
+  padding: 20px 25px;
 }
 
 .nav-item {

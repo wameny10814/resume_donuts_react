@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import MainButton from '../../../components/MainButton/MainButton';
 
 function Summary(props) {
-  const { totalNumber, totalPrice } = props;
+  const { totalNumber, totalPrice, carts, SetCarts } = props;
 
   return (
     <>
@@ -23,10 +23,19 @@ function Summary(props) {
           <div className="col text-right">${totalPrice}</div>
         </div>
         <Link className="text-decoration-none" to="/Cart/CartOrderInfo">
-          <MainButton text="前往結帳" />
+          {/* 判斷購物車數量是否有大於1，如果沒有，按鈕無效化 */}
+          <buttom
+            type="submit"
+            className="ProjectButton"
+            // disabled={!carts.length <= 0}
+          >
+            前往結賬
+          </buttom>
         </Link>
         <Link className="text-decoration-none" to="/Product">
-          <MainButton text="繼續購物" />
+          <buttom type="submit" className="ProjectButton">
+            繼續購物
+          </buttom>
         </Link>
       </div>
     </>

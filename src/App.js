@@ -11,8 +11,6 @@ import Cart from './pages/Cart/Cart';
 import CartOrderInfo from './pages/CartOrderInfo/CartOrderInfo';
 import CartOrderCompleted from './pages/CartOrderCompleted/CartOrderCompleted';
 import CartOrderCheck from './pages/CartOrderCheck/CartOrderCheck';
-import Checkout from './pages/CartOrderCheck/Checkout';
-import { ProductsData } from './pages/Product/data/products';
 
 //Yuchen
 import Membercenter from './pages/member/Membercenter';
@@ -59,6 +57,7 @@ function App() {
 
   //------- 設定購物車 -----------------------
   const [carts, setCarts] = useState([]);
+
   //------- 設定購物車 -----------------------
 
   return (
@@ -84,12 +83,22 @@ function App() {
             <Route path="PsdForgot02" element={<PsdForgot02 />} />
 
             {/* LoveYu的頁面 */}
-            {/* <Route path="ProductsYu" element={<ProductsYu />} /> */}
-            <Route path="Cart" element={<Cart />} />
-            <Route path="CartOrderCheck" element={<CartOrderCheck />} />
-            <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
-            <Route path="/Cart/CartOrderInfo" element={<CartOrderInfo />} />
-            <Route path="Checkout" element={<Checkout />} />
+            <Route
+              path="Cart"
+              element={<Cart setCarts={setCarts} carts={carts} />}
+            />
+            <Route
+              path="/Cart/CartOrderInfo"
+              element={<CartOrderInfo setCarts={setCarts} carts={carts} />}
+            />
+            <Route
+              path="/Cart/CartOrderCheck"
+              element={<CartOrderCheck setCarts={setCarts} carts={carts} />}
+            />
+            <Route
+              path="/Cart/CartOrderCompleted"
+              element={<CartOrderCompleted setCarts={setCarts} carts={carts} />}
+            />
 
             {/* 莊惟的頁面 */}
             <Route path="Product" element={<ProductWrap />}>
