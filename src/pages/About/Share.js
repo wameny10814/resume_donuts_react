@@ -33,14 +33,14 @@ function Share() {
           <div className="d-flex justify-content-center share">
             <div className="col-md-6">
               <div className="d-flex h-50 w-100">
-                <div className="w-50">
+                <div className="w-50 bingPoniter">
                   <Pop
                     imgPath={shareData[0].goodimg}
                     title={shareData[0].goodtitle}
                     content={shareData[0].goodwords}
                   ></Pop>
                 </div>
-                <div className="w-50">
+                <div className="w-50 bingPoniter">
                   <Pop
                     imgPath={shareData[1].goodimg}
                     title={shareData[1].goodtitle}
@@ -50,14 +50,14 @@ function Share() {
               </div>
               <div className="d-flex h-50 w-100">
                 <div className="shareW-40">
-                  <div className="h-50">
+                  <div className="h-50 bingPoniter">
                     <Pop
                       imgPath={shareData[2].goodimg}
                       title={shareData[2].goodtitle}
                       content={shareData[2].goodwords}
                     ></Pop>
                   </div>
-                  <div className="h-50">
+                  <div className="h-50 bingPoniter">
                     <Pop
                       imgPath={shareData[3].goodimg}
                       title={shareData[3].goodtitle}
@@ -65,7 +65,7 @@ function Share() {
                     ></Pop>
                   </div>
                 </div>
-                <div className="shareW-60">
+                <div className="shareW-60 bingPoniter">
                   <Pop
                     imgPath={shareData[4].goodimg}
                     title={shareData[4].goodtitle}
@@ -74,7 +74,7 @@ function Share() {
                 </div>
               </div>
             </div>
-            <div className="col-md-2">
+            <div className="col-md-2 bingPoniter">
               <Pop
                 imgPath={shareData[5].goodimg}
                 title={shareData[5].goodtitle}
@@ -82,14 +82,14 @@ function Share() {
               ></Pop>
             </div>
             <div className="col-md-4">
-              <div className="h-50">
+              <div className="h-50 bingPoniter">
                 <Pop
                   imgPath={shareData[6].goodimg}
                   title={shareData[6].goodtitle}
                   content={shareData[6].goodwords}
                 ></Pop>
               </div>
-              <div className="h-50">
+              <div className="h-50 bingPoniter">
                 <Pop
                   imgPath={shareData[7].goodimg}
                   title={shareData[7].goodtitle}
