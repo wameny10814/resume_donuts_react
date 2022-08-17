@@ -9,7 +9,8 @@ import CurrentOrder from './components/CurrentOrder';
 import CreditCard from './components/CreditCard';
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 
-function CartOrderInfo() {
+function CartOrderInfo(props) {
+  const { setCarts, carts } = props;
   // 訂購人資料
   const [personalData, setPersonalData] = useState({
     shipName: '',
@@ -68,7 +69,7 @@ function CartOrderInfo() {
     <div className="container">
       <H2 title="訂單資訊" Entitle="ORDER INFO" />
       <form action="" onSubmit={handleSubmit}>
-        <CurrentOrder />
+        <CurrentOrder setCarts={setCarts} carts={carts} />
         <PersonalInfo
           personalData={personalData}
           setPersonalData={setPersonalData}

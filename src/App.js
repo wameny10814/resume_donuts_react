@@ -91,7 +91,10 @@ function App() {
             />
             <Route path="CartOrderCheck" element={<CartOrderCheck />} />
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
-            <Route path="/Cart/CartOrderInfo" element={<CartOrderInfo />} />
+            <Route
+              path="/Cart/CartOrderInfo"
+              element={<CartOrderInfo setCarts={setCarts} carts={carts} />}
+            />
             <Route path="Checkout" element={<Checkout />} />
 
             {/* 莊惟的頁面 */}

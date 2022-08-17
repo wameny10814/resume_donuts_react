@@ -15,17 +15,6 @@ function OrderList(props) {
           <div className="col align-self-center text-right text-muted">
             您購物車中共有 <b>{productsInOrder.length}</b> 種商品項目
           </div>
-          <div className="col">
-            {' '}
-            {/* <button
-              className="btn btn-outline-secondary"
-              onClick={() => {
-                clearCart();
-              }}
-            >
-              clear cart
-            </button> */}
-          </div>
         </div>
         {productsInOrder.map((v, i) => {
           // 這樣寫相當於下面註解中的寫法
