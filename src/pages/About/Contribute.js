@@ -20,7 +20,7 @@ function Contribute() {
 
   return (
     <>
-      <section className="my-5 bingback">
+      <section className="bingback">
         <H2 title="回饋社會" Entitle="Contribute " />
         <div className="d-flex flex-wrap">
           <div className="col-12 col-md-6">
@@ -32,7 +32,7 @@ function Contribute() {
               </p>
               <ProjectButton text="GO SHOPPING" />
               <p className="bingH4 text-center mt-5 mb-3">共已捐贈</p>
-              <div className="text-center mt-5 mb-4">
+              <div className="text-center  mb-4">
                 <span className="bingH2 CSRNum2">
                   {countData < 10
                     ? '00' + countData
