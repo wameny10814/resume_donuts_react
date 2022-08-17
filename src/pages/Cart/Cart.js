@@ -4,7 +4,6 @@ import axios from 'axios';
 import React, { useState, useContext, createContext, useEffect } from 'react';
 import AuthContext from '../../pages/member/components/AuthContext';
 
-
 import H2 from '../../components/H2';
 
 // 初始化狀態的函示
@@ -97,48 +96,49 @@ function Cart(props) {
       </div>
       <h6>客製化購物車</h6>
       <div className="d-flex">
-        {customData.map((v, i) => {
-          return (
-            <div>
-              <img className="w-50" src={v.img} alt="" />
-              <p>
-                甜甜圈口味：
-                {v.donut === 'origin'
-                  ? '原味'
-                  : v.donut === 'strawberry'
-                  ? '草莓'
-                  : v.donut === 'Ponde'
-                  ? '酥皮'
-                  : '抹茶'}
-              </p>
-              <p>
-                糖霜：
-                {v.layer === 'sugar'
-                  ? '砂糖'
-                  : v.layer === 'chocolate'
-                  ? '巧克力'
-                  : v.layer === 'strawberry'
-                  ? '草莓'
-                  : v.layer === 'milk'
-                  ? '牛奶'
-                  : '巧克力霜'}
-              </p>
-              <p>
-                配料：
-                {v.decoration === 'rice'
-                  ? '巧克力米'
-                  : v.decoration === 'sugarpowder'
-                  ? '糖粉'
-                  : v.decoration === 'cotton'
-                  ? '棉花糖'
-                  : v.decoration === 'strawberry'
-                  ? '草莓'
-                  : '青蔥'}
-              </p>
-              <p>價格：{v.price}元</p>
-            </div>
-          );
-        })}
+        {customData.length > 0 &&
+          customData.map((v, i) => {
+            return (
+              <div>
+                <img className="w-50" src={v.img} alt="" />
+                <p>
+                  甜甜圈口味：
+                  {v.donut === 'origin'
+                    ? '原味'
+                    : v.donut === 'strawberry'
+                    ? '草莓'
+                    : v.donut === 'Ponde'
+                    ? '酥皮'
+                    : '抹茶'}
+                </p>
+                <p>
+                  糖霜：
+                  {v.layer === 'sugar'
+                    ? '砂糖'
+                    : v.layer === 'chocolate'
+                    ? '巧克力'
+                    : v.layer === 'strawberry'
+                    ? '草莓'
+                    : v.layer === 'milk'
+                    ? '牛奶'
+                    : '巧克力霜'}
+                </p>
+                <p>
+                  配料：
+                  {v.decoration === 'rice'
+                    ? '巧克力米'
+                    : v.decoration === 'sugarpowder'
+                    ? '糖粉'
+                    : v.decoration === 'cotton'
+                    ? '棉花糖'
+                    : v.decoration === 'strawberry'
+                    ? '草莓'
+                    : '青蔥'}
+                </p>
+                <p>價格：{v.price}元</p>
+              </div>
+            );
+          })}
       </div>
     </section>
   );

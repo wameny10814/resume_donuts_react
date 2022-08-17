@@ -29,27 +29,24 @@ function Story2() {
       },
     });
     gsap.from(bingFlag1Ref.current, {
-      delay: 0.5,
-      y: 175,
-      duration: 2.5,
+      y: 150,
+      duration: 2,
       opacity: 0,
       scrollTrigger: {
         trigger: bingFlag1Ref.current,
       },
     });
     gsap.from(bingFlag2Ref.current, {
-      delay: 0.5,
       y: 200,
-      duration: 2.5,
+      duration: 2,
       opacity: 0,
       scrollTrigger: {
         trigger: bingFlag2Ref.current,
       },
     });
     gsap.from(bingFlag3Ref.current, {
-      delay: 0.5,
-      y: 225,
-      duration: 2.5,
+      y: 250,
+      duration: 2,
       opacity: 0,
       scrollTrigger: {
         trigger: bingFlag3Ref.current,
@@ -72,19 +69,19 @@ function Story2() {
               </p>
               <div className="col-12">
                 <img
-                  className="mt-5 pt-5"
+                  className="bingFlag1"
                   src="./images/flag1.svg"
                   alt=""
                   ref={bingFlag1Ref}
                 />
                 <img
-                  className="mt-5"
+                  className="bingFlag2"
                   src="./images/flag2.svg"
                   alt=""
                   ref={bingFlag2Ref}
                 />
                 <img
-                  className=""
+                  className="bingFlag3"
                   src="./images/flag3.svg"
                   alt=""
                   ref={bingFlag3Ref}
