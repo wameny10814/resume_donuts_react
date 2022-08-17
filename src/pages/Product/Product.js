@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Product.css';
 import { ProductsData } from './data/products';
 import { Link } from 'react-router-dom';
@@ -44,13 +44,23 @@ function Product(props) {
   // const { addItem } = useCart();
 
   // Filter功能-----------------
-  const PondeFilter = () =>
-    productData.filter(productData.category_sid === '1');
-  const DonutFilter = () =>
-    productData.filter(productData.category_sid === '2');
-  const OldFashionFilter = () =>
-    productData.filter(productData.category_sid === '3');
+  const PondeFilter = () => {
+    const newPondeData = productData.filter((v) => v.category_sid === '1');
+    setProductData(newPondeData);
+  };
+  const DonutFilter = () => {
+    const newDonutData = productData.filter((v) => v.category_sid === '2');
+    setProductData(newDonutData);
+  };
+  const OldFashionFilter = () => {
+    const newOFData = productData.filter((v) => v.category_sid === '3');
+    setProductData(newOFData);
+  };
+  const UnFilter = () => {
+    setProductData(ProductsData);
+  };
 
+  // 主頁面render
   return (
     <>
       <div className="Mars-container">
@@ -61,16 +71,38 @@ function Product(props) {
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
         <div className="Mars-prod-filter-area">
-          <div className="Mars-prod-filter" onClick={PondeFilter}>
+          <button
+            className="Mars-prod-filter"
+            onClick={() => {
+              PondeFilter();
+            }}
+          >
             波堤
-          </div>{' '}
-          {/* onClick={PondeFilter()} */}
-          <div className="Mars-prod-filter" onClick={DonutFilter}>
+          </button>
+          <button
+            className="Mars-prod-filter"
+            onClick={() => {
+              DonutFilter();
+            }}
+          >
             多那茲
-          </div>
-          <div className="Mars-prod-filter" onClick={OldFashionFilter}>
+          </button>
+          <button
+            className="Mars-prod-filter"
+            onClick={() => {
+              OldFashionFilter();
+            }}
+          >
             歐菲香
-          </div>
+          </button>
+          <button
+            className="Mars-prod-filter"
+            onClick={() => {
+              UnFilter();
+            }}
+          >
+            全部
+          </button>
         </div>
         <div className="Mars-product-slide">
           {productData.map((v, i) => {
