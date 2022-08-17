@@ -1,21 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
 import cat from './images/logincat.svg';
 import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
-
+import gsap from 'gsap';
 
 function PsdForgot02(props) {
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
 
-  //   const [userEmail, setUserEmail] = useState({
-  //     useremail: '',
-  //   });
+  const psdforgot01 = useRef(null);
 
   const { userEmail, setBbb, setUuu } = props;
 
@@ -24,7 +22,7 @@ function PsdForgot02(props) {
   });
 
   const checkIfHide = (e) => {
-    console.log('hi', e.target.tagName);
+    // console.log('hi', e.target.tagName);
     if (e.target.tagName === 'INPUT' && e.type === 'focus') {
       setIsCatHide(isHide);
     } else if (e.target.tagName === 'INPUT' && e.type === 'blur') {
@@ -46,10 +44,8 @@ function PsdForgot02(props) {
   const changeFields = (event) => {
     const id = event.target.id;
     const val = event.target.value;
-    // console.log({ id, val });
     setMyform({ ...myform, [id]: val, email: userEmail });
     setError({ ...error, valid_error: '' });
-    // console.log('myform', myform);
   };
 
   const whenSubmit = (event) => {
@@ -77,6 +73,14 @@ function PsdForgot02(props) {
         }
       });
   };
+
+  useEffect(() => {
+    gsap.from(psdforgot01.current, {
+      duration: 2,
+      x: -100,
+      opacity: 0,
+    });
+  }, []);
   return (
     <>
       <div className="container yu_container" onClick={checkIfHide}>
@@ -85,6 +89,7 @@ function PsdForgot02(props) {
           onSubmit={whenSubmit}
           className="psdcard-margin"
           id="myDIV02"
+          ref={psdforgot01}
         >
           <div className="yu_logincard d-flex">
             <div className="yu_inputblock">
