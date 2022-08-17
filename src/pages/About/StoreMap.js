@@ -45,6 +45,14 @@ function StoreMap() {
   }
   //計算路徑
   async function caculateRoute() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      let currentPosition = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+      console.log(currentPosition);
+      return;
+    });
     clearRoute();
     // if (originRef.current.value === '' || destinationRef.current.value === '') {
     //   return;
