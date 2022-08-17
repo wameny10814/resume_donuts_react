@@ -147,7 +147,7 @@ function WillowGoodWritings(props) {
                 <div>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn willow_button"
                     onClick={() => {
                       fakeClickUploadimage();
                     }}
@@ -200,7 +200,7 @@ function WillowGoodWritings(props) {
           </div>
 
           {/* hidden form */}
-          <form name="uploadimgFrom">
+          <form name="uploadimgFrom" className="willow_hidden">
             <div>
               <input
                 id="newsimg"
