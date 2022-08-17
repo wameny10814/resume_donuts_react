@@ -10,7 +10,7 @@ import CreditCard from './components/CreditCard';
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
 
 function CartOrderInfo(props) {
-  const { setCarts, carts } = props;
+  const { setCarts, carts, personalDataFinal, setPersonalDataFinal } = props;
   // const [personalData, setPersonalData] = useState({
   //   shipName: '',
   //   shipPhone: '',
@@ -84,6 +84,8 @@ function CartOrderInfo(props) {
           personalData={personalData}
           setPersonalData={setPersonalData}
           handleFieldChange={handleFieldChange}
+          personalDataFinal={personalDataFinal}
+          setPersonalDataFinal={setPersonalDataFinal}
         />
         <CreditCard
           personalData={personalData}
