@@ -57,6 +57,7 @@ function App() {
 
   //------- 設定購物車 -----------------------
   const [carts, setCarts] = useState([]);
+
   //------- 設定購物車 -----------------------
 
   return (
@@ -87,16 +88,16 @@ function App() {
               element={<Cart setCarts={setCarts} carts={carts} />}
             />
             <Route
+              path="/Cart/CartOrderInfo"
+              element={<CartOrderInfo setCarts={setCarts} carts={carts} />}
+            />
+            <Route
               path="/Cart/CartOrderCheck"
               element={<CartOrderCheck setCarts={setCarts} carts={carts} />}
             />
             <Route
               path="/Cart/CartOrderCompleted"
               element={<CartOrderCompleted setCarts={setCarts} carts={carts} />}
-            />
-            <Route
-              path="/Cart/CartOrderInfo"
-              element={<CartOrderInfo setCarts={setCarts} carts={carts} />}
             />
 
             {/* 莊惟的頁面 */}

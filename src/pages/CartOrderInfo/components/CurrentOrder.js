@@ -12,8 +12,6 @@
 
 import * as React from 'react';
 
-import productsData from '../../Product/data/products.json';
-
 function CurrentOrder(props) {
   const { setCarts, carts } = props;
 

@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import H2 from '../../components/H2';
@@ -11,7 +11,6 @@ import ProjectButton from '../../components/ProjectButton/ProjectButton';
 
 function CartOrderInfo(props) {
   const { setCarts, carts } = props;
-  // 訂購人資料
   const [personalData, setPersonalData] = useState({
     shipName: '',
     shipPhone: '',
@@ -78,7 +77,9 @@ function CartOrderInfo(props) {
           personalData={personalData}
           setPersonalData={setPersonalData}
         />
-        <ProjectButton className="w-25" text="下一步" type="submit" />
+        <Link to="/Cart/CartOrderCheck">
+          <ProjectButton className="w-25" text="下一步" type="submit" />
+        </Link>
       </form>
     </div>
   );
