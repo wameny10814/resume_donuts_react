@@ -85,7 +85,10 @@ function App() {
 
             {/* LoveYu的頁面 */}
             {/* <Route path="ProductsYu" element={<ProductsYu />} /> */}
-            <Route path="Cart" element={<Cart />} />
+            <Route
+              path="Cart"
+              element={<Cart setCarts={setCarts} carts={carts} />}
+            />
             <Route path="CartOrderCheck" element={<CartOrderCheck />} />
             <Route path="CartOrderCompleted" element={<CartOrderCompleted />} />
             <Route path="/Cart/CartOrderInfo" element={<CartOrderInfo />} />

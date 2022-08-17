@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import MainButton from '../../../components/MainButton/MainButton';
 
 function Summary(props) {
-  const { totalNumber, totalPrice } = props;
+  const { totalNumber, totalPrice, carts, SetCarts } = props;
 
   return (
     <>

@@ -3,9 +3,9 @@ import { useState } from 'react';
 import ProductItem from './ProductItem';
 // import { useCart } from '../../../../utils/useCart'
 
-
 function OrderList(props) {
-  const { productsInOrder, setProductsInOrder, currentItem } = props;
+  const { productsInOrder, setProductsInOrder, currentItem, carts, setCarts } =
+    props;
   // const { clearCart } = useCart();
 
   return (

@@ -30,17 +30,18 @@ const initState = (prosuctArray) => {
   return state;
 };
 
-function Cart() {
+function Cart(props) {
+  const {carts, setCarts} = props;
   // 多樣產品的共用狀態，三樣產品為[1,1,1],四樣產品為[1,1,1,1]以此類推
   const [productsInOrder, setProductsInOrder] = useState(
-    initState(productsData)
+    initState(carts)
   );
 
   // local測試  8/13 22:05
   const [newCartData, setNewCartData] = useState({ new: 'newDDDD' });
   useEffect(() => {
-    localStorage.setItem('myCartData', JSON.stringify(productsData));
-  }, [productsData]);
+    localStorage.setItem('myCartData', JSON.stringify(carts));
+  }, [carts]);
   useEffect(() => {
     let a = JSON.parse(localStorage.getItem('myCartData'));
     console.log('購物車資料', a);
