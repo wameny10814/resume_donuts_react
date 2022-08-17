@@ -2,16 +2,18 @@ import * as React from 'react';
 // import './Login.css';
 import '../../components/Member/Eye.js';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState, useContext, useRef  } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
 import cat from './images/logincat.svg';
 import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
-import {confirm} from '../../components/Confirm';
+import { confirm } from '../../components/Confirm';
 import { faSleigh } from '@fortawesome/free-solid-svg-icons';
 import Mail from './Mail';
+import gsap from 'gsap';
+import { useEffect } from 'react';
 
 function Login() {
   //設定密碼眼睛&貓貓
@@ -20,6 +22,21 @@ function Login() {
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
   const [loginTrue, setLoginTrue] = useState(false);
+
+  const yu_header = useRef(null);
+  const yu_loginwhitecard = useRef(null);
+
+  useEffect(() => {
+    gsap.from(yu_header.current, {
+      duration: 2,
+      y: -100,
+    });
+    gsap.from(yu_loginwhitecard.current, {
+      duration: 2,
+      y: -100,
+      opacity: 0,
+    });
+  }, []);
 
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
@@ -55,7 +72,7 @@ function Login() {
   const whenSubmit = (event) => {
     event.preventDefault();
 
-    console.log(myform);
+    // console.log(myform);
     // TODO: 欄位檢查-----------------------------------------------------------------
     if (myform.account === '' || myform.password === '') {
       return;
@@ -82,7 +99,7 @@ function Login() {
           });
           confirm('登入成功!');
         } else {
-          confirm('帳密錯誤!');
+          confirm('帳號或密碼錯誤!');
         }
       });
   };
@@ -91,9 +108,9 @@ function Login() {
     <>
       <div className="container yu_container" onClick={checkIfHide}>
         <header className="yu_header">
-          <p>會員登入</p>
+          <p ref={yu_header}>會員登入</p>
         </header>
-        <div className="row">
+        <div ref={yu_loginwhitecard} className="row">
           <div className="col">
             <div className="logincat d-flex justify-content-center">
               <img src={isCatHide ? catHide : cat} alt="" />
@@ -133,7 +150,9 @@ function Login() {
                     <Link to="/PsdForgot">忘記密碼</Link>
                   </p>
                 </div>
-                <button type="submit" className="ProjectButton">登入</button>
+                <button type="submit" className="ProjectButton">
+                  登入
+                </button>
                 <p>
                   第一次光臨嗎?
                   <Link to="/MemberRegister">點此註冊</Link>

@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
 import cat from './images/logincat.svg';
 import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
-import {confirm} from '../../components/Confirm';
+import { confirm } from '../../components/Confirm';
+import gsap from 'gsap';
 
 function PsdForgot03(props) {
   const [isCatHide, setIsCatHide] = useState(false);
@@ -19,6 +20,8 @@ function PsdForgot03(props) {
     psdOld_error: '',
     psdNew_error: '',
   });
+
+  const psdforgot01 = useRef(null);
 
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
@@ -79,6 +82,13 @@ function PsdForgot03(props) {
         }
       });
   };
+  useEffect(() => {
+    gsap.from(psdforgot01.current, {
+      duration: 2,
+      x: -100,
+      opacity: 0,
+    });
+  }, []);
 
   return (
     <>
@@ -86,7 +96,7 @@ function PsdForgot03(props) {
         {/* <div className="logincat d-flex justify-content-center yu_padchange_margintop ">
           <img src={isCatHide ? catHide : cat} alt="" />
         </div> */}
-        <form action="" onSubmit={whenSubmit}>
+        <form ref={psdforgot01} action="" onSubmit={whenSubmit}>
           <div className="yu_logincard d-flex">
             <div className="yu_inputblock ">
               <label htmlFor="">請輸入新密碼</label>

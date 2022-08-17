@@ -25,13 +25,10 @@ function MemberHistory(props) {
     );
     //回來是陣列rrrr
     const res_data = response.data;
-    console.log('res', res_data);
+    // console.log('res', res_data);
 
     //原始資料set state
     setUsersRaw(res_data);
-    // 訂單日期格式處理
-
-
     setPODisplay(res_data);
   };
 
@@ -63,8 +60,9 @@ function MemberHistory(props) {
         </nav>
         <div className="row">
           <div className="col yu_history_col_table">
+  const [PODisplay, setPODisplay] = useState([]);
             <table class="table table-hover yu_history_table">
-              <thead className="yu_history_thead">
+              <thead className="yu_history_thead" >
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">付款狀態</th>

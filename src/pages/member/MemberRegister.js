@@ -1,17 +1,25 @@
 import React from 'react';
 import '../../components/Member/Eye.js';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import cat from './images/logincat.svg';
 import catHide from './images/logincat_blind.svg';
 import eye from './images/Eye.svg';
 import eyeSlash from './images/EyeSlash.svg';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import gsap from 'gsap';
 
 function MemberRegister() {
-
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
+  //給飄入效果使用
+  const register01 = useRef(null);
+  const register02 = useRef(null);
+  const register03 = useRef(null);
+  const register04 = useRef(null);
+  const register05 = useRef(null);
+  const registerbtn = useRef(null);
+  const registerturntologin = useRef(null);
 
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
@@ -105,6 +113,49 @@ function MemberRegister() {
     });
   };
 
+  useEffect(() => {
+    gsap.from(register01.current, {
+      duration: 1,
+      x: -100,
+    });
+    gsap.from(register02.current, {
+      duration: 1,
+      delay: 1,
+      x: -100,
+      opacity: 0,
+    });
+    gsap.from(register03.current, {
+      duration: 1,
+      delay: 2,
+      x: -100,
+      opacity: 0,
+    });
+    gsap.from(register04.current, {
+      duration: 1,
+      delay: 3,
+      x: -100,
+      opacity: 0,
+    });
+    gsap.from(register05.current, {
+      duration: 1,
+      delay: 4,
+      x: -100,
+      opacity: 0,
+    });
+    gsap.from(registerbtn.current, {
+      duration: 1,
+      delay: 5,
+      x: -100,
+      opacity: 0,
+    });
+    gsap.from(registerturntologin.current, {
+      duration: 1,
+      delay: 5,
+      x: -100,
+      opacity: 0,
+    });
+  }, []);
+
   return (
     <>
       <div className="container yu_container">
@@ -114,7 +165,7 @@ function MemberRegister() {
         <div className="row">
           <div className="col">
             <div className="yu_regCat d-flex justify-content-center">
-            <img src={isCatHide ? catHide : cat} alt="" />
+              <img src={isCatHide ? catHide : cat} alt="" />
             </div>
 
             <div className="yu_regcard">
@@ -126,7 +177,7 @@ function MemberRegister() {
                 onChange={errorCheck}
               >
                 <div className="reg_form">
-                  <div className="inputblock">
+                  <div className="inputblock" ref={register01}>
                     <label htmlFor="" required>
                       *帳號
                     </label>
@@ -143,7 +194,7 @@ function MemberRegister() {
 
                     <p className="reg_error">{regFormError.account}</p>
                   </div>
-                  <div className="inputblock">
+                  <div className="inputblock" ref={register02}>
                     <label htmlFor="" required>
                       *密碼
                     </label>
@@ -160,10 +211,14 @@ function MemberRegister() {
                     />
                     <p className="reg_error">{regFormError.pass_hash}</p>
                     <div className="reg_absolute" onClick={checkIfHide}>
-                      <img className="reg_eye" src={isHide ? eyeSlash : eye} alt="" />
+                      <img
+                        className="reg_eye"
+                        src={isHide ? eyeSlash : eye}
+                        alt=""
+                      />
                     </div>
                   </div>
-                  <div className="inputblock ">
+                  <div className="inputblock " ref={register03}>
                     <label htmlFor="" required>
                       *密碼確認
                     </label>
@@ -179,10 +234,14 @@ function MemberRegister() {
                     />
                     <p className="reg_error">{regFormError.password_check}</p>
                     <div className="reg_absolute" onClick={checkIfHide}>
-                      <img className="reg_eye" src={isHide ? eyeSlash : eye} alt="" />
+                      <img
+                        className="reg_eye"
+                        src={isHide ? eyeSlash : eye}
+                        alt=""
+                      />
                     </div>
                   </div>
-                  <div className="inputblock">
+                  <div className="inputblock" ref={register04}>
                     <label htmlFor="">生日</label>
                     <input
                       id="birthday"
@@ -192,7 +251,7 @@ function MemberRegister() {
                       onChange={changeFields}
                     />
                   </div>
-                  <div className="inputblock">
+                  <div className="inputblock" ref={register05}>
                     <label htmlFor="" required>
                       *電子信箱
                     </label>
@@ -206,9 +265,12 @@ function MemberRegister() {
                     />
                     <p className="reg_error"> {regFormError.email}</p>
                   </div>
-                  <button type="submit" className="ProjectButton">
-                    註冊
-                  </button>
+                  <div ref={registerbtn}>
+                    <button type="submit" className="ProjectButton">
+                      註冊
+                    </button>
+                  </div>
+
                   <button
                     className="ProjectButton"
                     onClick={(e) => {
@@ -229,7 +291,7 @@ function MemberRegister() {
                 </div>
               </form>
 
-              <p>
+              <p ref={registerturntologin}>
                 已擁有帳號
                 <Link className="nav-link yu_reg_link_p" to="/Login">
                   點此登入

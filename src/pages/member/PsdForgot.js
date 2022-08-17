@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../member/components/AuthContext';
 import cat from './images/logincat.svg';
@@ -10,11 +10,14 @@ import eyeSlash from './images/EyeSlash.svg';
 import PsdForgot02 from './PsdForgot02';
 import PsdForgot03 from './PsdForgot03';
 import { display, style } from '@mui/system';
-import {confirm} from '../../components/Confirm';
+import { confirm } from '../../components/Confirm';
+import gsap from 'gsap';
 
 function PsdForgot(props) {
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
+
+  const psdforgot01 = useRef(null);
 
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
@@ -47,8 +50,6 @@ function PsdForgot(props) {
     console.log({ id, val });
     setMyform({ ...myform, [id]: val });
   };
-  //轉頁
-  const navigate = useNavigate();
 
   const whenSubmit = (event) => {
     event.preventDefault();
@@ -74,11 +75,16 @@ function PsdForgot(props) {
           setDidConfirmed(true);
           setConfirmedEmail(result[0].email);
           setUuu(true);
-          // element.classList.add('fadeout');
-          // window.scroll(0, 620);
         }
       });
   };
+  useEffect(() => {
+    gsap.from(psdforgot01.current, {
+      duration: 2,
+      x: -100,
+      opacity: 0,
+    });
+  }, []);
   return (
     <>
       <div className="container yu_container" onClick={checkIfHide}>
@@ -101,7 +107,13 @@ function PsdForgot(props) {
                 ></PsdForgot02>
               )
             ) : (
-              <form action="" onSubmit={whenSubmit} className="eee" id="myDIV">
+              <form
+                ref={psdforgot01}
+                action=""
+                onSubmit={whenSubmit}
+                className="eee"
+                id="myDIV"
+              >
                 <div className="yu_logincard d-flex">
                   <div className="yu_inputblock">
                     <label htmlFor="">請輸入信箱</label>
