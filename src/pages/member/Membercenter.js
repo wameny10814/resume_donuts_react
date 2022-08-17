@@ -8,12 +8,10 @@ import stone1 from './images/stone01.svg';
 import stone2 from './images/stone02.svg';
 import stone3 from './images/stone03.svg';
 import stone4 from './images/stone04.svg';
-import {confirm} from '../../components/Confirm';
+import { confirm } from '../../components/Confirm';
 
-// import './Membercenter.css';
 function Membercenter() {
-  const { authorized, token, account, level, logout, setAuth, auth } =
-    useContext(AuthContext);
+  const { authorized, token, level, setAuth, auth } = useContext(AuthContext);
   const navigate = useNavigate();
   //如未登入轉出至首頁
   if (authorized === false) {
@@ -70,12 +68,12 @@ function Membercenter() {
     );
     const r = response.data;
     const res_data = r;
-    console.log('res_data',res_data);
+    console.log('res_data', res_data);
     setUsersRaw(res_data);
     // 生日格式處理
     const date = r.birthday;
-    // const slicedate = date.slice(0, 10);
-    const bitrDisplay = { ...res_data, birthday: date };
+    const slicedate = date.slice(0, 10);
+    const bitrDisplay = { ...res_data, birthday: slicedate };
     if (res_data.avatar) {
       setUsersDisplay(bitrDisplay);
       setDidAvatar(true);
@@ -86,14 +84,12 @@ function Membercenter() {
     } else {
       setUsersDisplay(bitrDisplay);
     }
-
-    
   };
 
   useEffect(() => {
     getdata();
   }, []);
-//監聽level
+  //監聽level
   useEffect(() => {
     setAuth({
       ...auth,
@@ -119,6 +115,8 @@ function Membercenter() {
         // console.log('levelnow', usersDisplay);
         //判斷大頭貼修改成功
         setDidAvatar(true);
+
+        console.log('auth頭貼', level);
       });
   };
   //錯誤訊息
@@ -208,7 +206,7 @@ function Membercenter() {
           </div>
         </nav>
         <div className="yu_profile">
-          <div className="row-6 d-flex  yu_center">
+          <div className="row-6 d-flex yu_center ">
             <div className="col">
               <div className="yu_avatar">
                 <figure className="d-flex yu_avatar_pic">
@@ -349,7 +347,7 @@ function Membercenter() {
                   />
                 </div>
                 <div className="d-flex ">
-                  <button type="submit" className=" yu_profile-btn">
+                  <button type="submit" className=" mt-5 yu_profile-btn">
                     修改會員資料
                   </button>
                 </div>

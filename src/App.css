@@ -186,6 +186,7 @@
 }
 
 .yu_container {
+  /* background-color: #F5F5F5; */
   color: #616153;
 }
 
@@ -206,7 +207,7 @@
 }
 
 .yu_bar_nav a {
-  color: #aeaeae;
+  color: #AEAEAE;
   font-weight: bolder;
   text-decoration: none;
 }
@@ -262,7 +263,7 @@
 }
 
 .yu_profile .error {
-  color: #d01f1f;
+  color: #D01F1F;
   position: absolute;
   left: 12rem;
   text-align: right;
@@ -285,7 +286,7 @@
 
 .yu_avatar_btn {
   border: none;
-  background-color: #f2a99b;
+  background-color: #F2A99B;
   color: white;
   border-radius: 18px;
   padding: 0.5rem 2rem;
@@ -295,9 +296,9 @@
 }
 
 .yu_avatar_btn:hover {
-  color: #f2a99b;
+  color: #F2A99B;
   background-color: white;
-  border: 1px solid #f2a99b;
+  border: 1px solid #F2A99B;
 }
 
 .yu_profile-btn {
@@ -325,7 +326,8 @@
 }
 
 .yu_stone_figure {
-  width: 15vh;
+  width: 10vh;
+  margin: 1rem 1rem 0 1rem;
 }
 
 .yu_stone_figure img {
@@ -333,8 +335,8 @@
 }
 
 .yu_milestone_text {
-  margin: 1rem;
-  font-size: 16px;
+  margin: 1rem 1rem 0 1rem;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -346,7 +348,7 @@
   margin-top: -3rem;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 767px) {
   .yu_header h2 {
     font-size: 3rem !important;
   }
@@ -374,12 +376,15 @@
     font-size: 1.5rem;
     font-weight: 500;
   }
+  .stone {
+    padding: 10%;
+  }
   .yu_avatar_btn {
     margin-top: 3rem;
   }
   .yu_profile-btn {
     left: 25%;
-    bottom: auto;
+    bottom: -3rem;
   }
   .yu_profile {
     padding: 5rem 3rem;
