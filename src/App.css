@@ -108,6 +108,10 @@ img.bingFlag2 {
   padding-top: 8rem;
 }
 
+.bingPoniter {
+  cursor: pointer;
+}
+
 .yu_header p {
   text-align: center;
   font-weight: bold;
