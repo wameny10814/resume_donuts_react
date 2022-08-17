@@ -99,7 +99,7 @@ function Cart(props) {
         {customData.length > 0 &&
           customData.map((v, i) => {
             return (
-              <div>
+              <div key={v.sid}>
                 <img className="w-50" src={v.img} alt="" />
                 <p>
                   甜甜圈口味：
