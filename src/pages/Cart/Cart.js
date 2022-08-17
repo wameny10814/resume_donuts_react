@@ -72,7 +72,6 @@ function Cart(props) {
     );
     const resdata = response.data;
     setCustomData(resdata);
-    console.log(resdata);
   };
 
   useEffect(() => {
