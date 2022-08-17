@@ -3,8 +3,8 @@
 }
 
 .Mars-container {
-    margin-left: 158px;
-    margin-right: 158px;
+    margin-left: 178px;
+    margin-right: 178px;
 }
 
 .Mars-img-wrap {
@@ -14,8 +14,7 @@
 }
 
 .Mars-visual {
-    width: 1120px;
-    height: 320px;
+    width: 100%;
     border-radius: 20px;
     margin-top: 68px;
     margin-bottom: 14px;
@@ -27,6 +26,11 @@
     left: 75px;
     background-color: #e5e5e5;
     border-radius: 10px;
+}
+
+.Mars-prod-filter {
+    border: none;
+    margin-right: 15px;
 }
 
 .Mars-product-slide {
@@ -57,11 +61,12 @@
     height: 295px;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 3px 25px 0 rgb(0 0 0 / 10%);
+    box-shadow: none;
+    transition: 0.5s ease-in-out;
 }
 
 .Mars-prod-imgwr:hover {
-    box-shadow: none;
+    box-shadow: 0 3px 25px 0 rgb(0 0 0 / 10%);
 }
 
 .Mars-prod-img {
