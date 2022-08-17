@@ -42,9 +42,12 @@ function Product(props) {
   // 測試購物車------------------
 
   // Filter功能-----------------
-  const PondeFilter = () => productData.filter((productData.category_sid === "1"));
-  const DonutFilter = () => productData.filter((productData.category_sid === "2"));
-  const OldFashionFilter = () => productData.filter((productData.category_sid === "3"));
+  const PondeFilter = () =>
+    productData.filter(productData.category_sid === '1');
+  const DonutFilter = () =>
+    productData.filter(productData.category_sid === '2');
+  const OldFashionFilter = () =>
+    productData.filter(productData.category_sid === '3');
 
   return (
     <>
@@ -56,9 +59,16 @@ function Product(props) {
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
         <div className="Mars-prod-filter-area">
-          <div className="Mars-prod-filter" onClick={PondeFilter}>波堤</div> {/* onClick={PondeFilter()} */}
-          <div className="Mars-prod-filter" onClick={DonutFilter}>多那茲</div>
-          <div className="Mars-prod-filter" onClick={OldFashionFilter}>歐菲香</div>
+          <div className="Mars-prod-filter" onClick={PondeFilter}>
+            波堤
+          </div>{' '}
+          {/* onClick={PondeFilter()} */}
+          <div className="Mars-prod-filter" onClick={DonutFilter}>
+            多那茲
+          </div>
+          <div className="Mars-prod-filter" onClick={OldFashionFilter}>
+            歐菲香
+          </div>
         </div>
         <div className="Mars-product-slide">
           {productData.map((v, i) => {
@@ -73,7 +83,7 @@ function Product(props) {
                 <p className="Mars-prod-name">{v.product_name}</p>
                 <p className="Mars-prod-price">NT$ {v.product_price}</p>
                 <button
-                className="ProjectButton"
+                  className="ProjectButton"
                   onClick={() =>
                     handleAddToCarts(
                       productData.sid,
