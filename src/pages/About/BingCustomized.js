@@ -71,7 +71,7 @@ function BingCustomized() {
     );
     ctx.drawImage(decorationImg, 0, 0);
 
-    var base64 = realRef.current.toDataURL('image/jpeg', 0.1);
+    var base64 = realRef.current.toDataURL('image/jpeg', 0.5);
     setMain({ ...main, img: base64 });
     console.log(base64);
   };
