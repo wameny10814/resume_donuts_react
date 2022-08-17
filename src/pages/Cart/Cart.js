@@ -32,13 +32,10 @@ const initState = (productArray) => {
 };
 
 function Cart(props) {
-  const {carts, setCarts} = props;
+  const { carts, setCarts } = props;
   // 多樣產品的共用狀態，三樣產品為[1,1,1],四樣產品為[1,1,1,1]以此類推
-  const [productsInOrder, setProductsInOrder] = useState(
-    initState(carts)
-  );
-
-
+  const [productsInOrder, setProductsInOrder] = useState(initState(carts));
+  setCarts(productsInOrder);
 
   const calcTotalNumber = () => {
     let total = 0;
