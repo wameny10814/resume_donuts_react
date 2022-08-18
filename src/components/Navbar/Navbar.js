@@ -97,19 +97,19 @@ function Navbar(props) {
         >
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link" href="#/">
+              <Link className="navbar-brand" to="/">
                 關於我們<span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#/">
+              <Link className="navbar-brand" to="/">
                 最新消息
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#/">
+              <Link className="navbar-brand" to="/">
                 品牌故事
-              </a>
+              </Link>
             </li>
           </ul>
           <ul className="navbar-nav">
