@@ -81,7 +81,14 @@ function Product(props) {
           <div
             className="Mars-prod-filter"
             onClick={() => {
-              PondeFilter();
+              // if (productData[0].category_sid === "2" || productData[0].category_sid === "3") {
+              //   () => {
+              //     setProductData(ProductsData);
+              //   }
+              //   PondeFilter();
+              // } else {
+                PondeFilter();
+              // }
             }}
           >
             波堤
