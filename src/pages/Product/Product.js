@@ -44,6 +44,9 @@ function Product(props) {
   // const { addItem } = useCart();
 
   // Filter功能-----------------
+  const UnFilter = () => {
+    setProductData(ProductsData);
+  };
   const PondeFilter = () => {
     if (
       // 如果filter過到剩下圓形甜甜圈，productData[0].category_sid 會是 2 （其他 if 條件以此類推）
@@ -87,9 +90,6 @@ function Product(props) {
       setProductData(newOFData);
     }
   };
-  const UnFilter = () => {
-    setProductData(ProductsData);
-  };
 
   // 主頁面render
   return (
@@ -104,6 +104,14 @@ function Product(props) {
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
         <div className="Mars-prod-filter-area">
+          <div
+            className="Mars-prod-filter"
+            onClick={() => {
+              UnFilter();
+            }}
+          >
+            全部
+          </div>
           <div
             className="Mars-prod-filter"
             onClick={() => {
@@ -127,14 +135,6 @@ function Product(props) {
             }}
           >
             歐菲香
-          </div>
-          <div
-            className="Mars-prod-filter"
-            onClick={() => {
-              UnFilter();
-            }}
-          >
-            全部
           </div>
         </div>
         <div className="Mars-product-slide">
