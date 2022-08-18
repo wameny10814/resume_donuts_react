@@ -247,7 +247,7 @@ function Membercenter() {
               <div className="yu_member_title">
                 <p>
                   {isOnchange ? usersDisplay.account : usersDisplay.account}
-                  目前會員等級{' '}
+                  目前會員等級
                   {isOnchange ? usersDisplay.level : usersDisplay.level}
                 </p>
               </div>

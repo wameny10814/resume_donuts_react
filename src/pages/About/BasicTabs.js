@@ -163,7 +163,7 @@ export default function BasicTabs(props) {
                     10：00～20：00
                   </th>
                   <td>
-                    <i className="fa-regular fa-circle"></i>{' '}
+                    <i className="fa-regular fa-circle"></i>
                   </td>
                   <td>
                     <i className="fa-solid fa-circle"></i>
@@ -416,7 +416,7 @@ export default function BasicTabs(props) {
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
               請選擇交通工具計算距離與時間
             </p>
-            <div className="d-flex">
+            <div className="d-flex justify-content-center">
               {moveOptions.map((v, i) => {
                 return (
                   <div className="bingSelect" key={i}>

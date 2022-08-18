@@ -186,7 +186,7 @@ function Grap(props) {
               vshow(e);
               console.log('chooseValue', chooseValue);
             }}
-          />{' '}
+          />
         </div>
         <div className="w-25 m-auto text-center d-flex">
           <p className='align-items-center m-0 mt-1'>區間為: </p>

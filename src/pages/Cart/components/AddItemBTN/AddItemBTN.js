@@ -27,7 +27,7 @@ function AddItemBTN(props) {
         }}
       >
         {auth ? '移除商品' : '加入購物車'}
-      </Button>{' '}
+      </Button>
     </>
   );
 }
