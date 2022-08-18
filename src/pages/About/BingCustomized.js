@@ -5,7 +5,7 @@ import axios from 'axios';
 import H2 from '../../components/H2';
 
 function BingCustomized() {
-  const { authorized, sid } = useContext(AuthContext);
+  const { sid } = useContext(AuthContext);
 
   const realRef = useRef();
 
