@@ -48,14 +48,17 @@
     flex-wrap: wrap;
 }
 
-@media screen and (min-width: 1420px) {
+@media screen and (min-width: 1280px) {
     .Mars-product-slide {
         padding-left: calc((100% - 1065px)/2);
     }
 }
 
-@media screen and (min-width: ) {
-    
+@media screen and (min-width: 768px) and (max-width: 1421px) {
+    .Mars-container {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
 }
 
 .Mars-prod-wrap {
@@ -85,7 +88,7 @@
 
 .Mars-prod-img {
     width: 295px;
-    height: 295p
+    height: 295px;
 }
 
 .Mars-prod-name {

@@ -96,7 +96,7 @@ function Content(props) {
                 )
               }
             >
-              <i class="fa-solid fa-circle-plus"></i> 加入購物車
+              <i className="fa-solid fa-circle-plus"></i> 加入購物車
             </button>
           </div>
         </div>

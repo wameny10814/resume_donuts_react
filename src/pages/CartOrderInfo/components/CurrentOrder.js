@@ -21,7 +21,7 @@ function CurrentOrder(props) {
         <div className="container">
           <div className="card">
             <div className="row">
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th scope="col">商品ID</th>
@@ -32,12 +32,11 @@ function CurrentOrder(props) {
                     <th scope="col">小計</th>
                   </tr>
                 </thead>
-
-                {carts.map((v, i) => {
-                  const subtotal = v.count * v.product_price;
-                  return (
-                    <tbody>
-                      <tr >
+                <tbody>
+                  {carts.map((v, i) => {
+                    const subtotal = v.count * v.product_price;
+                    return (
+                      <tr key={'a' + v.sid}>
                         <th scope="row">{v.sid}</th>
                         <td>{v.product_img}</td>
                         <td>{v.product_name}</td>
@@ -45,9 +44,9 @@ function CurrentOrder(props) {
                         <td>{v.conut}</td>
                         <td>{subtotal}</td>
                       </tr>
-                    </tbody>
-                  );
-                })}
+                    );
+                  })}
+                </tbody>
               </table>
             </div>
           </div>

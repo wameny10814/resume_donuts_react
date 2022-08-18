@@ -23,7 +23,6 @@ function CartOrderInfo(props) {
     creditCardName: '',
     creditSecurityCode: '',
   });
-  // const [personalData, setPersonalData] = useState([]);
 
   const handleFieldChange = (e) => {
     const newPersonalData = {

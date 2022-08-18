@@ -64,7 +64,7 @@ function Product(props) {
   return (
     <>
       <div className="Mars-container">
-      <h2 className="Mars-prod-h2">商品一覽</h2>
+        <h2 className="Mars-prod-h2">商品一覽</h2>
         <div className="Mars-img-wrap">
           <img src="./images/mv_donut.jpg" className="Mars-visual" alt="" />
         </div>
@@ -107,11 +107,15 @@ function Product(props) {
         <div className="Mars-product-slide">
           {productData.map((v, i) => {
             return (
-              <div className="Mars-prod-wrap">
+              <div className="Mars-prod-wrap" key={'b' + v.sid}>
                 <div className="Mars-prod-imgwr">
                   <Link to={`./${v.sid}`}>
                     {/* eslint-disable-next-line prettier/prettier */}
-                    <img src={v.product_img} className="Mars-prod-img" alt=""></img>
+                    <img
+                      src={v.product_img}
+                      className="Mars-prod-img"
+                      alt=""
+                    ></img>
                   </Link>
                 </div>
                 <p className="Mars-prod-name">{v.product_name}</p>
@@ -131,7 +135,7 @@ function Product(props) {
                     // addItem(handleAddToCarts);
                   }}
                 >
-                  <i class="fa-solid fa-circle-plus"></i> 加入購物車
+                  <i className="fa-solid fa-circle-plus"></i> 加入購物車
                 </button>
               </div>
             );

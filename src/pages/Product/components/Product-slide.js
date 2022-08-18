@@ -24,7 +24,7 @@
 //       {/* <p className="Mars-prod-price">NT$ 35</p> */}
 //       <a href="../../Cart/">
 //         {/* eslint-disable-next-line prettier/prettier */}
-//         <button className="Mars-cart-btn"><i class="fa-solid fa-circle-plus"></i> 加入購物車</button>
+//         <button className="Mars-cart-btn"><i className="fa-solid fa-circle-plus"></i> 加入購物車</button>
 //       </a>
 //     </div>
 //   );
