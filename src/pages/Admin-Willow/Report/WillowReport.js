@@ -3,7 +3,7 @@ import Grap from './Grap';
 import GrapTime from './Graptime';
 
 function WillowReport() {
-  const [reportOption, setReportOption] = useState(0);
+  const [reportOption, setReportOption] = useState(1);
   const roption = (e) => {
     let numv = parseInt(e.target.value);
 
