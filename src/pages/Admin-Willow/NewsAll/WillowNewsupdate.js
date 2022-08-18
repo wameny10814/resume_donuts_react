@@ -168,7 +168,7 @@ function WillowNewsupdate(props) {
                 <div>
                   <button
                     type="button"
-                    className="btn willow_butto"
+                    className="btn willow_button"
                     onClick={() => {
                       fakeClickUploadimage();
                     }}
