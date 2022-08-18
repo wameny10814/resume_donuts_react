@@ -52,7 +52,7 @@ export default function App() {
             <Link className="text-decoration-none" to={'Product'}>
               <div className="mx-auto col-md-11">
                 <img className="w-100 h-100" src="./images/Hot-3.png" alt="" />
-                <p className="text-center bingH5 pb-5">台式甜甜圈</p>
+                <p className="text-center bingH5 pb-5">圓形甜甜圈</p>
               </div>
             </Link>
           </SwiperSlide>
