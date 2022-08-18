@@ -26,16 +26,23 @@
     border-radius: 10px;
 }
 
+.Mars-prod-filter-area {
+    display: flex;
+    border-bottom: 1px solid #D0D0D0;
+}
+
 .Mars-prod-filter {
-    height: 50px;
-    border: none;
-    margin-right: 15px;
+    width: 90px;
+    font-size: 24px;
+    align-items: center;
+    margin-right: 45px;
+    line-height: 60px;
     transition: .5s ease-in-out;
 }
 
 .Mars-prod-filter:hover {
-    border-bottom: 3px solid #616153;
-    margin-bottom: -3px;
+    border-bottom: 2px solid #616153;
+    margin-bottom: -1px;
 }
 
 .Mars-product-slide {

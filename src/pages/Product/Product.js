@@ -46,7 +46,12 @@ function Product(props) {
   // Filter功能-----------------
   const PondeFilter = () => {
     const newPondeData = productData.filter((v) => v.category_sid === '1');
-    setProductData(newPondeData);
+
+    // if (productData[0].category_sid === "2" || productData[0].category_sid === "3") {
+    //   setProductData(ProductsData)
+    // } else {
+      setProductData(newPondeData);
+    // }
   };
   const DonutFilter = () => {
     const newDonutData = productData.filter((v) => v.category_sid === '2');
@@ -64,45 +69,47 @@ function Product(props) {
   return (
     <>
       <div className="Mars-container">
-        <h2 className="Mars-prod-h2">商品一覽</h2>
+        <div className="Mars-h2-wrap">
+          <h2 className="Mars-prod-h2">商品一覽</h2>
+        </div>
         <div className="Mars-img-wrap">
           <img src="./images/mv_donut.jpg" className="Mars-visual" alt="" />
         </div>
         <div className="Mars-breadcrumb"></div>
         <div className=""></div>
         <div className="Mars-prod-filter-area">
-          <button
+          <div
             className="Mars-prod-filter"
             onClick={() => {
               PondeFilter();
             }}
           >
             波堤
-          </button>
-          <button
+          </div>
+          <div
             className="Mars-prod-filter"
             onClick={() => {
               DonutFilter();
             }}
           >
             多那茲
-          </button>
-          <button
+          </div>
+          <div
             className="Mars-prod-filter"
             onClick={() => {
               OldFashionFilter();
             }}
           >
             歐菲香
-          </button>
-          <button
+          </div>
+          <div
             className="Mars-prod-filter"
             onClick={() => {
               UnFilter();
             }}
           >
             全部
-          </button>
+          </div>
         </div>
         <div className="Mars-product-slide">
           {productData.map((v, i) => {
