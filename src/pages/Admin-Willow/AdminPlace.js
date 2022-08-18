@@ -37,7 +37,7 @@ function AdminPlace() {
           <div className="col-8">
             <h3 className="ml-4">SUPERUSE 主管您好</h3>
           </div>
-          <div className="col willow_palce_rel">
+          <div className="col-sm-6 col-md-2 willow_palce_rel">
             <div>
               <Button
                 onClick={() => setOpennews(!opennews)}
@@ -92,7 +92,7 @@ function AdminPlace() {
               </Collapse>
             </div>
           </div>
-          <div className="col willow_palce_rel">
+          <div className="col-sm-6 col-md-2 willow_palce_rel">
             <Button
               onClick={() => setOpenreports(!openreports)}
               aria-controls="example-collapse-text"

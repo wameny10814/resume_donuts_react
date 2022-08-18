@@ -3,7 +3,7 @@ import Grap from './Grap';
 import GrapTime from './Graptime';
 
 function WillowReport() {
-  const [reportOption, setReportOption] = useState(0);
+  const [reportOption, setReportOption] = useState(1);
   const roption = (e) => {
     let numv = parseInt(e.target.value);
 
@@ -14,7 +14,7 @@ function WillowReport() {
       <h1>Report報表</h1>
       <div className="container mb-5">
         <div className="row">
-          <div className="col">
+          <div className="col-12 col-md-6">
             <button
               type="button"
               className="btn willow_button"
@@ -27,7 +27,7 @@ function WillowReport() {
               依時間
             </button>
           </div>
-          <div className="col">
+          <div className="col-12 col-md-6">
             <button
               type="button"
               className="btn willow_button"

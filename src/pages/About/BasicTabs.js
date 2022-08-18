@@ -202,7 +202,7 @@ export default function BasicTabs(props) {
                       onChange={(e) => {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
-                        caculateRoute();
+                        caculateRoute(moveOptions[i]);
                       }}
                     />
                     <img
@@ -315,7 +315,7 @@ export default function BasicTabs(props) {
                       onChange={(e) => {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
-                        caculateRoute();
+                        caculateRoute(moveOptions[i]);
                       }}
                     />
                     <img
@@ -427,7 +427,7 @@ export default function BasicTabs(props) {
                       onChange={(e) => {
                         setMove(e.target.value);
                         setMoveTw(moveOptionstw[i]);
-                        caculateRoute2();
+                        caculateRoute2(moveOptions[i]);
                       }}
                     />
                     <img

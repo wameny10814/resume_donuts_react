@@ -1,12 +1,18 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AdminAuthContext from '../Admin-Willow/admin_components/AdminAuthContext';
 import './scssstyle/AdminLoginStyle.scss';
 import axios from 'axios';
+import gsap from 'gsap';
+
 function AdminLogin() {
   const navigate = useNavigate();
   const { setAdmin_Auth } = useContext(AdminAuthContext);
 
+  const upToDown = useRef(null);
+  const upToDownThreeImages1 = useRef(null);
+  const upToDownThreeImages2 = useRef(null);
+  const upToDownThreeImages3 = useRef(null);
   const [adminlogin, setAdminLogin] = useState({
     admin_account: '',
     admin_password: '',
@@ -36,7 +42,7 @@ function AdminLogin() {
     // console.log(resdata.admin_data.admin_name);
     if (resdata.admin_success) {
       localStorage.setItem('admin_auth', JSON.stringify(resdata.admin_data));
-      
+
       setAdmin_Auth({ ...resdata.admin_data, admin_authorized: true });
       navigate('/adminplace');
     } else {
@@ -46,13 +52,41 @@ function AdminLogin() {
     //   console.log('Delayed for 1 second.');
     // }, '1000');
   };
+
+  // gsap.to(".green",  { duration: 2, x:700, ease: "bounce.out", yoyoEase: "power2.out",  repeat:10, repeatDelay:0.1});
+  useEffect(() => {
+    gsap.from(upToDown.current, {
+      duration: 0.8,
+      y: -100,
+    });
+
+    gsap.to(upToDownThreeImages1.current, {
+      duration: 0.8,
+      ease: 'bounce.out',
+      yoyoEase: 'power2.out',
+      y: 75,
+    });
+    gsap.to(upToDownThreeImages2.current, {
+      duration: 0.8,
+      ease: 'bounce.out',
+      yoyoEase: 'power2.out',
+      y: 65,
+    });
+    gsap.to(upToDownThreeImages3.current, {
+      duration: 0.8,
+      ease: 'bounce.out',
+      yoyoEase: 'power2.out',
+      y: 55,
+    });
+  }, []);
+
   return (
     <div id="willow_adminloginstyle">
       {/*  style={{ width: '100%', height: '100vh' }} */}
       <div className="container willow_minhight">
-        <div className="row">
+        <div className="row willow_margin justify-content-around">
           <div className="col-md-6">
-            <div className="card">
+            <div className="card " ref={upToDown}>
               <div className="card-body">
                 <h3 className="card-title">AdminLogin</h3>
                 <form name="myadminform">
@@ -104,6 +138,31 @@ function AdminLogin() {
                   登入成功
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="row ">
+          <div className="d-flex justify-content-center ">
+            <div ref={upToDownThreeImages1}>
+              <img
+                src="./images/willowflag1.svg"
+                alt=""
+                className="willow_img h-75"
+              />
+            </div>
+            <div ref={upToDownThreeImages2}>
+              <img
+                src="./images/willowflag4.svg"
+                alt=""
+                className="willow_img h-75"
+              />
+            </div>
+            <div ref={upToDownThreeImages3}>
+              <img
+                src="./images/willowflag3.svg"
+                alt=""
+                className="willow_img h-75"
+              />
             </div>
           </div>
         </div>

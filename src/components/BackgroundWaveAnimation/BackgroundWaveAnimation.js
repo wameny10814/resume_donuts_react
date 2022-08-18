@@ -1,10 +1,9 @@
 import React from 'react';
-import './BackgroundWaveAnimation.css';
 
 function BackgroundWaveAnimation() {
   return (
     <>
-      <section className="wavesection d-none d-md-block d-lg-none">
+      <section className="wavesection">
         <div className="wave wave1"></div>
         <div className="wave wave2"></div>
         <div className="wave wave3"></div>

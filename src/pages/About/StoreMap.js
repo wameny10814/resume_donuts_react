@@ -44,56 +44,96 @@ function StoreMap() {
     return <p>Loading...</p>;
   }
   //計算路徑
-  async function caculateRoute() {
-    navigator.geolocation.getCurrentPosition(function (position) {
+  async function caculateRoute(move) {
+    const success = async function (position) {
       let currentPosition = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
-      console.log(currentPosition);
-      return;
-    });
-    clearRoute();
-    // if (originRef.current.value === '' || destinationRef.current.value === '') {
-    //   return;
-    // }
 
-    const o = { lat: 25.0337702, lng: 121.5433378 };
-    // const o = JSON.parse(originRef.current.value);
-    const d = { lat: 25.0480099, lng: 121.5170087 };
-    // const d = JSON.parse(destinationRef.current.value);
-    // eslint-disable-next-line no-undef
-    const directionService = new google.maps.DirectionsService();
-    const results = await directionService.route({
+      clearRoute();
+
+      const o = { lat: 25.0337702, lng: 121.5433378 };
+      // const o = JSON.parse(originRef.current.value);
+      const d = { lat: 25.0480099, lng: 121.5170087 };
+      // const d = JSON.parse(destinationRef.current.value);
       // eslint-disable-next-line no-undef
-      origin: new google.maps.LatLng(o.lat, o.lng),
-      // eslint-disable-next-line no-undef
-      destination: new google.maps.LatLng(d.lat, d.lng),
-      // eslint-disable-next-line no-undef
-      travelMode: move,
-    });
-    setDirectionResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
+      const directionService = new google.maps.DirectionsService();
+      const results = await directionService.route({
+        // eslint-disable-next-line no-undef
+        origin: new google.maps.LatLng(o.lat, o.lng),
+        // eslint-disable-next-line no-undef
+        destination: new google.maps.LatLng(d.lat, d.lng),
+        // eslint-disable-next-line no-undef
+        travelMode: move,
+      });
+
+      console.log(results);
+      setDirectionResponse(results);
+
+      setDistance(results.routes[0].legs[0].distance.text);
+      setDuration(results.routes[0].legs[0].duration.text);
+    };
+
+    const error = function (positionError) {
+      alert(positionError.message);
+    };
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    // clearRoute();
+    // // if (originRef.current.value === '' || destinationRef.current.value === '') {
+    // //   return;
+    // // }
+
+    // const o = { lat: 25.0337702, lng: 121.5433378 };
+    // // const o = JSON.parse(originRef.current.value);
+    // const d = { lat: 25.0480099, lng: 121.5170087 };
+    // // const d = JSON.parse(destinationRef.current.value);
+    // // eslint-disable-next-line no-undef
+    // const directionService = new google.maps.DirectionsService();
+    // const results = await directionService.route({
+    //   // eslint-disable-next-line no-undef
+    //   origin: new google.maps.LatLng(o.lat, o.lng),
+    //   // eslint-disable-next-line no-undef
+    //   destination: new google.maps.LatLng(d.lat, d.lng),
+    //   // eslint-disable-next-line no-undef
+    //   travelMode: move,
+    // });
+
+    // console.log(results);
+    // setDirectionResponse(results);
+
+    // setDistance(results.routes[0].legs[0].distance.text);
+    // setDuration(results.routes[0].legs[0].duration.text);
   }
+  async function caculateRoute2(move) {
+    const success = async function (position) {
+      let currentPosition = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+      clearRoute();
+      const o = { lat: 25.0337702, lng: 121.5433378 };
+      const d = { lat: 25.0404691, lng: 121.5667799 };
+      // eslint-disable-next-line no-undef
+      const directionService = new google.maps.DirectionsService();
+      const results = await directionService.route({
+        // eslint-disable-next-line no-undef
+        origin: new google.maps.LatLng(o.lat, o.lng),
+        // eslint-disable-next-line no-undef
+        destination: new google.maps.LatLng(d.lat, d.lng),
+        // eslint-disable-next-line no-undef
+        travelMode: move,
+      });
+      setDirectionResponse(results);
+      setDistance(results.routes[0].legs[0].distance.text);
+      setDuration(results.routes[0].legs[0].duration.text);
+    };
 
-  async function caculateRoute2() {
-    clearRoute();
-    const o = { lat: 25.0337702, lng: 121.5433378 };
-    const d = { lat: 25.0404691, lng: 121.5667799 };
-    // eslint-disable-next-line no-undef
-    const directionService = new google.maps.DirectionsService();
-    const results = await directionService.route({
-      // eslint-disable-next-line no-undef
-      origin: new google.maps.LatLng(o.lat, o.lng),
-      // eslint-disable-next-line no-undef
-      destination: new google.maps.LatLng(d.lat, d.lng),
-      // eslint-disable-next-line no-undef
-      travelMode: move,
-    });
-    setDirectionResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
+    const error = function (positionError) {
+      alert(positionError.message);
+    };
+    navigator.geolocation.getCurrentPosition(success, error);
   }
   //清除距離與時間
   function clearRoute() {
