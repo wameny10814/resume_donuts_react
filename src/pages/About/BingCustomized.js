@@ -52,6 +52,7 @@ function BingCustomized() {
   };
   //畫圖
   const renderCanvas = async () => {
+    console.log(totalPrice);
     const ctx = realRef.current.getContext('2d');
     const bg = await getImageFromPath('/images/Customized/bg.jpg');
     ctx.drawImage(bg, 0, 0);
@@ -68,7 +69,6 @@ function BingCustomized() {
       ctx.drawImage(layerImg, 0, 0);
     }
 
-
     if (decoration) {
       const decorationImg = await getImageFromPath(
         `/images/Customized/decoration/${decoration}.png`
@@ -77,7 +77,8 @@ function BingCustomized() {
     }
 
     var base64 = realRef.current.toDataURL('image/jpeg', 0.5);
-    setMain({ ...main, img: base64 });
+
+    setMain({ ...main, img: base64, price: totalPrice });
   };
   //客製化資料
   const [main, setMain] = useState({
@@ -86,7 +87,7 @@ function BingCustomized() {
     donut: 'origin',
     layer: '',
     decoration: '',
-    price: '',
+    price: 0,
   });
 
   //寫入資料庫
@@ -102,7 +103,7 @@ function BingCustomized() {
 
   useEffect(() => {
     renderCanvas();
-    setMain({ ...main, price: totalPrice });
+    // setMain({ ...main, price: totalPrice });
   }, [donut, layer, decoration]);
 
   return (
