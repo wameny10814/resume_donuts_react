@@ -61,19 +61,23 @@ function BingCustomized() {
     );
     ctx.drawImage(donutImg, 0, 0);
 
-    const layerImg = await getImageFromPath(
-      `/images/Customized/layer/${layer}.png`
-    );
-    ctx.drawImage(layerImg, 0, 0);
+    if (layer) {
+      const layerImg = await getImageFromPath(
+        `/images/Customized/layer/${layer}.png`
+      );
+      ctx.drawImage(layerImg, 0, 0);
+    }
 
-    const decorationImg = await getImageFromPath(
-      `/images/Customized/decoration/${decoration}.png`
-    );
-    ctx.drawImage(decorationImg, 0, 0);
+
+    if (decoration) {
+      const decorationImg = await getImageFromPath(
+        `/images/Customized/decoration/${decoration}.png`
+      );
+      ctx.drawImage(decorationImg, 0, 0);
+    }
 
     var base64 = realRef.current.toDataURL('image/jpeg', 0.5);
     setMain({ ...main, img: base64 });
-    console.log(base64);
   };
   //客製化資料
   const [main, setMain] = useState({
