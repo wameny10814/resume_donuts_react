@@ -112,6 +112,10 @@ img.bingFlag2 {
   cursor: pointer;
 }
 
+.bingbing {
+  z-index: 999;
+}
+
 .yu_header p {
   text-align: center;
   font-weight: bold;
@@ -834,6 +838,8 @@ footer .footerp {
   height: 150px;
   /* background: #3586ff; */
   overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .wavesection .wave {
@@ -849,7 +855,6 @@ footer .footerp {
 .wavesection .wave.wave1 {
   -webkit-animation: animate 40s linear infinite;
           animation: animate 40s linear infinite;
-  z-index: -1;
   opacity: 1;
   bottom: 0;
 }

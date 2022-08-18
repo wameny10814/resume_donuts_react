@@ -6,6 +6,8 @@
   height: 150px;
   /* background: #3586ff; */
   overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .wavesection .wave {
@@ -20,7 +22,6 @@
 
 .wavesection .wave.wave1 {
   animation: animate 40s linear infinite;
-  z-index: -1;
   opacity: 1;
   bottom: 0;
 }
