@@ -17,6 +17,7 @@
 @import "./pages/Cart/Cart";
 
 @import "./components/ProjectButton/ProjectButton";
+@import "./components/BackgroundWaveAnimation/BackgroundWaveAnimation";
 
 #root {
   font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
@@ -27,6 +28,5 @@
     font-size: 48px; 
     font-weight: 500;
     font-family: 'Zen Maru Gothic', sans-serif;
-    
   }
 }
