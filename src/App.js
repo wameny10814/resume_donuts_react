@@ -100,7 +100,14 @@ function App() {
             />
             <Route
               path="/Cart/CartOrderCheck"
-              element={<CartOrderCheck setCarts={setCarts} carts={carts} />}
+              element={
+                <CartOrderCheck
+                  setCarts={setCarts}
+                  carts={carts}
+                  personalDataFinal={personalDataFinal}
+                  setPersonalDataFinal={setPersonalDataFinal}
+                />
+              }
             />
             <Route
               path="/Cart/CartOrderCompleted"

@@ -3,7 +3,6 @@ import Summary from './components/Summary';
 import axios from 'axios';
 import React, { useState, useContext, createContext, useEffect } from 'react';
 import AuthContext from '../../pages/member/components/AuthContext';
-import NodeTest from './NodeTest';
 
 import H2 from '../../components/H2';
 
@@ -76,11 +75,8 @@ function Cart(props) {
     getCustomData();
   }, []);
 
-  
-
   return (
     <section className="cartBox">
-      <NodeTest />
       <div className="container">
         <H2 title="我的購物車" Entitle="CART" />
 

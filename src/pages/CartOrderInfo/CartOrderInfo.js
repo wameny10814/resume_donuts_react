@@ -11,19 +11,19 @@ import ProjectButton from '../../components/ProjectButton/ProjectButton';
 
 function CartOrderInfo(props) {
   const { setCarts, carts, personalDataFinal, setPersonalDataFinal } = props;
-  // const [personalData, setPersonalData] = useState({
-  //   shipName: '',
-  //   shipPhone: '',
-  //   shipEmail: '',
-  //   country: '',
-  //   township: '',
-  //   addressDetail: '',
-  //   creditCardNum: '',
-  //   creditCardDate: '',
-  //   creditCardName: '',
-  //   creditSecurityCode: '',
-  // });
-  const [personalData, setPersonalData] = useState([]);
+  const [personalData, setPersonalData] = useState({
+    shipName: '',
+    shipPhone: '',
+    shipEmail: '',
+    country: '',
+    township: '',
+    addressDetail: '',
+    creditCardNum: '',
+    creditCardDate: '',
+    creditCardName: '',
+    creditSecurityCode: '',
+  });
+  // const [personalData, setPersonalData] = useState([]);
 
   const handleFieldChange = (e) => {
     const newPersonalData = {
@@ -34,25 +34,7 @@ function CartOrderInfo(props) {
 
     console.log(newPersonalData);
   };
-
-  // 測試 react-hook-form----------------------
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
-  // const onSubmit = (personalData) => console.log(personalData);
-  // ----------------------測試 react-hook-form---
-
-  // 訂購地址
-  // const [addressData, setAddressData] = useState({
-
-  // });
-
-  // 信用卡資料
-  // const [creditCardData, setCreditCardData] = useState({
-
-  // });
+  setPersonalDataFinal(personalData);
 
   // 建立表提交事件
 
@@ -66,13 +48,13 @@ function CartOrderInfo(props) {
     // console.log(personalData);
 
     // 檢查欄位;
-    if (
-      personalData.shipName === '' ||
-      personalData.shipPhone === '' ||
-      personalData.creditCardNum === ''
-    ) {
-      return;
-    }
+    // if (
+    //   personalData.shipName === '' ||
+    //   personalData.shipPhone === '' ||
+    //   personalData.creditCardNum === ''
+    // ) {
+    //   return;
+    // }
   };
   // 點擊送出就把資料送到後端
   // const postOrderInfo = async () => {
