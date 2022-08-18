@@ -14,7 +14,7 @@ function WillowReport() {
       <h1>Report報表</h1>
       <div className="container mb-5">
         <div className="row">
-          <div className="col">
+          <div className="col-12 col-md-6">
             <button
               type="button"
               className="btn willow_button"
@@ -27,7 +27,7 @@ function WillowReport() {
               依時間
             </button>
           </div>
-          <div className="col">
+          <div className="col-12 col-md-6">
             <button
               type="button"
               className="btn willow_button"
