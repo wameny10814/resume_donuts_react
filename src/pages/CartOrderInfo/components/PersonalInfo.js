@@ -9,7 +9,12 @@ import axios from 'axios';
 // shipEmail: '',
 
 function PersonalInfo(props) {
-  const { personalData, setPersonalData, handleFieldChange,setPersonalDataFinal } = props;
+  const {
+    personalData,
+    setPersonalData,
+    handleFieldChange,
+    setPersonalDataFinal,
+  } = props;
   // personalData(setPersonalDataFinal) // 8/17 16:30 要再確認為什麼不能設定回去
 
   // 連接後端拿會員資料同步
@@ -88,6 +93,7 @@ function PersonalInfo(props) {
         <div className="card">
           姓名
           <input
+            className="w-25"
             type="text"
             name="shipName"
             value={personalData.shipName}
@@ -95,6 +101,7 @@ function PersonalInfo(props) {
           />
           電話
           <input
+            className="w-25"
             type="text"
             name="shipPhone"
             value={personalData.shipPhone}
@@ -102,6 +109,7 @@ function PersonalInfo(props) {
           />
           E-mail
           <input
+            className="w-50"
             type="email"
             name="shipEmail"
             value={personalData.shipEmail}
@@ -110,7 +118,7 @@ function PersonalInfo(props) {
           {/* zipCode專區 */}
           縣市
           <select
-            className="dropdown"
+            className="dropdown w-25"
             value={country}
             onChange={(e) => {
               // 將字串轉成數字
@@ -128,6 +136,7 @@ function PersonalInfo(props) {
           </select>
           地區
           <select
+            className="dropdown w-25"
             value={township}
             onChange={(e) => {
               // 將字串轉成數字
@@ -147,6 +156,7 @@ function PersonalInfo(props) {
           {/* zipCode專區 */}
           詳細地址（街道/門牌/樓層）
           <input
+            className="w-50"
             type="text"
             name="addressDetail"
             value={personalData.addressDetail}

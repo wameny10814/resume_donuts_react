@@ -32,6 +32,9 @@ function Summary(props) {
             前往結賬
           </button>
         </Link>
+        <br />
+        <br />
+
         <Link className="text-decoration-none" to="/Product">
           <button type="submit" className="ProjectButton">
             繼續購物

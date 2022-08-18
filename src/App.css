@@ -112,10 +112,6 @@ img.bingFlag2 {
   cursor: pointer;
 }
 
-.bingbing {
-  z-index: 999;
-}
-
 .yu_header p {
   text-align: center;
   font-weight: bold;
@@ -805,11 +801,6 @@ footer .footerp {
     border-bottom-left-radius: unset;
     border-top-right-radius: 1rem;
   }
-}
-
-.loveyu_textInfoBox {
-  background-color: #fff;
-  border-radius: 18px;
 }
 
 .ProjectButton {
