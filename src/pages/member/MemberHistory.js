@@ -13,7 +13,9 @@ function MemberHistory(props) {
   const [usersRaw, setUsersRaw] = useState([]);
 
   const [PODisplay, setPODisplay] = useState([]);
-  const [getPO, setGetPO] = useState(true);
+  const [getPO, setGetPO] = useState(false);
+  //轉頁
+  const navigate = useNavigate();
 
   const getdata = async () => {
     const response = await axios.get(
@@ -26,8 +28,10 @@ function MemberHistory(props) {
     );
     //回來是陣列rrrr
     const res_data = response.data;
-    // console.log('res', res_data);
-
+    console.log('res', res_data.length);
+    if (res_data.length !== 0) {
+      setGetPO(true);
+    }
     //原始資料set state
     setUsersRaw(res_data);
     setPODisplay(res_data);
@@ -63,8 +67,6 @@ function MemberHistory(props) {
           <div className="col yu_history_col_table">
             <table class="table table-hover yu_history_table">
               {getPO ? (
-                <p>目前未有訂單</p>
-              ) : (
                 <thead className="yu_history_thead">
                   <tr>
                     <th scope="col">#</th>
@@ -73,6 +75,22 @@ function MemberHistory(props) {
                     <th scope="col">訂單成立日期</th>
                   </tr>
                 </thead>
+              ) : (
+                <>
+                  <p
+                    onClick={() => {
+                      navigate('/Product');
+                    }}
+                    style={{
+                      color: '#616153',
+                      margin: '3rem 0 0 0',
+                      cursor: 'pointer',
+                      textAlign: 'center',
+                    }}
+                  >
+                    目前未有訂單，點擊前往商品頁面
+                  </p>
+                </>
               )}
 
               <tbody className="yu_history_tbody">

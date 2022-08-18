@@ -160,6 +160,7 @@ function Membercenter() {
     if (confirm('確定要修改會員資料嗎?') === false) {
       return;
     }
+    console.log('regForm',regForm.birthday);
     fetch('http://localhost:3600/member/memberupdate', {
       method: 'POST',
       body: JSON.stringify(regForm),

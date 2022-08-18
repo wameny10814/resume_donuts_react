@@ -8,6 +8,7 @@ import eyeSlash from './images/EyeSlash.svg';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
+import { confirm } from '../../components/Confirm';
 
 function MemberRegister() {
   const [isCatHide, setIsCatHide] = useState(false);
@@ -84,8 +85,8 @@ function MemberRegister() {
     })
       .then((r) => r.json())
       .then((result) => {
-        console.log(result);
-        alert('註冊成功!請嘗試登入。');
+        // console.log(result);
+        // confirm('註冊成功!請嘗試登入。');
         navigate('/Login');
       });
   };
