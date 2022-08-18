@@ -197,7 +197,7 @@ function StoreMap() {
                       url: './images/DountMap.gif',
                       scaledSize: new window.google.maps.Size(150, 150),
                       // origin:new window.google.maps.Point(0, 0),
-                      // anchor: new window.google.maps.Point(75, 75),
+                      anchor: new window.google.maps.Point(75, 100),
                     }}
                   />
                 ))
