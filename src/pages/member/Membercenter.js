@@ -160,7 +160,7 @@ function Membercenter() {
     if (confirm('確定要修改會員資料嗎?') === false) {
       return;
     }
-    console.log('regForm',regForm.birthday);
+    // console.log('regForm',regForm.birthday);
     fetch('http://localhost:3600/member/memberupdate', {
       method: 'POST',
       body: JSON.stringify(regForm),
@@ -409,7 +409,7 @@ function Membercenter() {
                   alt=""
                 />
               </div>
-              <p className="yu_milestone_text">單筆訂單滿xxx元</p>
+              <p className="yu_milestone_text">完成十筆訂單</p>
             </div>
           </div>
         </div>
