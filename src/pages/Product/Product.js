@@ -45,21 +45,47 @@ function Product(props) {
 
   // Filter功能-----------------
   const PondeFilter = () => {
-    const newPondeData = productData.filter((v) => v.category_sid === '1');
-
-    // if (productData[0].category_sid === "2" || productData[0].category_sid === "3") {
-    //   setProductData(ProductsData)
-    // } else {
+    if (
+      // 如果filter過到剩下圓形甜甜圈，productData[0].category_sid 會是 2 （其他 if 條件以此類推）
+      // 而預設狀態的話是全部，第一項是波堤，productData[0].category_sid 會是 1
+      productData[0].category_sid === '2' ||
+      productData[0].category_sid === '3'
+    ) {
+      // 淺層複製一次，reset ProductsData，讓setProductData可以重新抓到原始的ProductsData值
+      const productDataZA = [...ProductsData];
+      const PondeDataZ = productDataZA.filter((v) => v.category_sid === '1');
+      setProductData(PondeDataZ);
+    } else {
+      const newPondeData = productData.filter((v) => v.category_sid === '1');
       setProductData(newPondeData);
-    // }
+    }
   };
   const DonutFilter = () => {
-    const newDonutData = productData.filter((v) => v.category_sid === '2');
-    setProductData(newDonutData);
+    if (
+      productData[0].category_sid === '3' ||
+      productData[2].category_sid === '1'
+    ) {
+      // 歐菲香沒有 productData[2]，productData[2].category_sid === '1' 寫在前面的話會出錯
+      const productDataZB = [...ProductsData];
+      const DonutDataZ = productDataZB.filter((v) => v.category_sid === '2');
+      setProductData(DonutDataZ);
+    } else {
+      const newDonutData = productData.filter((v) => v.category_sid === '2');
+      setProductData(newDonutData);
+    }
   };
   const OldFashionFilter = () => {
-    const newOFData = productData.filter((v) => v.category_sid === '3');
-    setProductData(newOFData);
+    if (
+      productData[2].category_sid === '1' ||
+      productData[0].category_sid === '2'
+    ) {
+      const productDataZC = [...ProductsData];
+      const OFDataZ = productDataZC.filter((v) => v.category_sid === '3');
+      setProductData(OFDataZ);
+    } else {
+      const newOFData = productData.filter((v) => v.category_sid === '3');
+      setProductData(newOFData);
+    }
   };
   const UnFilter = () => {
     setProductData(ProductsData);
@@ -81,14 +107,7 @@ function Product(props) {
           <div
             className="Mars-prod-filter"
             onClick={() => {
-              // if (productData[0].category_sid === "2" || productData[0].category_sid === "3") {
-              //   () => {
-              //     setProductData(ProductsData);
-              //   }
-              //   PondeFilter();
-              // } else {
-                PondeFilter();
-              // }
+              PondeFilter();
             }}
           >
             波堤
@@ -146,7 +165,6 @@ function Product(props) {
                       v.product_desc,
                       v.created_at
                     );
-                    // addItem(handleAddToCarts);
                   }}
                 >
                   <i className="fa-solid fa-circle-plus"></i> 加入購物車
