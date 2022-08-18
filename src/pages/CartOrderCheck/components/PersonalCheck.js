@@ -20,7 +20,7 @@ function PersonalCheck(props) {
         <div className="container">
           <div className="card">
             <div className="row">
-              <table class="table">
+              <table className="table">
                 <tbody>
                   <tr>
                     <th scope="row"></th>

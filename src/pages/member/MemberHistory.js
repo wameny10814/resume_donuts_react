@@ -61,7 +61,7 @@ function MemberHistory(props) {
         </nav>
         <div className="row">
           <div className="col yu_history_col_table">
-            <table class="table table-hover yu_history_table">
+            <table className="table table-hover yu_history_table">
               {getPO ? (
                 <p>目前未有訂單</p>
               ) : (

@@ -11,28 +11,30 @@ function CartOrderCheck(props) {
   const { setCarts, carts, personalDataFinal, setPersonalDataFinal } = props;
 
   // 購物車及訂單資料寫進資料庫
+  const totalOrderData = [carts, personalDataFinal];
 
-  const [totalOrderData, setTotalOrderData] = useState({
-    shipName: '',
-    shipPhone: '',
-    shipEmail: '',
-    country: '',
-    township: '',
-    addressDetail: '',
-    creditCardNum: '',
-    creditCardDate: '',
-    creditCardName: '',
-    creditSecurityCode: '',
+  // console.log(totalOrderData);
+  // const [totalOrderData, setTotalOrderData] = useState({
+  //   shipName: '',
+  //   shipPhone: '',
+  //   shipEmail: '',
+  //   country: '',
+  //   township: '',
+  //   addressDetail: '',
+  //   creditCardNum: '',
+  //   creditCardDate: '',
+  //   creditCardName: '',
+  //   creditSecurityCode: '',
 
-    sid: '',
-    product_name: '',
-    category_sid: '',
-    product_price: '',
-    product_img: '',
-    product_desc: '',
-    created_at: '',
-    conut: '',
-  });
+  //   sid: '',
+  //   product_name: '',
+  //   category_sid: '',
+  //   product_price: '',
+  //   product_img: '',
+  //   product_desc: '',
+  //   created_at: '',
+  //   conut: '',
+  // });
 
   // 寫進資料庫
   // const logsee = async (e) => {
