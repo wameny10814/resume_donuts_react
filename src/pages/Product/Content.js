@@ -55,6 +55,9 @@ function Content(props) {
     }
   }, []);
 
+  const RandomSidMinus1 = Math.floor(Math.random() * 11);
+  const RandomProduct = ProductsData[RandomSidMinus1];
+
   return (
     <>
       <div className="Mars-cnt-container">
@@ -120,7 +123,7 @@ function Content(props) {
           </div>
         </div>
         <p className="Mars-prod-name">産品推薦</p>
-        <ProductRecommandCard />
+        <ProductRecommandCard RandomProduct={RandomProduct} />
       </div>
     </>
   );

@@ -113,6 +113,8 @@
 
 .Mars-prod-name {
     font-size: 32px;
+    margin-top: 50px;
+    margin-bottom: 15px;
 }
 
 .Mars-prod-price {
@@ -201,4 +203,29 @@
 
 .Mars-allergy-flex>.Mars-nutri-p:last-child {
     margin-right: 0;
+}
+
+
+/* ---推薦卡片--- */
+
+.Mars-RecCard {
+    width: 600px;
+    height: 265px;
+    background: #eee;
+    border-radius: 20px;
+    display: flex;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.Mars-Rec-img {
+    height: 100%;
+}
+
+.Mars-Rec-title {
+    font-size: 20px;
+}
+
+.Mars-Rec-content-wr {
+    padding: 20px 30px;
 }

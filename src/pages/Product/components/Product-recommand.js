@@ -1,21 +1,36 @@
-import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function ProductRecommandCard() {
+function ProductRecommandCard(props) {
+  const { RandomProduct } = props;
+
   return (
-    <Card>
-      <Image src="../images/pon-de-strawberry.jpeg" wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>草莓波堤</Card.Header>
-        <Card.Description>
-          招牌的波堤配上香濃的草莓，Bon appetit~
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>NT$ 35</a>
-      </Card.Content>
-    </Card>
+    <div className="Mars-RecCard">
+      <div className="Mars-Rec-imgwr">
+        <Link to={`../${RandomProduct.sid}`}>
+          <img
+            src={`../${RandomProduct.product_img}`}
+            alt=""
+            className="Mars-Rec-img"
+          />
+        </Link>
+      </div>
+      <div className="Mars-Rec-content-wr">
+        <div className="Mars-Rec-title">{RandomProduct.product_name}</div>
+        <div className="Mars-Rec-category text-muted">
+          {RandomProduct.category_sid === '1'
+            ? '波提'
+            : RandomProduct.category_sid === '3'
+            ? '歐菲香'
+            : '圓型甜甜圈'}
+        </div>
+        <div className="Mars-Rec-desc">{RandomProduct.product_desc}</div>
+        <div className="Mars-Rec-price text-muted">
+          NT$ {RandomProduct.product_price}
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default ProductRecommandCard
+export default ProductRecommandCard;
