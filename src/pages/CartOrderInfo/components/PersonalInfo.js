@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { countries, townships, postcodes } from '../../Cart/data/townships';
 
 import axios from 'axios';
+import { clearConfigCache } from 'prettier';
 
 // shipName: '',
 // shipPhone: '',
@@ -58,7 +59,7 @@ function PersonalInfo(props) {
   const [township, setTownship] = useState(-1);
   // zipCode-------------
 
-  return (
+
     <>
       {/* 測試後端拿會員資料 */}
       {/* {memberData.map((v, i) => {
@@ -76,14 +77,16 @@ function PersonalInfo(props) {
               shipName: '111',
               shipPhone: '111',
               shipEmail: '111@ss.ss',
-              country: '南投縣',
-              township: '信義鄉',
+              country: 10,
+              township: 2,
               addressDetail: '復興南路99號2樓',
               creditCardNum: '8899 3344 2244 2233',
               creditCardDate: '10/25',
               creditCardName: '游小豪',
               creditSecurityCode: '889',
             });
+            setTownship(personalData.township);
+            setCountry(personalData.country);
           }}
         >
           同步會員資料
@@ -130,6 +133,7 @@ function PersonalInfo(props) {
                 setTownship(-1);
               }}
             >
+              {console.log('country', country)}
               <option value="-1">選擇縣市</option>
               {countries.map((value, index) => (
                 <option key={index} value={index}>
