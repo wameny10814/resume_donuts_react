@@ -19,7 +19,7 @@ function CurrentOrder(props) {
     <>
       <section className="cartBox">
         <div className="container">
-        <p className='loveyu-orderTitle'>商品明細</p>
+          <p className="loveyu-orderTitle">商品明細</p>
           <div className="card">
             <div className="row">
               <table className="table">
@@ -39,10 +39,12 @@ function CurrentOrder(props) {
                     return (
                       <tr key={'a' + v.sid}>
                         <th scope="row">{v.sid}</th>
-                        <td>{v.product_img}</td>
+                        <td>
+                          <img src={v.product_img} alt="" />
+                        </td>
                         <td>{v.product_name}</td>
                         <td>{v.product_price}</td>
-                        <td>{v.conut}</td>
+                        <td>{v.count}</td>
                         <td>{subtotal}</td>
                       </tr>
                     );
