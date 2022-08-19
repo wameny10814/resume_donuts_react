@@ -172,7 +172,7 @@ function PersonalInfo(props) {
         </div>
       </section>
     </>
-  );
+  ;
 }
 
 export default PersonalInfo;
