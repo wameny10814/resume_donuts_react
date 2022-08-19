@@ -56,6 +56,17 @@
     flex-wrap: wrap;
 }
 
+@media screen and (min-width: 1441px) {
+    .Mars-visual {
+        width: 75%;
+    }
+
+    .Mars-prod-filter-area {
+        width: 75%;
+        margin: auto;
+    }
+}
+
 @media screen and (min-width: 1280px) {
     .Mars-product-slide {
         padding-left: calc((100% - 1065px)/2);
@@ -91,7 +102,8 @@
 }
 
 .Mars-prod-imgwr:hover {
-    box-shadow: 0 5px 25px 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 5px 25px 0 rgba(97, 97, 83, 0.502);
+    /* color #616153 的透明度 0.5 版本 */
 }
 
 .Mars-prod-img {
