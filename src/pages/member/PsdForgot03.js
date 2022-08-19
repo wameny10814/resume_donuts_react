@@ -40,8 +40,8 @@ function PsdForgot03(props) {
 
   //設定登入資料
   const [myform, setMyform] = useState({
-    account: '',
-    password: '',
+    psdNew: '',
+    psdNewCheck: '',
   });
 
   const changeFields = (event) => {
