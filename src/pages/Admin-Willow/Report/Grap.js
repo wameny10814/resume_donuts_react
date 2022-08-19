@@ -61,7 +61,7 @@ function Grap(props) {
     };
   }, [showChart, chooseValue]);
   console.log(chartData.categories);
-  console.log(chartData.ageIntervalList)
+  console.log(chartData.ageIntervalList);
   const vshow = (e) => {
     setChooseValue(e.target.value);
   };
@@ -73,8 +73,8 @@ function Grap(props) {
   useEffect(() => {
     getshowchat();
   }, []);
-  const test = Object.keys(chartData.categories)
-  console.log("test",test)
+  const test = Object.keys(chartData.categories);
+  console.log('test', test);
   const series = Object.keys(chartData.categories).map((key) => {
     const countByAge = chartData.categories[key].countByAge;
     return {
@@ -89,6 +89,10 @@ function Grap(props) {
     dataLabels: {
       enabled: false,
     },
+    colors: ['#667302', '#BF0F30', '#F24405', '#0099DD', '#F2C849','#801950'],
+    legend: {
+      fontSize: '23px',
+    },
     stroke: {
       show: true,
       width: 2,
@@ -98,10 +102,23 @@ function Grap(props) {
       categories: chartData.ageIntervalList.map((x) =>
         getAgeIntervalName(x.ageInterval)
       ),
+      labels: {
+        style: {
+          fontSize: '16px',
+          fontWeight: 500,
+        },
+      },
     },
     yaxis: {
       title: {
         text: '$ (thousands)',
+      },
+      labels: {
+        style: {
+          fontSize: '16px',
+          colors: ['#7286EA'],
+          fontWeight: 700,
+        },
       },
     },
     fill: {
@@ -189,7 +206,7 @@ function Grap(props) {
           />
         </div>
         <div className="w-25 m-auto text-center d-flex">
-          <p className='align-items-center m-0 mt-1'>區間為: </p>
+          <p className="align-items-center m-0 mt-1">區間為: </p>
           <input value={chooseValue + '   歲'} readOnly className="w-25 pb-2" />
         </div>
       </div>

@@ -191,7 +191,7 @@ export default function BasicTabs(props) {
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
               請選擇交通工具計算距離與時間
             </p>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-around">
               {moveOptions.map((v, i) => {
                 return (
                   <div className="bingSelect" key={i}>
@@ -304,7 +304,7 @@ export default function BasicTabs(props) {
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
               請選擇交通工具計算距離與時間
             </p>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-around">
               {moveOptions.map((v, i) => {
                 return (
                   <div className="bingSelect" key={i}>
@@ -416,7 +416,7 @@ export default function BasicTabs(props) {
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
               請選擇交通工具計算距離與時間
             </p>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-around">
               {moveOptions.map((v, i) => {
                 return (
                   <div className="bingSelect" key={i}>

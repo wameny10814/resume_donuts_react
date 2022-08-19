@@ -99,12 +99,30 @@ function Graptime(props) {
     dataLabels: {
       enabled: false,
     },
+    legend: {
+      fontSize: '20px',
+    },
     stroke: {
       curve: 'smooth',
     },
     xaxis: {
       type: 'datetime',
       categories: chartData.TastList.map((x) => `${x.tastOption}`),
+      labels: {
+        style: {
+          fontSize: '16px',
+          fontWeight: 500,
+        },
+      },
+    },
+    yaxis: {
+      labels: {
+        style: {
+          fontSize: '16px',
+          colors: ['#7286EA'],
+          fontWeight: 700,
+        },
+      },
     },
     tooltip: {
       x: {
