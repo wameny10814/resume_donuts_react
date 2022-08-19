@@ -137,3 +137,32 @@ img.bingFlag2 {
 .bingPoniter {
   cursor: pointer;
 }
+
+.swiper-button-next:after {
+  content: '' !important;
+}
+
+.swiper-button-prev:after {
+  content: '' !important;
+}
+
+.swiper-button-prev {
+  width: 75px !important;
+  height: 75px !important;
+  background: url(./img/catpawl1.png);
+  background-size: cover;
+  transition: 0.3s ease;
+}
+
+.swiper-button-next {
+  width: 75px !important;
+  height: 75px !important;
+  background: url(./img/catpawl.png);
+  background-size: cover;
+  transition: 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.3);
+}
