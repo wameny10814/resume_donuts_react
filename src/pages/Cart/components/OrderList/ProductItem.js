@@ -31,7 +31,7 @@ function ProductItem(props) {
           <div className="col">
             <div className="row text-muted">
               {category_sid === '1'
-                ? '波提'
+                ? '波堤'
                 : category_sid === '2'
                 ? '歐菲香'
                 : '圓型甜甜圈'}

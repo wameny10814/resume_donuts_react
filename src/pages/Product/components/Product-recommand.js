@@ -19,7 +19,7 @@ function ProductRecommandCard(props) {
         <div className="Mars-Rec-title">{RandomProduct.product_name}</div>
         <div className="Mars-Rec-category text-muted">
           {RandomProduct.category_sid === '1'
-            ? '波提'
+            ? '波堤'
             : RandomProduct.category_sid === '3'
             ? '歐菲香'
             : '圓型甜甜圈'}
