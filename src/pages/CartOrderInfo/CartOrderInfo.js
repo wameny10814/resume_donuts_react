@@ -71,24 +71,26 @@ function CartOrderInfo(props) {
   return (
     <div className="container">
       <H2 title="訂單資訊" Entitle="ORDER INFO" />
-      <form action="" onSubmit={handleSubmit}>
-        <CurrentOrder setCarts={setCarts} carts={carts} />
-        <PersonalInfo
-          personalData={personalData}
-          setPersonalData={setPersonalData}
-          handleFieldChange={handleFieldChange}
-          personalDataFinal={personalDataFinal}
-          setPersonalDataFinal={setPersonalDataFinal}
-        />
-        <CreditCard
-          personalData={personalData}
-          setPersonalData={setPersonalData}
-          handleFieldChange={handleFieldChange}
-        />
-        <Link to="/Cart/CartOrderCheck">
-          <ProjectButton className="w-25" text="下一步" type="submit" />
-        </Link>
-      </form>
+      <div className="love-orderContainer">
+        <form action="" onSubmit={handleSubmit}>
+          <CurrentOrder setCarts={setCarts} carts={carts} />
+          <PersonalInfo
+            personalData={personalData}
+            setPersonalData={setPersonalData}
+            handleFieldChange={handleFieldChange}
+            personalDataFinal={personalDataFinal}
+            setPersonalDataFinal={setPersonalDataFinal}
+          />
+          <CreditCard
+            personalData={personalData}
+            setPersonalData={setPersonalData}
+            handleFieldChange={handleFieldChange}
+          />
+          <Link to="/Cart/CartOrderCheck">
+            <ProjectButton className="w-25" text="下一步" type="submit" />
+          </Link>
+        </form>
+      </div>
     </div>
   );
 }

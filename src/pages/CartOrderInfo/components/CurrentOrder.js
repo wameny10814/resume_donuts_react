@@ -19,6 +19,7 @@ function CurrentOrder(props) {
     <>
       <section className="cartBox">
         <div className="container">
+        <p className='loveyu-orderTitle'>商品明細</p>
           <div className="card">
             <div className="row">
               <table className="table">

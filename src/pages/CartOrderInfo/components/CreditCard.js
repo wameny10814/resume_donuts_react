@@ -9,38 +9,40 @@ function CreditCard(props) {
   return (
     <>
       <div className="container">
-        <h3>信用卡資訊</h3>
+        <p className="loveyu-orderTitle">信用卡資訊</p>
 
         <section className="cartBox">
           <div className="card">
-            卡號
-            <input
-              type="text"
-              name="creditCardNum"
-              value={personalData.creditCardNum}
-              onChange={handleFieldChange}
-            />
-            到期日
-            <input
-              type="text"
-              name="creditCardDate"
-              value={personalData.creditCardDate}
-              onChange={handleFieldChange}
-            />
-            持卡人姓名
-            <input
-              type="text"
-              name="creditCardName"
-              value={personalData.creditCardName}
-              onChange={handleFieldChange}
-            />
-            檢核碼
-            <input
-              type="text"
-              name="creditSecurityCode"
-              value={personalData.creditSecurityCode}
-              onChange={handleFieldChange}
-            />
+            <div className="yu_inputblock">
+              <label>卡號</label>
+              <input
+                type="text"
+                name="creditCardNum"
+                value={personalData.creditCardNum}
+                onChange={handleFieldChange}
+              />
+              <label>到期日</label>
+              <input
+                type="text"
+                name="creditCardDate"
+                value={personalData.creditCardDate}
+                onChange={handleFieldChange}
+              />
+              <label>持卡人姓名</label>
+              <input
+                type="text"
+                name="creditCardName"
+                value={personalData.creditCardName}
+                onChange={handleFieldChange}
+              />
+              <label>檢核碼</label>
+              <input
+                type="text"
+                name="creditSecurityCode"
+                value={personalData.creditSecurityCode}
+                onChange={handleFieldChange}
+              />
+            </div>
           </div>
         </section>
       </div>

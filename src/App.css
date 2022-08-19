@@ -685,7 +685,7 @@ footer .footerp {
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;
   border: transparent;
-  margin-bottom: 15vh;
+  margin-bottom: 8vh;
 }
 .cartBox .cart {
   background-color: #fff;
@@ -749,7 +749,6 @@ footer .footerp {
 .cartBox select {
   border: 1px solid rgba(0, 0, 0, 0.137);
   padding: 1.5vh 1vh;
-  margin-bottom: 4vh;
   outline: none;
   width: 100%;
   background-color: rgb(247, 247, 247);
@@ -757,7 +756,6 @@ footer .footerp {
 .cartBox input {
   border: 1px solid rgba(0, 0, 0, 0.137);
   padding: 1vh;
-  margin-bottom: 4vh;
   outline: none;
   width: 100%;
   background-color: rgb(247, 247, 247);
@@ -851,6 +849,35 @@ footer .footerp {
 .loveyu-OrderCompletedFontBox .ProjectButton {
   display: block;
   margin: auto;
+}
+
+.love-orderContainer {
+  width: 90%;
+  margin: auto;
+}
+.love-orderContainer .card {
+  width: 100%;
+}
+
+.loveyu-orderTitle {
+  font-size: 2rem;
+  color: #616153;
+}
+
+.love-shipInfoBox {
+  display: flex;
+}
+
+.card .yu_inputblock {
+  width: 80%;
+  text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  margin: auto;
+  position: relative;
+}
+.card label {
+  margin-top: 1rem;
 }
 
 .ProjectButton {
