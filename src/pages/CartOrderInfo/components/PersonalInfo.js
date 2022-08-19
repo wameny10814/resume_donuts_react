@@ -59,7 +59,9 @@ function PersonalInfo(props) {
   const [township, setTownship] = useState(-1);
   // zipCode-------------
 
+  useEffect(() => {}, []);
 
+  return (
     <>
       {/* 測試後端拿會員資料 */}
       {/* {memberData.map((v, i) => {
@@ -172,7 +174,7 @@ function PersonalInfo(props) {
         </div>
       </section>
     </>
-  ;
+  );
 }
 
 export default PersonalInfo;
