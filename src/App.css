@@ -113,6 +113,10 @@
   width: 100%;
   z-index: 0;
 }
+.customSelect p {
+  position: absolute;
+  left: 100px;
+}
 
 .bingTable {
   margin: 0 !important;
@@ -820,6 +824,33 @@ footer .footerp {
     border-bottom-left-radius: unset;
     border-top-right-radius: 1rem;
   }
+}
+
+.love-OrderCompletedFont {
+  font-size: 2rem;
+  text-align: center;
+}
+.love-OrderCompletedFont span {
+  color: #F2a99b;
+}
+
+.love-OrderCompletedCard {
+  margin: auto;
+  max-width: 1200px;
+  width: 90%;
+  height: 400px;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+  margin-bottom: 15vh;
+}
+
+.loveyu-OrderCompletedFontBox {
+  padding: 60px;
+}
+.loveyu-OrderCompletedFontBox .ProjectButton {
+  display: block;
+  margin: auto;
 }
 
 .ProjectButton {
