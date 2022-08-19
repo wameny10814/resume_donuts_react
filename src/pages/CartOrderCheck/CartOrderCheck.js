@@ -81,6 +81,8 @@ function CartOrderCheck(props) {
   return (
     <div className="container">
       <H2 title="請確認訂單資訊" Entitle="ORDER CHECK" />
+      <div className="love-orderContainer">
+
       <CurrentOrder setCarts={setCarts} carts={carts} />
       <PersonalCheck
         personalDataFinal={personalDataFinal}
@@ -94,6 +96,7 @@ function CartOrderCheck(props) {
           // onClick={logsee}
         />
       </Link>
+      </div>
     </div>
   );
 }
