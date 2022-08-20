@@ -111,10 +111,29 @@
     height: 295px;
 }
 
+@media screen and (max-width: 1264px) {
+    .Mars-prod-imgwr {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .Mars-prod-img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
 .Mars-prod-name {
     font-size: 32px;
     margin-top: 50px;
     margin-bottom: 15px;
+}
+
+@media screen and (max-width: 1264px) {
+    .Mars-prod-name {
+        max-width: 200px;
+    }
 }
 
 .Mars-prod-price {
