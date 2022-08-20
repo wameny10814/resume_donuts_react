@@ -34,7 +34,9 @@ function ProductItem(props) {
                 ? '波堤'
                 : category_sid === '2'
                 ? '歐菲香'
-                : '圓型甜甜圈'}
+                : category_sid === '3'
+                ? '圓型甜甜圈'
+                : ''}
             </div>
             <div className="row">{product_name}</div>
           </div>

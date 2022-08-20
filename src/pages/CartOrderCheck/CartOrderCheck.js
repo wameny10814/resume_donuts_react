@@ -14,9 +14,11 @@ function CartOrderCheck(props) {
 
   // 購物車及訂單資料寫進資料庫
   // const totalOrderData = [carts, personalDataFinal];
+  // const newCarts = {[...carts], [...personalDataFinal]};
+  const newdata = carts.concat(personalDataFinal )
 
   // 有順利拿到兩個陣列;
-  const [totalOrderData, setTotalOrderData] = useState(personalDataFinal);
+  const [totalOrderData, setTotalOrderData] = useState(newdata);
   console.log('totalOrderData2', totalOrderData);
 
   // const [totalOrderData, setTotalOrderData] = useState({
@@ -45,13 +47,14 @@ function CartOrderCheck(props) {
   // 寫進資料庫
   const logsee = async (e) => {
     const data = totalOrderData;
-    console.log(totalOrderData);
+    console.log('totalOrderData2', totalOrderData);
 
     const response = await axios.post(
       'http://localhost:3600/cartsData/cartsData',
       data
     );
     const resdata = response.data;
+    setCarts();
   };
 
   return (

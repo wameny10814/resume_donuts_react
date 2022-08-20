@@ -147,7 +147,7 @@ function Navbar(props) {
             <li className="nav-item">
               <Link className="nav-link" to="Cart">
                 <i className="fa-solid fa-cart-shopping"></i>購物車
-                <span className="cartTag">{carts.length}</span>
+                <span className="cartTag">{carts && carts.length}</span>
               </Link>
             </li>
             <li className="nav-item">
