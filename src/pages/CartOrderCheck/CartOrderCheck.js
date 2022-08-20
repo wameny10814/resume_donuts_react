@@ -13,7 +13,7 @@ function CartOrderCheck(props) {
   // 購物車及訂單資料寫進資料庫
   const totalOrderData = [carts, personalDataFinal];
 
-  // console.log(totalOrderData);
+  // console.log('totalOrderData',totalOrderData); 有順利拿到兩個陣列
   // const [totalOrderData, setTotalOrderData] = useState({
   //   shipName: '',
   //   shipPhone: '',

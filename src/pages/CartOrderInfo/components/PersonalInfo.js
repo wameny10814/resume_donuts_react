@@ -1,6 +1,13 @@
-import React, { useState, useContext, createContext, useEffect } from 'react';
+import React, {
+  useState,
+  useContext,
+  createContext,
+  useEffect,
+  useRef,
+} from 'react';
 import { useForm } from 'react-hook-form';
 import { countries, townships, postcodes } from '../../Cart/data/townships';
+import AuthContext from '../../../pages/member/components/AuthContext';
 
 import axios from 'axios';
 import { clearConfigCache } from 'prettier';
@@ -15,42 +22,15 @@ function PersonalInfo(props) {
     setPersonalData,
     handleFieldChange,
     setPersonalDataFinal,
+    sid,
   } = props;
+
+  // --------------後端拿會員資料-------
+  // const { sid } = useContext(AuthContext);
+
+  // --------------後端拿會員資料-------
+
   // personalData(setPersonalDataFinal) // 8/17 16:30 要再確認為什麼不能設定回去
-
-  // 連接後端拿會員資料同步
-  // const [memberData, setMemberData] = useState([]);
-  // const memberInfo = {
-  //   shipName: '111',
-  //   shipPhone: '222',
-  //   shipEmail: '333',
-  // };
-
-  // const getMemberData = async () => {
-  //   const response = await axios.get(`http://localhost:3600/member/memberdata`);
-  //   const resdata = response.data;
-  //   setMemberData(resdata);
-  // };
-
-  // useEffect(() => {
-  //   getMemberData();
-  // }, []);
-
-  // `sid` int(11) NOT NULL,
-  // `account` varchar(255) NOT NULL,
-  // `pass_hash` varchar(255) NOT NULL,
-  // `name` varchar(255) NOT NULL,
-  // `birthday` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  // `email` varchar(255) NOT NULL,
-  // `mobile` varchar(11) NOT NULL,
-  // `address` varchar(255) NOT NULL,
-  // `avatar` varchar(255) NOT NULL,
-  // `level` int(11) NOT NULL,
-  // `valid` int(255) NOT NULL,
-  // `validconfirm` varchar(255) NOT NULL DEFAULT 'off',
-  // `creat_at` datetime NOT NULL
-
-  // 連接後端拿會員資料同步
 
   // zipCode-------------
   console.log(countries, townships, postcodes);
@@ -76,6 +56,7 @@ function PersonalInfo(props) {
             console.log('fill');
             setPersonalData({
               ...personalData,
+              memSid: sid,
               shipName: '111',
               shipPhone: '111',
               shipEmail: '111@ss.ss',
@@ -93,6 +74,7 @@ function PersonalInfo(props) {
         >
           同步會員資料
         </button>
+        {console.log('personalData', personalData)}
       </div>
 
       <section className="cartBox">
