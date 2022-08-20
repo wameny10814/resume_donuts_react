@@ -116,7 +116,15 @@ function Product(props) {
             波堤
           </div>
           <div
-            className="Mars-prod-filter"
+            className="Mars-prod-filter d-none d-lg-block"
+            onClick={() => {
+              DonutFilter();
+            }}
+          >
+            圓形甜甜圈
+          </div>
+          <div
+            className="Mars-prod-filter d-block d-lg-none"
             onClick={() => {
               DonutFilter();
             }}
