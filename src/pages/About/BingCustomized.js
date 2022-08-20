@@ -4,7 +4,8 @@ import axios from 'axios';
 
 import H2 from '../../components/H2';
 
-function BingCustomized() {
+function BingCustomized(props) {
+  const { carts, setCarts } = props;
   const { sid } = useContext(AuthContext);
 
   const realRef = useRef();
@@ -40,7 +41,7 @@ function BingCustomized() {
     'onion',
   ];
   const totalPrice = donutPrice + layerPrice + decorationPrice;
-
+  //取圖函式
   const getImageFromPath = (path) => {
     return new Promise((resolve, reject) => {
       const img = new Image();
@@ -82,6 +83,7 @@ function BingCustomized() {
   };
   //客製化資料
   const [main, setMain] = useState({
+    product_name: '客製化甜甜圈',
     mem: sid,
     img: '',
     donut: 'origin',
@@ -107,6 +109,17 @@ function BingCustomized() {
     );
     const resdata = response.data;
   };
+
+  //加入購物車
+  const handleAddToCarts = (product_name, product_price, product_img) =>
+    setCarts(
+      carts.concat({
+        product_name,
+        product_price,
+        product_img,
+      }),
+      alert('成功加入購物車') // 跳窗為預設樣式，再看要不要改
+    );
 
   useEffect(() => {
     renderCanvas();
@@ -239,7 +252,12 @@ function BingCustomized() {
             </div>
           </div>
           <div className="text-center">
-            <button className="ProjectButton my-4" onClick={logsee}>
+            <button
+              className="ProjectButton my-4"
+              onClick={() => {
+                handleAddToCarts(main.product_name, main.price, main.img);
+              }}
+            >
               <i className="fa-solid fa-circle-plus"></i> 加入購物車
             </button>
           </div>

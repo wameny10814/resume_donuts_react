@@ -1,6 +1,7 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import AuthContext from '../../pages/member/components/AuthContext';
 
 import H2 from '../../components/H2';
 
@@ -8,10 +9,15 @@ import PersonalInfo from './components/PersonalInfo';
 import CurrentOrder from './components/CurrentOrder';
 import CreditCard from './components/CreditCard';
 import ProjectButton from '../../components/ProjectButton/ProjectButton';
+import { Axios } from 'axios';
 
 function CartOrderInfo(props) {
   const { setCarts, carts, personalDataFinal, setPersonalDataFinal } = props;
+  // 從後端資料庫拿到會員sid
+  const { sid } = useContext(AuthContext);
+
   const [personalData, setPersonalData] = useState({
+    memSid: sid,
     shipName: '',
     shipPhone: '',
     shipEmail: '',
@@ -34,6 +40,7 @@ function CartOrderInfo(props) {
     console.log(newPersonalData);
   };
   setPersonalDataFinal(personalData);
+  console.log('carts',carts);
 
   // 建立表提交事件
 
@@ -43,17 +50,6 @@ function CartOrderInfo(props) {
     // alert('提交成功');
     // navigate('/CartOrderCheck');
     event.preventDefault();
-
-    // console.log(personalData);
-
-    // 檢查欄位;
-    // if (
-    //   personalData.shipName === '' ||
-    //   personalData.shipPhone === '' ||
-    //   personalData.creditCardNum === ''
-    // ) {
-    //   return;
-    // }
   };
   // 點擊送出就把資料送到後端
   // const postOrderInfo = async () => {
@@ -80,6 +76,7 @@ function CartOrderInfo(props) {
             handleFieldChange={handleFieldChange}
             personalDataFinal={personalDataFinal}
             setPersonalDataFinal={setPersonalDataFinal}
+            sid={sid}
           />
           <CreditCard
             personalData={personalData}

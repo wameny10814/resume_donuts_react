@@ -29,7 +29,7 @@
 }
 
 .Mars-prod-filter {
-    width: 105px;
+    width: 150px;
     font-size: 24px;
     align-items: center;
     margin-right: 45px;
@@ -37,12 +37,11 @@
     line-height: 60px;
     transition: .5s ease-in-out;
     color: #8D8D81;
+    border-bottom: 2px solid #D0D0D0;
 }
 
 .Mars-prod-filter:hover {
     border-bottom: 2px solid #616153;
-    /* background-color: #EBEBEB; */
-    margin-bottom: -1px;
     color: #616153;
 }
 
@@ -73,10 +72,17 @@
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1421px) {
+@media screen and (min-width: 720px) and (max-width: 1421px) {
     .Mars-container {
         margin-left: 100px;
         margin-right: 100px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .Mars-container {
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
 
@@ -111,10 +117,33 @@
     height: 295px;
 }
 
+@media screen and (max-width: 1264px) {
+    .Mars-prod-imgwr {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .Mars-prod-img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
 .Mars-prod-name {
     font-size: 32px;
     margin-top: 50px;
     margin-bottom: 15px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1264px) {
+    .Mars-prod-name {
+        max-width: 200px;
+        min-height: 91px;
+    }
 }
 
 .Mars-prod-price {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import axios from 'axios';
-
+import '../scssstyle/Reportstyle.scss';
 function Graptime(props) {
   const { setReportOption } = props;
   const [reportCount, setReportCount] = useState(0);
@@ -132,7 +132,7 @@ function Graptime(props) {
   };
 
   return (
-    <div>
+    <div id="willow_reportstyle">
       <div>Graptime</div>
       <div className="d-flex justify-content-end mb-5">
         <button
@@ -269,13 +269,16 @@ function Graptime(props) {
           </div>
         </div>
       </div>
-      <div id="chart">
-        <ReactApexChart
-          options={options}
-          series={series}
-          type="area"
-          height={350}
-        />
+      <div className="willow_report_margin">
+        <div id="chart">
+          <ReactApexChart
+            options={options}
+            series={series}
+            type="area"
+            height={600}
+            width={'100%'}
+          />
+        </div>
       </div>
     </div>
   );
