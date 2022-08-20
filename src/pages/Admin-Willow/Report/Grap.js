@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import axios from 'axios';
+import '../scssstyle/Reportstyle.scss';
 function Grap(props) {
   const { setReportOption } = props;
   const [showChart, setShowChart] = useState([]);
@@ -89,7 +90,7 @@ function Grap(props) {
     dataLabels: {
       enabled: false,
     },
-    colors: ['#667302', '#BF0F30', '#F24405', '#0099DD', '#F2C849','#801950'],
+    colors: ['#667302', '#BF0F30', '#F24405', '#0099DD', '#F2C849', '#801950'],
     legend: {
       fontSize: '23px',
     },
@@ -177,7 +178,7 @@ function Grap(props) {
   };
 
   return (
-    <div>
+    <div id="willow_reportstyle">
       <label className="form-label">Example range</label>
       <div className="d-flex justify-content-end">
         <button
@@ -213,12 +214,13 @@ function Grap(props) {
 
       <div>
         <div>Grap</div>
-        <div id="chart">
+        <div id="chart" className="willow_report_margin">
           <ReactApexChart
             options={options}
             series={series}
             type="bar"
-            height={350}
+            height={600}
+            width={'100%'}
           />
         </div>
       </div>
