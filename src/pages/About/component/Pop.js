@@ -33,7 +33,9 @@ function BootstrapModalExample(props) {
       {renderTrigger && renderTrigger({ handleShow })}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{title}</Modal.Title>
+          <Modal.Title>
+            <h6 className="bingH6"> {title}</h6>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img
@@ -42,7 +44,7 @@ function BootstrapModalExample(props) {
             src={`http://localhost:3600/willowimgs/${imgPath}`}
             alt=""
           />
-          {content}
+          <p className="bingText-16"> {content}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

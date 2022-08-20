@@ -70,7 +70,10 @@ function App() {
           <Routes>
             {/* bing的頁面 */}
             <Route path="/" element={<AbingIndex />} />
-            <Route path="/abingindex/customized" element={<BingCustomized />} />
+            <Route
+              path="/abingindex/customized"
+              element={<BingCustomized carts={carts} setCarts={setCarts} />}
+            />
 
             {/* Yu的頁面 */}
             <Route path="Login" element={<Login />} />

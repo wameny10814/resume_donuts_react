@@ -4,7 +4,8 @@ import axios from 'axios';
 
 import H2 from '../../components/H2';
 
-function BingCustomized() {
+function BingCustomized(props) {
+  const { carts, setCarts } = props;
   const { sid } = useContext(AuthContext);
 
   const realRef = useRef();
