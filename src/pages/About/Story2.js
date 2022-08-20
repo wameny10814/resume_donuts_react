@@ -70,19 +70,19 @@ function Story2() {
               <div className="col-12">
                 <img
                   className="bingFlag1"
-                  src="/images/flag1.svg"
+                  src="/images/flag1.gif"
                   alt=""
                   ref={bingFlag1Ref}
                 />
                 <img
                   className="bingFlag2"
-                  src="/images/flag2.svg"
+                  src="/images/flag2.gif"
                   alt=""
                   ref={bingFlag2Ref}
                 />
                 <img
                   className="bingFlag3"
-                  src="/images/flag3.svg"
+                  src="/images/flag3.gif"
                   alt=""
                   ref={bingFlag3Ref}
                 />
