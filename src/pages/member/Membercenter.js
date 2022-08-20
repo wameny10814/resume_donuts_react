@@ -157,9 +157,9 @@ function Membercenter() {
   //修改會員資料
   const update_member_data = async (event) => {
     event.preventDefault();
-    if (confirm('確定要修改會員資料嗎?') === false) {
-      return;
-    }
+    // if (confirm('確定要修改會員資料嗎?') === false) {
+    //   return;
+    // }
     // console.log('regForm',regForm.birthday);
     fetch('http://localhost:3600/member/memberupdate', {
       method: 'POST',
@@ -171,6 +171,7 @@ function Membercenter() {
     })
       .then((r) => r.json())
       .then((result) => {
+        confirm('修改成功')
         //修改成功設定至state
         setUsersDisplay(result);
         //設定authcontext會員等級
