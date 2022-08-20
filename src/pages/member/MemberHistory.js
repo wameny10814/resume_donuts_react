@@ -33,6 +33,7 @@ function MemberHistory(props) {
       setGetPO(true);
     }
     //原始資料set state
+    console.log('123',res_data);
     setUsersRaw(res_data);
     setPODisplay(res_data);
   };
@@ -70,7 +71,7 @@ function MemberHistory(props) {
                 <thead className="yu_history_thead">
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">付款狀態</th>
+                    <th scope="col">訂單總數量</th>
                     <th scope="col">訂單總金額</th>
                     <th scope="col">訂單成立日期</th>
                   </tr>
