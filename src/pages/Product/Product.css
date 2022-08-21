@@ -140,7 +140,7 @@
 }
 
 @media screen and (max-width: 1264px) {
-    .Mars-prod-name {
+    .Mars-prod-wrap>.Mars-prod-name {
         max-width: 200px;
         min-height: 91px;
     }
@@ -178,6 +178,10 @@
 
 .Mars-cnt-info {
     margin-left: 150px;
+}
+
+.Mars-cnt-info>.Mars-prod-name {
+    text-align: left;
 }
 
 .Mars-cnt-engnum {
