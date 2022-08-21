@@ -65,7 +65,7 @@ function Story2() {
             <div className="col-12 col-md-8 ">
               <h2 className="bingH5">「嚴選」食材</h2>
               <p className="col-12 col-md-9 bingText-16">
-                處在講究飲食健康、營養均衡的時代，Pochi屋堅持使用天然有機食材，為顧客提供品項眾多的選擇，這一切都是為了傳達健康、友善環境的理念。
+                處在講究飲食健康、營養均衡的時代，堅持使用天然有機食材，為顧客提供品項眾多的選擇，這都是為了傳達健康、友善環境的理念。
               </p>
               <div className="col-12">
                 <img

@@ -189,7 +189,7 @@ export default function BasicTabs(props) {
           </li>
           <li className="mt-5">
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
-              請選擇交通工具計算距離與時間
+              計算距離與時間
             </p>
             <div className="d-flex justify-content-around">
               {moveOptions.map((v, i) => {
@@ -302,7 +302,7 @@ export default function BasicTabs(props) {
           </li>
           <li className="mt-5">
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
-              請選擇交通工具計算距離與時間
+              計算距離與時間
             </p>
             <div className="d-flex justify-content-around">
               {moveOptions.map((v, i) => {
@@ -414,7 +414,7 @@ export default function BasicTabs(props) {
           </li>
           <li className="mt-5">
             <p className="bingH6" style={{ fontWeight: 'bold' }}>
-              請選擇交通工具計算距離與時間
+              計算距離與時間
             </p>
             <div className="d-flex justify-content-around">
               {moveOptions.map((v, i) => {
