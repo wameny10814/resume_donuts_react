@@ -171,7 +171,7 @@ function StoreMap() {
         <div className="col-12 col-md-6">
           <GoogleMap
             center={center}
-            zoom={14}
+            zoom={13}
             mapContainerStyle={{ width: '100%', height: '100%' }}
             options={{
               mapId: ['7d73f43b257d967e'],
@@ -217,7 +217,7 @@ function StoreMap() {
                 <div>
                   <h6 className="bingH6">Pochi屋 {storeName}店</h6>
                   <p>地址：{storeAddress}</p>
-                  <p className="bingText-16">門市限定產品</p>
+                  <p className="bingText-16">門市限定商品</p>
                   <img
                     className="w-100"
                     src={`/images/map/${storeProduct}.jpg`}
