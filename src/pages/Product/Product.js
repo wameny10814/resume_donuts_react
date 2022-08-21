@@ -3,7 +3,7 @@ import './Product.css';
 import { ProductsData } from './data/products';
 import { Link } from 'react-router-dom';
 import H2 from '../../components/H2';
-// import { useCart } from '../../utils/useCart';
+// import { useCart } ： 從 App.js 用 props 傳進來
 
 function Product(props) {
   // 測試購物車------------------
