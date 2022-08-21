@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function ProductRecommandCard(props) {
   const { RandomProduct, DonutsEnglishNames } = props;
-  const RandomSid = parseInt(RandomProduct.sid);
+  const RandomSid = Number(RandomProduct.sid);
 
   return (
     <div className="Mars-RecCard">
