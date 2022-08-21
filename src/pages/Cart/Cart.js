@@ -94,7 +94,7 @@ function Cart(props) {
           </div>
         </div>
       </div>
-      <h6>客製化購物車</h6>
+      {/* <h6>客製化購物車</h6> */}
       <div className="d-flex">
         {customData.length > 0 &&
           customData.map((v, i) => {

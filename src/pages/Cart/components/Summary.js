@@ -10,13 +10,11 @@ function Summary(props) {
     <>
       <div className="col-md-4 summary">
         <div>
-          <h5>
-            <b>付款摘要</b>
-          </h5>
+          <p className="loveyu-orderTitle">付款摘要</p>
         </div>
         <hr />
         <div className="row">
-          <div className="col col-style">共 {totalNumber} 項目</div>
+          <div className="col col-style"> 共 {totalNumber} 項目</div>
         </div>
         <div className="row row-style">
           <div className="col">總價</div>

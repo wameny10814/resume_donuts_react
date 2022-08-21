@@ -41,18 +41,27 @@ function ProductItem(props) {
             <div className="row">{product_name}</div>
           </div>
           <div className="col">
-            <a
-              href="#/"
-              onClick={() => {
-                setCount(count - 1);
-              }}
-            >
-              -
-            </a>
-            <a href="#/" className="border">
+            {/* 加入購物車按鈕 */}
+            {count > 1 ? (
+              <a
+                className="text-decoration-none"
+                href="#/"
+                onClick={() => {
+                  setCount(count - 1);
+                }}
+              >
+                -
+              </a>
+            ) : (
+              <a href="#/" className="close " onClick={removeItem}>
+                <i className="fa-solid fa-trash-can "></i>
+              </a>
+            )}
+            <a href="#/" className="border text-decoration-none">
               {count}
             </a>
             <a
+              className="text-decoration-none"
               href="#/"
               onClick={() => {
                 setCount(count + 1);
@@ -60,6 +69,7 @@ function ProductItem(props) {
             >
               +
             </a>
+            {/* 加入購物車按鈕 */}
           </div>
           <div className="col">${product_price * count} </div>
           <div className="col">
