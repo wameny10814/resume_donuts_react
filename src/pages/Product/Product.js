@@ -94,7 +94,7 @@ function Product(props) {
   return (
     <>
       <div className="Mars-container">
-        <H2 title="商品列表" Entitle="PRODUCTS" />
+        <H2 title="商品列表" Entitle="Products" />
         <div className="Mars-img-wrap">
           <img src="./images/mv_donut.jpg" className="Mars-visual" alt="" />
         </div>
