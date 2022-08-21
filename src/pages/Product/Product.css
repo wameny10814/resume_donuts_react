@@ -177,7 +177,9 @@
 }
 
 .Mars-cnt-info {
+    min-width: 250px;
     margin-left: 150px;
+    position: relative;
 }
 
 .Mars-cnt-container .Mars-prod-name {
@@ -191,7 +193,12 @@
 .Mars-cnt-desc {
     max-width: 400px;
     font-size: 16px;
-    margin-bottom: 140px;
+}
+
+.Mars-button {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
 }
 
 .Mars-cnt-nutriwr {

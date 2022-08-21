@@ -109,7 +109,7 @@ function Content(props) {
             <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
             <p className="Mars-cnt-desc">{product.product_desc}</p>
             <button
-              className="ProjectButton"
+              className="ProjectButton Mars-button"
               onClick={() =>
                 handleAddToCarts(
                   product.sid,
