@@ -19,13 +19,6 @@ function ProductRecommandCard(props) {
       <div className="Mars-Rec-content-wr">
         <div className="Mars-Rec-title">{RandomProduct.product_name}</div>
         <div className="Mars-Rec-engnum">{DonutsEnglishNames[RandomSid]}</div>
-        <div className="Mars-Rec-category text-muted">
-          {RandomProduct.category_sid === '1'
-            ? '波堤'
-            : RandomProduct.category_sid === '3'
-            ? '歐菲香'
-            : '圓型甜甜圈'}
-        </div>
         <div className="Mars-Rec-desc">{RandomProduct.product_desc}</div>
         <div className="Mars-Rec-price text-muted">
           NT$ {RandomProduct.product_price}
