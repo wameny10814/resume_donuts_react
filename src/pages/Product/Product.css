@@ -19,8 +19,10 @@
 
 .Mars-visual {
     width: 100%;
+    height: 250px;
     border-radius: 20px;
     margin-bottom: 14px;
+    object-fit: cover;
 }
 
 .Mars-prod-filter-area {
