@@ -74,7 +74,7 @@ function Content(props) {
     'Pon-de Yogurt',
     'Strawberry Donut',
   ];
-  const SidToInt = parseInt(product.sid);
+  const SidToInt = Number(product.sid);
 
   return (
     <>
