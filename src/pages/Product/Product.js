@@ -4,6 +4,8 @@ import { ProductsData } from './data/products';
 import { Link } from 'react-router-dom';
 import H2 from '../../components/H2';
 // import { useCart } from '../../utils/useCart';
+import { confirm } from '../../components/Confirm';
+
 
 function Product(props) {
   // 測試購物車------------------
