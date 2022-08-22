@@ -39,8 +39,20 @@ function PersonalInfo(props) {
   const [township, setTownship] = useState(-1);
   // zipCode-------------
 
-  useEffect(() => {}, []);
+  const [memberData, setMemberData] = useState([]);
 
+  const getMemberData = async () => {
+    const response = await axios.get(
+      `http://localhost:3600/cartsData/member?sid=${sid}`
+    );
+    const resdata = response.data;
+    setMemberData(resdata);
+    console.log('member', memberData);
+  };
+
+  useEffect(() => {
+    getMemberData();
+  }, []);
   return (
     <>
       {/* 測試後端拿會員資料 */}
