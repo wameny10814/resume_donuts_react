@@ -7,7 +7,7 @@ import { confirmable, createConfirmation } from 'react-confirm';
 const Confirmation = ({
   okLabel = '確認',
   cancelLabel = '取消',
-  title = 'ポッチ―パン屋',
+  title = 'ポッチーパン屋',
   confirmation,
   show,
   proceed,
