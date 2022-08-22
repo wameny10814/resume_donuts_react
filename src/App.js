@@ -64,7 +64,7 @@ function App() {
     <BrowserRouter>
       <AuthContextProvider>
         <AdminAuthConextProvider>
-          <Navbar carts={carts} />
+          <Navbar carts={carts} setCarts={setCarts} />
 
           {/* 路由表 */}
           <Routes>

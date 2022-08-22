@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import AuthContext from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-export default function AuthContextProvider({ children }) {
+export default function AuthContextProvider(props) {
+  const { children } = props;
+ 
   const unAuthState = {
     authorized: false,
     sid: 0,
@@ -27,13 +29,15 @@ export default function AuthContextProvider({ children }) {
     } catch (ex) {}
   }
   const [auth, setAuth] = useState(localAuth);
+  // const [carts, setCarts] = useState([]);
   //轉頁
   const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem('auth');
     setAuth({ ...unAuthState });
-    navigate('/');
+    // setCarts({});
+    // navigate('/');
   };
 
   return (

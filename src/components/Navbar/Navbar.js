@@ -5,7 +5,7 @@ import AdminAuthContext from '../../pages/Admin-Willow/admin_components/AdminAut
 
 function Navbar(props) {
   const { authorized, account, logout } = useContext(AuthContext);
-  const { carts } = props;
+  const { carts, setCarts } = props;
 
   const {
     admin_authorized,
@@ -30,7 +30,14 @@ function Navbar(props) {
             </Link>
           </li>
           <div className="nav-item">
-            <li className="nav-link yu_pointer" onClick={() => logout()}>
+            <li
+              className="nav-link yu_pointer"
+              onClick={() => {
+                console.log(carts);
+                setCarts([]);
+                logout();
+              }}
+            >
               <i className="fa-solid fa-arrow-right-from-bracket"></i>
               登出
             </li>
