@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 import AuthContext from '../../pages/member/components/AuthContext';
+import { confirm } from '../../components/Confirm';
 import axios from 'axios';
 
 import H2 from '../../components/H2';
@@ -92,23 +93,23 @@ function BingCustomized(props) {
     price: 0,
   });
 
-  //寫入資料庫
-  const logsee = async (e) => {
-    setDonut('origin');
-    setDonutPrice(15);
-    setLayer('');
-    setLayerPrice(0);
-    setDecoration('');
-    setDecorationPrice(0);
-    //data等於主狀態寫入資料表
-    const data = main;
+  //寫入資料庫  停用
+  // const logsee = async (e) => {
+  //   setDonut('origin');
+  //   setDonutPrice(15);
+  //   setLayer('');
+  //   setLayerPrice(0);
+  //   setDecoration('');
+  //   setDecorationPrice(0);
+  //   //data等於主狀態寫入資料表
+  //   const data = main;
 
-    const response = await axios.post(
-      'http://localhost:3600/willownews/addcustom',
-      data
-    );
-    const resdata = response.data;
-  };
+  //   const response = await axios.post(
+  //     'http://localhost:3600/willownews/addcustom',
+  //     data
+  //   );
+  //   const resdata = response.data;
+  // };
 
   //加入購物車
   const handleAddToCarts = (product_name, product_price, product_img) =>
@@ -118,7 +119,7 @@ function BingCustomized(props) {
         product_price,
         product_img,
       }),
-      alert('成功加入購物車') // 跳窗為預設樣式，再看要不要改
+      confirm('成功加入購物車')
     );
 
   useEffect(() => {
