@@ -219,7 +219,8 @@ export default function BasicTabs(props) {
               })}
             </div>
             <span className="bingText-16">
-              距離{distance}，{moveTw}前往預估{duration}
+              距離<span className="bingH6">{distance}</span>，{moveTw}
+              前往預估<span className="bingH6">{duration}</span>{' '}
             </span>
           </li>
         </ul>
@@ -332,7 +333,8 @@ export default function BasicTabs(props) {
               })}
             </div>
             <span className="bingText-16">
-              距離{distance}，{moveTw}前往預估{duration}
+              距離<span className="bingH6">{distance}</span>，{moveTw}
+              前往預估<span className="bingH6">{duration}</span>{' '}
             </span>
           </li>
         </ul>
@@ -444,7 +446,8 @@ export default function BasicTabs(props) {
               })}
             </div>
             <span className="bingText-16">
-              距離{distance}，{moveTw}前往預估{duration}
+              距離<span className="bingH6">{distance}</span>，{moveTw}
+              前往預估<span className="bingH6">{duration}</span>
             </span>
           </li>
         </ul>
