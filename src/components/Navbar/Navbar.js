@@ -154,7 +154,11 @@ function Navbar(props) {
             <li className="nav-item">
               <Link className="nav-link" to="Cart">
                 <i className="fa-solid fa-cart-shopping"></i>購物車
-                <span className="cartTag">{carts ? carts.length : 0}</span>
+                {carts.length === 0 ? (
+                  ''
+                ) : (
+                  <span className="cartTag">{carts ? carts.length : 0}</span>
+                )}
               </Link>
             </li>
             <li className="nav-item">

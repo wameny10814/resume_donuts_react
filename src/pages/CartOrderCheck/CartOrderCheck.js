@@ -54,7 +54,7 @@ function CartOrderCheck(props) {
       data
     );
     const resdata = response.data;
-    setCarts();
+    setCarts([]);
   };
 
   return (
