@@ -223,7 +223,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .Mars-cnt-nutrition {
@@ -260,10 +260,14 @@
     margin-right: 0;
 }
 
-.Mars-Linkback {
-    font-size: 1.25rem;
+.Mars-Button-Linkback {
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
+.Mars-prod-name.Mars-RecBig {
+    margin-top: 35px;
+}
 
 /* ---推薦卡片--- */
 

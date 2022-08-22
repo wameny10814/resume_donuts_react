@@ -148,9 +148,10 @@ function Content(props) {
           </div>
         </div>
         <Link className="text-decoration-none" to="/Product">
-          <div className="Mars-Linkback">→ 回到商品列表</div>
+          <button className="ProjectButton Mars-Button-Linkback">→ 回到商品列表</button>
+          {/* <div className="Mars-Linkback">→ 回到商品列表</div> */}
         </Link>
-        <p className="Mars-prod-name">産品推薦</p>
+        <p className="Mars-prod-name Mars-RecBig">産品推薦</p>
         <ProductRecommandCard RandomProduct={RandomProduct} DonutsEnglishNames={DonutsEnglishNames} />
       </div>
     </>
