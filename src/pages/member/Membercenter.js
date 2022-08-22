@@ -246,7 +246,18 @@ function Membercenter() {
             </div>
             <div className="col-6 yu_profile_editing">
               <div className="yu_member_title">
-                <p>
+                <p  onClick={(e) => {
+                        e.preventDefault();
+                        console.log('fill');
+                        setRegForm({
+                          ...regForm,
+                          email: 'sunnymail0705@gmail.com',
+                          birthday:'2019-12-01',
+                          mobile:'0975264123',
+                          address:'台北市復興南路一段390號2樓',
+
+                        });
+                      }}>
                   {isOnchange ? usersDisplay.account : usersDisplay.account}
                   目前會員等級
                   {isOnchange ? usersDisplay.level : usersDisplay.level}

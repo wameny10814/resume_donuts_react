@@ -140,7 +140,7 @@ function PsdForgot(props) {
                         console.log('fill');
                         setMyform({
                           ...myform,
-                          email: 'wameny10814@gmail.com',
+                          email: 'sunnymail0705@gmail.com',
                         });
                       }}
                     >
