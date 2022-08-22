@@ -12,7 +12,7 @@ function CartOrderCompleted() {
               <p className="love-OrderCompletedFont">您的商品已經訂購成功</p>
               <p className="love-OrderCompletedFont">
                 訂單編號為
-                <Link className="text-decoration-none" to="/">
+                <Link className="text-decoration-none" to="/MemberHistory">
                   <span>MEOW00867738</span>
                 </Link>
               </p>

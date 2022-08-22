@@ -40,7 +40,7 @@ function CartOrderInfo(props) {
     console.log(newPersonalData);
   };
   setPersonalDataFinal(personalData);
-  console.log('carts',carts);
+  console.log('carts', carts);
 
   // 建立表提交事件
 
@@ -83,6 +83,9 @@ function CartOrderInfo(props) {
             setPersonalData={setPersonalData}
             handleFieldChange={handleFieldChange}
           />
+          <Link to="/Cart">
+            <ProjectButton className="w-25" text="回上一頁" />
+          </Link>
           <Link to="/Cart/CartOrderCheck">
             <ProjectButton className="w-25" text="下一步" type="submit" />
           </Link>

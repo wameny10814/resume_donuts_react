@@ -15,7 +15,7 @@ function CartOrderCheck(props) {
   // 購物車及訂單資料寫進資料庫
   // const totalOrderData = [carts, personalDataFinal];
   // const newCarts = {[...carts], [...personalDataFinal]};
-  const newdata = carts.concat(personalDataFinal )
+  const newdata = carts.concat(personalDataFinal);
 
   // 有順利拿到兩個陣列;
   const [totalOrderData, setTotalOrderData] = useState(newdata);
@@ -66,8 +66,15 @@ function CartOrderCheck(props) {
           personalDataFinal={personalDataFinal}
           setPersonalDataFinal={setPersonalDataFinal}
         />
+        <Link to="/Cart/CartOrderInfo">
+          <ProjectButton className="w-25 mb-3" text="回上一頁" />
+        </Link>
         <Link to="/Cart/CartOrderCompleted">
-          <button className="ProjectButton" type="submit" onClick={logsee}>
+          <button
+            className="ProjectButton mb-3 "
+            type="submit"
+            onClick={logsee}
+          >
             送出訂單
           </button>
         </Link>
