@@ -238,7 +238,7 @@ function BingCustomized(props) {
               </p>
               <hr />
               <p className="d-flex justify-content-end bingH6">
-                目前價錢
+                總金額
                 <span className="bingH5" style={{ fontWeight: 'bold' }}>
                   {totalPrice}
                 </span>

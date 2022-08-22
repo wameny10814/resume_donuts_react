@@ -4,7 +4,6 @@ import { ProductsData } from './data/products';
 import { Link } from 'react-router-dom';
 import H2 from '../../components/H2';
 // import { useCart } from '../../utils/useCart';
-import { confirm } from '../../components/Confirm';
 
 function Product(props) {
   // 測試購物車------------------
@@ -95,7 +94,7 @@ function Product(props) {
   return (
     <>
       <div className="Mars-container">
-        <H2 title="商品列表" Entitle="PRODUCTS" />
+        <H2 title="商品列表" Entitle="Products" />
         <div className="Mars-img-wrap">
           <img src="./images/mv_donut.jpg" className="Mars-visual" alt="" />
         </div>

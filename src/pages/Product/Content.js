@@ -59,6 +59,24 @@ function Content(props) {
   const RandomSidMinus1 = Math.floor(Math.random() * 11);
   const RandomProduct = ProductsData[RandomSidMinus1];
 
+  const DonutsEnglishNames = [
+    0,
+    'Pon-de Strawberry',
+    'Pon-de Uji Matcha',
+    'Old Fashion',
+    'Choco Old Fashion',
+    'Donuts with Sprinkles',
+    'Pon-de with Sprinkles',
+    'Pon-de Plain',
+    'Plain Donut',
+    'Sugar Donut',
+    'Chocolate Donut',
+    'Pon-de Chocolate',
+    'Pon-de Yogurt',
+    'Strawberry Donut',
+  ];
+  const SidToInt = Number(product.sid);
+
   return (
     <>
       <div className="Mars-cnt-container">
@@ -83,11 +101,16 @@ function Content(props) {
           </div>
           <div className="Mars-cnt-info">
             <p className="Mars-prod-name">{product.product_name}</p>
-            <p className="Mars-cnt-engnum">Pon-de Uji Matcha</p>
+            <p className="Mars-cnt-engnum">{DonutsEnglishNames[SidToInt]}</p>
+            {/* {RandomProduct.category_sid === '1'
+            ? '波堤'
+            : RandomProduct.category_sid === '3'
+            ? '歐菲香'
+            : '圓型甜甜圈'} */}
             <p className="Mars-cnt-engnum">NT$ {product.product_price}</p>
             <p className="Mars-cnt-desc">{product.product_desc}</p>
             <button
-              className="ProjectButton"
+              className="ProjectButton Mars-button"
               onClick={() =>
                 handleAddToCarts(
                   product.sid,
@@ -124,7 +147,7 @@ function Content(props) {
           </div>
         </div>
         <p className="Mars-prod-name">産品推薦</p>
-        <ProductRecommandCard RandomProduct={RandomProduct} />
+        <ProductRecommandCard RandomProduct={RandomProduct} DonutsEnglishNames={DonutsEnglishNames} />
       </div>
     </>
   );
