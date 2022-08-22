@@ -43,9 +43,9 @@ function CreditCard(props) {
                   onChange={handleFieldChange}
                 />
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 d-flex align-items-center">
                 <img
-                  className="w-75 d-flex align-items-center"
+                  className="w-75 "
                   src="/images/credit_card_platina_silver.png"
                   alt=""
                 />

@@ -79,79 +79,88 @@ function PersonalInfo(props) {
 
       <section className="cartBox">
         <div className="card">
-          <div className="yu_inputblock">
-            <label>姓名</label>
-            <input
-              className=""
-              type="text"
-              name="shipName"
-              value={personalData.shipName}
-              onChange={handleFieldChange}
-            />
-            <label>電話</label>
-            <input
-              className=""
-              type="text"
-              name="shipPhone"
-              value={personalData.shipPhone}
-              onChange={handleFieldChange}
-            />
+          <div className="row">
+            <div className="yu_inputblock col-md-6 creditCardBlock">
+              <label>姓名</label>
+              <input
+                className=""
+                type="text"
+                name="shipName"
+                value={personalData.shipName}
+                onChange={handleFieldChange}
+              />
+              <label>電話</label>
+              <input
+                className=""
+                type="text"
+                name="shipPhone"
+                value={personalData.shipPhone}
+                onChange={handleFieldChange}
+              />
 
-            <label>E-mail</label>
-            <input
-              className=""
-              type="email"
-              name="shipEmail"
-              value={personalData.shipEmail}
-              onChange={handleFieldChange}
-            />
-            {/* zipCode專區 */}
-            <label>縣市</label>
-            <select
-              className=""
-              value={country}
-              onChange={(e) => {
-                // 將字串轉成數字
-                setCountry(+e.target.value);
-                // 重置township的值
-                setTownship(-1);
-              }}
-            >
-              {console.log('country', country)}
-              <option value="-1">選擇縣市</option>
-              {countries.map((value, index) => (
-                <option key={index} value={index}>
-                  {value}
-                </option>
-              ))}
-            </select>
-            <label>地區</label>
-            <select
-              className=""
-              value={township}
-              onChange={(e) => {
-                // 將字串轉成數字
-                setTownship(+e.target.value);
-              }}
-            >
-              <option value="-1">選擇區域</option>
-              {country > -1 &&
-                townships[country].map((value, index) => (
+              <label>E-mail</label>
+              <input
+                className=""
+                type="email"
+                name="shipEmail"
+                value={personalData.shipEmail}
+                onChange={handleFieldChange}
+              />
+              {/* zipCode專區 */}
+              <label>縣市</label>
+              <select
+                className=""
+                value={country}
+                onChange={(e) => {
+                  // 將字串轉成數字
+                  setCountry(+e.target.value);
+                  // 重置township的值
+                  setTownship(-1);
+                }}
+              >
+                {console.log('country', country)}
+                <option value="-1">選擇縣市</option>
+                {countries.map((value, index) => (
                   <option key={index} value={index}>
                     {value}
                   </option>
                 ))}
-            </select>
-            {/* 如果country與township的索引值均大於-1時(也就是都有選的情況下)，呈現postcode */}
-            {/* `條件 && 呈現` 是 `if(條件){呈現}` 的簡寫法，只在React JSX中可以使用 */}
-            {/* zipCode專區 */}
-            <label>詳細地址（街道/門牌/樓層）</label>
-            <input
-              className=""
-              type="text"
-              name="addressDetail"
-              value={personalData.addressDetail}
-            />
+              </select>
+              <label>地區</label>
+              <select
+                className=""
+                value={township}
+                onChange={(e) => {
+                  // 將字串轉成數字
+                  setTownship(+e.target.value);
+                }}
+              >
+                <option value="-1">選擇區域</option>
+                {country > -1 &&
+                  townships[country].map((value, index) => (
+                    <option key={index} value={index}>
+                      {value}
+                    </option>
+                  ))}
+              </select>
+              {/* 如果country與township的索引值均大於-1時(也就是都有選的情況下)，呈現postcode */}
+              {/* `條件 && 呈現` 是 `if(條件){呈現}` 的簡寫法，只在React JSX中可以使用 */}
+              {/* zipCode專區 */}
+              <label>詳細地址（街道/門牌/樓層）</label>
+              <input
+                className=""
+                type="text"
+                name="addressDetail"
+                value={personalData.addressDetail}
+              />
+            </div>
+            <div className="col-md-6 d-flex align-items-center">
+              <img
+                className="w-75 d-flex align-items-center"
+                src="/images/immigrant_card_zairyu_o.png"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </section>

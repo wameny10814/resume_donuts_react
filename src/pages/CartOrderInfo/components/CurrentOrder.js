@@ -14,6 +14,21 @@ import * as React from 'react';
 
 function CurrentOrder(props) {
   const { setCarts, carts } = props;
+  const calcTotalNumber = () => {
+    let total = 0;
+    for (let i = 0; i < carts.length; i++) {
+      total += carts[i].count;
+    }
+    return total;
+  };
+
+  const calcTotalPrice = () => {
+    let total = 0;
+    for (let i = 0; i < carts.length; i++) {
+      total += carts[i].count * carts[i].product_price;
+    }
+    return total;
+  };
 
   return (
     <>
@@ -51,8 +66,8 @@ function CurrentOrder(props) {
               </table>
               <div className="subtotalBox text-end">
                 <p className="col">總計</p>
-                <p className="col">數量</p>
-                <p className="col">總金額</p>
+                <p className="col">數量{calcTotalNumber()}</p>
+                <p className="col">總金額{calcTotalPrice()}</p>
               </div>
             </div>
           </div>
