@@ -39,6 +39,7 @@ function PersonalInfo(props) {
   const [township, setTownship] = useState(-1);
   // zipCode-------------
 
+  // 後端拿會員資料------------
   const [memberData, setMemberData] = useState([]);
 
   const getMemberData = async () => {
@@ -47,18 +48,16 @@ function PersonalInfo(props) {
     );
     const resdata = response.data;
     setMemberData(resdata);
-    console.log('member', memberData);
   };
+  console.log('member', memberData);
 
   useEffect(() => {
     getMemberData();
   }, []);
+  // 後端拿會員資料------------
+
   return (
     <>
-      {/* 測試後端拿會員資料 */}
-      {/* {memberData.map((v, i) => {
-        return <p>{v.name[0]}</p>;
-      })} */}
       <div className="love-shipInfoBox">
         <p className="loveyu-orderTitle">訂購人資料</p>
         <button
@@ -68,17 +67,12 @@ function PersonalInfo(props) {
             console.log('fill');
             setPersonalData({
               ...personalData,
-              memSid: sid,
-              shipName: '111',
-              shipPhone: '111',
-              shipEmail: '111@ss.ss',
+              shipName: memberData[0].account,
+              shipPhone: memberData[0].mobile,
+              shipEmail: memberData[0].email,
               country: 10,
               township: 2,
-              addressDetail: '復興南路99號2樓',
-              creditCardNum: '8899 3344 2244 2233',
-              creditCardDate: '10/25',
-              creditCardName: '游小豪',
-              creditSecurityCode: '889',
+              addressDetail: memberData[0].address,
             });
             setTownship(personalData.township);
             setCountry(personalData.country);

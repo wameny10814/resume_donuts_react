@@ -83,12 +83,22 @@ function CartOrderInfo(props) {
             setPersonalData={setPersonalData}
             handleFieldChange={handleFieldChange}
           />
-          <Link to="/Cart">
-            <ProjectButton className="w-25" text="回上一頁" />
-          </Link>
-          <Link to="/Cart/CartOrderCheck">
-            <ProjectButton className="w-25" text="下一步" type="submit" />
-          </Link>
+          <div className="d-flex justify-content-center">
+            <div className="d-flex mb-5 justify-content-between w-50">
+              <div className="">
+                <Link to="/Cart">
+                  <button className=" ProjectButton">回上一頁</button>
+                </Link>
+              </div>
+              <div>
+                <Link to="/Cart/CartOrderCheck">
+                  <button className="ProjectButton" type="submit">
+                    下一步
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>

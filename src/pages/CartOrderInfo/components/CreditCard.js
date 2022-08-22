@@ -10,6 +10,23 @@ function CreditCard(props) {
     <>
       <div className="container">
         <p className="loveyu-orderTitle">信用卡資訊</p>
+        <button
+          className="ProjectButton"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log('fill');
+            setPersonalData({
+              ...personalData,
+              creditCardNum: '8899 3344 2244 2233',
+              creditCardDate: '10/25',
+              creditCardName: '游小豪',
+              creditSecurityCode: '889',
+            });
+          }}
+        >
+          自動填入
+        </button>
+        {console.log('personalData', personalData)}
         <section className="cartBox">
           <div className="card">
             <div className="row">
