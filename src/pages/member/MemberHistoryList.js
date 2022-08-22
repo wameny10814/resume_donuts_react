@@ -9,7 +9,7 @@ function MemberHistoryList(props) {
   return (
     <>
       <tr>
-        <th scope="row">{sid}</th>
+        <th scope="row">{props.num + 1}</th>
         <td>{total_quantity}</td>
         <td>{pay_price}</td>
         <td>{created_at.slice(0, 10)}</td>

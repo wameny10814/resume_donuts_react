@@ -96,7 +96,7 @@ function MemberHistory(props) {
 
               <tbody className="yu_history_tbody">
                 {PODisplay.map((v, i) => {
-                  return <ProductList key={i} detail={v} />;
+                  return <ProductList key={i} num={i} detail={v} />;
                 })}
               </tbody>
             </table>
