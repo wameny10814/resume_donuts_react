@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
 import { confirm } from '../../components/Confirm';
+import { Link } from 'react-router-dom';
 
 function Content(props) {
   const { setCarts, carts } = props;
@@ -146,6 +147,9 @@ function Content(props) {
             </div>
           </div>
         </div>
+        <Link className="text-decoration-none" to="/Product">
+          <div className="Mars-Linkback">→ 回到商品列表</div>
+        </Link>
         <p className="Mars-prod-name">産品推薦</p>
         <ProductRecommandCard RandomProduct={RandomProduct} DonutsEnglishNames={DonutsEnglishNames} />
       </div>

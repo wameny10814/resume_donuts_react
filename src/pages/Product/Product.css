@@ -223,6 +223,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .Mars-cnt-nutrition {
@@ -257,6 +258,10 @@
 
 .Mars-allergy-flex>.Mars-nutri-p:last-child {
     margin-right: 0;
+}
+
+.Mars-Linkback {
+    font-size: 1.25rem;
 }
 
 
