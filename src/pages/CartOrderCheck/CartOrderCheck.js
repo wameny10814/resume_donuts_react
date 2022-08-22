@@ -66,18 +66,26 @@ function CartOrderCheck(props) {
           personalDataFinal={personalDataFinal}
           setPersonalDataFinal={setPersonalDataFinal}
         />
-        <Link to="/Cart/CartOrderInfo">
-          <ProjectButton className="w-25 mb-3" text="回上一頁" />
-        </Link>
-        <Link to="/Cart/CartOrderCompleted">
-          <button
-            className="ProjectButton mb-3 "
-            type="submit"
-            onClick={logsee}
-          >
-            送出訂單
-          </button>
-        </Link>
+        <div className="d-flex justify-content-center">
+          <div className="d-flex mb-5 justify-content-between w-50">
+            <div className="">
+              <Link to="/Cart/CartOrderInfo">
+                <button className="ProjectButton">回上一頁</button>
+              </Link>
+            </div>
+            <div>
+              <Link to="/Cart/CartOrderCompleted">
+                <button
+                  className="ProjectButton"
+                  type="submit"
+                  onClick={logsee}
+                >
+                  送出訂單
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

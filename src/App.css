@@ -918,6 +918,10 @@ footer .footerp {
   position: relative;
 }
 
+.infoSelect {
+  border-radius: 50px;
+}
+
 .ProjectButton {
   font-size: 1.25rem;
   background-color: #616153;

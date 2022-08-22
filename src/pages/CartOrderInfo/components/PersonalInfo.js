@@ -115,7 +115,7 @@ function PersonalInfo(props) {
               {/* zipCode專區 */}
               <label>縣市</label>
               <select
-                className=""
+                className="infoSelect"
                 value={country}
                 onChange={(e) => {
                   // 將字串轉成數字
@@ -134,7 +134,7 @@ function PersonalInfo(props) {
               </select>
               <label>地區</label>
               <select
-                className=""
+                className="infoSelect"
                 value={township}
                 onChange={(e) => {
                   // 將字串轉成數字

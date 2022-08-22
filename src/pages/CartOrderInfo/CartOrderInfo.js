@@ -83,6 +83,7 @@ function CartOrderInfo(props) {
             setPersonalData={setPersonalData}
             handleFieldChange={handleFieldChange}
           />
+          {/* 送出按鈕 */}
           <div className="d-flex justify-content-center">
             <div className="d-flex mb-5 justify-content-between w-50">
               <div className="">
