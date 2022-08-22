@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductsData } from './data/products';
+import { confirm } from '../../components/Confirm';
 
 function Content(props) {
   const { setCarts, carts } = props;
@@ -31,7 +32,7 @@ function Content(props) {
         product_desc,
         created_at,
       }),
-      alert('成功加入購物車')
+      confirm('成功加入購物車')
     );
 
   const [product, setProduct] = useState({

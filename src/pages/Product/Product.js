@@ -4,6 +4,7 @@ import { ProductsData } from './data/products';
 import { Link } from 'react-router-dom';
 import H2 from '../../components/H2';
 // import { useCart } from '../../utils/useCart';
+import { confirm } from '../../components/Confirm';
 
 function Product(props) {
   // 測試購物車------------------
@@ -39,7 +40,7 @@ function Product(props) {
         product_desc,
         created_at,
       }),
-      alert('成功加入購物車') // 跳窗為預設樣式，再看要不要改
+      confirm('成功加入購物車') // 書豪改
     );
 
   // Filter功能-----------------
