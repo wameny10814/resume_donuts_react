@@ -724,7 +724,7 @@ footer .footerp {
   border-top-left-radius: 1rem;
 }
 .cartBox .summary {
-  background-color: #ddd;
+  background-color: rgb(237, 237, 237);
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   padding: 4vh;
@@ -853,6 +853,9 @@ footer .footerp {
     border-top-right-radius: 1rem;
   }
 }
+.cartBox .loveyu-cartBtn {
+  font-size: 1rem;
+}
 
 .love-OrderCompletedFont {
   font-size: 2rem;
@@ -924,6 +927,14 @@ footer .footerp {
 
 .infoSelect {
   border-radius: 50px;
+}
+
+.card-header b {
+  font-size: 1.3rem;
+}
+
+.card-body p {
+  font-size: 1.3rem;
 }
 
 .ProjectButton {

@@ -20,24 +20,26 @@ function Summary(props) {
           <div className="col">總價</div>
           <div className="col text-right">${totalPrice}</div>
         </div>
-        <Link className="text-decoration-none" to="/Cart/CartOrderInfo">
-          {/* 判斷購物車數量是否有大於1，如果沒有，按鈕無效化 */}
-          <button
-            type="submit"
-            className="ProjectButton"
-            // disabled={!carts.length <= 0}
-          >
-            前往結賬
-          </button>
-        </Link>
-        <br />
-        <br />
+        <div className="row ">
+          <Link className="text-decoration-none col mt-3" to="/Cart/CartOrderInfo">
+            {/* 判斷購物車數量是否有大於1，如果沒有，按鈕無效化 */}
+            <button
+              type="submit"
+              className="ProjectButton loveyu-cartBtn"
+              // disabled={!carts.length <= 0}
+            >
+              前往結賬
+            </button>
+          </Link>
+          <br />
+          <br />
 
-        <Link className="text-decoration-none" to="/Product">
-          <button type="submit" className="ProjectButton">
-            繼續購物
-          </button>
-        </Link>
+          <Link className="text-decoration-none col mt-3 " to="/Product">
+            <button type="submit" className="ProjectButton loveyu-cartBtn">
+              繼續購物
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );

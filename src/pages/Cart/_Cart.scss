@@ -28,7 +28,7 @@
 
     
     .summary {
-      background-color: #ddd;
+      background-color: rgb(237, 237, 237);
       border-top-right-radius: 1rem;
       border-bottom-right-radius: 1rem;
       padding: 4vh;
@@ -189,6 +189,10 @@
         border-bottom-left-radius: unset;
         border-top-right-radius: 1rem;
       }
+    }
+    .loveyu-cartBtn{
+      font-size: 1rem;
+      
     }
 
   }

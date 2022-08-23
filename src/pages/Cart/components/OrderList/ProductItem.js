@@ -23,7 +23,7 @@ function ProductItem(props) {
 
   return (
     <>
-      <div className="row border-top border-bottom">
+      <div className="row border-top ">
         <div className="row main align-items-center">
           <div className="col-2">
             <img alt="" className="img-fluid" src={product_img} />

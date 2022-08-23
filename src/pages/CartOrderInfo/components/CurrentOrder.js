@@ -67,7 +67,7 @@ function CurrentOrder(props) {
                 </table>
               </div>
               <div class=" bg-light mb-3 col ">
-                <div class="card-header">
+                <div class="card-header text-center">
                   <b>訂單總計</b>
                 </div>
                 <div class="card-body row">
