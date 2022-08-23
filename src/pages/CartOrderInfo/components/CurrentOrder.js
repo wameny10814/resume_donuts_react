@@ -35,39 +35,51 @@ function CurrentOrder(props) {
       <section className="cartBox">
         <div className="container">
           <p className="loveyu-orderTitle">商品明細</p>
-          <div className="card">
-            <div className="row">
-              <table className="table">
-                <thead className="text-center">
-                  <tr>
-                    <th scope="col">商品圖片</th>
-                    <th scope="col">商品名稱</th>
-                    <th scope="col">單價</th>
-                    <th scope="col">數量</th>
-                    <th scope="col">小計</th>
-                  </tr>
-                </thead>
-                <tbody className="text-center">
-                  {carts.map((v, i) => {
-                    const subtotal = v.count * v.product_price;
-                    return (
-                      <tr key={'a' + v.sid}>
-                        <td>
-                          <img src={v.product_img} alt="" />
-                        </td>
-                        <td>{v.product_name}</td>
-                        <td>{v.product_price}</td>
-                        <td>{v.count}</td>
-                        <td>{subtotal}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-              <div className="subtotalBox text-end">
-                <p className="col">總計</p>
-                <p className="col">數量{calcTotalNumber()}</p>
-                <p className="col">總金額{calcTotalPrice()}</p>
+          <div className="card ">
+            <div className="row ">
+              <div className="col-9">
+                <table className="table">
+                  <thead className="text-center">
+                    <tr>
+                      <th scope="col">商品圖片</th>
+                      <th scope="col">商品名稱</th>
+                      <th scope="col">單價</th>
+                      <th scope="col">數量</th>
+                      <th scope="col">小計</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-center">
+                    {carts.map((v, i) => {
+                      const subtotal = v.count * v.product_price;
+                      return (
+                        <tr key={'a' + v.sid}>
+                          <td>
+                            <img src={v.product_img} alt="" />
+                          </td>
+                          <td>{v.product_name}</td>
+                          <td>{v.product_price}</td>
+                          <td>{v.count}</td>
+                          <td>{subtotal}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <div class=" bg-light mb-3 col ">
+                <div class="card-header">
+                  <b>訂單總計</b>
+                </div>
+                <div class="card-body row">
+                  <div className="col-9">
+                    <p class="card-title">總數量</p>
+                    <p class="card-title">總金額</p>
+                  </div>
+                  <div className="col">
+                    <p class="card-text">{calcTotalNumber()}</p>
+                    <p class="card-text">${calcTotalPrice()}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="d-flex align-items-center justify-content-around h300">
         <div className="text-center">
           <div className="w-100">
-            <img className="w-100" src="./images/footer_logo.svg" alt="" />
+            <img className="w-75" src="./images/footer_logo.svg" alt="" />
           </div>
           {/* 社群網站LOGO */}
           <div>

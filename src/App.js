@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
+// import BackgroundWaveAnimation from './components/BackgroundWaveAnimation/BackgroundWaveAnimation';
 import './App.css';
 
 //LOVEYU
@@ -148,7 +148,7 @@ function App() {
           <Footer />
         </AdminAuthConextProvider>
       </AuthContextProvider>
-      <BackgroundWaveAnimation />
+      {/* <BackgroundWaveAnimation /> */}
     </BrowserRouter>
   );
 }
