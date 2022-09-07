@@ -86,7 +86,7 @@ function Login() {
     })
       .then((r) => r.json())
       .then((result) => {
-        console.log('result', result);
+        // console.log('result', result);
         if (result.success) {
           //登入成功 寫進localstorage & 跳轉到首頁
           //登入成功需刷新才能更改navbar -->使用authorized判定-->result 把authcontext的authorized放進去

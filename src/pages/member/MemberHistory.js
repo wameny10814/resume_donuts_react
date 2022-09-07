@@ -4,6 +4,7 @@ import AuthContext from '../../pages/member/components/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ProductList from './MemberHistoryList';
+import UserPOList from './MemberHistoryDetail';
 
 function MemberHistory(props) {
   const { authorized, token, account, level, logout, setAuth, auth } =
@@ -14,6 +15,8 @@ function MemberHistory(props) {
 
   const [PODisplay, setPODisplay] = useState([]);
   const [getPO, setGetPO] = useState(false);
+
+  const [getUsePOSid, setUserPOSid] = useState(0);
   //轉頁
   const navigate = useNavigate();
 
@@ -28,12 +31,11 @@ function MemberHistory(props) {
     );
     //回來是陣列rrrr
     const res_data = response.data;
-    console.log('res', res_data.length);
     if (res_data.length !== 0) {
       setGetPO(true);
     }
     //原始資料set state
-    console.log('123',res_data);
+    console.log('res_data',res_data);
     setUsersRaw(res_data);
     setPODisplay(res_data);
   };
@@ -78,7 +80,7 @@ function MemberHistory(props) {
                 </thead>
               ) : (
                 <>
-                  <p
+                  <span
                     onClick={() => {
                       navigate('/Product');
                     }}
@@ -90,18 +92,19 @@ function MemberHistory(props) {
                     }}
                   >
                     目前未有訂單，點擊前往商品頁面
-                  </p>
+                  </span>
                 </>
               )}
 
               <tbody className="yu_history_tbody">
                 {PODisplay.map((v, i) => {
-                  return <ProductList key={i} num={i} detail={v} />;
+                  return <ProductList key={i} num={i} detail={v} setUserPOSid={setUserPOSid} getUsePOSid={getUsePOSid} />;
                 })}
               </tbody>
             </table>
           </div>
         </div>
+        <UserPOList getUsePOSid={getUsePOSid} />
       </div>
     </>
   );

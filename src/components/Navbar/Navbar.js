@@ -33,7 +33,8 @@ function Navbar(props) {
             <li
               className="nav-link yu_pointer"
               onClick={() => {
-                console.log(carts);
+                //清空購物車
+                // console.log(carts);
                 setCarts([]);
                 logout();
               }}
