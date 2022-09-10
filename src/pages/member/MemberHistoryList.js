@@ -57,8 +57,8 @@ function MemberHistoryList(props) {
       {PODisplay.map((v, i) => {
         return (
           <tr key={i}>
-            <th scope="row">訂單資訊</th>
-            <td>產品名稱{v.p_name}</td>
+            <th scope="row"></th>
+            <td>{v.p_name}</td>
             <td>數量{v.quantity}</td>
             <td>價錢{v.price}</td>
           </tr>

@@ -1,1 +1,9 @@
-{"version":3,"sources":["Reportstyle.scss","Reportstyle.css"],"names":[],"mappings":"AACE;EACE,gBAAA;ACAJ","file":"Reportstyle.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,mBADiB,CACjB,qBAAqB,CAAC;EACpB,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "Reportstyle.scss"
+    ],
+    "names": [],
+    "file": "Reportstyle.css"
+}

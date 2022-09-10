@@ -136,14 +136,12 @@
 }
 .stone{
   transition: 1s;
-
 }
 .stone:hover{
-  margin-top: -3rem;
+  // margin-top: -3rem;
+  transform: scale(1.3,1.3);
 }
-// .yu_flex{
-//     position: relative;
-// }
+
 
 
 @media (max-width: 767px) {

@@ -166,7 +166,7 @@ function MemberPsdchange() {
                   </div>
                   <span className="psdchange_error">{error.psdNew_error}</span>
                 </div>
-                <div className="yu_inputblock ">
+                <div className="yu_inputblock">
                   <label htmlFor="">請再次輸入新密碼</label>
                   <input
                     id="psdNewCheck"
