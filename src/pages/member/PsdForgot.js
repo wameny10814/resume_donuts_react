@@ -93,10 +93,7 @@ function PsdForgot(props) {
         </header>
         <div className="row">
           <div className="col">
-            {/* <div className="logincat d-flex justify-content-center">
-              <img src={isCatHide ? catHide : cat} alt="" /> */}
-            {/* <img src="../../../images/logincat_blind.svg" alt="" /> */}
-            {/* </div> */}
+          {/* uuu 判斷顯示哪張表單 01 還是 02 */}
             {uuu ? (
               bbb ? (
                 <PsdForgot03 userEmail={confirmedEmail}></PsdForgot03>
@@ -140,7 +137,7 @@ function PsdForgot(props) {
                         console.log('fill');
                         setMyform({
                           ...myform,
-                          email: 'sunnymail0705@gmail.com',
+                          email: 'wameny10814@gmail.com',
                         });
                       }}
                     >

@@ -17,7 +17,6 @@ import { useEffect } from 'react';
 
 function Login() {
   //設定密碼眼睛&貓貓
-  // const [eye, setEye] = useState('password');
 
   const [isCatHide, setIsCatHide] = useState(false);
   const [isHide, setIsHide] = useState(true);
@@ -25,7 +24,7 @@ function Login() {
 
   const yu_header = useRef(null);
   const yu_loginwhitecard = useRef(null);
-
+  //畫面跳入
   useEffect(() => {
     gsap.from(yu_header.current, {
       duration: 2,
@@ -37,7 +36,7 @@ function Login() {
       opacity: 0,
     });
   }, []);
-
+  //利用state 及點擊位置去決定貓咪圖片狀態&password狀態
   const checkIfHide = (e) => {
     console.log('hi', e.target.tagName);
     if (e.target.tagName === 'INPUT' && e.type === 'focus') {
@@ -73,8 +72,8 @@ function Login() {
     event.preventDefault();
 
     // console.log(myform);
-    // TODO: 欄位檢查-----------------------------------------------------------------
     if (myform.account === '' || myform.password === '') {
+      confirm('請輸入帳號以及密碼。');
       return;
     }
     fetch('http://localhost:3600/login-jwt', {
@@ -86,13 +85,19 @@ function Login() {
     })
       .then((r) => r.json())
       .then((result) => {
-        // console.log('result', result);
+        console.log('result', result);
+        //result為
+        //code:0
+        //error:
+        //success:true/false
+        //data:sid,account,levle,token
+
         if (result.success) {
-          //登入成功 寫進localstorage & 跳轉到首頁
+          //登入成功 寫進localstorage 
           //登入成功需刷新才能更改navbar -->使用authorized判定-->result 把authcontext的authorized放進去
           //登入成功會發回來 該會員 token account 及會員等級
           localStorage.setItem('auth', JSON.stringify(result.data));
-          console.log('result.data', result.data);
+          // console.log('result.data', result.data);
           setAuth({
             ...result.data,
             authorized: true,

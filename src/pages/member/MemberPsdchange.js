@@ -66,7 +66,6 @@ function MemberPsdchange() {
       psd_reg.test(myform.psdNew) === false &&
       psd_reg.test(myform.psdNewCheck) === false
     ) {
-      // alert('新密碼格式錯誤');
       confirm('新密碼格式錯誤');
       return;
     }

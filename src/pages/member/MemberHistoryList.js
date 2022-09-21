@@ -13,6 +13,7 @@ function MemberHistoryList(props) {
 
 
   const getdata = async () => {
+    //點擊觸發此function 如果是沒有訂單明細的狀態,POdidGot會是false,發fetch抓資料(前端發出去塞token跟點擊的訂單sid給後端撈對應的訂單明細),
     if(POdidGot===false){
       console.log('1');
       const response = await axios.get(
@@ -27,10 +28,7 @@ function MemberHistoryList(props) {
       );
       //回來是陣列rrrr
       const res_data = response.data;
-      console.log('polist', res_data);
-      // if (res_data.length !== 0) {
-      //   setGetPO(true);
-      // }
+      // console.log('polist', res_data);
       // //原始資料set state
       setUsersRaw(res_data);
       setPODisplay(res_data);

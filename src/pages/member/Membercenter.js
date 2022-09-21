@@ -113,10 +113,10 @@ function Membercenter() {
         //修改成功寫入呈現的state
         // setUsersDisplay({ ...usersDisplay, avatar: data.filename });
         // console.log('levelnow', usersDisplay);
-        //判斷大頭貼修改成功
+        //判斷大頭貼修改成功 有大頭貼顯示用戶頭貼,沒有就是顯示logo
         setDidAvatar(true);
 
-        console.log('auth頭貼', level);
+        // console.log('auth頭貼', level);
       });
   };
   //錯誤訊息
@@ -157,9 +157,6 @@ function Membercenter() {
   //修改會員資料
   const update_member_data = async (event) => {
     event.preventDefault();
-    // if (confirm('確定要修改會員資料嗎?') === false) {
-    //   return;
-    // }
     // console.log('regForm',regForm.birthday);
     fetch('http://localhost:3600/member/memberupdate', {
       method: 'POST',
@@ -247,8 +244,9 @@ function Membercenter() {
             <div className="col-6 yu_profile_editing">
               <div className="yu_member_title">
                 <p  onClick={(e) => {
+                        //自動填入
                         e.preventDefault();
-                        console.log('fill');
+                        
                         setRegForm({
                           ...regForm,
                           email: 'sunnymail0705@gmail.com',
@@ -313,7 +311,7 @@ function Membercenter() {
                     id="mobile"
                     placeholder="mobile"
                     value={
-                      isOnchange ? regForm.mobile : '0' + usersDisplay.mobile
+                      isOnchange ? regForm.mobile : '09' + usersDisplay.mobile
                     }
                     onChange={changeFields}
                     minLength={10}
